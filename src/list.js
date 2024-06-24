@@ -2,14 +2,14 @@ import { useState } from "react";
 import {
   Container,
   Accordion,
-  AccordionActions,
+  // AccordionActions,
   AccordionSummary,
   AccordionDetails,
-  Button,
+  // Button,
   Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Fade from "@mui/material/Fade";
+// import Fade from "@mui/material/Fade";
 
 const Lists = () => {
   const [expanded, setExpanded] = useState(false);
@@ -84,7 +84,7 @@ const Lists = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            * == (Equality Operator): console.log(5 == '5'); // Output: true. -
+            == (Equality Operator): console.log(5 == '5'); // Output: true. -
             performs type coercion * === (Strict Equality Operator):
             console.log(5 === '5'); // Output: false
           </Typography>
@@ -116,13 +116,16 @@ const Lists = () => {
         <AccordionDetails>
           <Typography>
             <strong>Pass by Value:</strong>
-            <br />
-            * In pass by value, a copy of the actual value of the argument is
-            passed to the function.
-            <br />
-            * Changes made to the parameter inside the function do not affect
-            the original value outside the function.
-            <br />
+            <ul>
+              <li>
+                In pass by value, a copy of the actual value of the argument is
+                passed to the function.
+              </li>
+              <li>
+                Changes made to the parameter inside the function do not affect
+                the original value outside the function.{" "}
+              </li>
+            </ul>
             <br />
             <strong>Example 1:</strong>
             <br />
@@ -155,17 +158,20 @@ const Lists = () => {
             <br />
             <br />
             <strong>Pass by Reference:</strong>
-            <br />
-            * In pass by reference, a reference to the original value of the
-            argument is passed to the function.
-            <br />
-            * If the function modifies the parameter, it also modifies the
-            original value outside the function.
-            <br />
-            * Objects (including arrays and functions) in JavaScript are passed
-            by reference.
-            <br />
-            <br />
+            <ul>
+              <li>
+                In pass by reference, a reference to the original value of the
+                argument is passed to the function.
+              </li>
+              <li>
+                If the function modifies the parameter, it also modifies the
+                original value outside the function.
+              </li>
+              <li>
+                Objects (including arrays and functions) in JavaScript are
+                passed by reference.
+              </li>
+            </ul>
             <strong>Example 1:</strong>
             <br />
             {`function addElement(arr) {`}
@@ -740,7 +746,6 @@ const Lists = () => {
             {`};`}
             <br />
             <br />
-            <br />
             delete person.age;
             <br />
             {`console.log(person); // Output: { name: 'John', city: 'New York' }`}
@@ -1091,7 +1096,1082 @@ const Lists = () => {
             {`}) // a 1        b 2         c 3`}
             <br />
             <br />
-            
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel31-header"
+        >
+          <Typography>
+            For...of with Object.keys(), Object.values(), or Object.entries():
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            You can use the for...of loop in combination with Object.keys(),
+            Object.values(), or Object.entries() to iterate over properties.
+            <br />
+            <br />
+            {`const obj = { foo: "bar", baz: 42 };`}
+            <br />
+            <br />
+            {`for( let key of Object.keys(obj)){`}
+            <br />
+            {`console.log(key, obj[key]) //foo bar   baz 42`}
+            <br />
+            {`}`}
+            <br />
+            <br />
+            {`for(let value of Object.values(obj)){`}
+            <br />
+            {`console.log(value) //bar 42`}
+            <br />
+            {`}`}
+            <br />
+            <br />
+            {`for(let [key, value] of Object.entries(obj)){`}
+            <br />
+            {`console.log(key, value) //foo bar   baz 42`}
+            <br />
+            {`}`}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel32-header"
+        >
+          <Typography>Object.getOwnPropertyNames()</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            This method returns an array of all properties (including
+            non-enumerable properties except for those which use Symbol) found
+            directly upon a given object.
+            <br />
+            <br />
+            {`const obj = { a: 1, b: 2, c: 3 };`}
+            <br />
+            {`console.log(Object.getOwnPropertyNames(obj));    //[ 'a', 'b', 'c' ]`}
+            <br />
+            <br />
+            {`Object.getOwnPropertyNames(obj).forEach(key => {`}
+            <br />
+            {`console.log(key, obj[key]);`}
+            <br />
+            {`}); //a 1     b 2      c 3`}
+            <br />
+            <br />
+            <strong>New EXAMPLE with all</strong>
+            <br />
+            {`const obj = {`}
+            <br />
+            {`a: 1,`}
+            <br />
+            {`b: 2,`}
+            <br />
+            {`};`}
+            <br />
+            <br />
+            {`Object.defineProperty(obj, 'c', {`}
+            <br />
+            {`value: 3,`}
+            <br />
+            {`enumerable: false`}
+            <br />
+            {`});`}
+            <br />
+            <br />
+            {`const symbolKey = Symbol('key');`}
+            <br />
+            {`obj[symbolKey] = 'value';`}
+            <br />
+            {`console.log(Object.keys(obj)) //[ 'a', 'b' ]`}
+            <br />
+            {`console.log(Object.getOwnPropertyNames(obj)); //[ 'a', 'b', 'c' ]`}
+            <br />
+            {`console.log(Object.getOwnPropertySymbols(obj));  //[ Symbol(key) ]`}
+            <br />
+            {`console.log(Reflect.ownKeys(obj)); //[ 'a', 'b', 'c', Symbol(key) ]`}
+            <br />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel33-header"
+        >
+          <Typography>Empty Arrays</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            {`let arr1 = [1, 2, 3, 4, 5]`}
+            <br />
+            {`let arr2 = [1, 2, 3, 4, 5]`}
+            <br />
+            {`let arr3 = [1, 2, 3, 4, 5]`}
+            <br />
+            {`let arr4 = [1, 2, 3, 4, 5]`}
+            <br />
+            {`let arr5 = [1, 2, 3, 4, 5]`}
+            <br />
+            {`arr1 = [];`}
+            <br />
+            {`arr2.splice(0);`}
+            <br />
+            {`arr3.length = 0;`}
+            <br />
+            <br />
+            {`while (arr4.length > 0) {`}
+            <br />
+            {`arr4.pop();`}
+            <br />
+            {`}`}
+            <br />
+            <br />
+
+            {`while (arr5.length > 0) {`}
+            <br />
+            {`arr5.shift();`}
+            <br />
+            {`}`}
+            <br />
+            <br />
+            {`console.log(arr1); //[]`}
+            <br />
+            {`console.log(arr2); //[]`}
+            <br />
+            {`console.log(arr3); //[]`}
+            <br />
+            {`console.log(arr4); //[]`}
+            <br />
+            {`console.log(arr5); //[]`}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel34-header"
+        >
+          <Typography>MUL Function</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            To create a mul function in JavaScript to multiply numbers, you can
+            simply define a function that takes multiple arguments and
+            multiplies them together
+            <br />
+            <br />
+            {`const test = (a) => {`}
+            <br />
+            {`  return (b) => {`}
+            <br />
+            {`    return (c) => {`}
+            <br />
+            {`      return a * b * c`}
+            <br />
+            {`    }`}
+            <br />
+            {`  }`}
+            <br />
+            {`};`}
+            <br />
+            <br />
+            {`console.log(test(1)(2)(3)) //6`}
+            <br />
+            <br />
+            {`const mul = (...args) => {`}
+            <br />
+            {`if(args.length === 0){`}
+            <br />
+            {`console.log(1)`}
+            <br />
+            {`}`}
+            <br />
+            <br />
+            {`let test = args.reduce((prd, currt) => {`}
+            <br />
+            {`console.log('prd', prd, currt) //1 1  1 2   2 3   6 4`}
+            <br />
+            {`return prd * currt`}
+            <br />
+            {`}, 1)`}
+            <br />
+            {`console.log(test) //24`}
+            <br />
+            {`}`}
+            <br />
+            {`mul(1, 2, 3, 4);`}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel35-header"
+        >
+          <Typography>Create Array</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            You can define an array using square brackets [] and populate it
+            with values separated by commas
+            <br />
+            <br />
+            {`const arr = [1,3,5];`}
+            <br />
+            <br />
+            <strong>Creating an Array with the Array Constructor:</strong>
+            <br />
+            {`Const badArr = new Array() =>. Don’t do this this is because Inconsistent Behavior:`}
+            <br />
+            <br />
+            <strong>Creating an Array with the Array.of() Method (ES6):</strong>
+            <br />
+            {`const arrayWithValues = Array.of(1, 2, 3, 4, 5);`}
+            <br />
+            <br />
+            <strong>
+              Creating an Array with the Array.from() Method (ES6):
+            </strong>
+            <br />
+            {`const arrayFromIterable = Array.from('hello');`}
+            <br />
+            {`// Creates an array from an iterable (e.g., string)`}
+            <br />
+            {`const arrayFromFunction = Array.from({ length: 5 }, (v, i) => i * 2);`}
+            <br />
+            {`// [0, 1, 2, 3, 4]`}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel36-header"
+        >
+          <Typography>Sequence generator (range)</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            {`const range = (start, stop, step) =>`}
+            <br />
+            {`Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);`}
+            <br />
+            <br />
+            <strong>Example</strong>
+            <br />
+            {`// Generate numbers range 0..4`}
+            <br />
+            {`range(0, 4, 1);`}
+            <br />
+            {`// [0, 1, 2, 3, 4]`}
+            <br />
+            <br />
+
+            {`// Generate numbers range 1..10 with step of 2`}
+            <br />
+            {`range(1, 10, 2);`}
+            <br />
+            {`// [1, 3, 5, 7, 9]`}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel37-header"
+        >
+          <Typography>Undefined vs Null</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <strong>undefined:</strong> <br />
+            <ul>
+              <li>
+                undefined represents the absence of a value or the value of a
+                variable that has not been assigned.
+              </li>
+              <li>
+                Variables that are declared but not initialized automatically
+                have the value undefined.
+                <li>
+                  Functions that do not return a value implicitly return
+                  undefined.
+                </li>
+                <li>
+                  It's also the default value of uninitialized properties in
+                  objects.
+                </li>
+                let variable; // variable is declared but not assigned, so its
+                value is undefined console.log(variable); // Output: undefined
+              </li>
+            </ul>{" "}
+            <br />
+            {`function doSomething() {`} <br />
+            {`// This function does not return anything, so it implicitly returns undefined`}{" "}
+            <br />
+            {`}`} <br /> <br />
+            {`const obj = {};`} <br />
+            {`console.log(obj.property); // Output: undefined (property is not initialized)`}{" "}
+            <br /> <br />
+            <strong>Null</strong> <br />
+            <ul>
+              <li>
+                null represents the intentional absence of any object value or
+                the value of a variable explicitly set to "no value".
+              </li>
+              <li>
+                It's often used as a placeholder or to indicate that a variable
+                is intentionally empty or has no value.
+              </li>
+              <li>
+                It's distinct from undefined, which is the default value for
+                uninitialized variables.
+              </li>
+            </ul>{" "}
+            <br />
+            {`let variable = null; // variable is intentionally set to null`}{" "}
+            <br />
+            {`console.log(variable); // Output: null`}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel38-header"
+        >
+          <Typography>Number Issues</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            working with numbers can sometimes lead to unexpected behavior due
+            to the way numbers are represented and handled internally
+            <br /> <br />
+            {`console.log(0.1 + 0.2 === 0.3); // Output: false`} <br />
+            {`console.log(0.2+0.4) //0.6000000000000001`} <br />
+            {`console.log((0.2+0.4).toFixed(1)) //"0.6"`} <br />
+            {`console.log(isNaN("wewt")) //true`} <br /> <br />
+            {`Number.isFinite(123);          // true (123 is a finite number)`}{" "}
+            <br />
+            {`Number.isFinite(Infinity);     // false (Infinity is not a finite number)`}{" "}
+            <br />
+            {`Number.isFinite(-Infinity);    // false (-Infinity is not a finite number)`}{" "}
+            <br />
+            {`Number.isFinite(NaN);          // false (NaN is not a finite number)`}{" "}
+            <br />
+            {`Number.isFinite('123');        // false ('123' is a string, not a number)`}{" "}
+            <br />
+            {`Number.isFinite(true);         // false (true is converted to 1, which is a finite number)`}{" "}
+            <br />
+            {`Number.isFinite(null);         // false (null is converted to 0, which is a finite number)`}{" "}
+            <br />
+            {`Number.isFinite(undefined);    // false (undefined is not a number)`}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel39-header"
+        >
+          <Typography>Instanceof</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Instanceof operator is used to check whether an object belongs to a
+            particular class or constructor function. It tests whether the
+            prototype property of a constructor function appears anywhere in the
+            prototype chain of an object
+            <br />
+            <br />
+            {`object instanceof constructor`}
+            <br />
+            <strong>object:</strong> The object to be tested. constructor: The
+            constructor function or class to test against.
+            <br />
+            <br />
+            {`class Animal {}`}
+            <br />
+            <br />
+            {`class Dog extends Animal {}`}
+            <br />
+            <br />
+            {`const animal = new Animal();`}
+            <br />
+            {`const dog = new Dog();`}
+            <br />
+            <br />
+            {`console.log(dog instanceof Dog);     // true`}
+            <br />
+            {`console.log(dog instanceof Animal);  // true (Dog is a subclass of Animal)`}
+            <br />
+            {`console.log(animal instanceof Animal); // true`}
+            <br />
+            {`console.log(animal instanceof Dog); // false (Animal is not a subclass of Dog)`}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel40-header"
+        >
+          <Typography>IIFE</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Immediately Invoke Function Expression JavaScript function that is
+            executed immediately after it is defined. It's often used to create
+            a new scope for variables and avoid polluting the global scope, as
+            well as to encapsulate code and create modules.
+            <br />
+            <br />
+            {`( function () {`}
+            <br />
+            {`//code here excuse immediately`}
+            <br />
+            {`})()`}
+            <br />
+            <br />
+            {`( function () {`}
+            <br />
+            {`  console.log("test");`}
+            <br />
+            {`})();`}
+            <br />
+            {`//test`}
+            <br />
+            <br />
+            {`const test = (function() {`}
+            <br />
+            {`const init = {`}
+            <br />
+            {`id: 90,`}
+            <br />
+            {` methods: {`}
+            <br />
+            {`call() {`}
+            <br />
+            {`console.log('Call method executed');`}
+            <br />
+            {` }`}
+            <br />
+            {` }`}
+            <br />
+            {`};`}
+            <br />
+            {` return init;`}
+            <br />
+            {`})();`}
+            <br />
+            <br />
+            {`console.log(test);`}
+            <br />
+            <strong>Output</strong>
+            <br />
+            {`{`}
+            <br />
+            {`  id: 90,`}
+            <br />
+            {`  methods: {`}
+            <br />
+            {`    call: call() {`}
+            <br />
+            {`      console.log('Call method executed');`}
+            <br />
+            {`    }`}
+            <br />
+            {`  }`}
+            <br />
+            {`}`}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel41-header"
+        >
+          <Typography>JSON.stringify() vs JSON.parse()</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <strong>JSON (JavaScript Object Notation).</strong>
+            <br />
+            <strong>JSON.stringify():</strong>
+            <br />
+            <ul>
+              <li>
+                This function converts a JavaScript object into a JSON string.
+              </li>
+              <li>
+                It takes an object as an argument and returns its JSON
+                representation.
+              </li>
+              <li>
+                If the object contains nested objects or arrays, they are
+                recursively converted into JSON strings.
+              </li>
+            </ul>
+            <br />
+            <br />
+            {`const obj = { name: 'John', age: 30 };`}
+            <br />
+            {`const jsonString = JSON.stringify(obj);`}
+            <br />
+            {`console.log(jsonString); // Output: {"name":"John","age":30}`}
+            <br />
+            <br />
+            <strong>JSON.parse():</strong>
+            <ul>
+              <li>
+                This function parses a JSON string and converts it into a
+                JavaScript object.
+              </li>
+              <li>
+                It takes a JSON string as an argument and returns the
+                corresponding JavaScript object.{" "}
+              </li>
+            </ul>
+            <br />
+            <br />
+            {`const jsonString = '{"name":"John","age":30}';`}
+            <br />
+            {`const obj = JSON.parse(jsonString);`}
+            <br />
+            {`console.log(obj); // Output: { name: 'John', age: 30 }`}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel42-header"
+        >
+          <Typography>Maintaining State & Local Storage</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <strong>Maintaining State:</strong> <br />
+            State refers to the current condition or data of your application at
+            any given moment. In JavaScript, you typically maintain state by
+            storing data in variables, objects, or data structures. <br />{" "}
+            <br />
+            {`let count = 0;`} <br />
+            {`let user = {`} <br />
+            {`name: 'John Doe',`} <br />
+            {`age: 30,`} <br />
+            {`email: 'john@example.com'`} <br />
+            {`};`} <br /> <br />
+            <strong> Local Storage:</strong> <br />
+            Local storage is a feature of web browsers that allows you to store
+            data persistently across browser sessions. You can use the
+            localStorage object in JavaScript to interact with local storage.{" "}
+            <br /> <br />
+            {`localStorage.setItem('username', 'john');`} <br />
+            {`let username = localStorage.getItem('username');`} <br />
+            {`localStorage.removeItem('username');`} <br />
+            {`localStorage.clear();`} <br /> <br />
+            {`const user = JSON.stringify({`} <br />
+            {`  firsName: "sum",`} <br />
+            {`  lastname: 'test'`} <br />
+            {`})`} <br /> <br />
+            {`localStorage.setItem("user", user);`} <br />
+            {`const firstName = JSON.parse(localStorage.getItem('user'));`}{" "}
+            <br /> <br />
+            {`console.log(firstName)`} <br />
+            {`/*{firsName: "sum",`} <br />
+            {`   lastname: "test"`} <br />
+            {`} */`} <br /> <br />
+            <strong> Limitations:</strong> Local storage has a size limit
+            (usually around 5-10MB) and stores data as strings, so you may need
+            to serialize and deserialize complex data structures when storing
+            and retrieving them.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel43-header"
+        >
+          <Typography>HTML 5 APIs</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            {`if(navigator.geolocation) {`}
+            <br />
+            {`  navigator.geolocation.getCurrentPosition((pos) => {`}
+            <br />
+            {`    console.log("location", pos)`}
+            <br />
+            {`  }, () => {`}
+            <br />
+            {`  console.log("nope");`}
+            <br />
+            {`});`}
+            <br />
+            {`  console.log("location ====");`}
+            <br />
+            {`}`}
+            <br />
+            <br />
+            <strong>Canvas API:</strong> Allows for dynamic rendering of
+            graphics, charts, and animations directly in the browser using
+            JavaScript.
+            <br />
+            <strong>Web Storage (localStorage and sessionStorage):</strong>{" "}
+            Provides a way to store data locally in the user's browser.
+            localStorage stores data persistently across sessions, while
+            sessionStorage stores data for the duration of a session.
+            <br />
+            <strong>IndexedDB:</strong> A client-side database system that
+            allows web applications to store large amounts of structured data
+            and perform complex queries.
+            <br />
+            <strong>Web Workers:</strong> Enables running JavaScript code in the
+            background to perform tasks without blocking the main execution
+            thread, improving performance and responsiveness.
+            <br />
+            <strong>WebSockets:</strong> Provides a full-duplex communication
+            channel over a single TCP connection, allowing for real-time
+            bidirectional communication between the client and server.
+            <br />
+            <strong>Geolocation API:</strong> Allows web applications to access
+            the user's geographical location information (with user consent),
+            enabling location-based services and functionalities.
+            <br />
+            <strong>File API:</strong> Enables web applications to interact with
+            files on the user's local system, including reading, writing, and
+            manipulating files.
+            <br />
+            <strong>Drag and Drop API:</strong> Allows users to drag and drop
+            elements on a web page, facilitating intuitive interaction with web
+            content.
+            <br />
+            <strong>History API:</strong> Enables manipulation of the browser's
+            session history, allowing for dynamic updates to the URL without
+            full page reloads and facilitating the implementation of single-page
+            applications (SPAs).
+            <br />
+            <strong>WebRTC (Real-Time Communication):</strong> Provides APIs for
+            real-time communication between web browsers, enabling peer-to-peer
+            audio, video, and data sharing without the need for plugins or
+            third-party software.
+            <br />
+            <strong>Media Capture and Streams API:</strong> Allows web
+            applications to access audio and video streams from the user's
+            device, enabling functionalities such as webcam access and
+            audio/video recording.
+            <br />
+            <strong>Notifications API:</strong> Allows web applications to
+            display system notifications to the user, providing timely updates
+            and alerts.
+            <br />
+            <strong>Service Workers:</strong> Provides a scriptable network
+            proxy in the web browser, allowing developers to control network
+            requests and cache resources for offline use, improving performance
+            and reliability.
+            <br />
+            <strong>Web Audio API:</strong> Enables advanced audio processing
+            and synthesis in web applications, allowing for the creation of
+            interactive audio experiences and games.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel44-header"
+        >
+          <Typography>Destructuring Objects</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Destructuring in JavaScript allows you to extract data from arrays
+            and objects into distinct variables, making it easier to work with
+            complex data structures.
+            <br />
+            <br />
+            {`const arr = [10, 20, 2024]`}
+            <br />
+            {`console.log(arr); //[10, 20, 2024]`}
+            <br />
+            <br />
+            {`const [month, day, year] = [10, 20, 2024];`}
+            <br />
+            {`console.log(month/day/year); //“10/20/2024"`}
+            <br />
+            <br />
+            {`Using alias`}
+            <br />
+            {`const { firstName : name } = person;`}
+            <br />
+            {`console.log(name); //"test"`}
+            <br />
+            <br />
+            <strong>EXAMPLE</strong>
+            <br />
+            {`function displayUser({ name, age, address: { city, country } }) {`}
+            <br />
+            console.log(`Name: {`${`}name{`}`}`);
+            <br />
+            console.log(`Age: {`${`}age}{`}`});
+            <br />
+            console.log(`City: {`${`}city{`}`}`);
+            <br />
+            console.log(`Country: {`${`}country{`}`}`);
+            <br />
+            {`}`}
+            <br />
+            <br />
+            {`const user = {`}
+            <br />
+            {`name: 'Jane Smith',`}
+            <br />
+            {`age: 28,`}
+            <br />
+            {`address: {`}
+            <br />
+            {`city: 'Los Angeles',`}
+            <br />
+            {`country: 'USA'`}
+            <br />
+            {` }`}
+            <br />
+            {`};`}
+            <br />
+            <br />
+            {`displayUser(user);`}
+            <br />
+            <br />
+            <strong>Output:</strong>
+            <br />
+            {`Name: Jane Smith`}
+            <br />
+            {`Age: 28`}
+            <br />
+            {`City: Los Angeles`}
+            <br />
+            {`Country: USA`}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel45-header"
+        >
+          <Typography>Rest & Spread Operator</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <strong>Rest Operator (...):</strong>
+            <br />
+            The rest operator (...) allows you to represent an indefinite number
+            of arguments as an array.
+            <br />
+            <br />
+            {`const display = (num) => {`}
+            <br />
+            {`console.log("num", num);`}
+            <br />
+            {`}`}
+            <br />
+            {`display(5) //5`}
+            <br />
+            <br />
+            {`If we pass more then one argument also we get display(5, 6, 7, 8)`}
+            <br />
+            {`//5 But if you do this`}
+            <br />
+            {`const display = (...num) => {`}
+            <br />
+            {`console.log("num", num);`}
+            <br />
+            {`}`}
+            <br />
+            <br />
+            display(5, 6, 7, 8) //"num", [5, 6, 7, 8]
+            <br />
+            <br />
+            <strong>Spread Operator (...):</strong>
+            <br />
+            The spread operator (...) allows you to expand an array or object
+            into individual elements.
+            <br />
+            Convenient for merging arrays, copying arrays and objects, and
+            passing multiple arguments to functions.
+            <br />
+            <br />
+            {`const numbers = [1, 2, 3];`}
+            <br />
+            {`console.log(Math.max(...numbers)); // Output: 3 (equivalent to Math.max(1, 2, 3))`}
+            <br />
+            <br />
+            {`const arr1 = [1, 2, 3];`}
+            <br />
+            {`const arr2 = [4, 5, 6];`}
+            <br />
+            {`const mergedArray = [...arr1, ...arr2];`}
+            <br />
+            {`console.log(mergedArray); // Output: [1, 2, 3, 4, 5, 6]`}
+            <br />
+            <br />
+            {`const obj1 = { x: 1, y: 2 };`}
+            <br />
+            {`const obj2 = { ...obj1, z: 3 };`}
+            <br />
+            {`console.log(obj2); // Output: { x: 1, y: 2, z: 3 }`}
+            <br />
+            <br />
+            <strong>
+              spread syntax is the opposite of rest syntax. Spread syntax
+              "expands" an array into its elements, while rest syntax collects
+              multiple elements and "condenses" them into a single element.
+            </strong>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel46-header"
+        >
+          <Typography>Arrow Function</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            They provide a more compact syntax compared to traditional function
+            expressions and offer some additional features
+            <br />
+            <br />
+            {`function display(num) {`}
+            <br />
+            {`return num + 1;`}
+            <br />
+            {`}`}
+            <br />
+            {`console.log(display(2)) //3`}
+            <br />
+            {`const display2 = num => num + 1`}
+            <br />
+            {`console.log(display2(4)) //5`}
+            <br />
+            <br />
+            Arrow functions do not have their own this context; instead, they
+            inherit the this value from the surrounding code.
+            <br />
+            {`function Person() {`}
+            <br />
+            {` this.age = 0;`}
+            <br />
+            <br />
+            {`setInterval(() => {`}
+            <br />
+            {` // this refers to the Person object`}
+            <br />
+            {`this.age++;`}
+            <br />
+            {`console.log(this.age);`}
+            <br />
+            {`}, 1000);`}
+            <br />
+            {`}`}
+            <br />
+            <br />
+            const person = new Person();
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel47-header"
+        >
+          <Typography>NaN</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            NaN stands for "Not-a-Number" in JavaScript. It is a special value
+            of the Number type that represents the result of an operation that
+            cannot produce a meaningful numerical result.
+            <br />
+            <br />
+            {`const result = 'hello' / 5;`}
+            <br />
+            {`console.log(result); // Output: NaN`}
+            <br />
+            {`const result = parseInt('hello');`}
+            <br />
+            {`console.log(result); // Output: NaN`}
+            <br />
+            <br />
+            It's important to note that NaN is considered a numeric value but is
+            not equal to any other value, including itself:
+            <br />
+            {`console.log(NaN === NaN); // Output: false`}
+            <br />
+            <br />
+            you should use the isNaN() function or the Number.isNaN() method
+            introduced in ES6:
+            <br />
+            {`console.log(isNaN(NaN));        // Output: true`}
+            <br />
+            {`console.log(Number.isNaN(NaN)); // Output: true`}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel48-header"
+        >
+          <Typography>Undeclared vs Undefined</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <strong>Undeclared</strong>
+            <br />
+            An undeclared variable is a variable that has been referenced in
+            code without being declared
+            <br />
+            {`console.log(foo); // ReferenceError: foo is not defined`}
+            <br />
+            <br />
+            <strong>Undefined</strong>
+            <br />
+            Undefined is a special value in JavaScript that indicates the
+            absence of a value. It is also the default value of uninitialized
+            variables and the value returned by functions that do not explicitly
+            return a value
+            <br />
+            {`let bar;`}
+            <br />
+            {`console.log(bar); // Output: undefined`}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel49-header"
+        >
+          <Typography>DOM Selectors</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            DOM (Document Object Model) selectors are used to interact with HTML
+            elements in a web page. They allow you to retrieve and manipulate
+            elements dynamically.
+            <br />
+            <br />
+            {`const element = document.getElementById('myElement');`}
+            <br />
+            getElementsByClassName, getElementsByTagName
+            <br />
+            {`const element = document.querySelector('.myClass'); //Selects the first element that matches a specified CSS selector.`}
+            <br />
+            {`const elements = document.querySelectorAll('div.myClass');`}
+            <br />
+            {`getElementById() Shortcut -> const element = document.myElement;`}
+            <br />
+            {`matches() method: checks if an element matches a specified CSS selector. Returns a boolean`}
+            <br />
+            {`const matches = element.matches('.myClass');`}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel50-header"
+        >
+          <Typography>How to Copy an Object</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <strong>1. Object.assign()</strong>
+            <br />
+            The Object.assign() method is used to copy the values of all
+            enumerable own properties from one or more source objects to a
+            target object. It returns the target object.
+            <br />
+            <br />
+            {`const obj1 = { a: 1, b: 2 };`}
+            <br />
+            {`const obj2 = Object.assign({}, obj1);`}
+            <br />
+            {`console.log(obj2); //{ a: 1, b: 2 }`}
+            <br />
+            <br />
+            {`const obj2 = Object.assign(obj1)`}
+            <br />
+            {`console.log(obj2); //{ a: 1, b: 2 }`}
+            <br />
+            <br />
+            <strong>2. Spread Operator (...):</strong>
+            <br />
+            The spread operator (...) can also be used to create a shallow copy
+            of an object. It spreads the properties of the source object into a
+            new object.
+            <br />
+            {`const obj1 = { a: 1, b: 2 };`}
+            <br />
+            {`const obj2 = { ...obj1 }; //{ a: 1, b: 2 }`}
+            <br />
+            <br />
+            {`const obj1 ={a: 1, b: 2, c: {d:4, e:{f:5, g:{h:6, i:7}}}}`}
+            <br />
+            <br />
+            {`const obj2 = {...obj1}`}
+            <br />
+            {`console.log(obj2); //{ a: 1, b: 2, c: { d: 4, e: { f: 5, g: [Object] } } }`}
+            <br />
+            <br />
+            <strong>3.JSON.parse() and JSON.stringify():</strong>
+            <br />
+            You can convert the object to a JSON string using JSON.stringify(),
+            and then parse the JSON string back into an object using
+            JSON.parse(). This creates a deep copy of the object.
+            <br />
+            {`const obj1 = { a: 1, b: 2 };`}
+            <br />
+            {`const obj2 = JSON.parse(JSON.stringify(obj1));`}
+            <br />
+            <br />
+            <strong>Shallow vs Deep Copy:</strong>
+            <br />
+            Object.assign() and the spread operator create shallow copies,
+            meaning that nested objects are still references. The JSON method
+            creates a deep copy, cloning all nested objects.
           </Typography>
         </AccordionDetails>
       </Accordion>
