@@ -2175,6 +2175,241 @@ const Lists = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel51-header"
+        >
+          <Typography>
+            Unicode VS ASCII (American Standard Code for Information
+            Interchange)
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <strong>Unicode</strong>
+            <ul>
+              <li>
+                What it covers: Unicode is a much bigger system. It includes
+                characters from all languages around the world, emojis, symbols,
+                and more. It aims to represent every character from every
+                language.
+              </li>
+              <li>
+                How it works: Like ASCII, Unicode assigns a unique number to
+                each character. However, Unicode can handle a much larger range
+                of numbers to cover all these characters.
+              </li>
+              <li>
+                Encoding: Unicode can be encoded in different ways, like UTF-8
+                or UTF-16. UTF-8 is the most common and flexible, as it uses
+                variable lengths to represent characters efficiently.
+              </li>
+              <li>
+                Usage: It's essential for modern software that needs to support
+                multiple languages, emojis, and diverse symbols. It's used in
+                websites, apps, and systems where internationalization
+                (supporting different languages) is important.
+              </li>
+            </ul>
+            <br />
+            <strong>ASCII</strong>
+            <ul>
+              <li>
+                What it covers: ASCII is a basic coding system for computers. It
+                includes English letters (both uppercase and lowercase),
+                numbers, punctuation marks (like commas and periods), and some
+                control characters (like Enter and Tab).
+              </li>
+              <li>
+                How it works: Each character in ASCII is represented by a
+                number. For example, the letter 'A' is represented by the number
+                65.
+              </li>
+              <li>
+                Limitations: ASCII only covers English characters and some basic
+                symbols. It doesn't support other languages, accents, or special
+                characters.
+              </li>
+              <li>
+                Usage: It's used in older systems, simple programs, and where
+                only basic English characters are needed.
+              </li>
+            </ul>
+            <br />
+            <strong>Key Differences</strong>
+            <ul>
+              <li>
+                Coverage: ASCII covers basic English characters, while Unicode
+                covers characters from all languages and many symbols.
+              </li>
+              <li>
+                Complexity: ASCII is simple and uses fixed-size encoding.
+                Unicode, especially UTF-8, is more complex but flexible and
+                efficient for handling diverse characters.
+              </li>
+              <li>
+                Usage: ASCII is used in simpler applications and older systems,
+                while Unicode is necessary for modern international applications
+                that need to support multiple languages and symbols.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel52-header"
+        >
+          <Typography>Encrypting Vs Hashing</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <strong>Encrypting</strong>
+            <ul>
+              <li>
+                Purpose: Encryption is used to protect sensitive data by
+                converting it into an unreadable format (cipher text) that can
+                only be decoded (decrypted) back into its original form (plain
+                text) with a specific key or password.
+              </li>
+              <li>
+                Process: Encryption algorithms (such as AES, DES, RSA) use
+                mathematical transformations to scramble data according to a
+                secret key. The encrypted data can only be decrypted by someone
+                who has the correct key.
+              </li>
+              <li>
+                Characteristics:
+                <ul>
+                  <li>
+                    Reversibility: Encryption is reversible, meaning you can
+                    decrypt the encrypted data back to its original form if you
+                    have the decryption key.
+                  </li>
+                  <li>
+                    Security: The security of encryption depends on the strength
+                    of the encryption algorithm and the secrecy of the
+                    encryption key.
+                  </li>
+                  <li>
+                    Usage: Commonly used to protect sensitive information in
+                    transit (e.g., during communication over the internet) and
+                    at rest (e.g., stored data on disk).
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <br />
+            <strong>Hashing</strong>
+            <ul>
+              <li>
+                Purpose: Hashing is used to verify data integrity and to
+                generate fixed-size, unique representations (hash values) of
+                data, typically for storing passwords securely or validating
+                data.
+              </li>
+              <li>
+                Process: Hash functions (such as SHA-256, MD5, bcrypt) take an
+                input (message) and produce a fixed-size hash value. This value
+                is deterministic (same input produces the same hash), but it is
+                not reversible back to the original data.
+              </li>{" "}
+              <li>
+                Characteristics:
+                <ul>
+                  <li>
+                    Irreversibility: Hashing is a one-way process; you cannot
+                    reverse the hash value back to the original data.
+                    Deterministic: The same input always produces the same hash
+                    value.
+                  </li>
+                  <li>
+                    Security: A secure hash function makes it computationally
+                    impractical to reverse-engineer the original data from the
+                    hash value.
+                  </li>
+                  <li>
+                    Usage: Commonly used for password storage (storing hashed
+                    passwords instead of plain text), data integrity
+                    verification, and digital signatures.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <strong>Note</strong>
+            <p>
+              If the input is "Hello World!" use the hashing algorithm SHA-256
+              we allways get the fixed sixe result, it always produces a 256-bit
+              (32-byte) hash value. standard cryptographic hashing algorithm
+              like SHA-256, you will always get the same output (hash value) for
+              the same input. When we use it to store the password we check the
+              hash value to match the stored hash value instead of the real
+              password.
+            </p>
+            <br />
+            <strong>Key Differences</strong>
+            <ul>
+              <li>
+                Reversibility: Encryption is reversible (plaintext ↔ ciphertext
+                with key), while hashing is irreversible (plaintext → hash).
+              </li>
+              <li>
+                Security Focus: Encryption focuses on confidentiality
+                (protecting data from unauthorized access), while hashing
+                focuses on data integrity (ensuring data has not been altered).
+              </li>
+              <li>
+                Output Size: Encryption output (ciphertext) size depends on
+                input size and algorithm, while hashing produces fixed-size
+                outputs regardless of input size.
+              </li>
+              <li>
+                Use Cases: Encryption is used for securing data in transit and
+                at rest, while hashing is used for storing passwords securely
+                and verifying data integrity.{" "}
+              </li>
+            </ul>
+            <strong>Conclusion</strong> <br />
+            In summary, encryption and hashing are both essential techniques in
+            data security, each serving distinct purposes. Encryption protects
+            data confidentiality by reversible transformation, while hashing
+            ensures data integrity through irreversible, fixed-size
+            representations. Understanding when and how to use each technique is
+            crucial for implementing effective data protection strategies in
+            software and systems.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel51-header"
+        >
+          <Typography>Unicode</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      {/* <Accordion>
+        <AccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls="panel2-content"
+        id="panel51-header"
+        >
+          <Typography>Unicode</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+
+          </Typography>
+        </AccordionDetails>
+      </Accordion> */}
     </Container>
   );
 };
