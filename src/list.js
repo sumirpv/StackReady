@@ -2390,10 +2390,21 @@ const Lists = () => {
           aria-controls="panel2-content"
           id="panel53-header"
         >
-          <Typography></Typography>
+          <Typography>Objects</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography></Typography>
+          <Typography>
+            Objects are a fundamental and versatile data structure used to store
+            collections of key-value pairs. JavaScript objects can be classified
+            by three factors:
+            <ul>
+              <li>Enumerable or non-enumerable</li>
+              <li>String or symbol</li>
+              <li>
+                Own property or inherited property from the prototype chain
+              </li>
+            </ul>
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -2402,10 +2413,71 @@ const Lists = () => {
           aria-controls="panel2-content"
           id="panel54-header"
         >
-          <Typography></Typography>
+          <Typography>Enumerable vs Non-enumerable</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography></Typography>
+          <Typography>
+            <strong>Enumerable</strong>
+            <br />
+            An enumerable property is one that will be iterated over by methods
+            such as for...in loops and Object.keys(). By default, properties
+            defined directly on an object are enumerable.
+            <br />
+            {`const obj = { a: 1, b: 2 };`}
+            <br />
+            {`for (const key in obj) {`}
+            <br />
+            {`console.log(key); // Output: 'a', 'b'`}
+            <br />
+            {`}}`}
+            <br />
+            <strong>Non-enumerable Properties</strong>
+            <br />
+            A non-enumerable property is one that will not be iterated over by
+            for...in loops and will not appear in the result of Object.keys().
+            Non-enumerable properties are typically created using
+            Object.defineProperty() with the enumerable attribute set to false.
+            <br />
+            {`const obj = {};`}
+            <br />
+            {`// Define properties with different enumerability`}
+            <br />
+            {`Object.defineProperty(obj, 'a', { value: 1, enumerable: true });`}
+            <br />
+            {`Object.defineProperty(obj, 'b', { value: 2, enumerable: false });`}
+            <br />
+            {`Object.defineProperty(obj, 'c', { value: 3, enumerable: true });`}
+            <br />
+            <br />
+            {`// Iterate over the properties using for...in loop`}
+            <br />
+            {`console.log('Enumerating properties using for...in loop:');`}
+            <br />
+            {`for (const key in obj) {`}
+            <br />
+            {`console.log(key); // Output: 'a', 'c' (b is non-enumerable and not iterated over)`}
+            <br />
+            {`}`}
+            <br />
+            <br />
+            {`// Retrieve keys using Object.keys()`}
+            <br />
+            {`console.log('\nRetrieving keys using Object.keys():');`}
+            <br />
+            {`console.log(Object.keys(obj)); // Output: ['a', 'c'] (b is non-enumerable and not included)`}
+            <br />
+            <br />
+            {`// Check if a property is enumerable`}
+            <br />
+            {`console.log('\nCheck if properties are enumerable:');`}
+            <br />
+            {`console.log(Object.getOwnPropertyDescriptor(obj, 'a').enumerable); // Output: true`}
+            <br />
+            {`console.log(Object.getOwnPropertyDescriptor(obj, 'b').enumerable); // Output: false`}
+            <br />
+            {`console.log(Object.getOwnPropertyDescriptor(obj, 'c').enumerable); // Output: true`}
+            <br />
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -2414,10 +2486,55 @@ const Lists = () => {
           aria-controls="panel2-content"
           id="panel55-header"
         >
-          <Typography></Typography>
+          <Typography>Compare 2 Objects</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography></Typography>
+          <Typography>
+            {`=== will be false because object uses reference.   => Shallow Equality Check:`}
+            <br />
+            {`We can do JSON.stringfy       => Deep Equality Check (Using JSON.stringify()):`}
+            <br />
+            <br />
+
+            {`Example:`}
+            <br />
+            {`const user1 = {`}
+            <br />
+            {`fn: "t1",`}
+            <br />
+            {`lan: "t2"`}
+            <br />
+            {`};`}
+            <br />
+            <br />
+
+            {`const user2 = {`}
+            <br />
+            {`fn: "t1",`}
+            <br />
+            {`lan: "t2"`}
+            <br />
+            {`};`}
+            <br />
+            <br />
+
+            {`console.log(user1 === user2) //false`}
+            <br />
+            {`console.log(JSON.stringify(user1) === JSON.stringify(user2))`}
+            <br />
+            {`//true if you change user2{ lan:”t2, fn:”t1”} this will be false`}
+            <br />
+            <br />
+            <strong>Deep Equality Check using ladash:</strong>
+            <br />
+            {`const _ = require('lodash');`}
+            <br />
+            {`const obj1 = { a: 1, b: { c: 2 } };`}
+            <br />
+            {`const obj2 = { a: 1, b: { c: 3 } };`}
+            <br />
+            {`console.log(_.isEqual(obj1) === _.isEqual(obj2));`}
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -2426,10 +2543,24 @@ const Lists = () => {
           aria-controls="panel2-content"
           id="panel56-header"
         >
-          <Typography></Typography>
+          <Typography>Services workers</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography></Typography>
+          <Typography>
+            Service workers are scripts that your browser runs in the
+            background, separate from a web page, and can intercept network
+            requests, cache or retrieve resources, and provide offline
+            functionality. They enable features like push notifications and
+            background sync.
+            <br />
+            <br />
+            Service workers are a powerful tool for creating web applications
+            that offer a more reliable and engaging user experience, especially
+            in scenarios where network connectivity may be unreliable or
+            intermittent. However, they also require careful implementation to
+            ensure that they enhance the user experience without compromising
+            security or performance.
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -2438,10 +2569,39 @@ const Lists = () => {
           aria-controls="panel2-content"
           id="panel57-header"
         >
-          <Typography></Typography>
+          <Typography>Removing Duplicates</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography></Typography>
+          <Typography>
+            We can do it different methods like set, filter, reduce and includes
+            <br />
+            <br />
+            {`const arr = [1, 1,2, 3, 3, 3];`}
+            <br />
+            {`const newSet = [... new Set(arr)];`}
+            <br />
+            {`console.log('arr', newSet); //arr [ 1, 2, 3 ]`}
+            <br />
+            <br />
+            {`const newset1 = arr.filter((value, index, array) => array.indexOf(value)=== index)`}
+            <br />
+            {`console.log('arr', newset1); // arr [ 1, 2, 3 ]`}
+            <br />
+            <br />
+            {`Eg: const newSet = [];`}
+            <br />
+            {`arr.forEach((item) => {`}
+            <br />
+            {`if(!newSet.includes(item)){`}
+            <br />
+            {`newSet.push(item);`}
+            <br />
+            {`}`}
+            <br />
+            {`})`}
+            <br />
+            {`console.log("newSet", newSet) //newSet [ 1, 2, 3 ]`}
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -2450,10 +2610,65 @@ const Lists = () => {
           aria-controls="panel2-content"
           id="panel58-header"
         >
-          <Typography></Typography>
+          <Typography>HTTP Methods</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography></Typography>
+          <Typography>
+            Its set of request methods :
+            <ul>
+              <li>
+                <strong>Get:</strong>Getting the data from specified resources,
+                can be cached and remain un the browser history
+              </li>
+              <li>
+                <strong>Post:</strong> submit data to be processed to specified
+                resources , can’t cached and no bookmark
+              </li>
+              <li>
+                <strong>Put:</strong> it replace or update the entire resources
+                at specified URL, if its is not available it creates
+              </li>
+              <li>
+                <strong>Patch:</strong> same as Put but it is used when we want
+                to do partial update instead of entire thing
+              </li>
+              <li>
+                <strong>Delete:</strong> remove specified resources
+              </li>
+              <li>
+                <strong>Options:</strong>When a client sends an OPTIONS request
+                to a server, the server responds with a list of HTTP methods and
+                other options that are supported for the requested resource.
+                This allows the client to determine how it can interact with the
+                resource safely and effectively. One of the most common uses of
+                the OPTIONS method is in Cross-Origin Resource Sharing (CORS)
+                requests.
+              </li>
+            </ul>
+            {`Eg: OPTIONS /example HTTP/1.1`}
+            <br />
+            {`Host: example.com`}
+            <br />
+            <br />
+            {`HTTP/1.1 200 OK`}
+            <br />
+            {`Allow: GET, POST, OPTIONS`}
+            <br />
+            <br />
+            <strong>HEAD:</strong>
+            <br />
+            <ul>
+              <li>
+                The HEAD method is similar to GET but is used to request the
+                headers that would be returned if a GET request were to be made
+                to the specified resource.
+              </li>
+              <li>
+                It is useful for obtaining metadata about a resource without
+                transferring the entire content.
+              </li>
+            </ul>
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -2462,10 +2677,23 @@ const Lists = () => {
           aria-controls="panel2-content"
           id="panel59-header"
         >
-          <Typography></Typography>
+          <Typography>HTTP Status Code</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography></Typography>
+          <Typography>
+            <strong>100</strong> {`-> information`}
+            <br />
+            <strong>200</strong> {`-> success`}
+            <br />
+            <strong>300 </strong>
+            {`-> rerouting`}
+            <br />
+            <strong>400 </strong>
+            {`-> client side error, 401 - auth error, 404 - not found error`}
+            <br />
+            <strong>500</strong> {`-> network error`}
+            <br />
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
