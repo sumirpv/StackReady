@@ -2702,17 +2702,1043 @@ const Lists = () => {
           aria-controls="panel2-content"
           id="panel60-header"
         >
-          <Typography></Typography>
+          <Typography>REST</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            REST (Representational State Transfer) is an architectural style for
+            designing networked applications. It defines a set of constraints
+            and principles for building scalable, maintainable, and
+            interoperable web services.
+            <br />
+            <br />
+            <strong>Resource-Based:</strong> In REST, everything is considered a
+            resource, which can be anything that can be uniquely identified.
+            Resources are manipulated using a set of standardized operations,
+            typically HTTP methods (GET, POST, PUT, DELETE, etc.).
+            <br />
+            <strong>Uniform Interface:</strong> REST emphasizes a uniform and
+            consistent interface between clients and servers.
+            <br />
+            <strong>Stateless Communication:</strong> RESTful communication
+            between the client and server is stateless, meaning that each
+            request from the client to the server must contain all the necessary
+            information for the server to fulfill the request.
+            <br />
+            <strong>Client-Server Architecture:</strong> REST separates the
+            client from the server, allowing them to evolve independently.
+            <br />
+            <strong>Cacheability:</strong> Responses from the server can
+            explicitly indicate whether they are cacheable or not.
+            <br />
+            <strong>Layered System:</strong> REST allows for the use of
+            intermediary servers (proxies, gateways, etc.) between the client
+            and server to improve scalability, security, and reliability.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel61-header"
+        >
+          <Typography>Rest vs GraphQL</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            REST and GraphQL are both popular approaches for building APIs, but
+            they have different philosophies and characteristics. Here's a
+            comparison between the two.
+            <br />
+            <br />
+            <strong>Data Fetching:</strong>
+            <br />
+            <ul>
+              <li>
+                <strong>REST:</strong> In RESTful APIs, each endpoint typically
+                represents a specific resource, and clients fetch data by making
+                HTTP requests to these endpoints. The server determines the
+                structure of the response.
+              </li>
+              <li>
+                <strong>GraphQL:</strong> With GraphQL, clients can specify
+                exactly what data they need in a single request, and the server
+                returns only that data. Clients can request nested or related
+                data in a single query, reducing over-fetching and
+                under-fetching of data.
+              </li>
+            </ul>
+            <strong>Data Shape:</strong>
+            <br />
+            <ul>
+              <li>
+                <strong>REST:</strong>The server determines the structure of the
+                response, and clients must accept the data in the format
+                provided by the server, often leading to over-fetching or
+                under-fetching of data.
+              </li>
+              <li>
+                <strong>GraphQL:</strong>Clients have more control over the
+                shape of the response data. They can specify the fields they
+                need in the query, and the server returns exactly that data,
+                allowing for more efficient data retrieval.
+              </li>
+            </ul>
+            <strong>Endpoint Structure:</strong>
+            <br />
+            <ul>
+              <li>
+                <strong>REST:</strong>RESTful APIs typically have a fixed set of
+                endpoints, each representing a resource or a collection of
+                resources. Clients make requests to these endpoints using
+                different HTTP methods (GET, POST, PUT, DELETE) to perform CRUD
+                operations.
+              </li>
+              <li>
+                <strong>GraphQL:</strong>There are no fixed endpoints in
+                GraphQL. Instead, there is a single endpoint for executing
+                queries and mutations. Clients send GraphQL queries to this
+                endpoint, specifying the exact data they need, and the server
+                responds with the requested data.
+              </li>
+            </ul>
+            <strong>Versioning:</strong>
+            <br />
+            <ul>
+              <li>
+                <strong>REST:</strong>Versioning of APIs is often done by
+                introducing new endpoints or adding version numbers to the URL.
+                This can lead to endpoint proliferation and maintenance
+                challenges.
+              </li>
+              <li>
+                <strong>GraphQL:</strong>Since there is a single endpoint for
+                executing queries and mutations, versioning is less of an issue.
+                Clients can evolve their queries over time without breaking
+                existing clients. Changes can be introduced gradually without
+                requiring new endpoints.
+              </li>
+            </ul>
+            <strong>Caching:</strong>
+            <ul>
+              <li>
+                <strong>REST:</strong>Caching strategies in RESTful APIs are
+                straightforward, as responses can be cached based on the URL and
+                HTTP method.
+              </li>
+              <li>
+                <strong>GraphQL:</strong>Due to the flexibility of queries and
+                the dynamic nature of the data returned, caching GraphQL
+                responses can be more challenging. Custom caching strategies may
+                be needed to handle caching effectively.
+              </li>
+            </ul>
+            <strong>Tooling and Ecosystem:</strong>
+            <br />
+            <ul>
+              <li>
+                <strong>REST:</strong>RESTful APIs have been around for a long
+                time and have a mature ecosystem with a wide range of tools and
+                libraries available for building and consuming APIs.
+              </li>
+              <li>
+                <strong>GraphQL:</strong>GraphQL is newer and has a growing
+                ecosystem with tools and libraries tailored specifically for
+                GraphQL development. This includes tools for schema validation,
+                query optimization, and client-side caching.
+              </li>
+            </ul>
+            <br />
+            REST is more established and may be a better fit for simpler,
+            resource-based APIs, while GraphQL offers more flexibility and
+            efficiency for complex, dynamic data-fetching requirements.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel62-header"
+        >
+          <Typography>Synchronous vs Asynchronous</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <strong>Synchronous Execution:</strong>
+            <ul>
+              <li>
+                In synchronous code execution, statements are executed one after
+                another in sequence. Each statement waits for the previous one
+                to finish before executing.
+              </li>
+              <li>
+                Synchronous operations block the execution thread, meaning that
+                the code execution cannot proceed to the next statement until
+                the current one completes.
+              </li>
+            </ul>
+            <strong>Asynchronous Execution:</strong>
+            <ul>
+              <li>
+                In asynchronous code execution, tasks are executed independently
+                of the main program flow. Asynchronous operations allow other
+                code to run while waiting for the asynchronous task to complete.
+              </li>
+              <li>
+                Asynchronous operations typically involve callbacks, promises,
+                or async/await syntax to handle the completion of tasks.
+              </li>
+              <li>
+                Asynchronous operations in JavaScript include setTimeout,
+                setInterval, XMLHttpRequest (XHR), fetch API, file I/O, database
+                operations, and more.
+              </li>
+            </ul>
+            {`Eg: console.log("Statement 1"); setTimeout(() =>`}
+            <br />
+            {`console.log("Statement 2"), 1000); console.log("Statement 3");`}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel63-header"
+        >
+          <Typography>Timers</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            In JavaScript, timers are used to schedule code execution at a
+            specified time or after a certain delay. There are three main timer
+            functions provided by the browser environment: setTimeout,
+            setInterval, and clearTimeout.
+            <br />
+            <br />
+            <strong>setTimeout:</strong>
+            <ul>
+              <li>
+                The setTimeout function is used to execute a function or code
+                snippet after a specified delay (in milliseconds). It takes two
+                arguments: a function or code snippet to execute and the delay
+                (in milliseconds).
+              </li>
+            </ul>
+            {`setTimeout(() => console.log("Statement 2"), 1000);`}
+            <br />
+            <br />
+            <strong>setInterval:</strong>
+            <ul>
+              <li>
+                The setInterval function is used to repeatedly execute a
+                function or code snippet at a specified interval (in
+                milliseconds). It takes two arguments: a function or code
+                snippet to execute and the interval (in milliseconds).
+              </li>
+            </ul>
+            {`const intervalId = setInterval(() => {`}
+            <br />
+            {`console.log('Repeated message');`}
+            <br />
+            {`}, 1000); // Execute every 1 second`}
+            <br />
+            <br />
+            {`// To stop the interval after some time`}
+            <br />
+            {`setTimeout(() => {`}
+            <br />
+            {`clearInterval(intervalId);`}
+            <br />
+            {`console.log('Interval stopped');`}
+            <br />
+            {`}, 5000);`}
+            <br />
+            <br />
+            <strong>clearTimeout/clearInterval:</strong>
+            <ul>
+              <li>
+                The clearTimeout function is used to cancel a timeout set by
+                setTimeout, and clearInterval is used to cancel an interval set
+                by setInterval.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel64-header"
+        >
+          <Typography>Promises</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Promises in JavaScript are used for handling asynchronous
+            operations. A promise represents a value (or the eventual completion
+            or failure of an asynchronous operation) and allows you to attach
+            callback functions to handle the result. Promises provide a cleaner
+            and more flexible alternative to callback-based approaches for
+            managing asynchronous code.
+            <br />
+            <br />
+            <strong>Creating a Promise: </strong>
+            <ul>
+              <li>
+                You create a new promise using the Promise constructor, which
+                takes a function as an argument. This function, called the
+                "executor function," has two parameters: resolve and reject.
+              </li>
+              <li>
+                Inside the executor function, you perform some asynchronous
+                operation, and then call resolve(value) when the operation is
+                successful, or reject(reason) if it fails.
+              </li>
+            </ul>
+            {`const myPromise = new Promise((resolve, reject) => {`}
+            <br />
+            {` // Perform an asynchronous operation`}
+            <br />
+            {`setTimeout(() => {`}
+            <br />
+            {`const result = Math.random();`}
+            <br />
+            {`if (result > 0.5) {`}
+            <br />
+            {`resolve(result); // Operation succeeded`}
+            <br />
+            {`} else {`}
+            <br />
+            {`reject(new Error('Operation failed')); // Operation failed`}
+            <br />
+            {`}`}
+            <br />
+            {`}, 1000);`}
+            <br />
+            {`});`}
+            <br />
+            <br />
+            <strong>Consuming a Promise:</strong>
+            <ul>
+              <li>
+                Once you have a promise, you can attach callback functions using
+                the then and catch methods to handle the resolved value or the
+                rejected reason, respectively.
+              </li>
+              <li>
+                The then method is used to handle the fulfillment of the promise
+                (i.e., when resolve is called), and the catch method is used to
+                handle errors (i.e., when reject is called).
+              </li>
+            </ul>
+            {`myPromise.then((value) => {`}
+            <br />
+            {`console.log('Promise resolved with value:', value);`}
+            <br />
+            {`}).catch((error) => {`}
+            <br />
+            {`console.error('Promise rejected with error:', error);`}
+            <br />
+            {`});`}
+            <br />
+            <br />
+            <strong>Chaining Promises:</strong>
+            <ul>
+              <li>
+                Promises can be chained together using multiple then calls. Each
+                then call returns a new promise, allowing you to chain
+                asynchronous operations sequentially.
+              </li>
+              <li>
+                You can also return a new promise from within a then callback to
+                perform additional asynchronous operations.
+              </li>
+            </ul>
+            {`myPromise.then((value) => {`}
+            <br />
+            {`console.log('First promise resolved with value:', value);`}
+            <br />
+            {`return anotherAsyncOperation(); // Return a new promise`}
+            <br />
+            {`}).then((result) => {`}
+            <br />
+            {`console.log('Second promise resolved with result:', result);`}
+            <br />
+            {`}).catch((error) => {`}
+            <br />
+            {`console.error('Promise chain rejected with error:', error);`}
+            <br />
+            {`});`}
+            <br />
+            <br />
+            <strong>
+              <a href="https://en.wikipedia.org/wiki/Concurrent_computing">
+                Promise concurrency:
+              </a>
+            </strong>
+            <br />
+            The Promise class offers four static methods to facilitate async
+            task concurrency
+            <br />
+            <strong>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">
+                Promise.all():
+              </a>
+            </strong>
+            <br />
+            Fulfills when all of the promises fulfill; rejects when any of the
+            promises rejects.
+            <br />
+            <strong>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled">
+                Promise.allSettled():
+              </a>
+            </strong>
+            <br />
+            Fulfills when all promises settle.
+            <br />
+            <strong>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any">
+                Promise.any():
+              </a>
+            </strong>
+            <br />
+            Fulfills when any of the promises fulfills; rejects when all of the
+            promises reject.
+            <br />
+            <strong>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race">
+                Promise.race():
+              </a>
+            </strong>
+            <br />
+            Settles when any of the promises settles. In other words, fulfills
+            when any of the promises fulfills; rejects when any of the promises
+            rejects.
+            <br />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel65-header"
+        >
+          <Typography>Every</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            This is done in the array.
+            <br />
+            Take every element of the array and do the calculations like add,
+            check etc.
+            <br />
+            It return Boolean value
+            <br />
+            <br />
+            Eg:
+            <br />
+            let arr1 =[3, 5, 6, 9];
+            <br />
+            {`console.log(arr1.every(ele => ele > 2)) //true`}
+            <br />
+            {`console.log(arr1.every(ele => ele > 10)) //false`}
+            <br />
+            <br />
+            Eg:
+            <br />
+            {`Str = ‘appa’`}
+            <br />
+            {`let test = str.split('').every((char, i) => {`}
+            <br />
+            {`return char === str[str.length -1 -i]`}
+            <br />
+            {`});`}
+            <br />
+            console.log('Test', test) //true
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel66-header"
+        >
+          <Typography>Finding array length with out length</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            let arr = [2, 4, ,6 ,7];
+            <br />
+            {`let len = arr.reduce(acc => acc + 1, 0);`}
+            <br />
+            console.log(len) //4
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel67-header"
+        >
+          <Typography>Async/Await</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            async/await is a modern approach to handle asynchronous code, making
+            it look more synchronous and easier to read.
+            <br />
+            <br />
+            {`// Longhand`}
+            <br />
+            {`function fetchData() {`}
+            <br />
+            &nbsp;{`return fetch('https://api.example.com/data')`}
+            <br />
+            &nbsp;&nbsp;{`.then((response) => response.json())`}
+            <br />
+            &nbsp;&nbsp;&nbsp;{`.then((data) => {`}
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;{`console.log(data);`}
+            <br />
+            &nbsp;&nbsp;&nbsp;{`})`}
+            <br />
+            &nbsp;&nbsp;{`.catch((error) => {`}
+            <br />
+            &nbsp;{` console.error(error);`}
+            <br />
+            &nbsp;{`});`}
+            <br />
+            &nbsp; {`}`}
+            <br />
+            <br />
+            {`// Shorthand`}
+            <br />
+            {`async function fetchData() {`}
+            <br />
+            &nbsp;{`try {`}
+            <br />
+            &nbsp;&nbsp;
+            {`const response = await fetch('https://api.example.com/data');`}
+            <br />
+            &nbsp;&nbsp;&nbsp;{`const data = await response.json();`}
+            <br />
+            &nbsp;&nbsp;&nbsp;{`console.log(data);`}
+            <br />
+            &nbsp;&nbsp;&nbsp;{`} catch (error) {`}
+            <br />
+            &nbsp;&nbsp;{`console.error(error);`}
+            <br />
+            &nbsp;{`}`}
+            <br />
+            {`}`}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel68-header"
+        >
+          <Typography>HOF</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Higher-order functions (HOFs) are a powerful concept in JavaScript
+            that allow you to work with functions in new and innovative ways.
+            Here's a breakdown of what they are and how they're used:
+            <br />
+            <br />
+            <strong>Concept:</strong>
+            <ul>
+              <li>
+                A higher-order function is a function that does one or both of
+                the following:
+              </li>
+              <li>
+                Takes one or more functions as arguments. These functions are
+                often called callbacks.
+              </li>
+              <li>Returns a new function as its result.</li>
+              <li>
+                HOFs essentially treat functions as first-class citizens in
+                JavaScript, allowing you to pass them around and manipulate them
+                like any other data type.
+              </li>
+            </ul>
+            <strong>Benefits:</strong>
+            <ul>
+              <li>
+                <strong>Abstraction:</strong> HOFs help you encapsulate complex
+                logic into reusable functions, promoting code readability and
+                maintainability.
+              </li>
+              <li>
+                <strong>Composition:</strong> You can combine smaller HOFs to
+                create more complex functionalities, making your code more
+                modular and easier to test.
+              </li>
+              <li>
+                <strong> Flexibility:</strong> HOFs allow you to write generic
+                code that can work with different types of data and functions.
+              </li>
+            </ul>
+            <strong>Common HOFs in JavaScript:</strong>
+            <ul>
+              <li>
+                <strong>map():</strong> This function applies a callback
+                function to each element in an array and returns a new array
+                with the transformed elements.
+              </li>
+              <li>
+                <strong>filter():</strong> This function creates a new array
+                with all elements that pass a test implemented by the provided
+                callback function.
+              </li>
+              <li>
+                <strong>reduce():</strong> This function iterates over an array
+                and applies a callback function against an accumulator and each
+                element to reduce it to a single value.
+              </li>
+              <li>
+                <strong>forEach():</strong> This function executes a provided
+                function once for each array element.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            To know the type of a JavaScript variable, we can use the typeof
+            operator.
+            <br />
+            <br />
+            <ol>
+              <li>Primitive types</li>
+              <ul>
+                <li>
+                  <strong>String</strong>
+                  <br />
+                  It represents a series of characters and is written with
+                  quotes. A string can be represented using a single or a double
+                  quote.
+                  <br />
+                  {`var str = "Vivek Singh Bisht"; //using double quotes`}
+                  <br />
+                  {`var str2 = 'John Doe'; //using single quotes`}
+                </li>
+                <li>
+                  <strong>Number</strong>
+                  <br />
+                  It represents a number and can be written with or without
+                  decimals.
+                  <br />
+                  {`var x = 3; //without decimal`}
+                  <br />
+                  {`var y = 3.6; //with decimal`}
+                </li>
+                <li>
+                  <strong>BigInt</strong>
+                  <br />
+                  This data type is used to store numbers which are above the
+                  limitation of the Number data type. It can store large
+                  integers and is represented by adding “n” to an integer
+                  literal.
+                  <br />
+                  {`var bigInteger =  234567890123456789012345678901234567890;`}
+                </li>
+                <li>
+                  <strong>Boolean</strong>
+                  <br />
+                  It represents a logical entity and can have only two values :
+                  true or false. Booleans are generally used for conditional
+                  testing.
+                  <br />
+                  {`var a = 2;`}
+                  <br />
+                  {`var b =  3;`}
+                  <br />
+                  {`var c =  2;`}
+                  <br />
+                  {`(a == b) // returns false`}
+                  <br />
+                  {`(a == c) //returns true`}
+                  <br />
+                </li>
+                <li>
+                  <strong>Undefined</strong>
+                  <br /> When a variable is declared but not assigned, it has
+                  the value of undefined and it’s type is also undefined.
+                  <br />
+                  {`var x; // value of x is undefined`}
+                  <br />
+                  {`var y = undefined; // we can also set the value of a variable as undefined`}
+                  <br />
+                </li>
+                <li>
+                  <strong>Null</strong>
+                  <br /> It represents a non-existent or a invalid value.
+                  <br />
+                  {`var z = null;`}
+                  <br />
+                </li>
+                <li>
+                  <strong>Symbol</strong> <br />
+                  It is a new data type introduced in the ES6 version of
+                  javascript. It is used to store an anonymous and unique value.
+                  <br />
+                  {` var symbol1 = Symbol('symbol');`}
+                  <br />
+                </li>
+                <li>
+                  <strong>typeof of primitive types :</strong>
+                  <br />
+                  {`typeof "John Doe" // Returns "string"`}
+                  <br />
+                  {`typeof 3.14 // Returns "number"`}
+                  <br />
+                  {`typeof true // Returns "boolean"`}
+                  <br />
+                  {`typeof 234567890123456789012345678901234567890n // Returns bigint`}
+                  <br />
+                  {`typeof undefined // Returns "undefined"`}
+                  <br />
+                  {`typeof null // Returns "object" (kind of a bug in JavaScript)`}
+                  <br />
+                  {`typeof Symbol('symbol') // Returns Symbol`}
+                  <br />
+                </li>
+              </ul>
+              <li>Non-primitive types</li>
+              <ul>
+                <li>
+                  Primitive data types can store only a single value. To store
+                  multiple and complex values, non-primitive data types are
+                  used.
+                </li>
+                <li>Object - Used to store collection of data.</li>
+                {`var obj1 = {`}
+                {`x:  43,`}
+                {`y:  "Hello world!",`}
+                {`z: function(){`}
+                {`return this.x;`}
+                {`}`}
+                {`}`}
+                {`// Collection of data as an ordered list`}
+                {`var array1 = [5, "Hello", true, 4.1];`}
+              </ul>
+            </ol>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>
+            ES6 (ECMAScript 6) vs ES2015 (ECMAScript 2015)
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <strong>Key Features</strong>
+            <ul>
+              <li>
+                <strong>Arrow Functions:</strong> <br />
+                Syntax for shorter function definitions and lexical scoping for
+                this.
+                <br /> eg: <br />
+                {`const add = (a, b) => a + b;`}
+              </li>
+              <li>
+                <strong>Classes:</strong>
+                <br />A more concise and object-oriented way to create classes
+                and inheritance. <br />
+                Eg:
+                <br />
+                {`class Animal {`}
+                <br />
+                {`constructor(name) {`}
+                <br />
+                {`this.name = name;`}
+                <br />
+                {`}`}
+                <br />
+                {`speak() {`}
+                <br />
+                {` console.log($'{this.name} makes a sound.');`}
+                {` }`}
+                <br />
+                {`}`}
+              </li>
+              <li>
+                <strong>Modules:</strong>
+                <br />
+                Standardized the use of import/export for modular code.
+                <br />
+                {` // module.js`}
+                <br />
+                {`export const add = (a, b) => a + b;`}
+                <br />
+                <br />
+                {`// main.js`}
+                <br />
+                {`import { add } from './module';`}
+              </li>
+              <li>
+                <strong>Template Literals:</strong>
+                <br />
+                Enhanced string literals that allow for embedded expressions.
+                <br />
+                {`const name = 'World';`}
+                <br />
+                {`console.log('Hello,$ {name}!');`}
+              </li>
+              <li>
+                <strong>Let and Const:</strong>
+                <br />
+                Block-scoped variable declarations, providing better scoping
+                rules than var.
+                <br />
+                {`let x = 10;`}
+                <br />
+                {`const y = 20;`}
+              </li>
+              <li>
+                <strong>Destructuring Assignment:</strong>
+                <br />A syntax for unpacking values from arrays or properties
+                from objects.
+                <br />
+                {`const [a, b] = [1, 2];`}
+                <br />
+                {`const { name, age } = { name: 'Alice', age: 25 };`}
+              </li>
+              <li>
+                <strong>Default Parameters:</strong>
+                <br />
+                Allows function parameters to have default values.
+                <br />
+                {`function greet(name = 'Guest') {`}
+                <br />
+                {`console.log('Hello,$ {name}');`}
+                <br />
+                {`}`}
+              </li>
+              <li>
+                <strong>Rest and Spread Operators:</strong>
+                <br />
+                Spread (...) allows an iterable to expand in places where
+                multiple arguments or elements are expected. Rest (...) gathers
+                elements into an array.
+                <br />
+                {`const arr = [1, 2, 3];`}
+                <br />
+                {`const newArr = [...arr, 4, 5];`}
+                <br />
+                <br />
+                {`function sum(...args) {`}
+                <br />
+                {`return args.reduce((acc, val) => acc + val, 0);`}
+                <br />
+                {`}`}
+              </li>
+              <li>
+                <strong>Promises:</strong>
+                <br />A native way to handle asynchronous operations.
+                <br />
+                {`const fetchData = () => {`}
+                <br />
+                {`return new Promise((resolve, reject) => {`}
+                <br />
+                {`setTimeout(() => resolve('Data loaded'), 1000);`}
+                <br />
+                {`});`}
+                <br />
+                {`};`}
+                <br />
+                <br />
+                {`fetchData().then(data => console.log(data));`}
+              </li>
+              <li>
+                <strong>Symbols:</strong>
+                <br />A new primitive type that is unique and immutable, often
+                used to create unique property keys.
+                <br />
+                {`const uniqueKey = Symbol('unique');`}
+                <br />
+                {`const obj = {`}
+                <br />
+                {`[uniqueKey]: 'value'`}
+                <br />
+                {`};`}
+              </li>
+            </ul>
+            <strong> Summary of Key Differences</strong>
+            <ul>
+              <li>
+                <strong>ES6:</strong> An informal, shorthand name that continues
+                to be widely recognized and used within the developer community.
+              </li>
+              <li>
+                <strong>ES2015:</strong> The official name that aligns with the
+                standardized naming convention reflecting the year of release.
+              </li>
+            </ul>
+            <strong> Conclusion</strong>
+            <br />
+            In practice, ES6 and ES2015 can be used interchangeably. When you
+            hear ES6, think of it as the informal, widely recognized name, and
+            when you hear ES2015, recognize it as the formal, year-based name
+            introduced with this edition. Both refer to the same pivotal update
+            to JavaScript that introduced many of the features that modern
+            developers rely on today.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      {/* <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography></Typography>
         </AccordionDetails>
       </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion> */}
       {/* <Accordion>
         <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel2-content"
-        id="panel51-header"
+        id="panel70-header"
         >
           <Typography>Unicode</Typography>
         </AccordionSummary>
