@@ -1,3 +1,20 @@
+// // src/Home.js
+// import Button from "@mui/material/Button";
+// import { Link } from "react-router-dom";
+
+// const Home = () => {
+//   return (
+//     <div>
+//       <Button component={Link} to="/lists" color="inherit">
+//         Lists
+//       </Button>
+//       <p>Click on the Lists link above to see the Questions lists page.</p>
+//     </div>
+//   );
+// };
+
+// export default Home;
+
 import { useState } from "react";
 import {
   Container,
@@ -39,6 +56,16 @@ const Lists = () => {
             Variables declared with const are block-scoped and cannot be
             reassigned once initialized. However, the value they hold can still
             be mutable if it's an object or an array.
+            <pre>
+              <code class="language-javascript hljs">
+                <span class="hljs-keyword">var</span> str ={" "}
+                <span class="hljs-string">"Vivek Singh Bisht"</span>;{" "}
+                <span class="hljs-comment">{`//using double quotes`}</span>
+                <span class="hljs-keyword">var</span> str2 ={" "}
+                <span class="hljs-string">'John Doe'</span>;{" "}
+                <span class="hljs-comment">{`//using single quotes`}</span>
+              </code>
+            </pre>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -84,8 +111,11 @@ const Lists = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            == (Equality Operator): console.log(5 == '5'); // Output: true. -
-            performs type coercion * === (Strict Equality Operator):
+            <strong>==</strong> (Equality Operator):
+            <br />
+            console.log(5 == '5'); // Output: true. - performs type coercion{" "}
+            <br />
+            <strong> ===</strong> (Strict Equality Operator): <br />
             console.log(5 === '5'); // Output: false
           </Typography>
         </AccordionDetails>
@@ -100,8 +130,14 @@ const Lists = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Number boolean, string, undefined, null and symbol - const key =
-            Symbol('unique');
+            <ul>
+              <li>Number</li>
+              <li>boolean</li>
+              <li>string</li>
+              <li>undefined</li>
+              <li>null </li>
+              <li>symbol Eg: const key = Symbol('unique');</li>
+            </ul>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -3463,16 +3499,14 @@ const Lists = () => {
             <strong>Key Features</strong>
             <ul>
               <li>
-                <strong>Arrow Functions:</strong> <br />
-                Syntax for shorter function definitions and lexical scoping for
-                this.
+                <strong>Arrow Functions:</strong> Syntax for shorter function
+                definitions and lexical scoping for this.
                 <br /> eg: <br />
                 {`const add = (a, b) => a + b;`}
               </li>
               <li>
-                <strong>Classes:</strong>
-                <br />A more concise and object-oriented way to create classes
-                and inheritance. <br />
+                <strong>Classes:</strong>A more concise and object-oriented way
+                to create classes and inheritance. <br />
                 Eg:
                 <br />
                 {`class Animal {`}
