@@ -3661,6 +3661,59 @@ const Lists = () => {
           aria-controls="panel2-content"
           id="panel70-header"
         >
+          <Typography>ES6 vs ES7</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <strong>ES7</strong>
+            ES7 was a much smaller update compared to ES6, introducing just a
+            couple of new features:
+            <ul>
+              <li>
+                <strong>Exponentiation Operator:</strong>
+                A new operator for exponentiation.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                  const square = 2 ** 2; // 4
+                  const cube = 2 ** 3; // 8
+                  `}
+                />
+              </li>
+              <li>
+                <strong>Array.prototype.includes:</strong>
+                A new method to check if an array includes a certain element.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                const array = [1, 2, 3];
+                const hasTwo = array.includes(2); // true
+                `}
+                />
+              </li>
+            </ul>
+            <strong>Summary</strong>
+            <ul>
+              <li>
+                <strong>ES6:</strong> A major update with many new features like
+                classes, arrow functions, modules, promises, template literals,
+                default parameters, and destructuring.
+              </li>
+              <li>
+                <strong>ES7:</strong> A minor update with only two new features:
+                the exponentiation operator (**) and the
+                Array.prototype.includes method.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel71-header"
+        >
           <Typography>debugger</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -3672,19 +3725,7 @@ const Lists = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      {/* <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2-content"
-          id="panel69-header"
-        >
-          <Typography>Different data types</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography></Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
+      {/*<Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
