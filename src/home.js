@@ -1396,15 +1396,17 @@ const Lists = () => {
                 let variable; // variable is declared but not assigned, so its
                 value is undefined console.log(variable); // Output: undefined
               </li>
-            </ul>{" "}
-            <br />
-            {`function doSomething() {`} <br />
-            {`// This function does not return anything, so it implicitly returns undefined`}{" "}
-            <br />
-            {`}`} <br /> <br />
-            {`const obj = {};`} <br />
-            {`console.log(obj.property); // Output: undefined (property is not initialized)`}{" "}
-            <br /> <br />
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            function doSomething() {
+              // This function does not return anything, so it implicitly returns undefined
+            }
+            const obj = {};
+            console.log(obj.property); // Output: undefined (property is not initialized)
+            `}
+            />
             <strong>Null</strong> <br />
             <ul>
               <li>
@@ -1419,11 +1421,14 @@ const Lists = () => {
                 It's distinct from undefined, which is the default value for
                 uninitialized variables.
               </li>
-            </ul>{" "}
-            <br />
-            {`let variable = null; // variable is intentionally set to null`}{" "}
-            <br />
-            {`console.log(variable); // Output: null`}
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            let variable = null; // variable is intentionally set to null
+            console.log(variable); // Output: null
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1439,26 +1444,24 @@ const Lists = () => {
           <Typography>
             working with numbers can sometimes lead to unexpected behavior due
             to the way numbers are represented and handled internally
-            <br /> <br />
-            {`console.log(0.1 + 0.2 === 0.3); // Output: false`} <br />
-            {`console.log(0.2+0.4) //0.6000000000000001`} <br />
-            {`console.log((0.2+0.4).toFixed(1)) //"0.6"`} <br />
-            {`console.log(isNaN("wewt")) //true`} <br /> <br />
-            {`Number.isFinite(123);          // true (123 is a finite number)`}{" "}
-            <br />
-            {`Number.isFinite(Infinity);     // false (Infinity is not a finite number)`}{" "}
-            <br />
-            {`Number.isFinite(-Infinity);    // false (-Infinity is not a finite number)`}{" "}
-            <br />
-            {`Number.isFinite(NaN);          // false (NaN is not a finite number)`}{" "}
-            <br />
-            {`Number.isFinite('123');        // false ('123' is a string, not a number)`}{" "}
-            <br />
-            {`Number.isFinite(true);         // false (true is converted to 1, which is a finite number)`}{" "}
-            <br />
-            {`Number.isFinite(null);         // false (null is converted to 0, which is a finite number)`}{" "}
-            <br />
-            {`Number.isFinite(undefined);    // false (undefined is not a number)`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+              console.log(0.1 + 0.2 === 0.3); // Output: false
+              console.log(0.2+0.4) //0.6000000000000001
+              console.log((0.2+0.4).toFixed(1)) //"0.6"
+              console.log(isNaN("wewt")) //true
+
+              Number.isFinite(123);          // true (123 is a finite number)
+              Number.isFinite(Infinity);     // false (Infinity is not a finite number)
+              Number.isFinite(-Infinity);    // false (-Infinity is not a finite number)
+              Number.isFinite(NaN);          // false (NaN is not a finite number)
+              Number.isFinite('123');        // false ('123' is a string, not a number)
+              Number.isFinite(true);         // false (true is converted to 1, which is a finite number)
+              Number.isFinite(null);         // false (null is converted to 0, which is a finite number)
+              Number.isFinite(undefined);    // false (undefined is not a number)
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1482,26 +1485,21 @@ const Lists = () => {
             <br />
             <strong>object:</strong> The object to be tested. constructor: The
             constructor function or class to test against.
-            <br />
-            <br />
-            {`class Animal {}`}
-            <br />
-            <br />
-            {`class Dog extends Animal {}`}
-            <br />
-            <br />
-            {`const animal = new Animal();`}
-            <br />
-            {`const dog = new Dog();`}
-            <br />
-            <br />
-            {`console.log(dog instanceof Dog);     // true`}
-            <br />
-            {`console.log(dog instanceof Animal);  // true (Dog is a subclass of Animal)`}
-            <br />
-            {`console.log(animal instanceof Animal); // true`}
-            <br />
-            {`console.log(animal instanceof Dog); // false (Animal is not a subclass of Dog)`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+              class Animal {}
+
+              class Dog extends Animal {}
+
+              const animal = new Animal();
+              const dog = new Dog();
+              console.log(dog instanceof Dog);     // true
+              console.log(dog instanceof Animal);  // true (Dog is a subclass of Animal)
+              console.log(animal instanceof Animal); // true
+              console.log(animal instanceof Dog); // false (Animal is not a subclass of Dog)
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1519,66 +1517,47 @@ const Lists = () => {
             executed immediately after it is defined. It's often used to create
             a new scope for variables and avoid polluting the global scope, as
             well as to encapsulate code and create modules.
-            <br />
-            <br />
-            {`( function () {`}
-            <br />
-            {`//code here excuse immediately`}
-            <br />
-            {`})()`}
-            <br />
-            <br />
-            {`( function () {`}
-            <br />
-            {`  console.log("test");`}
-            <br />
-            {`})();`}
-            <br />
-            {`//test`}
-            <br />
-            <br />
-            {`const test = (function() {`}
-            <br />
-            {`const init = {`}
-            <br />
-            {`id: 90,`}
-            <br />
-            {` methods: {`}
-            <br />
-            {`call() {`}
-            <br />
-            {`console.log('Call method executed');`}
-            <br />
-            {` }`}
-            <br />
-            {` }`}
-            <br />
-            {`};`}
-            <br />
-            {` return init;`}
-            <br />
-            {`})();`}
-            <br />
-            <br />
-            {`console.log(test);`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+            ( function () {
+              //code here excuse immediately
+            })()
+
+            ( function () {
+              console.log("test");
+            })();
+            //test
+
+            const test = (function() {
+              const init = {
+                id: 90,
+                methods: {
+                  call() {
+                    console.log('Call method executed');
+                  }
+                }
+              };
+             return init;
+             })();
+
+            console.log(test);
+            `}
+            />
             <strong>Output</strong>
-            <br />
-            {`{`}
-            <br />
-            {`  id: 90,`}
-            <br />
-            {`  methods: {`}
-            <br />
-            {`    call: call() {`}
-            <br />
-            {`      console.log('Call method executed');`}
-            <br />
-            {`    }`}
-            <br />
-            {`  }`}
-            <br />
-            {`}`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+            {
+              id: 90,
+              methods: {
+                call: call() {
+                  console.log('Call method executed');
+                }
+              }
+            }
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1609,15 +1588,14 @@ const Lists = () => {
                 recursively converted into JSON strings.
               </li>
             </ul>
-            <br />
-            <br />
-            {`const obj = { name: 'John', age: 30 };`}
-            <br />
-            {`const jsonString = JSON.stringify(obj);`}
-            <br />
-            {`console.log(jsonString); // Output: {"name":"John","age":30}`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+            const obj = { name: 'John', age: 30 };
+            const jsonString = JSON.stringify(obj);
+            console.log(jsonString); // Output: {"name":"John","age":30}
+                `}
+            />
             <strong>JSON.parse():</strong>
             <ul>
               <li>
@@ -1629,13 +1607,14 @@ const Lists = () => {
                 corresponding JavaScript object.{" "}
               </li>
             </ul>
-            <br />
-            <br />
-            {`const jsonString = '{"name":"John","age":30}';`}
-            <br />
-            {`const obj = JSON.parse(jsonString);`}
-            <br />
-            {`console.log(obj); // Output: { name: 'John', age: 30 }`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+            const jsonString = '{"name":"John","age":30}';
+            const obj = JSON.parse(jsonString);
+            console.log(obj); // Output: { name: 'John', age: 30 }
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1653,37 +1632,48 @@ const Lists = () => {
             State refers to the current condition or data of your application at
             any given moment. In JavaScript, you typically maintain state by
             storing data in variables, objects, or data structures. <br />{" "}
-            <br />
-            {`let count = 0;`} <br />
-            {`let user = {`} <br />
-            {`name: 'John Doe',`} <br />
-            {`age: 30,`} <br />
-            {`email: 'john@example.com'`} <br />
-            {`};`} <br /> <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let count = 0;
+                let user = {
+                  name: 'John Doe',
+                  age: 30,
+                  email: 'john@example.com'
+                };
+              `}
+            />
             <strong> Local Storage:</strong> <br />
             Local storage is a feature of web browsers that allows you to store
             data persistently across browser sessions. You can use the
             localStorage object in JavaScript to interact with local storage.{" "}
-            <br /> <br />
-            {`localStorage.setItem('username', 'john');`} <br />
-            {`let username = localStorage.getItem('username');`} <br />
-            {`localStorage.removeItem('username');`} <br />
-            {`localStorage.clear();`} <br /> <br />
-            {`const user = JSON.stringify({`} <br />
-            {`  firsName: "sum",`} <br />
-            {`  lastname: 'test'`} <br />
-            {`})`} <br /> <br />
-            {`localStorage.setItem("user", user);`} <br />
-            {`const firstName = JSON.parse(localStorage.getItem('user'));`}{" "}
-            <br /> <br />
-            {`console.log(firstName)`} <br />
-            {`/*{firsName: "sum",`} <br />
-            {`   lastname: "test"`} <br />
-            {`} */`} <br /> <br />
-            <strong> Limitations:</strong> Local storage has a size limit
-            (usually around 5-10MB) and stores data as strings, so you may need
-            to serialize and deserialize complex data structures when storing
-            and retrieving them.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                localStorage.setItem('username', 'john');
+                let username = localStorage.getItem('username');
+                localStorage.removeItem('username');
+                localStorage.clear();
+
+                const user = JSON.stringify({
+                  firsName: "sum",
+                  lastname: 'test'
+                })
+
+                localStorage.setItem("user", user);
+                const firstName = JSON.parse(localStorage.getItem('user'));
+
+                console.log(firstName)
+                /*{firsName: "sum",
+                  lastname: "test"
+                } */
+              `}
+            />
+            <strong> Limitations:</strong>
+            <br />
+            Local storage has a size limit (usually around 5-10MB) and stores
+            data as strings, so you may need to serialize and deserialize
+            complex data structures when storing and retrieving them.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1697,23 +1687,19 @@ const Lists = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {`if(navigator.geolocation) {`}
-            <br />
-            {`  navigator.geolocation.getCurrentPosition((pos) => {`}
-            <br />
-            {`    console.log("location", pos)`}
-            <br />
-            {`  }, () => {`}
-            <br />
-            {`  console.log("nope");`}
-            <br />
-            {`});`}
-            <br />
-            {`  console.log("location ====");`}
-            <br />
-            {`}`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                if(navigator.geolocation) {
+                  navigator.geolocation.getCurrentPosition((pos) => {
+                    console.log("location", pos)
+                    }, () => {
+                    console.log("nope");
+                  });
+                  console.log("location ====");
+                }
+            `}
+            />
             <strong>Canvas API:</strong> Allows for dynamic rendering of
             graphics, charts, and animations directly in the browser using
             JavaScript.
@@ -1790,69 +1776,49 @@ const Lists = () => {
             Destructuring in JavaScript allows you to extract data from arrays
             and objects into distinct variables, making it easier to work with
             complex data structures.
-            <br />
-            <br />
-            {`const arr = [10, 20, 2024]`}
-            <br />
-            {`console.log(arr); //[10, 20, 2024]`}
-            <br />
-            <br />
-            {`const [month, day, year] = [10, 20, 2024];`}
-            <br />
-            {`console.log(month/day/year); //“10/20/2024"`}
-            <br />
-            <br />
-            {`Using alias`}
-            <br />
-            {`const { firstName : name } = person;`}
-            <br />
-            {`console.log(name); //"test"`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const arr = [10, 20, 2024]
+                console.log(arr); //[10, 20, 2024]
+
+                const [month, day, year] = [10, 20, 2024];
+                console.log(month/day/year); //“10/20/2024"
+
+                Using alias
+                const { firstName : name } = person;
+                console.log(name); //"test"
+              `}
+            />
             <strong>EXAMPLE</strong>
-            <br />
-            {`function displayUser({ name, age, address: { city, country } }) {`}
-            <br />
-            console.log(`Name: {`${`}name{`}`}`);
-            <br />
-            console.log(`Age: {`${`}age}{`}`});
-            <br />
-            console.log(`City: {`${`}city{`}`}`);
-            <br />
-            console.log(`Country: {`${`}country{`}`}`);
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`const user = {`}
-            <br />
-            {`name: 'Jane Smith',`}
-            <br />
-            {`age: 28,`}
-            <br />
-            {`address: {`}
-            <br />
-            {`city: 'Los Angeles',`}
-            <br />
-            {`country: 'USA'`}
-            <br />
-            {` }`}
-            <br />
-            {`};`}
-            <br />
-            <br />
-            {`displayUser(user);`}
-            <br />
-            <br />
-            <strong>Output:</strong>
-            <br />
-            {`Name: Jane Smith`}
-            <br />
-            {`Age: 28`}
-            <br />
-            {`City: Los Angeles`}
-            <br />
-            {`Country: USA`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function displayUser({ name, age, address: { city, country } }) {
+                  console.log(Name: {name});
+                  console.log(Age: {age});
+                  console.log(City: {city});
+                  console.log(Country: {country});
+                }
+
+                const user = {
+                  name: 'Jane Smith',
+                  age: 28,
+                  address: {
+                    city: 'Los Angeles',
+                    country: 'USA'
+                  }
+                };
+
+                displayUser(user);
+
+                //Output:
+                Name: Jane Smith
+                Age: 28
+                City: Los Angeles
+                Country: USA
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1870,31 +1836,23 @@ const Lists = () => {
             <br />
             The rest operator (...) allows you to represent an indefinite number
             of arguments as an array.
-            <br />
-            <br />
-            {`const display = (num) => {`}
-            <br />
-            {`console.log("num", num);`}
-            <br />
-            {`}`}
-            <br />
-            {`display(5) //5`}
-            <br />
-            <br />
-            {`If we pass more then one argument also we get display(5, 6, 7, 8)`}
-            <br />
-            {`//5 But if you do this`}
-            <br />
-            {`const display = (...num) => {`}
-            <br />
-            {`console.log("num", num);`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            display(5, 6, 7, 8) //"num", [5, 6, 7, 8]
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const display = (num) => {
+                  console.log("num", num);
+                }
+                display(5) //5
+
+                If we pass more then one argument also we get display(5, 6, 7, 8)
+                //5 But if you do this
+                const display = (...num) => {
+                  console.log("num", num);
+                }
+
+                display(5, 6, 7, 8) //"num", [5, 6, 7, 8]
+            `}
+            />
             <strong>Spread Operator (...):</strong>
             <br />
             The spread operator (...) allows you to expand an array or object
@@ -1902,29 +1860,22 @@ const Lists = () => {
             <br />
             Convenient for merging arrays, copying arrays and objects, and
             passing multiple arguments to functions.
-            <br />
-            <br />
-            {`const numbers = [1, 2, 3];`}
-            <br />
-            {`console.log(Math.max(...numbers)); // Output: 3 (equivalent to Math.max(1, 2, 3))`}
-            <br />
-            <br />
-            {`const arr1 = [1, 2, 3];`}
-            <br />
-            {`const arr2 = [4, 5, 6];`}
-            <br />
-            {`const mergedArray = [...arr1, ...arr2];`}
-            <br />
-            {`console.log(mergedArray); // Output: [1, 2, 3, 4, 5, 6]`}
-            <br />
-            <br />
-            {`const obj1 = { x: 1, y: 2 };`}
-            <br />
-            {`const obj2 = { ...obj1, z: 3 };`}
-            <br />
-            {`console.log(obj2); // Output: { x: 1, y: 2, z: 3 }`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const numbers = [1, 2, 3];
+                console.log(Math.max(...numbers)); // Output: 3 (equivalent to Math.max(1, 2, 3))
+
+                const arr1 = [1, 2, 3];
+                const arr2 = [4, 5, 6];
+                const mergedArray = [...arr1, ...arr2];
+                console.log(mergedArray); // Output: [1, 2, 3, 4, 5, 6]
+
+                const obj1 = { x: 1, y: 2 };
+                const obj2 = { ...obj1, z: 3 };
+                console.log(obj2); // Output: { x: 1, y: 2, z: 3 }
+              `}
+            />
             <strong>
               spread syntax is the opposite of rest syntax. Spread syntax
               "expands" an array into its elements, while rest syntax collects
@@ -1945,42 +1896,33 @@ const Lists = () => {
           <Typography>
             They provide a more compact syntax compared to traditional function
             expressions and offer some additional features
-            <br />
-            <br />
-            {`function display(num) {`}
-            <br />
-            {`return num + 1;`}
-            <br />
-            {`}`}
-            <br />
-            {`console.log(display(2)) //3`}
-            <br />
-            {`const display2 = num => num + 1`}
-            <br />
-            {`console.log(display2(4)) //5`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function display(num)     }
+                  return num + 1;
+                }
+                console.log(display(2)) //3
+                const display2 = num => num + 1
+                console.log(display2(4)) //5
+              `}
+            />
             Arrow functions do not have their own this context; instead, they
             inherit the this value from the surrounding code.
-            <br />
-            {`function Person() {`}
-            <br />
-            {` this.age = 0;`}
-            <br />
-            <br />
-            {`setInterval(() => {`}
-            <br />
-            {` // this refers to the Person object`}
-            <br />
-            {`this.age++;`}
-            <br />
-            {`console.log(this.age);`}
-            <br />
-            {`}, 1000);`}
-            <br />
-            {`}`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function Person() {
+                 this.age = 0;
+
+                  setInterval(() => {
+                    // this refers to the Person object
+                    this.age++;
+                    console.log(this.age);
+                  }, 1000);
+                }
+              `}
+            />
             const person = new Person();
           </Typography>
         </AccordionDetails>
@@ -1998,29 +1940,32 @@ const Lists = () => {
             NaN stands for "Not-a-Number" in JavaScript. It is a special value
             of the Number type that represents the result of an operation that
             cannot produce a meaningful numerical result.
-            <br />
-            <br />
-            {`const result = 'hello' / 5;`}
-            <br />
-            {`console.log(result); // Output: NaN`}
-            <br />
-            {`const result = parseInt('hello');`}
-            <br />
-            {`console.log(result); // Output: NaN`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const result = 'hello' / 5;
+                console.log(result); // Output: NaN
+                const result = parseInt('hello');
+                console.log(result); // Output: NaN
+              `}
+            />
             It's important to note that NaN is considered a numeric value but is
             not equal to any other value, including itself:
-            <br />
-            {`console.log(NaN === NaN); // Output: false`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                console.log(NaN === NaN); // Output: false
+              `}
+            />
             you should use the isNaN() function or the Number.isNaN() method
             introduced in ES6:
-            <br />
-            {`console.log(isNaN(NaN));        // Output: true`}
-            <br />
-            {`console.log(Number.isNaN(NaN)); // Output: true`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                console.log(isNaN(NaN));        // Output: true
+                console.log(Number.isNaN(NaN)); // Output: true
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -2038,20 +1983,25 @@ const Lists = () => {
             <br />
             An undeclared variable is a variable that has been referenced in
             code without being declared
-            <br />
-            {`console.log(foo); // ReferenceError: foo is not defined`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                console.log(foo); // ReferenceError: foo is not defined
+              `}
+            />
             <strong>Undefined</strong>
             <br />
             Undefined is a special value in JavaScript that indicates the
             absence of a value. It is also the default value of uninitialized
             variables and the value returned by functions that do not explicitly
             return a value
-            <br />
-            {`let bar;`}
-            <br />
-            {`console.log(bar); // Output: undefined`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let bar;
+                console.log(bar); // Output: undefined
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -2068,21 +2018,23 @@ const Lists = () => {
             DOM (Document Object Model) selectors are used to interact with HTML
             elements in a web page. They allow you to retrieve and manipulate
             elements dynamically.
-            <br />
-            <br />
-            {`const element = document.getElementById('myElement');`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const element = document.getElementById('myElement');
+              `}
+            />
             getElementsByClassName, getElementsByTagName
-            <br />
-            {`const element = document.querySelector('.myClass'); //Selects the first element that matches a specified CSS selector.`}
-            <br />
-            {`const elements = document.querySelectorAll('div.myClass');`}
-            <br />
-            {`getElementById() Shortcut -> const element = document.myElement;`}
-            <br />
-            {`matches() method: checks if an element matches a specified CSS selector. Returns a boolean`}
-            <br />
-            {`const matches = element.matches('.myClass');`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const element = document.querySelector('.myClass'); //Selects the first element that matches a specified CSS selector.
+                const elements = document.querySelectorAll('div.myClass');
+                getElementById() Shortcut -> const element = document.myElement;
+                matches() method: checks if an element matches a specified CSS selector. Returns a boolean
+                const matches = element.matches('.myClass'
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -2101,50 +2053,46 @@ const Lists = () => {
             The Object.assign() method is used to copy the values of all
             enumerable own properties from one or more source objects to a
             target object. It returns the target object.
-            <br />
-            <br />
-            {`const obj1 = { a: 1, b: 2 };`}
-            <br />
-            {`const obj2 = Object.assign({}, obj1);`}
-            <br />
-            {`console.log(obj2); //{ a: 1, b: 2 }`}
-            <br />
-            <br />
-            {`const obj2 = Object.assign(obj1)`}
-            <br />
-            {`console.log(obj2); //{ a: 1, b: 2 }`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const obj1 = { a: 1, b: 2 };
+                const obj2 = Object.assign({}, obj1);
+                console.log(obj2); //{ a: 1, b: 2 }
+
+                const obj2 = Object.assign(obj1)
+                console.log(obj2); //{ a: 1, b: 2 }
+              `}
+            />
             <strong>2. Spread Operator (...):</strong>
             <br />
             The spread operator (...) can also be used to create a shallow copy
             of an object. It spreads the properties of the source object into a
             new object.
-            <br />
-            {`const obj1 = { a: 1, b: 2 };`}
-            <br />
-            {`const obj2 = { ...obj1 }; //{ a: 1, b: 2 }`}
-            <br />
-            <br />
-            {`const obj1 ={a: 1, b: 2, c: {d:4, e:{f:5, g:{h:6, i:7}}}}`}
-            <br />
-            <br />
-            {`const obj2 = {...obj1}`}
-            <br />
-            {`console.log(obj2); //{ a: 1, b: 2, c: { d: 4, e: { f: 5, g: [Object] } } }`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const obj1 = { a: 1, b: 2 };
+                const obj2 = { ...obj1 }; //{ a: 1, b: 2 }
+
+                const obj1 ={a: 1, b: 2, c: {d:4, e:{f:5, g:{h:6, i:7}}}}
+
+                const obj2 = {...obj1}
+                console.log(obj2); //{ a: 1, b: 2, c: { d: 4, e: { f: 5, g: [Object] } } }
+              `}
+            />
             <strong>3.JSON.parse() and JSON.stringify():</strong>
             <br />
             You can convert the object to a JSON string using JSON.stringify(),
             and then parse the JSON string back into an object using
             JSON.parse(). This creates a deep copy of the object.
-            <br />
-            {`const obj1 = { a: 1, b: 2 };`}
-            <br />
-            {`const obj2 = JSON.parse(JSON.stringify(obj1));`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const obj1 = { a: 1, b: 2 };
+                const obj2 = JSON.parse(JSON.stringify(obj1));
+              `}
+            />
             <strong>Shallow vs Deep Copy:</strong>
             <br />
             Object.assign() and the spread operator create shallow copies,
@@ -2377,7 +2325,7 @@ const Lists = () => {
             by three factors:
             <ul>
               <li>Enumerable or non-enumerable</li>
-              <li>String or symbol</li>
+              <li>String or symbol</li>
               <li>
                 Own property or inherited property from the prototype chain
               </li>
@@ -2400,61 +2348,47 @@ const Lists = () => {
             An enumerable property is one that will be iterated over by methods
             such as for...in loops and Object.keys(). By default, properties
             defined directly on an object are enumerable.
-            <br />
-            {`const obj = { a: 1, b: 2 };`}
-            <br />
-            {`for (const key in obj) {`}
-            <br />
-            {`console.log(key); // Output: 'a', 'b'`}
-            <br />
-            {`}}`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const obj = { a: 1, b: 2 };
+                for (const key in obj) {
+                  console.log(key); // Output: 'a', 'b'
+                }
+              `}
+            />
             <strong>Non-enumerable Properties</strong>
             <br />
             A non-enumerable property is one that will not be iterated over by
             for...in loops and will not appear in the result of Object.keys().
             Non-enumerable properties are typically created using
             Object.defineProperty() with the enumerable attribute set to false.
-            <br />
-            {`const obj = {};`}
-            <br />
-            {`// Define properties with different enumerability`}
-            <br />
-            {`Object.defineProperty(obj, 'a', { value: 1, enumerable: true });`}
-            <br />
-            {`Object.defineProperty(obj, 'b', { value: 2, enumerable: false });`}
-            <br />
-            {`Object.defineProperty(obj, 'c', { value: 3, enumerable: true });`}
-            <br />
-            <br />
-            {`// Iterate over the properties using for...in loop`}
-            <br />
-            {`console.log('Enumerating properties using for...in loop:');`}
-            <br />
-            {`for (const key in obj) {`}
-            <br />
-            {`console.log(key); // Output: 'a', 'c' (b is non-enumerable and not iterated over)`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`// Retrieve keys using Object.keys()`}
-            <br />
-            {`console.log('\nRetrieving keys using Object.keys():');`}
-            <br />
-            {`console.log(Object.keys(obj)); // Output: ['a', 'c'] (b is non-enumerable and not included)`}
-            <br />
-            <br />
-            {`// Check if a property is enumerable`}
-            <br />
-            {`console.log('\nCheck if properties are enumerable:');`}
-            <br />
-            {`console.log(Object.getOwnPropertyDescriptor(obj, 'a').enumerable); // Output: true`}
-            <br />
-            {`console.log(Object.getOwnPropertyDescriptor(obj, 'b').enumerable); // Output: false`}
-            <br />
-            {`console.log(Object.getOwnPropertyDescriptor(obj, 'c').enumerable); // Output: true`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const obj = {};
+                // Define properties with different enumerability
+                Object.defineProperty(obj, 'a', { value: 1, enumerable: true });
+                Object.defineProperty(obj, 'b', { value: 2, enumerable: false });
+                Object.defineProperty(obj, 'c', { value: 3, enumerable: true });
+
+                // Iterate over the properties using for...in loop
+                console.log('Enumerating properties using for...in loop:');
+                for (const key in obj) {
+                  console.log(key); // Output: 'a', 'c' (b is non-enumerable and not iterated over)
+                }
+
+                // Retrieve keys using Object.keys()
+                console.log('Retrieving keys using Object.keys():');
+                console.log(Object.keys(obj)); // Output: ['a', 'c'] (b is non-enumerable and not included)
+
+                // Check if a property is enumerable
+                console.log('Check if properties are enumerable:');
+                console.log(Object.getOwnPropertyDescriptor(obj, 'a').enumerable); // Output: true
+                console.log(Object.getOwnPropertyDescriptor(obj, 'b').enumerable); // Output: false
+                console.log(Object.getOwnPropertyDescriptor(obj, 'c').enumerable); // Output: true
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -2471,47 +2405,34 @@ const Lists = () => {
             {`=== will be false because object uses reference.   => Shallow Equality Check:`}
             <br />
             {`We can do JSON.stringfy       => Deep Equality Check (Using JSON.stringify()):`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`Example:
+                const user1 = {
+                  fn: "t1",
+                  lan: "t2"
+                };
 
-            {`Example:`}
-            <br />
-            {`const user1 = {`}
-            <br />
-            {`fn: "t1",`}
-            <br />
-            {`lan: "t2"`}
-            <br />
-            {`};`}
-            <br />
-            <br />
+                const user2 = {
+                  fn: "t1",
+                  lan: "t2"
+                };
 
-            {`const user2 = {`}
-            <br />
-            {`fn: "t1",`}
-            <br />
-            {`lan: "t2"`}
-            <br />
-            {`};`}
-            <br />
-            <br />
-
-            {`console.log(user1 === user2) //false`}
-            <br />
-            {`console.log(JSON.stringify(user1) === JSON.stringify(user2))`}
-            <br />
-            {`//true if you change user2{ lan:”t2, fn:”t1”} this will be false`}
-            <br />
-            <br />
+                console.log(user1 === user2) //false
+                console.log(JSON.stringify(user1) === JSON.stringify(user2))
+                //true if you change user2{ lan:”t2, fn:”t1”} this will be false
+              `}
+            />
             <strong>Deep Equality Check using ladash:</strong>
-            <br />
-            {`const _ = require('lodash');`}
-            <br />
-            {`const obj1 = { a: 1, b: { c: 2 } };`}
-            <br />
-            {`const obj2 = { a: 1, b: { c: 3 } };`}
-            <br />
-            {`console.log(_.isEqual(obj1) === _.isEqual(obj2));`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const _ = require('lodash');
+                const obj1 = { a: 1, b: { c: 2 } };
+                const obj2 = { a: 1, b: { c: 3 } };
+                console.log(_.isEqual(obj1) === _.isEqual(obj2));
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -2552,33 +2473,25 @@ const Lists = () => {
         <AccordionDetails>
           <Typography>
             We can do it different methods like set, filter, reduce and includes
-            <br />
-            <br />
-            {`const arr = [1, 1,2, 3, 3, 3];`}
-            <br />
-            {`const newSet = [... new Set(arr)];`}
-            <br />
-            {`console.log('arr', newSet); //arr [ 1, 2, 3 ]`}
-            <br />
-            <br />
-            {`const newset1 = arr.filter((value, index, array) => array.indexOf(value)=== index)`}
-            <br />
-            {`console.log('arr', newset1); // arr [ 1, 2, 3 ]`}
-            <br />
-            <br />
-            {`Eg: const newSet = [];`}
-            <br />
-            {`arr.forEach((item) => {`}
-            <br />
-            {`if(!newSet.includes(item)){`}
-            <br />
-            {`newSet.push(item);`}
-            <br />
-            {`}`}
-            <br />
-            {`})`}
-            <br />
-            {`console.log("newSet", newSet) //newSet [ 1, 2, 3 ]`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const arr = [1, 1,2, 3, 3, 3];
+                const newSet = [... new Set(arr)];
+                console.log('arr', newSet); //arr [ 1, 2, 3 ]
+
+                const newset1 = arr.filter((value, index, array) => array.indexOf(value)=== index)
+                console.log('arr', newset1); // arr [ 1, 2, 3 ]
+
+                Eg: const newSet = [];
+                arr.forEach((item) => {
+                  if(!newSet.includes(item)){
+                    newSet.push(item);
+                  }
+                })
+                console.log("newSet", newSet) //newSet [ 1, 2, 3 ]
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -2623,16 +2536,16 @@ const Lists = () => {
                 requests.
               </li>
             </ul>
-            {`Eg: OPTIONS /example HTTP/1.1`}
-            <br />
-            {`Host: example.com`}
-            <br />
-            <br />
-            {`HTTP/1.1 200 OK`}
-            <br />
-            {`Allow: GET, POST, OPTIONS`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                Eg: OPTIONS /example HTTP/1.1
+                Host: example.com
+
+                HTTP/1.1 200 OK
+                Allow: GET, POST, OPTIONS
+              `}
+            />
             <strong>HEAD:</strong>
             <br />
             <ul>
@@ -2874,9 +2787,14 @@ const Lists = () => {
                 operations, and more.
               </li>
             </ul>
-            {`Eg: console.log("Statement 1"); setTimeout(() =>`}
-            <br />
-            {`console.log("Statement 2"), 1000); console.log("Statement 3");`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                Eg: console.log("Statement 1");
+                setTimeout(() => console.log("Statement 2"), 1000);
+                console.log("Statement 3");
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -2905,8 +2823,12 @@ const Lists = () => {
                 (in milliseconds).
               </li>
             </ul>
-            {`setTimeout(() => console.log("Statement 2"), 1000);`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                setTimeout(() => console.log("Statement 2"), 1000);
+              `}
+            />
             <br />
             <strong>setInterval:</strong>
             <ul>
@@ -2917,24 +2839,20 @@ const Lists = () => {
                 snippet to execute and the interval (in milliseconds).
               </li>
             </ul>
-            {`const intervalId = setInterval(() => {`}
-            <br />
-            {`console.log('Repeated message');`}
-            <br />
-            {`}, 1000); // Execute every 1 second`}
-            <br />
-            <br />
-            {`// To stop the interval after some time`}
-            <br />
-            {`setTimeout(() => {`}
-            <br />
-            {`clearInterval(intervalId);`}
-            <br />
-            {`console.log('Interval stopped');`}
-            <br />
-            {`}, 5000);`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const intervalId = setInterval(() => {
+                  console.log('Repeated message');
+                }, 1000); // Execute every 1 second
+
+                // To stop the interval after some time
+                setTimeout(() => {
+                  clearInterval(intervalId);
+                  console.log('Interval stopped');
+                }, 5000);
+              `}
+            />
             <strong>clearTimeout/clearInterval:</strong>
             <ul>
               <li>
@@ -2977,29 +2895,22 @@ const Lists = () => {
                 successful, or reject(reason) if it fails.
               </li>
             </ul>
-            {`const myPromise = new Promise((resolve, reject) => {`}
-            <br />
-            {` // Perform an asynchronous operation`}
-            <br />
-            {`setTimeout(() => {`}
-            <br />
-            {`const result = Math.random();`}
-            <br />
-            {`if (result > 0.5) {`}
-            <br />
-            {`resolve(result); // Operation succeeded`}
-            <br />
-            {`} else {`}
-            <br />
-            {`reject(new Error('Operation failed')); // Operation failed`}
-            <br />
-            {`}`}
-            <br />
-            {`}, 1000);`}
-            <br />
-            {`});`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const myPromise = new Promise((resolve, reject) => {
+                  // Perform an asynchronous operation
+                  setTimeout(() => {
+                    const result = Math.random();
+                    if (result > 0.5) {
+                      resolve(result); // Operation succeeded
+                    } else {
+                      reject(new Error('Operation failed')); // Operation failed
+                    }
+                  }, 1000);
+                });
+              `}
+            />
             <strong>Consuming a Promise:</strong>
             <ul>
               <li>
@@ -3013,17 +2924,16 @@ const Lists = () => {
                 handle errors (i.e., when reject is called).
               </li>
             </ul>
-            {`myPromise.then((value) => {`}
-            <br />
-            {`console.log('Promise resolved with value:', value);`}
-            <br />
-            {`}).catch((error) => {`}
-            <br />
-            {`console.error('Promise rejected with error:', error);`}
-            <br />
-            {`});`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                myPromise.then((value) => {
+                  console.log('Promise resolved with value:', value);
+                }).catch((error) => {
+                  console.error('Promise rejected with error:', error);
+                });
+              `}
+            />
             <strong>Chaining Promises:</strong>
             <ul>
               <li>
@@ -3036,25 +2946,25 @@ const Lists = () => {
                 perform additional asynchronous operations.
               </li>
             </ul>
-            {`myPromise.then((value) => {`}
-            <br />
-            {`console.log('First promise resolved with value:', value);`}
-            <br />
-            {`return anotherAsyncOperation(); // Return a new promise`}
-            <br />
-            {`}).then((result) => {`}
-            <br />
-            {`console.log('Second promise resolved with result:', result);`}
-            <br />
-            {`}).catch((error) => {`}
-            <br />
-            {`console.error('Promise chain rejected with error:', error);`}
-            <br />
-            {`});`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                myPromise.then((value) => {
+                  console.log('First promise resolved with value:', value);
+                  return anotherAsyncOperation(); // Return a new promise
+                }).then((result) => {
+                  console.log('Second promise resolved with result:', result);
+                }).catch((error) => {
+                  console.error('Promise chain rejected with error:', error);
+                });
+              `}
+            />
             <strong>
-              <a href="https://en.wikipedia.org/wiki/Concurrent_computing">
+              <a
+                href="https://en.wikipedia.org/wiki/Concurrent_computing"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Promise concurrency:
               </a>
             </strong>
@@ -3063,7 +2973,11 @@ const Lists = () => {
             task concurrency
             <br />
             <strong>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Promise.all():
               </a>
             </strong>
@@ -3072,7 +2986,11 @@ const Lists = () => {
             promises rejects.
             <br />
             <strong>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled">
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Promise.allSettled():
               </a>
             </strong>
@@ -3080,7 +2998,11 @@ const Lists = () => {
             Fulfills when all promises settle.
             <br />
             <strong>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any">
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Promise.any():
               </a>
             </strong>
@@ -3089,7 +3011,11 @@ const Lists = () => {
             promises reject.
             <br />
             <strong>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race">
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Promise.race():
               </a>
             </strong>
@@ -3119,26 +3045,23 @@ const Lists = () => {
             It return Boolean value
             <br />
             <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
             Eg:
-            <br />
-            let arr1 =[3, 5, 6, 9];
-            <br />
-            {`console.log(arr1.every(ele => ele > 2)) //true`}
-            <br />
-            {`console.log(arr1.every(ele => ele > 10)) //false`}
-            <br />
-            <br />
+                let arr1 =[3, 5, 6, 9];
+                console.log(arr1.every(ele => ele > 2)) //true
+                console.log(arr1.every(ele => ele > 10)) //false
+
             Eg:
-            <br />
-            {`Str = ‘appa’`}
-            <br />
-            {`let test = str.split('').every((char, i) => {`}
-            <br />
-            {`return char === str[str.length -1 -i]`}
-            <br />
-            {`});`}
-            <br />
-            console.log('Test', test) //true
+                Str = ‘appa’
+                let test = str.split('').every((char, i) => {
+                  return char === str[str.length -1 -i]
+                });
+
+                console.log('Test', test) //true
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -3152,11 +3075,15 @@ const Lists = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            let arr = [2, 4, ,6 ,7];
-            <br />
-            {`let len = arr.reduce(acc => acc + 1, 0);`}
-            <br />
-            console.log(len) //4
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let arr = [2, 4, ,6 ,7];
+                let len = arr.reduce(acc => acc + 1, 0);
+
+                console.log(len) //4
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -3174,49 +3101,37 @@ const Lists = () => {
             it look more synchronous and easier to read.
             <br />
             <br />
-            {`// Longhand`}
-            <br />
-            {`function fetchData() {`}
-            <br />
-            &nbsp;{`return fetch('https://api.example.com/data')`}
-            <br />
-            &nbsp;&nbsp;{`.then((response) => response.json())`}
-            <br />
-            &nbsp;&nbsp;&nbsp;{`.then((data) => {`}
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;{`console.log(data);`}
-            <br />
-            &nbsp;&nbsp;&nbsp;{`})`}
-            <br />
-            &nbsp;&nbsp;{`.catch((error) => {`}
-            <br />
-            &nbsp;{` console.error(error);`}
-            <br />
-            &nbsp;{`});`}
-            <br />
-            &nbsp; {`}`}
-            <br />
-            <br />
-            {`// Shorthand`}
-            <br />
-            {`async function fetchData() {`}
-            <br />
-            &nbsp;{`try {`}
-            <br />
-            &nbsp;&nbsp;
-            {`const response = await fetch('https://api.example.com/data');`}
-            <br />
-            &nbsp;&nbsp;&nbsp;{`const data = await response.json();`}
-            <br />
-            &nbsp;&nbsp;&nbsp;{`console.log(data);`}
-            <br />
-            &nbsp;&nbsp;&nbsp;{`} catch (error) {`}
-            <br />
-            &nbsp;&nbsp;{`console.error(error);`}
-            <br />
-            &nbsp;{`}`}
-            <br />
-            {`}`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+              // Longhand
+                function fetchData() {
+                  return fetch('https://api.example.com/data')
+                  .then((response) => response.json())
+                  .then((data) => {
+                    console.log(data);
+                  })
+                  .catch((error) => {
+                    console.error(error);
+                  });
+                }
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+              // Shorthand
+                async function fetchData() {
+                  try {
+                    const response = await fetch('https://api.example.com/data');
+                    const data = await response.json();
+                    console.log(data);
+                  } catch (error) {
+                    console.error(error);
+                  }
+                }
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -3317,20 +3232,26 @@ const Lists = () => {
                   It represents a series of characters and is written with
                   quotes. A string can be represented using a single or a double
                   quote.
-                  <br />
-                  {`var str = "Vivek Singh Bisht"; //using double quotes`}
-                  <br />
-                  {`var str2 = 'John Doe'; //using single quotes`}
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      var str = "Vivek Singh Bisht"; //using double quotes
+                      var str2 = 'John Doe'; //using single quotes
+                    `}
+                  />
                 </li>
                 <li>
                   <strong>Number</strong>
                   <br />
                   It represents a number and can be written with or without
                   decimals.
-                  <br />
-                  {`var x = 3; //without decimal`}
-                  <br />
-                  {`var y = 3.6; //with decimal`}
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      var x = 3; //without decimal
+                      var y = 3.6; //with decimal
+                    `}
+                  />
                 </li>
                 <li>
                   <strong>BigInt</strong>
@@ -3339,8 +3260,12 @@ const Lists = () => {
                   limitation of the Number data type. It can store large
                   integers and is represented by adding “n” to an integer
                   literal.
-                  <br />
-                  {`var bigInteger =  234567890123456789012345678901234567890;`}
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      var bigInteger =  234567890123456789012345678901234567890;
+                    `}
+                  />
                 </li>
                 <li>
                   <strong>Boolean</strong>
@@ -3348,60 +3273,64 @@ const Lists = () => {
                   It represents a logical entity and can have only two values :
                   true or false. Booleans are generally used for conditional
                   testing.
-                  <br />
-                  {`var a = 2;`}
-                  <br />
-                  {`var b =  3;`}
-                  <br />
-                  {`var c =  2;`}
-                  <br />
-                  {`(a == b) // returns false`}
-                  <br />
-                  {`(a == c) //returns true`}
-                  <br />
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      var a = 2;
+                      var b =  3;
+                      var c =  2;
+                      (a == b) // returns false
+                      (a == c) //returns true
+                    `}
+                  />
                 </li>
                 <li>
                   <strong>Undefined</strong>
                   <br /> When a variable is declared but not assigned, it has
-                  the value of undefined and it’s type is also undefined.
-                  <br />
-                  {`var x; // value of x is undefined`}
-                  <br />
-                  {`var y = undefined; // we can also set the value of a variable as undefined`}
-                  <br />
+                  the value of undefined and it's type is also undefined.
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      var x; // value of x is undefined
+                      var y = undefined; // we can also set the value of a variable as undefined
+                    `}
+                  />
                 </li>
                 <li>
                   <strong>Null</strong>
                   <br /> It represents a non-existent or a invalid value.
-                  <br />
-                  {`var z = null;`}
-                  <br />
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      var z = null;
+                    `}
+                  />
                 </li>
                 <li>
                   <strong>Symbol</strong> <br />
                   It is a new data type introduced in the ES6 version of
                   javascript. It is used to store an anonymous and unique value.
-                  <br />
-                  {` var symbol1 = Symbol('symbol');`}
-                  <br />
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      var symbol1 = Symbol('symbol');
+                    `}
+                  />
                 </li>
                 <li>
                   <strong>typeof of primitive types :</strong>
-                  <br />
-                  {`typeof "John Doe" // Returns "string"`}
-                  <br />
-                  {`typeof 3.14 // Returns "number"`}
-                  <br />
-                  {`typeof true // Returns "boolean"`}
-                  <br />
-                  {`typeof 234567890123456789012345678901234567890n // Returns bigint`}
-                  <br />
-                  {`typeof undefined // Returns "undefined"`}
-                  <br />
-                  {`typeof null // Returns "object" (kind of a bug in JavaScript)`}
-                  <br />
-                  {`typeof Symbol('symbol') // Returns Symbol`}
-                  <br />
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      typeof "John Doe" // Returns "string"
+                      typeof 3.14 // Returns "number"
+                      typeof true // Returns "boolean"
+                      typeof 234567890123456789012345678901234567890n // Returns bigint
+                      typeof undefined // Returns "undefined"
+                      typeof null // Returns "object" (kind of a bug in JavaScript)
+                      typeof Symbol('symbol') // Returns Symbol
+                    `}
+                  />
                 </li>
               </ul>
               <li>Non-primitive types</li>
@@ -3412,15 +3341,20 @@ const Lists = () => {
                   used.
                 </li>
                 <li>Object - Used to store collection of data.</li>
-                {`var obj1 = {`}
-                {`x:  43,`}
-                {`y:  "Hello world!",`}
-                {`z: function(){`}
-                {`return this.x;`}
-                {`}`}
-                {`}`}
-                {`// Collection of data as an ordered list`}
-                {`var array1 = [5, "Hello", true, 4.1];`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                      var obj1 = {
+                        x:  43,
+                        y:  "Hello world!",
+                        z: function(){
+                          return this.x;
+                        }
+                      }
+                      // Collection of data as an ordered list
+                      var array1 = [5, "Hello", true, 4.1];
+                  `}
+                />
               </ul>
             </ol>
           </Typography>
@@ -3443,81 +3377,96 @@ const Lists = () => {
               <li>
                 <strong>Arrow Functions:</strong> Syntax for shorter function
                 definitions and lexical scoping for this.
-                <br /> eg: <br />
-                {`const add = (a, b) => a + b;`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    eg:
+                    const add = (a, b) => a + b;
+                  `}
+                />
               </li>
               <li>
                 <strong>Classes:</strong>A more concise and object-oriented way
-                to create classes and inheritance. <br />
-                Eg:
-                <br />
-                {`class Animal {`}
-                <br />
-                {`constructor(name) {`}
-                <br />
-                {`this.name = name;`}
-                <br />
-                {`}`}
-                <br />
-                {`speak() {`}
-                <br />
-                {` console.log($'{this.name} makes a sound.');`}
-                {` }`}
-                <br />
-                {`}`}
+                to create classes and inheritance.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                  Eg:
+                    class Animal {
+                      constructor(name) {
+                        this.name = name;
+                      }
+                      speak() {
+                        console.log($'{this.name} makes a sound.');
+                      }
+                    }
+                  `}
+                />
               </li>
               <li>
                 <strong>Modules:</strong>
                 <br />
                 Standardized the use of import/export for modular code.
-                <br />
-                {` // module.js`}
-                <br />
-                {`export const add = (a, b) => a + b;`}
-                <br />
-                <br />
-                {`// main.js`}
-                <br />
-                {`import { add } from './module';`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    // module.js
+                    export const add = (a, b) => a + b;
+
+                    // main.js
+                    import { add } from './module';
+                  `}
+                />
               </li>
               <li>
                 <strong>Template Literals:</strong>
                 <br />
                 Enhanced string literals that allow for embedded expressions.
-                <br />
-                {`const name = 'World';`}
-                <br />
-                {`console.log('Hello,$ {name}!');`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const name = 'World';
+                    console.log('Hello,$ {name}!');
+                  `}
+                />
               </li>
               <li>
                 <strong>Let and Const:</strong>
                 <br />
                 Block-scoped variable declarations, providing better scoping
                 rules than var.
-                <br />
-                {`let x = 10;`}
-                <br />
-                {`const y = 20;`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    let x = 10;
+                    const y = 20;
+                  `}
+                />
               </li>
               <li>
                 <strong>Destructuring Assignment:</strong>
                 <br />A syntax for unpacking values from arrays or properties
                 from objects.
-                <br />
-                {`const [a, b] = [1, 2];`}
-                <br />
-                {`const { name, age } = { name: 'Alice', age: 25 };`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const [a, b] = [1, 2];
+                    const {name, age} = {name: 'Alice', age: 25 };
+                `}
+                />
               </li>
               <li>
                 <strong>Default Parameters:</strong>
                 <br />
                 Allows function parameters to have default values.
-                <br />
-                {`function greet(name = 'Guest') {`}
-                <br />
-                {`console.log('Hello,$ {name}');`}
-                <br />
-                {`}`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    function greet(name = 'Guest') {
+                      console.log('Hello,$ {name}');
+                    }
+                  `}
+                />
               </li>
               <li>
                 <strong>Rest and Spread Operators:</strong>
@@ -3525,47 +3474,47 @@ const Lists = () => {
                 Spread (...) allows an iterable to expand in places where
                 multiple arguments or elements are expected. Rest (...) gathers
                 elements into an array.
-                <br />
-                {`const arr = [1, 2, 3];`}
-                <br />
-                {`const newArr = [...arr, 4, 5];`}
-                <br />
-                <br />
-                {`function sum(...args) {`}
-                <br />
-                {`return args.reduce((acc, val) => acc + val, 0);`}
-                <br />
-                {`}`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const arr = [1, 2, 3];
+                    const newArr = [...arr, 4, 5];
+
+                    function sum(...args) {
+                      return args.reduce((acc, val) => acc + val, 0);
+                    }
+                  `}
+                />
               </li>
               <li>
                 <strong>Promises:</strong>
                 <br />A native way to handle asynchronous operations.
-                <br />
-                {`const fetchData = () => {`}
-                <br />
-                {`return new Promise((resolve, reject) => {`}
-                <br />
-                {`setTimeout(() => resolve('Data loaded'), 1000);`}
-                <br />
-                {`});`}
-                <br />
-                {`};`}
-                <br />
-                <br />
-                {`fetchData().then(data => console.log(data));`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const fetchData = () => {
+                      return new Promise((resolve, reject) => {
+                        setTimeout(() => resolve('Data loaded'), 1000);
+                      });
+                    };
+
+                    fetchData().then(data => console.log(data));
+                  `}
+                />
               </li>
               <li>
                 <strong>Symbols:</strong>
                 <br />A new primitive type that is unique and immutable, often
                 used to create unique property keys.
-                <br />
-                {`const uniqueKey = Symbol('unique');`}
-                <br />
-                {`const obj = {`}
-                <br />
-                {`[uniqueKey]: 'value'`}
-                <br />
-                {`};`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const uniqueKey = Symbol('unique');
+                    const obj = {
+                      [uniqueKey]: 'value'
+                    };
+                  `}
+                />
               </li>
             </ul>
             <strong> Summary of Key Differences</strong>
