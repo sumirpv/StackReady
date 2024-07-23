@@ -888,38 +888,31 @@ const Lists = () => {
             In JavaScript, an anonymous function is a function that is defined
             without a name. Instead of being assigned to a variable or a
             property of an object, it's defined directly where it's needed.
-            <br />
-            <br />
-            {`// Anonymous function expression`}
-            <br />
-            {`const add = function(a, b) {`}
-            <br />
-            {`return a + b;`}
-            <br />
-            {`};`}
-            <br />
-            <br />
-            {`// Using the anonymous function`}
-            <br />
-            {`console.log(add(2, 3)); // Output: 5`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                // Anonymous function expression
+                const add = function(a, b) {
+                return a + b;
+                };
+                // Using the anonymous function
+                console.log(add(2, 3)); // Output: 5
+                `}
+            />
             Anonymous functions are commonly used as arguments to other
             functions, such as in event handlers or array methods like map,
             filter, and reduce.
-            <br />
-            {`const numbers = [1, 2, 3, 4, 5];`}
-            <br />
-            <br />
-            {`// Using an anonymous function with map`}
-            <br />
-            {`const doubled = numbers.map(function(num) {`}
-            <br />
-            {`return num * 2;`}
-            <br />
-            {`});`}
-            <br />
-            {`console.log(doubled); // Output: [2, 4, 6, 8, 10]`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+              const numbers = [1, 2, 3, 4, 5];
+              // Using an anonymous function with map
+              const doubled = numbers.map(function(num) {
+              return num * 2;
+              });
+              console.log(doubled); // Output: [2, 4, 6, 8, 10]
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -939,43 +932,34 @@ const Lists = () => {
             programming, event handling, and functional programming patterns.
             <br />
             <br />
-            {`const firstFun= (num, callback) => {`}
-            <br />
-            {`console.log("item", num);`}
-            <br />
-            {`callback();`}
-            <br />
-            {`};`}
-            <br />
-            <br />
-            {`const bye = () => {`}
-            <br />
-            {`console.log("bye")`}
-            <br />
-            {`};`}
-            <br />
-            <br />
-            {`firstFun(5, bye); // “item”, 5             “bye”`}
-            <br />
-            <br />
-            {`Mostly we use in map filter etc..`}
-            <br />
-            {`const num = [1, 2, 3, 5];`}
-            <br />
-            {`const num2 = num.map((item) => item + 1);  => this callback function`}
-            <br />
-            {`console.log(num2) //[2, 3, 4, 6]`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+              const firstFun= (num, callback) => {
+                console.log("item", num);
+                callback();
+              };
+              const bye = () => {
+                console.log("bye")
+              };
+              firstFun(5, bye); // “item”, 5             “bye”
+
+              //Mostly we use in map filter etc..
+                const num = [1, 2, 3, 5];
+                const num2 = num.map((item) => item + 1);  => this callback function
+                console.log(num2) //[2, 3, 4, 6]
+              `}
+            />
             <strong>Other way</strong>
-            <br />
-            {`const call = (item) => {`}
-            <br />
-            {`return item + 1;`}
-            <br />
-            {`}`}
-            <br />
-            {`const num2 = num.map(call);`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+              const call = (item) => {
+                return item + 1;
+              }
+              const num2 = num.map(call);
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -994,26 +978,20 @@ const Lists = () => {
             environment). In other words, a closure gives you access to an outer
             function's scope from an inner function closures are created every
             time a function is created, at function creation time.
-            <br />
-            <br />
-            {`function init() {`}
-            <br />
-            {`var name = "Mozilla"; // name is a local variable created by init`}
-            <br />
-            {`function displayName() {`}
-            <br />
-            {`// displayName() is the inner function, that forms the closure`}
-            <br />
-            {`console.log(name); // use variable declared in the parent function`}
-            <br />
-            {`}`}
-            <br />
-            {`displayName();`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`init(); //"Mozilla"`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+            function init() {
+              var name = "Mozilla"; // name is a local variable created by init
+              function displayName() {
+              // displayName() is the inner function, that forms the closure
+              console.log(name); // use variable declared in the parent function
+              }
+              displayName();
+            }
+            init(); //"Mozilla"
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1074,23 +1052,20 @@ const Lists = () => {
             For...of when you need to iterate over values of an iterable like
             arrays, strings, or other ordered collections, and use for...in when
             you need to iterate over the properties of an object.
-            <br />
-            {`const array = [1, 2, 3, 4, 5];`}
-            <br />
-            {`for (const value of array) {`}
-            <br />
-            {`console.log(value);`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`const obj = { a: 1, b: 2, c: 3 };`}
-            <br />
-            {`for (const key in obj) {`}
-            <br />
-            {`console.log(key, obj[key]);`}
-            <br />
-            {`}`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+            const array = [1, 2, 3, 4, 5];
+            for (const value of array) {
+              console.log(value);
+            }
+
+            const obj = { a: 1, b: 2, c: 3 };
+            for (const key in obj) {
+              console.log(key, obj[key]);
+            }
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1105,40 +1080,35 @@ const Lists = () => {
         <AccordionDetails>
           <Typography>
             <strong>Object.keys() & forEach:</strong>
-            {`let obj = {a: 1, b:2, c: 3}`} <br /> <br />
-            {`Object.keys(obj).forEach(key => {`}
-            <br />
-            {`console.log( key, obj[key]);`}
-            <br />
-            {`})       // a 1        b 2         c 3`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+            let obj = {a: 1, b:2, c: 3}
+            Object.keys(obj).forEach(key => {
+              console.log( key, obj[key]);
+            })       // a 1        b 2         c 3
+            `}
+            />
             <strong>Object.values() & forEach:</strong>
-            <br />
-            <br />
-            {`let obj = {a: 1, b:2, c: 3}`}
-            <br />
-            <br />
-            {`Object.values(obj).forEach(value => {`}
-            <br />
-            {`console.log( value);`}
-            <br />
-            {`}) //1    2      3`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+            let obj = {a: 1, b:2, c: 3}
+            Object.values(obj).forEach(value => {
+              console.log( value);
+            }) //1    2      3
+            `}
+            />
             <strong>Object.entires() & forEach:</strong>
-            <br />
-            <br />
-            {`let obj = {a: 1, b:2, c: 3}`}
-            <br />
-            <br />
-            {`Object.entries(obj).forEach(([key, value]) => {`}
-            <br />
-            {`console.log( key, value);`}
-            <br />
-            {`}) // a 1        b 2         c 3`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+            let obj = {a: 1, b:2, c: 3}
+            Object.entries(obj).forEach(([key, value]) => {
+              console.log( key, value);
+            }) // a 1        b 2         c 3
+             `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1156,30 +1126,23 @@ const Lists = () => {
           <Typography>
             You can use the for...of loop in combination with Object.keys(),
             Object.values(), or Object.entries() to iterate over properties.
-            <br />
-            <br />
-            {`const obj = { foo: "bar", baz: 42 };`}
-            <br />
-            <br />
-            {`for( let key of Object.keys(obj)){`}
-            <br />
-            {`console.log(key, obj[key]) //foo bar   baz 42`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`for(let value of Object.values(obj)){`}
-            <br />
-            {`console.log(value) //bar 42`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`for(let [key, value] of Object.entries(obj)){`}
-            <br />
-            {`console.log(key, value) //foo bar   baz 42`}
-            <br />
-            {`}`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+            const obj = { foo: "bar", baz: 42 };
+            for( let key of Object.keys(obj)){
+              console.log(key, obj[key]) //foo bar   baz 42
+            }
+
+            for(let value of Object.values(obj)){
+              console.log(value) //bar 42
+            }
+
+            for(let [key, value] of Object.entries(obj)){
+              console.log(key, value) //foo bar   baz 42
+            }
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1196,52 +1159,38 @@ const Lists = () => {
             This method returns an array of all properties (including
             non-enumerable properties except for those which use Symbol) found
             directly upon a given object.
-            <br />
-            <br />
-            {`const obj = { a: 1, b: 2, c: 3 };`}
-            <br />
-            {`console.log(Object.getOwnPropertyNames(obj));    //[ 'a', 'b', 'c' ]`}
-            <br />
-            <br />
-            {`Object.getOwnPropertyNames(obj).forEach(key => {`}
-            <br />
-            {`console.log(key, obj[key]);`}
-            <br />
-            {`}); //a 1     b 2      c 3`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+            const obj = { a: 1, b: 2, c: 3 };
+            console.log(Object.getOwnPropertyNames(obj));    //[ 'a', 'b', 'c' ]
+            Object.getOwnPropertyNames(obj).forEach(key => {
+              console.log(key, obj[key]);
+            }); //a 1     b 2      c 3
+            `}
+            />
             <strong>New EXAMPLE with all</strong>
-            <br />
-            {`const obj = {`}
-            <br />
-            {`a: 1,`}
-            <br />
-            {`b: 2,`}
-            <br />
-            {`};`}
-            <br />
-            <br />
-            {`Object.defineProperty(obj, 'c', {`}
-            <br />
-            {`value: 3,`}
-            <br />
-            {`enumerable: false`}
-            <br />
-            {`});`}
-            <br />
-            <br />
-            {`const symbolKey = Symbol('key');`}
-            <br />
-            {`obj[symbolKey] = 'value';`}
-            <br />
-            {`console.log(Object.keys(obj)) //[ 'a', 'b' ]`}
-            <br />
-            {`console.log(Object.getOwnPropertyNames(obj)); //[ 'a', 'b', 'c' ]`}
-            <br />
-            {`console.log(Object.getOwnPropertySymbols(obj));  //[ Symbol(key) ]`}
-            <br />
-            {`console.log(Reflect.ownKeys(obj)); //[ 'a', 'b', 'c', Symbol(key) ]`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+            const obj = {
+              a: 1,
+              b: 2,
+            };
+
+            Object.defineProperty(obj, 'c', {
+              value: 3,
+              enumerable: false
+            });
+
+            const symbolKey = Symbol('key');
+            obj[symbolKey] = 'value';
+            console.log(Object.keys(obj)) //[ 'a', 'b' ]
+            console.log(Object.getOwnPropertyNames(obj)); //[ 'a', 'b', 'c' ]
+            console.log(Object.getOwnPropertySymbols(obj));  //[ Symbol(key) ]
+            console.log(Reflect.ownKeys(obj)); //[ 'a', 'b', 'c', Symbol(key) ]
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1255,47 +1204,33 @@ const Lists = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {`let arr1 = [1, 2, 3, 4, 5]`}
-            <br />
-            {`let arr2 = [1, 2, 3, 4, 5]`}
-            <br />
-            {`let arr3 = [1, 2, 3, 4, 5]`}
-            <br />
-            {`let arr4 = [1, 2, 3, 4, 5]`}
-            <br />
-            {`let arr5 = [1, 2, 3, 4, 5]`}
-            <br />
-            {`arr1 = [];`}
-            <br />
-            {`arr2.splice(0);`}
-            <br />
-            {`arr3.length = 0;`}
-            <br />
-            <br />
-            {`while (arr4.length > 0) {`}
-            <br />
-            {`arr4.pop();`}
-            <br />
-            {`}`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+            let arr1 = [1, 2, 3, 4, 5]
+            let arr2 = [1, 2, 3, 4, 5]
+            let arr3 = [1, 2, 3, 4, 5]
+            let arr4 = [1, 2, 3, 4, 5]
+            let arr5 = [1, 2, 3, 4, 5]
+            arr1 = [];
+            arr2.splice(0);
+            arr3.length = 0;
 
-            {`while (arr5.length > 0) {`}
-            <br />
-            {`arr5.shift();`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`console.log(arr1); //[]`}
-            <br />
-            {`console.log(arr2); //[]`}
-            <br />
-            {`console.log(arr3); //[]`}
-            <br />
-            {`console.log(arr4); //[]`}
-            <br />
-            {`console.log(arr5); //[]`}
+            while (arr4.length > 0) {
+              arr4.pop();
+            }
+
+            while (arr5.length > 0) {
+              arr5.shift();
+            }
+
+            console.log(arr1); //[]
+            console.log(arr2); //[]
+            console.log(arr3); //[]
+            console.log(arr4); //[]
+            console.log(arr5); //[]
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1312,48 +1247,33 @@ const Lists = () => {
             To create a mul function in JavaScript to multiply numbers, you can
             simply define a function that takes multiple arguments and
             multiplies them together
-            <br />
-            <br />
-            {`const test = (a) => {`}
-            <br />
-            {`  return (b) => {`}
-            <br />
-            {`    return (c) => {`}
-            <br />
-            {`      return a * b * c`}
-            <br />
-            {`    }`}
-            <br />
-            {`  }`}
-            <br />
-            {`};`}
-            <br />
-            <br />
-            {`console.log(test(1)(2)(3)) //6`}
-            <br />
-            <br />
-            {`const mul = (...args) => {`}
-            <br />
-            {`if(args.length === 0){`}
-            <br />
-            {`console.log(1)`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`let test = args.reduce((prd, currt) => {`}
-            <br />
-            {`console.log('prd', prd, currt) //1 1  1 2   2 3   6 4`}
-            <br />
-            {`return prd * currt`}
-            <br />
-            {`}, 1)`}
-            <br />
-            {`console.log(test) //24`}
-            <br />
-            {`}`}
-            <br />
-            {`mul(1, 2, 3, 4);`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+            const test = (a) => {
+              return (b) => {
+                return (c) => {
+                  return a * b * c
+                }
+              }
+            }
+
+            console.log(test(1)(2)(3)) //6
+
+            const mul = (...args) => {
+              if(args.length === 0){
+                console.log(1)
+              }
+
+              let test = args.reduce((prd, currt) => {
+                console.log('prd', prd, currt) //1 1  1 2   2 3   6 4
+                return prd * currt
+              }, 1)
+              console.log(test) //24
+            }
+            mul(1, 2, 3, 4);
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1369,32 +1289,38 @@ const Lists = () => {
           <Typography>
             You can define an array using square brackets [] and populate it
             with values separated by commas
-            <br />
-            <br />
-            {`const arr = [1,3,5];`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+            const arr = [1,3,5];
+            `}
+            />
             <strong>Creating an Array with the Array Constructor:</strong>
-            <br />
-            {`Const badArr = new Array() =>. Don’t do this this is because Inconsistent Behavior:`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+            Const badArr = new Array() =>. Don’t do this this is because Inconsistent Behavior:
+            `}
+            />
             <strong>Creating an Array with the Array.of() Method (ES6):</strong>
-            <br />
-            {`const arrayWithValues = Array.of(1, 2, 3, 4, 5);`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+            const arrayWithValues = Array.of(1, 2, 3, 4, 5);
+            `}
+            />
             <strong>
               Creating an Array with the Array.from() Method (ES6):
             </strong>
-            <br />
-            {`const arrayFromIterable = Array.from('hello');`}
-            <br />
-            {`// Creates an array from an iterable (e.g., string)`}
-            <br />
-            {`const arrayFromFunction = Array.from({ length: 5 }, (v, i) => i * 2);`}
-            <br />
-            {`// [0, 1, 2, 3, 4]`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+            const arrayFromIterable = Array.from('hello');
+            // Creates an array from an iterable (e.g., string)
+            const arrayFromFunction = Array.from({ length: 5 }, (v, i) => i * 2);
+            // [0, 1, 2, 3, 4]
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1408,26 +1334,35 @@ const Lists = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {`const range = (start, stop, step) =>`}
-            <br />
-            {`Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);`}
-            <br />
-            <br />
+            <strong>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#sequence_generator_range"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Ref
+              </a>
+            </strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            const range = (start, stop, step) =>
+            Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);
+            `}
+            />
             <strong>Example</strong>
-            <br />
-            {`// Generate numbers range 0..4`}
-            <br />
-            {`range(0, 4, 1);`}
-            <br />
-            {`// [0, 1, 2, 3, 4]`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+            // Generate numbers range 0..4
+            range(0, 4, 1);
+            // [0, 1, 2, 3, 4]
 
-            {`// Generate numbers range 1..10 with step of 2`}
-            <br />
-            {`range(1, 10, 2);`}
-            <br />
-            {`// [1, 3, 5, 7, 9]`}
+            // Generate numbers range 1..10 with step of 2
+            range(1, 10, 2);
+            // [1, 3, 5, 7, 9]
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
