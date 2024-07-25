@@ -228,19 +228,34 @@ const Lists = () => {
               language="javascript"
               code={`
                 let test3 = { test: 'ert' };
-                let test4 = { ...test3 };
+                let test4 = { ...test3 }; // Using the spread operator to create a shallow copy
                 test4.firstName = "sumi";
                 console.log("test3", test3); // "test3", { test: "ert" }
                 console.log("test4", test4); // "test4", { firstName: "sumi", test: "ert" }
                  `}
             />
+            <ul>
+              <li>
+                {`let test4 = {...test3}; creates a shallow copy of test3 and
+                assigns it to test4. Now, test3 and test4 reference different
+                objects.`}
+              </li>
+              <li>
+                Adding test4.firstName = "sumi"; only modifies test4, leaving
+                test3 unchanged.
+              </li>
+              <li>
+                {`As a result, test3 remains { test: "ert" }, while test4 becomes { test: "ert", firstName: "sumi" }.`}
+              </li>
+            </ul>
+
             <br />
             <strong>Example 3:</strong>
             <CodeSnippet
               language="javascript"
               code={`
                 let obj1 = {};
-                let obj2 = obj1;
+                let obj2 = obj1; // Direct assignment, both variables point to the same object
                 obj2.firstName = "sumi";
                 console.log("obj1", obj1); // { firstName: "sumi" }
                 console.log("obj2", obj2); // { firstName: "sumi" }
@@ -255,7 +270,9 @@ const Lists = () => {
           aria-controls="panel2-content"
           id="panel7-header"
         >
-          <Typography>map() vs filter() vs reduce()</Typography>
+          <Typography>
+            map() vs filter() vs reduce() and Flatting Array
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -310,7 +327,7 @@ const Lists = () => {
               code={`
                 const numbers = [1, 2, 3, 4, 5];
                 const evens = numbers.filter(num => num % 2 === 0);
-                console.log(evens);
+                console.log(evens); //[ 2, 4 ]
                 `}
             />
             <br />
@@ -356,6 +373,93 @@ const Lists = () => {
                 accumulating a single result.
               </li>
             </ul>
+            <strong>Flattening an Array of Arrays</strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+              const nestedArray = [[1, 2], [3, 4], [5, 6]];
+              const flatArray = nestedArray.reduce((accumulator, currentValue) => {
+                return accumulator.concat(currentValue);
+              }, []);
+
+              console.log(flatArray); // Output: [1, 2, 3, 4, 5, 6]
+            `}
+            />
+            <strong>Counting Occurrences of Items in an Array</strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const fruits = ['apple', 'banana', 'orange', 'apple', 'orange', 'banana', 'banana'];
+
+                const fruitCount = fruits.reduce((accumulator, currentValue) => {
+                  if (accumulator[currentValue]) {
+                    accumulator[currentValue]++;
+                  } else {
+                    accumulator[currentValue] = 1;
+                  }
+                  return accumulator;
+                }, {});
+
+                console.log(fruitCount); // Output: { apple: 2, banana: 3, orange: 2 }
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id=""
+        >
+          <Typography>Flat map</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            flatMap is a method in JavaScript that combines the operations of
+            map and flat. It first maps each element of an array to a new value,
+            and then flattens the result by one level. This method is
+            particularly useful when you need to perform a transformation on
+            each element of an array that results in arrays, and you want a
+            single, flat array as the result.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const numbers = [1, 2, 3];
+                const evens = numbers.map((x) =>  [x, x * 2])
+                let flat = numbers.flatMap(x => [x, x * 2])
+                console.log(evens);  //[ [ 1, 2 ], [ 2, 4 ], [ 3, 6 ] ]
+                console.log(flat); //[ 1, 2, 2, 4, 3, 6 ]
+              `}
+            />
+            <strong>Removing Empty Elements</strong>
+            <br />
+            Another common use case is filtering out unwanted elements (e.g.,
+            empty arrays) and flattening the result:
+            <CodeSnippet
+              language="javascript"
+              code={`
+              const arr = ["apple", "", "banana", "orange"];
+
+              const result = arr.flatMap(str => str ? [str] : []);
+
+              console.log(result); // Output: ["apple", "banana", "orange"]
+              `}
+            />
+            <strong>Splitting and Flattening</strong>
+            <br />
+            You can use flatMap to split strings and flatten the result:
+            <CodeSnippet
+              language="javascript"
+              code={`
+              const sentences = ["Hello world", "FlatMap is useful", "JavaScript"];
+
+              const words = sentences.flatMap(sentence => sentence.split(" "));
+
+              console.log(words); // Output: ["Hello", "world", "FlatMap", "is", "useful", "JavaScript"]
+
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -394,6 +498,7 @@ const Lists = () => {
           <Typography>
             Removes the last element from an array and returns that element.
             <br />
+            It does not take any arguments.
             <CodeSnippet
               language="javascript"
               code={`
@@ -414,7 +519,9 @@ const Lists = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Removes the first element from an array and returns that element.
+            Removes the first element from an array and returns that element.{" "}
+            <br />
+            This method does not take any arguments.
             <CodeSnippet
               language="javascript"
               code={`
@@ -442,6 +549,9 @@ const Lists = () => {
               code={`
                 let arr = [1, 2, 3];
                 arr.unshift(0); // arr is now [0, 1, 2, 3]
+                arr.unshift(11, 22); //Output: [11, 22, 0, 1, 2, 3]
+
+                console.log(arr) //[ 11, 22, 0, 1, 2, 3 ]
                 `}
             />
           </Typography>
@@ -462,9 +572,129 @@ const Lists = () => {
             <CodeSnippet
               language="javascript"
               code={`
+                //array.splice(start, deleteCount, item1, item2, ..., itemN);
+
+                const numbers = [1, 2, 3, 14, 5];
+                const sliced = numbers.slice(1);
+                console.log(sliced); // Output: [ 2, 3, 14, 5 ]
+
+                const numbers = [1, 2, 3, 14, 5];
+                const sliced = numbers.slice(3);
+                console.log(sliced); // Output: [ 14, 5 ]
+
                 let arr = [1, 2, 3, 4];
                 arr.splice(1, 2, 'a', 'b'); // arr is now [1, 'a', 'b', 4]
                 // Removes 2 elements starting at index 1, and adds 'a' and 'b'
+
+                const fruits = ['apple', 'banana', 'grape'];
+                fruits.splice(2, 0, 'orange', 'kiwi');
+                console.log(fruits); // Output: ['apple', 'banana', 'orange', 'kiwi', 'grape']
+
+              `}
+            />
+            <strong>.toSpliced()</strong>
+            <br />
+            To create a new array with the specified changes (adding, removing,
+            or replacing elements) without modifying the original array. This is
+            useful for immutable operations.
+            <CodeSnippet
+              language="javascript"
+              code={`
+              //array.toSpliced(start, deleteCount, item1, item2, ..., itemN);
+
+              let fruits = ['apple', 'banana', 'orange'];
+              let newFruits = fruits.toSpliced(1, 1);
+              console.log(fruits); // Output: ['apple', 'banana', 'orange']
+              console.log(newFruits); // Output: ['apple', 'orange']
+
+              let fruits = ['apple', 'orange'];
+              let newFruits = fruits.toSpliced(1, 0, 'banana');
+              console.log(fruits); // Output: ['apple', 'orange']
+              console.log(newFruits); // Output: ['apple', 'banana', 'orange']
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id=""
+        >
+          <Typography>Split()</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            The split() method of String values takes a pattern and divides this
+            string into an ordered list of substrings by searching for the
+            pattern, puts these substrings into an array, and returns the array.{" "}
+            <br />
+            To split a string into an array of substrings based on a specified
+            separator.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                //string.split(separator, limit);
+
+                const text = 'apple,banana,orange';
+                const result = text.split(',');
+                console.log(result); // Output: ['apple', 'banana', 'orange']
+
+                const text = 'apple banana orange';
+                const result = text.split(' ', 2); // Limits to 2 substrings
+                console.log(result); // Output: ['apple', 'banana']
+
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id=""
+        >
+          <Typography>Slice()</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            To create a shallow copy of a portion of an array or string into a
+            new array or string.
+            <br />
+            <strong>Array Slicing:</strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                //array.slice(begin, end);
+
+
+                const numbers = [1, 2, 3, 4, 5];
+                const sliced = numbers.slice(1, 4); // Slices from index 1 to 3
+                console.log(sliced); // Output: [2, 3, 4]
+              `}
+            />
+            <strong>String Slicing:</strong> <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                //array.slice(begin, end);
+
+
+                const text = 'hello world';
+                const sliced = text.slice(0, 5); // Slices from index 0 to 4
+                console.log(sliced); // Output: 'hello'
+
+                const months = ['March', 'Jan', 'Feb', 'Dec'];
+                months.sort();
+                console.log(months);
+                // Expected output: Array ["Dec", "Feb", "Jan", "March"]
+
+                const array1 = [1, 30, 4, 21, 100000];
+                array1.sort();
+                console.log(array1);
+                // Expected output: Array [1, 100000, 21, 30, 4]
               `}
             />
           </Typography>
@@ -528,8 +758,17 @@ const Lists = () => {
             <CodeSnippet
               language="javascript"
               code={`
+                //array.fill(value, start, end);
+
                 let arr = [1, 2, 3];
                 arr.fill(0); // arr is now [0, 0, 0]
+
+                let numbers = [1, 2, 3, 4, 5];
+                numbers.fill(0, 1, 4);
+                console.log(numbers); // Output: [1, 0, 0, 0, 5]
+
+                let emptyArray = new Array(5).fill(1);
+                console.log(emptyArray); // Output: [1, 1, 1, 1, 1]
               `}
             />
           </Typography>
@@ -553,6 +792,9 @@ const Lists = () => {
                 let arr = [1, 2, 3, 4, 5];
                 arr.copyWithin(0, 3); // arr is now [4, 5, 3, 4, 5]
                 // Copies elements from index 3 to the start
+
+                let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+                arr.copyWithin(0, 3); //[ 4, 5, 6, 7,8, 6, 7, 8 ]
               `}
             />
           </Typography>
@@ -585,8 +827,15 @@ const Lists = () => {
               console.log("t4",Boolean(t4));//false
               console.log("t5",Boolean(t5));//false
               console.log("t6",Boolean(t6));//false
+              console.log("t7",Boolean(-0));//false
+
+              let username = "";
+              let displayName = username || "Guest";
+              console.log(displayName); // Output: "Guest"
               `}
             />
+            In this example, because username is an empty string (falsy),
+            displayName is assigned the value "Guest".
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -619,11 +868,12 @@ const Lists = () => {
         <AccordionDetails>
           <Typography>
             The this keyword refers to the context within which a function is
-            executed. Global Context:When this is used in the global scope
+            executed.<br />
+            <strong>Global Context:</strong><br />
+            When this is used in the global scope
             (outside of any function), it refers to the global object. In a
             browser environment, the global object is window. Ex:
             console.log(this === window) //true
-            <br />
             <br />
             <strong>Function Context:</strong>
             <br /> When this is used inside a function, its value depends on how
@@ -3609,6 +3859,116 @@ const Lists = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
+      {/*<Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel69-header"
+        >
+          <Typography>Different data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion> */}
+      {/* <Accordion>
+        <AccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls="panel2-content"
+        id="panel70-header"
+        >
+          <Typography>Unicode</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+
+          </Typography>
+        </AccordionDetails>
+      </Accordion> */}
     </Container>
   );
 };
