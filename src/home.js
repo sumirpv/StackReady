@@ -575,11 +575,11 @@ const Lists = () => {
                 //array.splice(start, deleteCount, item1, item2, ..., itemN);
 
                 const numbers = [1, 2, 3, 14, 5];
-                const sliced = numbers.slice(1);
+                const sliced = numbers.splice(1);
                 console.log(sliced); // Output: [ 2, 3, 14, 5 ]
 
                 const numbers = [1, 2, 3, 14, 5];
-                const sliced = numbers.slice(3);
+                const sliced = numbers.splice(3);
                 console.log(sliced); // Output: [ 14, 5 ]
 
                 let arr = [1, 2, 3, 4];
@@ -590,6 +590,21 @@ const Lists = () => {
                 fruits.splice(2, 0, 'orange', 'kiwi');
                 console.log(fruits); // Output: ['apple', 'banana', 'orange', 'kiwi', 'grape']
 
+                Removing Elements:
+                let arr = [1, 2, 3, 4, 5];
+                let removed = arr.splice(2, 2);
+                console.log(arr); // Output: [1, 2, 5]
+                console.log(removed); // Output: [3, 4]
+
+                Adding Elements:
+                let arr = [1, 2, 3, 4, 5];
+                arr.splice(2, 0, 'a', 'b');
+                console.log(arr); // Output: [1, 2, 'a', 'b', 3, 4, 5]
+
+                Replacing Elements:
+                let arr = [1, 2, 3, 4, 5];
+                arr.splice(2, 2, 'a', 'b');
+                console.log(arr); // Output: [1, 2, 'a', 'b', 5]
               `}
             />
             <strong>.toSpliced()</strong>
@@ -697,6 +712,63 @@ const Lists = () => {
                 // Expected output: Array [1, 100000, 21, 30, 4]
               `}
             />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id=""
+        >
+          <Typography>splice() vs slice()</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <ul>
+              <li>
+                Use splice() when you need to modify the original array by
+                adding, removing, or replacing elements.
+              </li>
+              <li>
+                Use slice() when you need to create a new array that is a
+                portion or copy of the original array without modifying it.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const fruits = ['Apple', 'Banana', 'Mango', 'Orange'];
+                let test = fruits.splice(2, 4);
+                console.log(test) //[ 'Mango', 'Orange' ]
+                console.log(fruits); //[ 'Apple', 'Banana' ]
+
+                let fruits2 = ['Apple', 'Banana', 'Mango', 'Orange'];
+                let citrus = fruits2.slice(2, 4);
+                console.log(citrus); // Output: ['Mango', 'Orange']
+                console.log(fruits2); // Output: ['Apple', 'Banana', 'Mango', 'Orange']
+              `}
+            />
+            <strong>Comparison Summary</strong>
+            <br />
+            <strong> Modification:</strong>
+            <br />
+            splice(): Modifies the original array.
+            <br />
+            slice(): Does not modify the original array; returns a new array.
+            <br />
+            <strong>Return Value:</strong>
+            <br />
+            splice(): Returns an array of removed elements.
+            <br />
+            slice(): Returns a new array containing the extracted elements.
+            <br />
+            <strong> Use Cases:</strong>
+            <br />
+            splice(): Used for adding, removing, or replacing elements in an
+            array.
+            <br />
+            slice(): Used for copying or extracting a portion of an array.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -868,12 +940,13 @@ const Lists = () => {
         <AccordionDetails>
           <Typography>
             The this keyword refers to the context within which a function is
-            executed.<br />
-            <strong>Global Context:</strong><br />
-            When this is used in the global scope
-            (outside of any function), it refers to the global object. In a
-            browser environment, the global object is window. Ex:
-            console.log(this === window) //true
+            executed.
+            <br />
+            <strong>Global Context:</strong>
+            <br />
+            When this is used in the global scope (outside of any function), it
+            refers to the global object. In a browser environment, the global
+            object is window. Ex: console.log(this === window) //true
             <br />
             <strong>Function Context:</strong>
             <br /> When this is used inside a function, its value depends on how
@@ -916,11 +989,93 @@ const Lists = () => {
               obj.greet(); // Output: Hello, John
               `}
             />
+            <strong>Constructor Context</strong>
+            <br />
+            When a function is used as a constructor (with the new keyword),
+            this refers to the new object being created.
+            <CodeSnippet
+              language="javascript"
+              code={`
+              function Person(name) {
+                this.name = name;
+              }
+
+              const person = new Person('Bob');
+              console.log(person.name); // Logs "Bob"
+              `}
+            />
+            <strong>call, apply, and bind Methods</strong>
+            <br />
+            <ul>
+              <li>
+                <strong>call</strong> <br />
+                call: Invokes the function with a given this value and
+                arguments.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                  function showName() {
+                    console.log(this.name);
+                  }
+
+                  const person = { name: 'Charlie' };
+                  showName.call(person); // Logs "Charlie"
+              `}
+                />
+              </li>
+              <li>
+                <strong>apply</strong> <br />
+                apply: Similar to call, but arguments are provided as an array.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                  function showName(greeting) {
+                    console.log(greeting + ' ' + this.name);
+                  }
+
+                  const person = { name: 'David' };
+                  showName.apply(person, ['Hello']); // Logs "Hello David"
+              `}
+                />
+              </li>
+              <li>
+                <strong>bind</strong> <br />
+                bind: Returns a new function with a bound this value.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                  function showName() {
+                    console.log(this.name);
+                  }
+
+                  const person = { name: 'Eve' };
+                  const boundShowName = showName.bind(person);
+                  boundShowName(); // Logs "Eve"
+                  `}
+                />
+              </li>
+            </ul>
             <strong>Arrow Functions:</strong>
             <br />
             In arrow functions, this retains the value of the enclosing lexical
             context (the value of this from the surrounding code). Arrow
             functions do not have their own this binding.
+            <CodeSnippet
+              language="javascript"
+              code={`
+              const person = {
+                name: 'Frank',
+                greet: function() {
+                  const innerFunction = () => {
+                    console.log(this.name);
+                  };
+                  innerFunction();
+                }
+              };
+
+              person.greet(); // Logs "Frank"
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1231,15 +1386,15 @@ const Lists = () => {
             <CodeSnippet
               language="javascript"
               code={`
-            function init() {
-              var name = "Mozilla"; // name is a local variable created by init
-              function displayName() {
-              // displayName() is the inner function, that forms the closure
-              console.log(name); // use variable declared in the parent function
-              }
-              displayName();
-            }
-            init(); //"Mozilla"
+                function init() {
+                  var name = "Mozilla"; // name is a local variable created by init
+                  function displayName() {
+                    // displayName() is the inner function, that forms the closure
+                    console.log(name); // use variable declared in the parent function
+                  }
+                  displayName();
+                }
+                init(); //"Mozilla"
             `}
             />
           </Typography>
@@ -1333,30 +1488,30 @@ const Lists = () => {
             <CodeSnippet
               language="javascript"
               code={`
-            let obj = {a: 1, b:2, c: 3}
-            Object.keys(obj).forEach(key => {
-              console.log( key, obj[key]);
-            })       // a 1        b 2         c 3
-            `}
+                let obj = {a: 1, b:2, c: 3}
+                Object.keys(obj).forEach(key => {
+                  console.log( key, obj[key]);
+                })       // a 1        b 2         c 3
+              `}
             />
             <strong>Object.values() & forEach:</strong>
             <CodeSnippet
               language="javascript"
               code={`
-            let obj = {a: 1, b:2, c: 3}
-            Object.values(obj).forEach(value => {
-              console.log( value);
-            }) //1    2      3
-            `}
+                let obj = {a: 1, b:2, c: 3}
+                Object.values(obj).forEach(value => {
+                  console.log( value);
+                }) //1    2      3
+              `}
             />
             <strong>Object.entires() & forEach:</strong>
             <CodeSnippet
               language="javascript"
               code={`
-            let obj = {a: 1, b:2, c: 3}
-            Object.entries(obj).forEach(([key, value]) => {
-              console.log( key, value);
-            }) // a 1        b 2         c 3
+                let obj = {a: 1, b:2, c: 3}
+                Object.entries(obj).forEach(([key, value]) => {
+                  console.log( key, value);
+                }) // a 1        b 2         c 3
              `}
             />
           </Typography>
@@ -1379,18 +1534,18 @@ const Lists = () => {
             <CodeSnippet
               language="javascript"
               code={`
-            const obj = { foo: "bar", baz: 42 };
-            for( let key of Object.keys(obj)){
-              console.log(key, obj[key]) //foo bar   baz 42
-            }
+                const obj = { foo: "bar", baz: 42 };
+                for( let key of Object.keys(obj)){
+                  console.log(key, obj[key]) //foo bar   baz 42
+                }
 
-            for(let value of Object.values(obj)){
-              console.log(value) //bar 42
-            }
+                for(let value of Object.values(obj)){
+                  console.log(value) //bar 42
+                }
 
-            for(let [key, value] of Object.entries(obj)){
-              console.log(key, value) //foo bar   baz 42
-            }
+                for(let [key, value] of Object.entries(obj)){
+                  console.log(key, value) //foo bar   baz 42
+                }
             `}
             />
           </Typography>
@@ -1423,22 +1578,37 @@ const Lists = () => {
             <CodeSnippet
               language="javascript"
               code={`
-            const obj = {
-              a: 1,
-              b: 2,
-            };
+                const obj = {
+                  a: 1,
+                  b: 2,
+                };
 
-            Object.defineProperty(obj, 'c', {
-              value: 3,
-              enumerable: false
-            });
+                Object.defineProperty(obj, 'c', {
+                  value: 3,
+                  enumerable: false
+                });
 
-            const symbolKey = Symbol('key');
-            obj[symbolKey] = 'value';
-            console.log(Object.keys(obj)) //[ 'a', 'b' ]
-            console.log(Object.getOwnPropertyNames(obj)); //[ 'a', 'b', 'c' ]
-            console.log(Object.getOwnPropertySymbols(obj));  //[ Symbol(key) ]
-            console.log(Reflect.ownKeys(obj)); //[ 'a', 'b', 'c', Symbol(key) ]
+                const symbolKey = Symbol('key');
+                obj[symbolKey] = 'value';
+                console.log(Object.keys(obj)) //[ 'a', 'b' ]
+                console.log(Object.getOwnPropertyNames(obj)); //[ 'a', 'b', 'c' ]
+                console.log(Object.getOwnPropertySymbols(obj));  //[ Symbol(key) ]
+                console.log(Reflect.ownKeys(obj)); //[ 'a', 'b', 'c', Symbol(key) ]
+
+                //eg:
+                const person = {};
+                Object.defineProperty(person, 'name', {
+                  value: 'Alice',
+                  enumerable: false
+                });
+                Object.defineProperty(person, 'age', {
+                  value: 30,
+                  enumerable: true
+                });
+
+                console.log(Object.keys(person)) //[ 'age' ]
+                const propertyNames = Object.getOwnPropertyNames(person);
+                console.log(propertyNames); // Output: ["name", "age"]
             `}
             />
           </Typography>
@@ -1500,28 +1670,29 @@ const Lists = () => {
             <CodeSnippet
               language="javascript"
               code={`
-            const test = (a) => {
-              return (b) => {
-                return (c) => {
-                  return a * b * c
+                const test = (a) => {
+                  return (b) => {
+                    return (c) => {
+                      return a * b * c
+                    }
+                  }
                 }
-              }
-            }
+                console.log(test(1)(2)(3)) //6
 
-            console.log(test(1)(2)(3)) //6
+                //Using Rest Parameters
+                const mul = (...args) => {
+                  if(args.length === 0){
+                    console.log(1)
+                  }
 
-            const mul = (...args) => {
-              if(args.length === 0){
-                console.log(1)
-              }
-
-              let test = args.reduce((prd, currt) => {
-                console.log('prd', prd, currt) //1 1  1 2   2 3   6 4
-                return prd * currt
-              }, 1)
-              console.log(test) //24
-            }
-            mul(1, 2, 3, 4);
+                  let test = args.reduce((prd, currt) => {
+                    console.log('prd', prd, currt) //1 1  1 2   2 3   6 4
+                    return prd * currt
+                  }, 1)
+                  console.log(test) //24
+                }
+                mul(1, 2, 3, 4);
+                console.log(mul([3, 4, 2])); //24
             `}
             />
           </Typography>
@@ -1542,22 +1713,22 @@ const Lists = () => {
             <CodeSnippet
               language="javascript"
               code={`
-            const arr = [1,3,5];
-            `}
+                const arr = [1,3,5];
+              `}
             />
             <strong>Creating an Array with the Array Constructor:</strong>
             <CodeSnippet
               language="javascript"
               code={`
-            Const badArr = new Array() =>. Don’t do this this is because Inconsistent Behavior:
-            `}
+                Const badArr = new Array() =>. Don’t do this this is because Inconsistent Behavior:
+              `}
             />
             <strong>Creating an Array with the Array.of() Method (ES6):</strong>
             <CodeSnippet
               language="javascript"
               code={`
-            const arrayWithValues = Array.of(1, 2, 3, 4, 5);
-            `}
+                const arrayWithValues = Array.of(1, 2, 3, 4, 5);
+              `}
             />
             <strong>
               Creating an Array with the Array.from() Method (ES6):
@@ -1565,10 +1736,10 @@ const Lists = () => {
             <CodeSnippet
               language="javascript"
               code={`
-            const arrayFromIterable = Array.from('hello');
-            // Creates an array from an iterable (e.g., string)
-            const arrayFromFunction = Array.from({ length: 5 }, (v, i) => i * 2);
-            // [0, 1, 2, 3, 4]
+                const arrayFromIterable = Array.from('hello');
+                // Creates an array from an iterable (e.g., string)
+                const arrayFromFunction = Array.from({ length: 5 }, (v, i) => i * 2); // v or _
+                // [0, 1, 2, 3, 4]
             `}
             />
           </Typography>
@@ -1596,22 +1767,43 @@ const Lists = () => {
             <CodeSnippet
               language="javascript"
               code={`
-            const range = (start, stop, step) =>
-            Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);
-            `}
+                const range = (start, stop, step) =>
+                Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);
+              `}
             />
             <strong>Example</strong>
             <CodeSnippet
               language="javascript"
               code={`
-            // Generate numbers range 0..4
-            range(0, 4, 1);
-            // [0, 1, 2, 3, 4]
+                // Generate numbers range 0..4
+                range(0, 4, 1);
+                // [0, 1, 2, 3, 4]
 
-            // Generate numbers range 1..10 with step of 2
-            range(1, 10, 2);
-            // [1, 3, 5, 7, 9]
-            `}
+                // Generate numbers range 1..10 with step of 2
+                range(1, 10, 2);
+                // [1, 3, 5, 7, 9]
+
+                //Basic Range Function
+                function range(start, end, step = 1) {
+                  const result = [];
+                  for (let i = start; i < end; i += step) {
+                    result.push(i);
+                  }
+                  return result;
+                }
+                // Example usage:
+                console.log(range(1, 5));    // Output: [1, 2, 3, 4]
+                console.log(range(2, 10, 2)); // Output: [2, 4, 6, 8]
+
+
+                //Range Function with Array.from()
+                function range(start, end, step = 1) {
+                  return Array.from({ length: Math.ceil((end - start) / step) }, (_, i) => start + i * step);
+                }
+                // Example usage:
+                console.log(range(1, 5));    // Output: [1, 2, 3, 4]
+                console.log(range(2, 10, 2)); // Output: [2, 4, 6, 8]
+              `}
             />
           </Typography>
         </AccordionDetails>
@@ -1643,19 +1835,20 @@ const Lists = () => {
                   It's also the default value of uninitialized properties in
                   objects.
                 </li>
-                let variable; // variable is declared but not assigned, so its
-                value is undefined console.log(variable); // Output: undefined
               </li>
             </ul>
             <CodeSnippet
               language="javascript"
               code={`
-            function doSomething() {
-              // This function does not return anything, so it implicitly returns undefined
-            }
-            const obj = {};
-            console.log(obj.property); // Output: undefined (property is not initialized)
-            `}
+                let variable; // variable is declared but not assigned, so its value is undefined
+                console.log(variable); // Output: undefined
+
+                function doSomething() {
+                  // This function does not return anything, so it implicitly returns undefined
+                }
+                const obj = {};
+                console.log(obj.property); // Output: undefined (property is not initialized)
+              `}
             />
             <strong>Null</strong> <br />
             <ul>
@@ -1700,6 +1893,10 @@ const Lists = () => {
               console.log(0.1 + 0.2 === 0.3); // Output: false
               console.log(0.2+0.4) //0.6000000000000001
               console.log((0.2+0.4).toFixed(1)) //"0.6"
+
+              console.log((0.1 + 0.2).toFixed(1) === 0.3); // Output: false
+              //beacuse console.log((0.1 + 0.2).toFixed(1)); // Output: "0.3" -> string not a number
+              console.log(parseFloat((0.1 + 0.2).toFixed(1)) === 0.3); //true
               console.log(isNaN("wewt")) //true
 
               Number.isFinite(123);          // true (123 is a finite number)
@@ -1748,8 +1945,12 @@ const Lists = () => {
               console.log(dog instanceof Animal);  // true (Dog is a subclass of Animal)
               console.log(animal instanceof Animal); // true
               console.log(animal instanceof Dog); // false (Animal is not a subclass of Dog)
+
+              console.log('hello' instanceof String); // Output: false
               `}
             />
+            Primitive Values: instanceof does not work with primitive values
+            like strings, numbers, or booleans:
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1774,10 +1975,17 @@ const Lists = () => {
               //code here excuse immediately
             })()
 
+            (() => {
+              // Code here runs immediately
+            })();
+
             ( function () {
               console.log("test");
-            })();
-            //test
+            })(); //test
+
+            (function() {
+              console.log("test");
+            }); //no output
 
             const test = (function() {
               const init = {
@@ -1798,15 +2006,123 @@ const Lists = () => {
             <CodeSnippet
               language="javascript"
               code={`
-            {
-              id: 90,
-              methods: {
-                call: call() {
-                  console.log('Call method executed');
+                {
+                  id: 90,
+                  methods: {
+                    call: call() {
+                      console.log('Call method executed');
+                    }
+                  }
                 }
-              }
-            }
-            `}
+              `}
+            />
+            <strong>Benefits of Using IIFEs</strong>
+            <ul>
+              <li>
+                Local Scope: Encapsulates variables and functions to avoid
+                conflicts with other code in the global scope.
+              </li>
+              <li>
+                Avoid Global Pollution: Helps in reducing the risk of variable
+                name collisions and pollution of the global namespace.
+              </li>
+              <li>
+                Data Privacy: Enables private data and functions that are not
+                accessible from outside the function.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const module = (function() {
+                  let privateVar = 'I am private';
+
+                  function privateFunction() {
+                    return 'This is a private function';
+                  }
+
+                  return {
+                    publicVar: 'I am public',
+                    publicFunction: function() {
+                      return 'This is a public function';
+                    }
+                  };
+                })();
+
+                console.log(module.publicVar);         // Output: 'I am public'
+                console.log(module.publicFunction());  // Output: 'This is a public function'
+                console.log(module.privateVar);        // Output: undefined (not accessible)
+                console.log(module.privateFunction);   // Output: undefined (not accessible)
+
+                //Basic Function with Private Variables
+                const result = (function() {
+                  let privateVar = 'I am private';
+
+                  function privateFunction() {
+                    return 'This is a private function';
+                  }
+
+                  return {
+                    publicVar: 'I am public',
+                    publicFunction: function() {
+                      return privateFunction();
+                    }
+                  };
+                })();
+
+                console.log(result.publicVar);         // Output: 'I am public'
+                console.log(result.publicFunction());  // Output: 'This is a private function'
+                console.log(result.publicFunction);  //[Function: publicFunction]
+                console.log(result.privateVar);        // Output: undefined (not accessible)
+                console.log(result.privateFunction);   // Output: undefined (not accessible)
+
+
+                // Accessing Private Variables Directly in Closure
+                onst counter = (function() {
+                  let count = 0;  // Private variable
+
+                  function increment() {
+                    count++;
+                    return count;
+                  }
+
+                  function getCount() {
+                    return count;
+                  }
+
+                  return function(action) {
+                    if (action === 'increment') {
+                      return increment();
+                    } else if (action === 'getCount') {
+                      return getCount();
+                    }
+                  };
+                })();
+
+                console.log(counter('increment')); // Output: 1
+                console.log(counter('increment')); // Output: 2
+                console.log(counter('getCount'));  // Output: 2
+
+                //Private Variables with Parameters
+                const person = (function(name, age) {
+                  // Private variables
+                  let _name = name;
+                  let _age = age;
+
+                  return {
+                    getName: function() {
+                      return _name;
+                    },
+                    getAge: function() {
+                      return _age;
+                    }
+                  };
+                })('Jane Doe', 25);
+
+                console.log(person.getName()); // Output: 'Jane Doe'
+                console.log(person.getAge());  // Output: 25
+
+              `}
             />
           </Typography>
         </AccordionDetails>
@@ -1931,6 +2247,131 @@ const Lists = () => {
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
+          id=""
+        >
+          <Typography> Local Storage vs Session Storage vs Cookies </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <strong> Local Storage</strong>
+            <ul>
+              <li>
+                Purpose: Stores data with no expiration time, meaning the data
+                persists even when the browser is closed and reopened.
+              </li>
+              <li>
+                Storage Capacity: Typically around 5-10 MB per origin (depending
+                on the browser).
+              </li>
+              <li>
+                Scope: Data is accessible only to the origin (protocol, domain,
+                and port) that stored it. It is not sent to the server with
+                every request.
+              </li>
+              <li>
+                Data Access: Data is available for the entire lifespan of the
+                origin's data.
+              </li>
+              <li>API: Accessed via the localStorage object in JavaScript.</li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                // Set an item
+                localStorage.setItem('key', 'value');
+
+                // Get an item
+                const value = localStorage.getItem('key');
+
+                // Remove an item
+                localStorage.removeItem('key');
+
+                // Clear all items
+                localStorage.clear();
+              `}
+            />
+            <strong>Session Storage</strong>
+            <ul>
+              <li>
+                Purpose: Stores data for the duration of the page session. Data
+                is only available while the page is open and is cleared when the
+                page session ends (e.g., when the tab or browser is closed).{" "}
+              </li>
+              <li>
+                Storage Capacity: Typically around 5-10 MB per origin (similar
+                to Local Storage).{" "}
+              </li>
+              <li>
+                Scope: Data is accessible only within the same tab or window.
+                Data is not shared across tabs or windows.{" "}
+              </li>
+              <li>
+                Data Access: Data persists only for the duration of the page
+                session.{" "}
+              </li>
+              <li>
+                API: Accessed via the sessionStorage object in JavaScript.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                // Set an item
+                sessionStorage.setItem('key', 'value');
+
+                // Get an item
+                const value = sessionStorage.getItem('key');
+
+                // Remove an item
+                sessionStorage.removeItem('key');
+
+                // Clear all items
+                sessionStorage.clear();
+              `}
+            />
+            <strong>Cookies</strong>
+            <ul>
+              <li>
+                Purpose: Store small amounts of data that are sent to the server
+                with every HTTP request. Useful for server-side session
+                management and for tracking user preferences.
+              </li>
+              <li>Storage Capacity: Limited to around 4 KB per cookie.</li>
+              <li>
+                Scope: Data is sent to the server with every request to the
+                domain that set the cookie. Data is shared across all tabs and
+                windows for the same domain.
+              </li>
+              <li>
+                Data Access: Cookies can have an expiration time and are deleted
+                when they expire or are manually cleared.
+              </li>
+              <li>
+                API: Accessed via the document.cookie property in JavaScript.
+                Management of cookies is typically done through server-side or
+                client-side headers.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                // Set a cookie
+                document.cookie = "key=value; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+
+                // Get cookies
+                const cookies = document.cookie;
+
+                // Remove a cookie (by setting its expiration date to the past)
+                document.cookie = "key=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
           id="panel43-header"
         >
           <Typography>HTML 5 APIs</Typography>
@@ -2033,9 +2474,12 @@ const Lists = () => {
                 console.log(arr); //[10, 20, 2024]
 
                 const [month, day, year] = [10, 20, 2024];
-                console.log(month/day/year); //“10/20/2024"
+                console.log($ {month}/$ {day}/$ {year}); //“10/20/2024"
 
                 Using alias
+                let person ={
+                  firstName: "test"
+                }
                 const { firstName : name } = person;
                 console.log(name); //"test"
               `}
@@ -2092,15 +2536,16 @@ const Lists = () => {
                 const display = (num) => {
                   console.log("num", num);
                 }
-                display(5) //5
+                display(5) // "num", 5
 
-                If we pass more then one argument also we get display(5, 6, 7, 8)
-                //5 But if you do this
+                If we pass more then one argument also we get
+                display(5, 6, 7, 8); //"num", 5 But if you do this
+
                 const display = (...num) => {
                   console.log("num", num);
                 }
 
-                display(5, 6, 7, 8) //"num", [5, 6, 7, 8]
+                display(5, 6, 7, 8); //"num", [5, 6, 7, 8]
             `}
             />
             <strong>Spread Operator (...):</strong>
@@ -2113,11 +2558,15 @@ const Lists = () => {
             <CodeSnippet
               language="javascript"
               code={`
+                let num = [2, 3, 5,6]
+                console.log(...num) // 2 3 5 6
+
                 const numbers = [1, 2, 3];
                 console.log(Math.max(...numbers)); // Output: 3 (equivalent to Math.max(1, 2, 3))
 
                 const arr1 = [1, 2, 3];
                 const arr2 = [4, 5, 6];
+                console.log(...arr1, ...arr2); //1 2 3 4 5 6
                 const mergedArray = [...arr1, ...arr2];
                 console.log(mergedArray); // Output: [1, 2, 3, 4, 5, 6]
 
@@ -2272,17 +2721,21 @@ const Lists = () => {
               language="javascript"
               code={`
                 const element = document.getElementById('myElement');
+
+                getElementById() Shortcut -> const element = document.myElement;
               `}
             />
             getElementsByClassName, getElementsByTagName
             <CodeSnippet
               language="javascript"
               code={`
-                const element = document.querySelector('.myClass'); //Selects the first element that matches a specified CSS selector.
+                //Selects the first element that matches a specified CSS selector.
+                const element = document.querySelector('.myClass');
+
                 const elements = document.querySelectorAll('div.myClass');
-                getElementById() Shortcut -> const element = document.myElement;
-                matches() method: checks if an element matches a specified CSS selector. Returns a boolean
-                const matches = element.matches('.myClass'
+
+                //matches() method: checks if an element matches a specified CSS selector. Returns a boolean
+                const matches = element.matches('.myClass')
               `}
             />
           </Typography>
@@ -2312,6 +2765,11 @@ const Lists = () => {
 
                 const obj2 = Object.assign(obj1)
                 console.log(obj2); //{ a: 1, b: 2 }
+
+                const obj1 = { a: 1, b: 2 };
+                const obj3 = {c:3, d: 4}
+                const obj2 = Object.assign({},obj1, obj3);
+                console.log(obj2); //{ a: 1, b: 2, c: 3, d: 4 }
               `}
             />
             <strong>2. Spread Operator (...):</strong>
@@ -2329,6 +2787,11 @@ const Lists = () => {
 
                 const obj2 = {...obj1}
                 console.log(obj2); //{ a: 1, b: 2, c: { d: 4, e: { f: 5, g: [Object] } } }
+
+                const obj1 = { a: 1, b: 2 };
+                const obj3 = {c:3, d: 4}
+                const obj2 = {obj1, obj3};
+                console.log(obj2); //{ obj1: { a: 1, b: 2 }, obj3: { c: 3, d: 4 } }
               `}
             />
             <strong>3.JSON.parse() and JSON.stringify():</strong>
@@ -3207,6 +3670,27 @@ const Lists = () => {
                 }).catch((error) => {
                   console.error('Promise chain rejected with error:', error);
                 });
+
+                //EG:
+                const myPromise = new Promise((resolve, reject) => {
+                  const success = true; // Simulate a condition
+
+                  setTimeout(() => {
+                    if (success) {
+                      resolve("The operation was successful!");
+                    } else {
+                      reject("The operation failed!");
+                    }
+                  }, 2000); // 2 seconds delay
+                });
+
+                myPromise
+                  .then((message) => {
+                    console.log(message); // Output: "The operation was successful!" after 2 seconds
+                  })
+                  .catch((error) => {
+                    console.error(error);
+                  });
               `}
             />
             <strong>
