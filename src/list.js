@@ -1,20 +1,3 @@
-// // src/Home.js
-// import Button from "@mui/material/Button";
-// import { Link } from "react-router-dom";
-
-// const Home = () => {
-//   return (
-//     <div>
-//       <Button component={Link} to="/lists" color="inherit">
-//         Lists
-//       </Button>
-//       <p>Click on the Lists link above to see the Questions lists page.</p>
-//     </div>
-//   );
-// };
-
-// export default Home;
-
 import { useState } from "react";
 import {
   Container,
@@ -24,18 +7,25 @@ import {
   AccordionDetails,
   // Button,
   Typography,
+  TableContainer,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  Paper,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 // import Fade from "@mui/material/Fade";
+import CodeSnippet from "./CodeSnippet";
 
-const Lists = () => {
+const Home = () => {
   const [expanded, setExpanded] = useState(false);
 
   const handleExpansion = () => {
     setExpanded((prevExpanded) => !prevExpanded);
   };
 
-  console.log("here");
   return (
     <Container>
       <Accordion
@@ -44,6 +34,1883 @@ const Lists = () => {
         // slots={{ transition: Fade }}
         // slotProps={{ transition: { timeout: 400 } }}
       >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Features of React</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            ReactJS is a JavaScript library used to build reusable components
+            for the view layer in MVC architecture. It is highly efficient and
+            uses a virtual DOM to render components. It works on the client side
+            and is written in JSX.
+            <ul>
+              <li>
+                <strong>JSX:</strong>
+                JSX is a syntax extension to JavaScript. JSX stands for
+                JavaScript XML. JSX allows us to write HTML in React. JSX makes
+                it easier to write and add HTML in React.
+                <br />
+                Web browsers cannot read JSX directly. This is because they are
+                built to only read regular JS objects and JSX is not a regular
+                JavaScript object. <br />
+                For a web browser to read a JSX file, the file needs to be
+                transformed into a regular JavaScript object. For this, we use
+                Babel
+              </li>
+              <CodeSnippet
+                language="javascript"
+                code={`
+                  const name = 'Josh Perez';
+                  const element = <h1>Hello, {name}</h1>;
+                 `}
+              />
+              <li>
+                <strong>Components:</strong> Components are independent and
+                reusable bits of code. They serve the same purpose as JavaScript
+                functions, but work in isolation and return HTML. Components
+                come in two types, Class components and Function components, in
+                this tutorial we will concentrate on Function components.
+              </li>
+              <li>
+                <strong>Virtual DOM:</strong> React keeps a lightweight
+                representation of the real DOM in the memory, and that is known
+                as the virtual DOM. When the state of an object changes, virtual
+                DOM changes only that object in the real DOM, rather than
+                updating all the objects.
+                <br />
+                <br />
+                <TableContainer component={Paper} variant="outlined">
+                  <Table>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Real DOM</TableCell>
+                        <TableCell>Virtual DOM</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      <TableRow>
+                        <TableCell>
+                          when the actual structure of the web page (which is
+                          not lightweight) or document is represented by DOM.
+                        </TableCell>
+                        <TableCell>
+                          The virtual DOM is a lightweight and in-memory
+                          representation
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell>
+                          Any change causes the entire DOM tree to be updated.
+                        </TableCell>
+                        <TableCell>
+                          Any change only affects the corresponding node in the
+                          tree.
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell>
+                          It is an HTML abstraction of a page.
+                        </TableCell>
+                        <TableCell>It is an HTML DOM abstraction.</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell>
+                          It is capable of manipulating items on the screen.
+                        </TableCell>
+                        <TableCell>
+                          It is unable to manipulate the elements displayed on
+                          the screen.
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell>
+                          Every modification updates the complete DOM tree,
+                          which is a laborious and slow operation.
+                        </TableCell>
+                        <TableCell>
+                          Because the update is tailored to the modified nodes,
+                          its update operation is quick and effective.
+                        </TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </li>
+              <li>
+                <strong>One-way data-binding:</strong> One-way means that the
+                binding happens in one direction. In this case, changes in the
+                data automatically update the UI, but changes in the UI do not
+                automatically update the data. That’s why it is referred to as
+                one-way data binding.
+                <br />
+                React achieves one-way data binding by using state and props.
+              </li>
+              <li>
+                <strong>High performance:</strong> React updates only those
+                components that have changed, rather than updating all the
+                components at once. This results in much faster web
+                applications.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>MVC architecture</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            The Model-View-Controller (MVC) framework is an architectural/design
+            pattern that separates an application into three main logical
+            components Model, View, and Controller. Each architectural component
+            is built to handle specific development aspects of an application.
+            It isolates the business, logic, and presentation layer from each
+            other
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Class Component</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            {`A class component must include the extends React.Component statement. This statement creates an inheritance to React.Component, and gives your component access to React.Component's functions.`}
+            <br />
+            {`The component also requires a render() method, this method returns HTML.`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                class Car extends React.Component {
+                  render() {
+                    return <h2>Hi, I am a Car!</h2>;
+                  }
+                }
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Function Component</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            {`Here is the same example as above, but created using a Function component instead.`}
+            <br />
+            {`A Function component also returns HTML, and behaves much the same way as a Class component, but Function components can be written using much less code, are easier to understand.`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function Car() {
+                  return <h2>Hi, I am a Car!</h2>;
+                }
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Event React</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            An event is an action that a user or system may trigger, such as
+            pressing a key, a mouse click, etc.
+          </Typography>
+          <ul>
+            <li>
+              React events are named using camelCase, rather than lowercase in
+              HTML.
+            </li>
+            <li>
+              With JSX, you pass a function as the event handler, rather than a
+              string in HTML.
+            </li>
+          </ul>
+          <CodeSnippet
+            language="javascript"
+            code={`
+                <Button onPress={lightItUp} />
+              `}
+          />
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>React.js vs Angular.js</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <TableContainer component={Paper} variant="outlined">
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Field</TableCell>
+                    <TableCell>React.js</TableCell>
+                    <TableCell>Angular</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>Used as</TableCell>
+                    <TableCell>
+                      React.js is a JavaScript library. As it indicates react js
+                      updates only the virtual DOM is present and the data flow
+                      is always in a single direction.
+                    </TableCell>
+                    <TableCell>
+                      Angular is a framework. Angular updates the Real DOM and
+                      the data flow is ensured in the architecture in both
+                      directions.
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Architecture</TableCell>
+                    <TableCell>
+                      React.js is more simplified as it follows MVC ie., Model
+                      View Control.
+                    </TableCell>
+                    <TableCell>
+                      The architecture is complex as it follows MVVM models ie.,
+                      Model View-ViewModel.{" "}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Scalability</TableCell>
+                    <TableCell>It is highly scalable.</TableCell>
+                    <TableCell>It is less scalable than React JS.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Data Binding</TableCell>
+                    <TableCell>
+                      It supports Uni-directional data binding which is one-way
+                      data binding.
+                    </TableCell>
+                    <TableCell>
+                      It supports Bi-directional data binding which is two way
+                      data binding.
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>DOM</TableCell>
+                    <TableCell>It has a virtual DOM.</TableCell>
+                    <TableCell>It has regular DOM.</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>SyntheticEvent</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            SyntheticEvent is a cross-browser wrapper around the native browser
+            event. React uses it to handle events in a consistent way across
+            different browsers. Synthetic events are normalized, meaning they
+            have the same properties and methods as native events but behave
+            consistently across different environments.
+            <br />
+            For example in onMouseLeave event.nativeEvent will point to a
+            mouseout event. The specific mapping is not part of the public API
+            and may change at any time.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1-content"
+          id="panel1-header"
+        >
+          <Typography>React vs React Native</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <TableContainer component={Paper} variant="outlined">
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell></TableCell>
+                    <TableCell>React</TableCell>
+                    <TableCell>React Native</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>Purpose</TableCell>
+                    <TableCell>
+                      React (also known as React.js or ReactJS) is a JavaScript
+                      library for building user interfaces, specifically for
+                      building web applications.
+                    </TableCell>
+                    <TableCell>
+                      React Native is a framework for building mobile
+                      applications using React.
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Platform</TableCell>
+                    <TableCell>
+                      It is used for developing web applications that run in a
+                      web browser.
+                    </TableCell>
+                    <TableCell>
+                      It is used for developing native mobile apps for iOS and
+                      Android.
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Rendering</TableCell>
+                    <TableCell>{`In React, components render to HTML elements (like <div>, <span>, etc.). These components are manipulated in the browser's DOM.`}</TableCell>
+                    <TableCell>
+                      React Native components do not render to HTML elements.
+                      Instead, they render to native components like View, Text,
+                      Image, which are then translated into native UI elements
+                      on the iOS and Android platforms.
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Component Libraries</TableCell>
+                    <TableCell>
+                      React has a vast ecosystem of libraries for web
+                      development, such as Material-UI, Bootstrap, Ant Design,
+                      etc.
+                    </TableCell>
+                    <TableCell>
+                      React Native has its own ecosystem of components designed
+                      for mobile development, like View, Text, TouchableOpacity,
+                      FlatList, etc. It also has libraries like React Native
+                      Elements, NativeBase, and others for building mobile UIs.
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Styling</TableCell>
+                    <TableCell>
+                      In React, CSS is used for styling. You can use traditional
+                      CSS, CSS-in-JS, or pre-processors like Sass and Less.
+                    </TableCell>
+                    <TableCell>
+                      You use JavaScript objects to style components, which is
+                      somewhat similar to inline styles in React but with a
+                      different set of styling properties. React Native uses
+                      StyleSheet.create to define these styles.
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Navigation</TableCell>
+                    <TableCell>
+                      It uses libraries like React Router for handling routing
+                      and navigation within web applications.
+                    </TableCell>
+                    <TableCell>
+                      It uses libraries like React Navigation or native
+                      navigation solutions to handle navigation between
+                      different screens in a mobile app.
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Development Experience</TableCell>
+                    <TableCell>
+                      {" "}
+                      Development is focused on the browser, and you can use
+                      browser developer tools for debugging. Hot reloading and
+                      fast refresh are commonly used.
+                    </TableCell>
+                    <TableCell>
+                      Development happens in a mobile simulator/emulator or on a
+                      physical device. React Native also supports hot reloading
+                      and fast refresh, and debugging can be done with tools
+                      like Flipper or through the React Native Debugger.
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>render()</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            In React, the render() method is used in class components to define
+            what the UI should look like. It returns the HTML-like structure
+            (written in JSX) that React will display on the screen.
+            <ul>
+              <li>
+                <strong>Purpose:</strong>It tells React what to display.
+              </li>
+              <li>
+                <strong>Return Value:</strong>
+                {`It must return a single element, like a <div>, or a group of elements wrapped in a single parent or a fragment.`}
+              </li>
+              <li>
+                <strong>Re-rendering:</strong>Whenever the component’s state or
+                props change, render() is called again to update the UI.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import React, { Component } from 'react';
+
+                class MyComponent extends Component {
+                  render() {
+                    return (
+                      <div>
+                        <h1>Hello, {this.props.name}!</h1>
+                      </div>
+                    );
+                  }
+                }
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>State in React</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            In React, state is an object that stores dynamic data and determines
+            how a component behaves and what it displays. Unlike props, which
+            are passed to a component from its parent, state is managed within
+            the component itself and can change over time, typically in response
+            to user actions, network responses, or other events.
+            <ul>
+              <li>
+                <strong>Mutable:</strong>Unlike props, which are read-only,
+                state can be updated. When the state changes, the component
+                re-renders to reflect the new state.
+              </li>
+              <li>
+                <strong>Initialization:</strong>In class components, the state
+                is initialized in the constructor, while in functional
+                components, it’s initialized using the useState hook.
+              </li>
+              <li>
+                <strong>Changing State: </strong>State should be updated using
+                the setState method (in class components) or the setState
+                function provided by useState (in functional components).
+                Directly modifying the state (like this.state.someValue =
+                newValue) is discouraged because it won’t trigger a re-render
+              </li>
+            </ul>
+            <strong>Example in a Class Component:</strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                class MyComponent extends Component {
+                  constructor(props) {
+                    super(props);
+                    this.state = {
+                      count: 0
+                    };
+                  }
+
+                  incrementCount = () => {
+                    this.setState({ count: this.state.count + 1 });
+                  };
+
+                  render() {
+                    return (
+                      <div>
+                        <p>Count: {this.state.count}</p>
+                        <button onClick={this.incrementCount}>Increment</button>
+                      </div>
+                    );
+                  }
+                }
+              `}
+            />
+            <strong>Example in a Functional Component with useState:</strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import React, { useState } from 'react';
+
+                function MyComponent() {
+                  const [count, setCount] = useState(0);
+
+                  return (
+                    <div>
+                      <p>Count: {count}</p>
+                      <button onClick={() => setCount(count + 1)}>Increment</button>
+                    </div>
+                  );
+                }
+              `}
+            />
+            <ul>
+              <li>
+                State is used to manage dynamic data in a React component.
+              </li>
+              <li>
+                Updating State triggers a re-render, allowing the UI to reflect
+                the new data.
+              </li>
+              <li>
+                Class Components use this.state and this.setState, while
+                Functional Components use the useState hook to manage state.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>setState</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            setState is an asynchronous call means if a synchronous call gets
+            called it may not get updated at the right time like to know the
+            current value of an object after an update using setState it may not
+            give the current updated value on the console. To get some behavior
+            of synchronous need to pass function instead of object to setState.
+            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                setState({ stateName : updatedStateValue })
+                // OR
+                setState((prevState) => ({
+                  stateName: prevState.stateName + 1
+                }))
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>ref in React</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Refs are a function provided by React to access the DOM element and
+            the React element that you might have created on your own. They are
+            used in cases where we want to change the value of a child
+            component, without making use of props and all. They have wide
+            functionality as we can use callbacks with them.
+            <br />
+            The syntax to use ref is
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const node = this.myCallRef.current;
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Hooks</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Hooks are a new addition in React 16.8. They let developers use
+            state and other React features without writing a class. Hooks
+            doesn’t violate any existing React concepts. Instead, Hooks provide
+            a direct API to react concepts such as props, state, context, refs
+            and life-cycle.
+            <br />
+            They provide a cleaner and more concise way to handle state and side
+            effects in React applications.
+            <br />
+            Although Hooks generally replace class components, no plans exist to
+            remove classes from React.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>useState</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            The most used hook in React is the useState() hook. It allows
+            functional components to manipulate DOM elements before each render.
+            Using this hook we can declare a state variable inside a function
+            but only one state variable can be declared using a single
+            useState() hook. Whenever the useState() hook is used, the value of
+            the state variable is changed and the new variable is stored in a
+            new cell in the stack.
+            <br />
+            We have to import this hook in React using the following syntax.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import {useState} from 'react'
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>useEffect</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            The useEffect hook in React eliminates the side effect of using
+            class based components. It is used as an alternative to
+            componentDidUpdate() method. The useEffect hook accepts two
+            arguments where second argument is optional.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                useEffect(function, dependency)
+              `}
+            />
+            The dependency decides when the component will be updated again
+            after rendering.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>React Fragments</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            when we are trying to render more than one root element we have to
+            put the entire content inside the ‘div’ tag which is not loved by
+            many developers. So since React 16.2 version, Fragments were
+            introduced, and we use them instead of the extraneous ‘div’ tag. The
+            following syntax is used to create fragment in react.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                <React.Fragment>
+                    <h2>Child-1</h2>
+                    <p> Child-2</p>
+                </React.Fragment>
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Custom hooks</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            We know that hooks like useState, and useEffect are reusable
+            components. Sometimes we make components that we have to reuse again
+            and again in the application. In this case, we can convert the
+            component to hooks by extracting logic from it.
+            <br />
+            The main reason why you should be using Custom hooks is to maintain
+            the concept of DRY(Don’t Repeat Yourself) in your React apps.
+            <strong>Building a custom hook</strong>
+            Creating a custom hook is the same as creating a JavaScript function
+            whose name starts with “use”. It can use other hooks inside it,
+            return anything you want it to return, take anything as parameters.
+            <br />
+            <strong>Note:</strong> It is important to name your custom hooks
+            starting with “use”, because without it React can’t realize that it
+            is a custom hook and therefore can’t apply the rules of hooks to it.
+            So, you should name it starting with “use”.
+            <br />
+            <strong>Create a React Component</strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                Let us first create a component where we are not creating custom hook
+                // Filename - src/components/FirstComponent.js
+
+                import React , {useState ,useEffect} from "react";
+
+                function FirstComponent(props){
+
+                    const [counter , setCounter] = useState(initializer);
+
+                    // Increases the value of counter by 1
+                      function resetCounter(){
+                        setCounter(counter + 1):
+                    }
+
+                    useEffect(() => {
+                        // Some logic
+                        console.log(counter);
+                    } , [counter]);
+
+                    const clickedButton = resetCounter;
+
+                    return (
+                        <div>
+                            <h1> This is the First Component</h1>
+                            <button onClick={clickedButton}>
+                              Click here!
+                            </button>
+                        </div>
+                    );
+                }
+
+                export default FirstComponent;
+              `}
+            />
+            Suppose we have to use this counter in multiple components then we
+            would require a custom hook that can perfrom the same function
+            multiple times.
+            <br />
+            <br />
+            <strong>Creating a custom hook</strong>
+            <br />
+            Create the custom hook as shown in the example below
+            <CodeSnippet
+              language="javascript"
+              code={`
+                // Filename- src/components/useCustomHook.js
+
+                import {useState , useEffect} from "react";
+
+                // Remember to start the name of your custom hook with "use"
+                function useCustomHook(initializer , componentName){
+                    const [counter , setCounter] = useState(initializer);
+
+                    // Increases the value of counter by 1
+                      function resetCounter(){
+                        setCounter(counter + 1);
+                    }
+
+                    useEffect(() => {
+                        // Some logic that will be used in multiple components
+                        console.log("The button of the "
+                        + componentName + " is clicked "
+                        + counter + " times.");
+                    } , [counter , componentName]);
+
+                    // Calls the useEffect hook if the counter updates
+                    return resetCounter;
+                }
+
+                export default useCustomHook;
+              `}
+            />
+            <strong>Using the custom hook in components</strong>
+            <br />
+            To use the custom hook in your components just import the
+            “useCustomHook” function from “useCustomHook.js” file in the “src”
+            folder.
+            <ul>
+              <li>
+                <strong>src/components/FirstComponent.js:</strong> This
+                component will import customHook
+              </li>
+              <li>
+                <strong>src/components/SecondComponent.js:</strong> This
+                component will also import customHook
+              </li>
+              <li>
+                <strong>src/App.js:</strong> We will render the components in
+                this file
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                // Filename - First Component
+                import React from "react";
+
+                // importing the custom hook
+                import useCustomHook from "./useCustomHook";
+
+                function FirstComponent(props){
+
+                    // ClickedButton = resetCounter;
+                    const clickedButton = useCustomHook(0 , "FirstComponent");
+
+                    return (
+                        <div>
+                            <h1> This is the First Component</h1>
+                            <button onClick={clickedButton}>
+                                  Click here!
+                            </button>
+                        </div>
+                    );
+                }
+
+                export default FirstComponent;
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Optimize the performance of React app</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <a
+              href="https://www.geeksforgeeks.org/how-to-optimize-the-performance-of-react-app/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Optimize the performance of React app
+            </a>
+            <br />
+            We can improve our react code by following these practices:
+            <ul>
+              <li>Using binding functions in constructors</li>
+              <li>
+                Eliminating the use of inline attributes as they slow the
+                process of loading
+              </li>
+              <li>Avoiding extra tags by using React fragments</li>
+              <li>Lazy loading</li>
+              <li>Avoid inline function in the render method</li>
+              <li>Avoid bundling all of the front end code in a single file</li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Props</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            In React, props (short for "properties") are used to pass data from
+            a parent component to a child component. They allow you to make
+            components dynamic and reusable by letting you pass different data
+            to them.
+            <ul>
+              <li>
+                <strong>Read-Only:</strong> Props are immutable, meaning they
+                cannot be changed by the component that receives them. They are
+                passed down from a parent component and are used to render or
+                configure the child component.
+              </li>
+              <li>
+                <strong>Passed from Parent to Child:</strong> Props are passed
+                to a child component as attributes in the JSX syntax. The child
+                component can then access these props using this.props in class
+                components or directly as arguments in functional components.
+              </li>
+              <li>
+                <strong>Dynamic Data:</strong> Props make components flexible by
+                allowing them to display different data based on what is passed
+                from the parent.
+              </li>
+            </ul>
+            <strong>In a Class Component:</strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import React, { Component } from 'react';
+
+                class Greeting extends Component {
+                  render() {
+                    return <h1>Hello, {this.props.name}!</h1>;
+                  }
+                }
+
+                export default Greeting;
+              `}
+            />
+            <strong>In a Functional Component:</strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import React from 'react';
+
+                function Greeting(props) {
+                  return <h1>Hello, {props.name}!</h1>;
+                }
+
+                export default Greeting;
+              `}
+            />
+            <strong>Passing props:</strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import React from 'react';
+                import Greeting from './Greeting';
+
+                function App() {
+                  return (
+                    <div>
+                      <Greeting name="Alice" />
+                      <Greeting name="Bob" />
+                    </div>
+                  );
+                }
+
+                export default App;
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography> state vs props</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <TableContainer component={Paper} variant="outlined">
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell></TableCell>
+                    <TableCell>State</TableCell>
+                    <TableCell>Props</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>Use</TableCell>
+                    <TableCell>
+                      Holds information about the components
+                    </TableCell>
+                    <TableCell>
+                      Allows to pass data from one component to other components
+                      as an argument
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Mutability</TableCell>
+                    <TableCell>Is mutable</TableCell>
+                    <TableCell>Are immutable</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Read-Only</TableCell>
+                    <TableCell>Can be changed</TableCell>
+                    <TableCell>Are read-only</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Child components</TableCell>
+                    <TableCell>Child components cannot access</TableCell>
+                    <TableCell>Child component can access</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Stateless components</TableCell>
+                    <TableCell>Cannot have state</TableCell>
+                    <TableCell>Can have props</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>higher-order component</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            A Higher-Order Component is a function that takes a component and
+            returns a new component. Essentially, it’s a function that enhances
+            a component by adding additional functionality or props.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const EnhancedComponent = higherOrderComponent(WrappedComponent);
+              `}
+            />
+            <ul>
+              <li>
+                <strong> Code reuse, logic, and bootstrap abstraction:</strong>
+                HOCs can extract common logic that can be shared among multiple
+                components.
+              </li>
+              <li>
+                <strong>State management:</strong> HOCs can manage state and
+                pass it as props to the wrapped component.
+              </li>
+              <li>
+                <strong>Enhancing UI:</strong> HOCs can modify the behavior or
+                appearance of a component.
+              </li>
+            </ul>
+            <strong>Create the HOC</strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import React from 'react';
+
+                function withLogging(WrappedComponent) {
+                  return class extends React.Component {
+                    componentDidMount() {
+                      console.log('Component Mounted:', WrappedComponent.name);
+                    }
+
+                    render() {
+                      return <WrappedComponent {...this.props} />;
+                    }
+                  };
+                }
+              `}
+            />
+            <strong>Use the HOC</strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import React from 'react';
+                import withLogging from './withLogging';
+
+                class MyComponent extends React.Component {
+                  render() {
+                    return <div>Hello, {this.props.name}!</div>;
+                  }
+                }
+
+                export default withLogging(MyComponent);
+              `}
+            />
+            <strong>Summary:</strong>
+            <ul>
+              <li>
+                Higher-Order Components are functions that take a component and
+                return a new component with added functionality.
+              </li>
+              <li>
+                They are used to reuse component logic, manage state, and handle
+                cross-cutting concerns.
+              </li>
+              <li>
+                HOCs follow the principle of composability and do not alter the
+                original component, making them a powerful pattern in React
+                development.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Redux</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Redux is an open-source, JavaScript library used to manage the
+            application state. React uses Redux to build the user interface. It
+            is a predictable state container for JavaScript applications and is
+            used for the entire application’s state management.
+            <strong>Store</strong>
+            <ul>
+              <li>
+                <strong>Definition:</strong> The store is a central repository
+                that holds the entire state of the application.
+              </li>
+              <li>
+                <strong>Usage:</strong> There is typically one store per
+                application. It is created using the createStore function from
+                Redux.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import { createStore } from 'redux';
+                import rootReducer from './reducers';
+
+                const store = createStore(rootReducer);
+              `}
+            />
+            <strong>Actions:</strong>
+            <ul>
+              <li>
+                <strong>Definition:</strong> Actions are plain JavaScript
+                objects that represent an intention to change the state. Each
+                action has a type property and can also include additional data
+                (payload).
+              </li>
+              <li>
+                <strong>Usage:</strong> Actions are dispatched to signal that
+                something has happened that should update the state.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const incrementAction = {
+                  type: 'INCREMENT'
+                };
+
+                const setUserAction = (user) => ({
+                  type: 'SET_USER',
+                  payload: user
+                });
+              `}
+            />
+            <strong>Reducers:</strong>
+            <ul>
+              <li>
+                <strong>Definition:</strong> Reducers are pure functions that
+                specify how the state changes in response to actions. They take
+                the current state and an action as arguments and return a new
+                state.
+              </li>
+              <li>
+                <strong>Usage:</strong> Reducers are combined to form the root
+                reducer, which is used to create the store.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const counterReducer = (state = 0, action) => {
+                  switch (action.type) {
+                    case 'INCREMENT':
+                      return state + 1;
+                    default:
+                      return state;
+                  }
+                };
+
+                const rootReducer = combineReducers({
+                  counter: counterReducer,
+                  // other reducers
+                });
+              `}
+            />
+            <strong>Dispatch:</strong>
+            <ul>
+              <li>
+                <strong>Definition:</strong> dispatch is a method used to send
+                actions to the store. This triggers the reducers to process the
+                action and update the state.
+              </li>
+              <li>
+                <strong>Usage:</strong> Components or other parts of the
+                application use dispatch to send actions.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                store.dispatch(incrementAction);
+              `}
+            />
+            <strong>Selectors:</strong>
+            <ul>
+              <li>
+                <strong>Definition:</strong> Selectors are functions that
+                extract and return a specific part of the state from the store.
+                They are used to retrieve and compute derived data from the
+                state.
+              </li>
+              <li>
+                <strong>Usage:</strong> Selectors help encapsulate and reuse
+                logic for accessing the state.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const selectCounter = (state) => state.counter;
+              `}
+            />
+            <strong>Middleware:</strong>
+            <ul>
+              <li>
+                <strong>Definition:</strong> Middleware is a way to extend
+                Redux's capabilities, such as handling asynchronous actions.
+                Common middleware includes Redux Thunk and Redux Saga.
+              </li>
+              <li>
+                <strong>Usage:</strong> Middleware can be applied when creating
+                the store to handle things like side effects or logging.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import thunk from 'redux-thunk';
+
+                const store = createStore(rootReducer, applyMiddleware(thunk));
+              `}
+            />
+            <strong>Summary:</strong>
+            <ul>
+              <li>
+                Redux provides a predictable state container for JavaScript
+                apps, helping manage and centralize state.
+              </li>
+              <li>
+                Core Concepts: Store, Actions, Reducers, Dispatch, Selectors,
+                Middleware.
+              </li>
+              <li>
+                Integration: Redux can be integrated with React using the
+                react-redux library, enabling components to access and update
+                the state.
+              </li>
+            </ul>
+            <strong>benfits of using react-redux</strong>
+            <ul>
+              <li>
+                It provides centralized state management i.e. a single store for
+                whole application
+              </li>
+              <li>
+                It optimizes performance as it prevents re-rendering of
+                component
+              </li>
+              <li>Makes the process of debugging easier</li>
+              <li>
+                Since it offers persistent state management therefore storing
+                data for long times become easier
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>React Router</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            React Router is a popular library for handling routing in React
+            applications. It allows you to build single-page applications (SPAs)
+            with navigation and URL management.
+            <strong>Router:</strong>
+            <ul>
+              <li>
+                <strong>Definition:</strong> The router is a component that
+                keeps track of the current URL and determines which components
+                should be rendered based on that URL.
+              </li>
+              <li>
+                <strong>Usage:</strong>BrowserRouter: Uses the HTML5 history API
+                to keep the UI in sync with the URL. <br />
+                HashRouter: Uses URL hash fragments to manage the history and
+                state of the URL.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import { BrowserRouter } from 'react-router-dom';
+
+                function App() {
+                  return (
+                    <BrowserRouter>
+                      {/* Routes and components go here */}
+                    </BrowserRouter>
+                  );
+                }
+              `}
+            />
+            <strong>Route:</strong>
+            <ul>
+              <li>
+                <strong>Definition:</strong> A Route defines a path and the
+                component to render when the URL matches that path.
+              </li>
+              <li>
+                <strong>Usage:</strong> You use the Route component to define
+                what should be rendered for different URL paths.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import { Route, Switch } from 'react-router-dom';
+
+                function App() {
+                  return (
+                    <BrowserRouter>
+                      <Switch>
+                        <Route path="/" exact component={HomePage} />
+                        <Route path="/about" component={AboutPage} />
+                        {/* Other routes */}
+                      </Switch>
+                    </BrowserRouter>
+                  );
+                }
+              `}
+            />
+            <strong>Link:</strong>
+            <ul>
+              <li>
+                <strong>Definition:</strong> The Link component is used to
+                navigate to different routes without reloading the page.
+              </li>
+              <li>
+                <strong>Usage:</strong>{" "}
+                {`It renders an anchor (<a>) tag with a href attribute that changes the URL when clicked.`}
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import { Link } from 'react-router-dom';
+
+                function Navigation() {
+                  return (
+                    <nav>
+                      <Link to="/">Home</Link>
+                      <Link to="/about">About</Link>
+                    </nav>
+                  );
+                }
+              `}
+            />
+            <strong>Switch:</strong>
+            <ul>
+              <li>
+                <strong>Definition:</strong> The Switch component renders the
+                first Route or Redirect that matches the current location. It
+                ensures that only one route is rendered at a time.
+              </li>
+              <li>
+                <strong>Usage:</strong> Use Switch to group Route components and
+                render only the first matching route.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import { Switch, Route } from 'react-router-dom';
+
+                function App() {
+                  return (
+                    <BrowserRouter>
+                      <Switch>
+                        <Route path="/" exact component={HomePage} />
+                        <Route path="/about" component={AboutPage} />
+                        <Route component={NotFoundPage} />
+                      </Switch>
+                    </BrowserRouter>
+                  );
+                }
+              `}
+            />
+            <strong>Redirect:</strong>
+            <ul>
+              <li>
+                <strong>Definition:</strong> The Redirect component allows you
+                to redirect users to a different route programmatically.
+              </li>
+              <li>
+                <strong>Usage:</strong> You can use it to redirect users based
+                on certain conditions, like authentication status.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import { Redirect } from 'react-router-dom';
+
+                function PrivateRoute({ component: Component, ...rest }) {
+                  const isAuthenticated = /* logic to check authentication */;
+                  return (
+                    <Route
+                      {...rest}
+                      render={props =>
+                        isAuthenticated ? (
+                          <Component {...props} />
+                        ) : (
+                          <Redirect to="/login" />
+                        )
+                      }
+                    />
+                  );
+                }
+              `}
+            />
+            <strong>useParams, useLocation, useHistory:</strong>
+            <ul>
+              <li>
+                <strong>Definition:</strong> Hooks provided by React Router for
+                accessing routing information in functional components.
+              </li>
+              <ul>
+                <li>
+                  <strong>useParams():</strong> Access URL parameters.
+                </li>
+                <li>
+                  <strong>useLocation():</strong> Access the current location
+                  object.
+                </li>
+                <li>
+                  <strong>useHistory():</strong> Access the history instance to
+                  programmatically navigate.
+                </li>
+              </ul>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import { useParams, useLocation, useHistory } from 'react-router-dom';
+
+                function ExampleComponent() {
+                  const { id } = useParams();
+                  const location = useLocation();
+                  const history = useHistory();
+
+                  const goHome = () => {
+                    history.push('/');
+                  };
+
+                  return (
+                    <div>
+                      <p>ID: {id}</p>
+                      <p>Current Path: {location.pathname}</p>
+                      <button onClick={goHome}>Go Home</button>
+                    </div>
+                  );
+                }
+              `}
+            />
+            <strong>Summary:</strong>
+            <ul>
+              <li>
+                React Router is a library for managing navigation and routing in
+                React applications.
+              </li>
+              <li>
+                <strong>Key Components:</strong> BrowserRouter, Route, Link,
+                Switch, Redirect.
+              </li>
+              <li>
+                <strong>Hooks:</strong> useParams, useLocation, useHistory for
+                accessing routing information in functional components.
+              </li>
+              <li>
+                <strong>Usage:</strong> Set up routing by defining routes and
+                linking to them, and handle navigation programmatically with
+                hooks.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Styling in ReactJS</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Styling in ReactJS can be done using various methods, each offering
+            different levels of control and flexibility.
+            <br />
+            <strong>CSS Stylesheets:</strong>
+            <br />
+            Traditional CSS files are imported into your React components. How
+            Create a .css file and import it into your component file.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                /* styles.css */
+                  .container {
+                    padding: 20px;
+                    background-color: lightblue;
+                  }
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                // Component.js
+                import React from 'react';
+                import './styles.css';
+
+                function MyComponent() {
+                  return <div className="container">Hello, World!</div>;
+                }
+
+                export default MyComponent;
+              `}
+            />
+            <strong>Inline Styles</strong>
+            <br />
+            Inline styles are applied directly to elements using the style
+            attribute.Pass a JavaScript object to the style attribute.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function MyComponent() {
+                  const divStyle = {
+                    padding: '20px',
+                    backgroundColor: 'lightblue'
+                  };
+
+                  return <div style={divStyle}>Hello, World!</div>;
+                }
+
+                export default MyComponent;
+              `}
+            />
+            <strong>CSS Modules</strong>
+            <br />
+            CSS Modules allow for locally scoped CSS, preventing style
+            conflicts. Create a .module.css file and import it as a module.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                /* styles.module.css */
+                .container {
+                  padding: 20px;
+                  background-color: lightblue;
+                }
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                // Component.js
+                import React from 'react';
+                import styles from './styles.module.css';
+
+                function MyComponent() {
+                  return <div className={styles.container}>Hello, World!</div>;
+                }
+
+                export default MyComponent;
+              `}
+            />
+            <strong>Styled Components</strong>
+            <br />
+            Styled Components is a library for writing CSS-in-JS, allowing you
+            to style components using JavaScript. Install styled-components and
+            create styled components.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                npm install styled-components
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                // Component.js
+                import React from 'react';
+                import styled from 'styled-components';
+
+                const Container = styled.div
+                  background-color: lightblue;
+                  padding: 20px;
+
+                function MyComponent() {
+                  return <Container>Hello, World!</Container>;
+                }
+
+                export default MyComponent;
+              `}
+            />
+            <strong>Emotion</strong>
+            <br /> Emotion is another CSS-in-JS library for styling React
+            components with a powerful API. Install @emotion/react and
+            @emotion/styled, then use them for styling.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                npm install @emotion/react @emotion/styled
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                // Component.js
+                /** @jsxImportSource @emotion/react */
+                import { css } from '@emotion/react';
+                import styled from '@emotion/styled';
+
+                const containerStyle = css
+                  background-color: lightblue;
+                  padding: 20px;
+
+               const Container = styled.div
+                padding: 20px;
+                background-color: lightblue;
+
+
+                function MyComponent() {
+                  return (
+                    <div css={containerStyle}>
+                      Hello, World!
+                    </div>
+                    // or use <Container>Hello, World!</Container>
+                  );
+                }
+
+                export default MyComponent;
+              `}
+            />
+            <strong>Tailwind CSS</strong>
+            <br />
+            Tailwind CSS is a utility-first CSS framework that provides
+            low-level utility classes to build custom designs. Install Tailwind
+            CSS and use utility classes in your JSX.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                npm install tailwindcss
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                // Component.js
+                function MyComponent() {
+                  return <div className="p-5 bg-blue-200">Hello, World!</div>;
+                }
+
+                export default MyComponent;
+              `}
+            />
+            <strong>CSS-in-JS</strong>
+            <br />
+            Usage: Various libraries (like styled-components and emotion)
+            provide the ability to write CSS directly in JavaScript files.
+            <br />
+            Benefits: Scoped styles, dynamic styling based on props, etc.
+            <br />
+            <strong>Summary:</strong>
+            <br />
+            <ul>
+              <li>CSS Stylesheets: Traditional approach; globally scoped.</li>
+              <li>
+                Inline Styles: Directly in the component; limited functionality.
+              </li>
+              <li>CSS Modules: Locally scoped styles; avoids conflicts.</li>
+              <li>
+                Styled Components & Emotion: CSS-in-JS solutions for scoped and
+                dynamic styling.
+              </li>
+              <li>Tailwind CSS: Utility-first framework for fast styling.</li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Conditional rendering in React</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Conditional rendering in React involves selectively rendering
+            components based on specified conditions. By evaluating these
+            conditions, developers can control which components are displayed,
+            allowing for dynamic and responsive user interfaces in React
+            applications. <br />
+            Let us look at this sample code to understand conditional rendering.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                {isLoggedIn == false ? <DisplayLoggedOut /> : <DisplayLoggedIn />}
+                 `}
+            />
+            Here if the boolean isLoggedIn is false then the DisplayLoggedOut
+            component will be rendered otherwise DisplayLoggedIn component will
+            be rendered.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Lifecycle methods of components</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            A React Component can go through four stages of its life as follows.
+            <ul>
+              <li>
+                <strong>Initialization:</strong> This is the stage where the
+                component is constructed with the given Props and default state.
+                This is done in the constructor of a Component Class.
+              </li>
+              <li>
+                <strong>Mounting:</strong> Mounting is the stage of rendering
+                the JSX returned by the render method itself.
+              </li>
+              <li>
+                <strong>Updating:</strong> Updating is the stage when the state
+                of a component is updated and the application is repainted.
+              </li>
+              <li>
+                <strong>Unmounting:</strong> As the name suggests Unmounting is
+                the final step of the component lifecycle where the component is
+                removed from the page.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>useref vs createRef</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <TableContainer component={Paper} variant="outlined">
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>useRef</TableCell>
+                    <TableCell>createRef</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>It is a hook.</TableCell>
+                    <TableCell>It is a function.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>It uses the same ref throughout.</TableCell>
+                    <TableCell>It creates a new ref every time.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      It saves its value between re-renders in a functional
+                      component.
+                    </TableCell>
+                    <TableCell>
+                      It creates a new ref for every re-render.
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>It returns a mutable ref object.</TableCell>
+                    <TableCell>It returns a read-only ref object.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      The refs created using the useRef can persist for the
+                      entire component lifetime.
+                    </TableCell>
+                    <TableCell>
+                      The refs created using the createRef can be referenced
+                      throughout the component.
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>It is used in functional components.</TableCell>
+                    <TableCell>It is used in class components.</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
@@ -56,16 +1923,6 @@ const Lists = () => {
             Variables declared with const are block-scoped and cannot be
             reassigned once initialized. However, the value they hold can still
             be mutable if it's an object or an array.
-            <pre>
-              <code class="language-javascript hljs">
-                <span class="hljs-keyword">var</span> str ={" "}
-                <span class="hljs-string">"Vivek Singh Bisht"</span>;{" "}
-                <span class="hljs-comment">{`//using double quotes`}</span>
-                <span class="hljs-keyword">var</span> str2 ={" "}
-                <span class="hljs-string">'John Doe'</span>;{" "}
-                <span class="hljs-comment">{`//using single quotes`}</span>
-              </code>
-            </pre>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -113,10 +1970,16 @@ const Lists = () => {
           <Typography>
             <strong>==</strong> (Equality Operator):
             <br />
-            console.log(5 == '5'); // Output: true. - performs type coercion{" "}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`console.log(5 == '5'); // Output: true.`}
+            />
+            - performs type coercion <br />
             <strong> ===</strong> (Strict Equality Operator): <br />
-            console.log(5 === '5'); // Output: false
+            <CodeSnippet
+              language="javascript"
+              code={`console.log(5 === '5'); // Output: false `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -165,32 +2028,31 @@ const Lists = () => {
             <br />
             <strong>Example 1:</strong>
             <br />
-            {`function increment(num) {`}
-            <br />
-            &nbsp;&nbsp;{`num += 1;`}
-            <br />
-            &nbsp;&nbsp;
-            {`console.log("Inside function:", num); // Output: Inside function: 6`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`let x = 5;`}
-            <br />
-            {`increment(x);`}
-            <br />
-            {`console.log("Outside function:", x); // Output: Outside function: 5`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+              function increment(num) {
+                num += 1;
+                console.log("Inside function:", num); // Output: Inside function: 6
+              }
+
+              let x = 5;
+              increment(x);
+              console.log("Outside function:", x); // Output: Outside function: 5
+              `}
+            />
             <br />
             <strong>Example 2:</strong>
             <br />
-            {`let test = 3;`}
-            <br />
-            {`let test2 = test;`}
-            <br />
-            {`test2++;`}
-            <br />
-            {`console.log(test, " - ", test2); // 3 - 4`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let test = 3;
+                let test2 = test;
+                test2++;
+                console.log(test, " - ", test2); // 3 - 4
+              `}
+            />
             <br />
             <br />
             <strong>Pass by Reference:</strong>
@@ -210,50 +2072,57 @@ const Lists = () => {
             </ul>
             <strong>Example 1:</strong>
             <br />
-            {`function addElement(arr) {`}
-            <br />
-            &nbsp;&nbsp;{`arr.push(4);`}
-            <br />
-            &nbsp;&nbsp;
-            {`console.log("Inside function:", arr); // Output: Inside function: [1, 2, 3, 4]`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`let myArray = [1, 2, 3];`}
-            <br />
-            {`addElement(myArray);`}
-            <br />
-            {`console.log("Outside function:", myArray); // Output: Outside function: [1, 2, 3, 4]`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+              function addElement(arr) {
+                arr.push(4);
+                console.log("Inside function:", arr); // Output: Inside function: [1, 2, 3, 4]
+                }
+
+              let myArray = [1, 2, 3];
+              addElement(myArray);
+              console.log("Outside function:", myArray); // Output: Outside function: [1, 2, 3, 4]
+              `}
+            />
             <strong>Example 2:</strong>
-            <br />
-            {`let test3 = { test: 'ert' };`}
-            <br />
-            {`let test4 = { ...test3 };`}
-            <br />
-            <br />
-            {`test4.firstName = "sumi";`}
-            <br />
-            <br />
-            {`console.log("test3", test3); // "test3", { test: "ert" }`}
-            <br />
-            {`console.log("test4", test4); // "test4", { firstName: "sumi", test: "ert" }`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let test3 = { test: 'ert' };
+                let test4 = { ...test3 }; // Using the spread operator to create a shallow copy
+                test4.firstName = "sumi";
+                console.log("test3", test3); // "test3", { test: "ert" }
+                console.log("test4", test4); // "test4", { firstName: "sumi", test: "ert" }
+                 `}
+            />
+            <ul>
+              <li>
+                {`let test4 = {...test3}; creates a shallow copy of test3 and
+                assigns it to test4. Now, test3 and test4 reference different
+                objects.`}
+              </li>
+              <li>
+                Adding test4.firstName = "sumi"; only modifies test4, leaving
+                test3 unchanged.
+              </li>
+              <li>
+                {`As a result, test3 remains { test: "ert" }, while test4 becomes { test: "ert", firstName: "sumi" }.`}
+              </li>
+            </ul>
+
             <br />
             <strong>Example 3:</strong>
-            <br />
-            {`let obj1 = {};`}
-            <br />
-            {`let obj2 = obj1;`}
-            <br />
-            {`obj2.firstName = "sumi";`}
-            <br />
-            <br />
-            {`console.log("obj1", obj1); // { firstName: "sumi" }`}
-            <br />
-            {`console.log("obj2", obj2); // { firstName: "sumi" }`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let obj1 = {};
+                let obj2 = obj1; // Direct assignment, both variables point to the same object
+                obj2.firstName = "sumi";
+                console.log("obj1", obj1); // { firstName: "sumi" }
+                console.log("obj2", obj2); // { firstName: "sumi" }
+                `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -263,7 +2132,9 @@ const Lists = () => {
           aria-controls="panel2-content"
           id="panel7-header"
         >
-          <Typography>map() vs filter() vs reduce()</Typography>
+          <Typography>
+            map() vs filter() vs reduce() and Flatting Array
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -286,14 +2157,15 @@ const Lists = () => {
                 traversed.
               </li>
             </ul>
-            {`const numbers = [1, 2, 3, 4, 5];`}
-            <br />
-            {`const doubled = numbers.map(num => num * 2);`}
-            <br />
-            {`console.log(doubled); //		[2, 4, 6, 8, 10]`}
-            <br />
-            {`console.log(numbers); //		[1, 2, 3, 4, 5]`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const numbers = [1, 2, 3, 4, 5];
+                const doubled = numbers.map(num => num * 2);
+                console.log(doubled); //		[2, 4, 6, 8, 10];
+                console.log(numbers); //		[1, 2, 3, 4, 5]
+                `}
+            />
             <br />
             <strong>Filter():</strong>
             <ul>
@@ -312,12 +2184,14 @@ const Lists = () => {
                 method.
               </li>
             </ul>
-            {`const numbers = [1, 2, 3, 4, 5];`}
-            <br />
-            {`const evens = numbers.filter(num => num % 2 === 0);`}
-            <br />
-            {`console.log(evens);`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const numbers = [1, 2, 3, 4, 5];
+                const evens = numbers.filter(num => num % 2 === 0);
+                console.log(evens); //[ 2, 4 ]
+                `}
+            />
             <br />
             <strong>Reduce():</strong>
             <br />
@@ -339,11 +2213,14 @@ const Lists = () => {
                 element, the current index, and the array being traversed.
               </li>
             </ul>
-            {`const numbers = [1, 2, 3, 4, 5];`}
-            <br />
-            {`const sum = numbers.reduce((acc, num) => acc + num, 0);`}
-            <br />
-            {`console.log(sum); // Output: 15 (1 + 2 + 3 + 4 + 5);`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const numbers = [1, 2, 3, 4, 5];
+                const sum = numbers.reduce((acc, num) => acc + num, 0);
+                console.log(sum); // Output: 15 (1 + 2 + 3 + 4 + 5);
+                `}
+            />
             <ul>
               <li>
                 map() transforms each element of an array and returns a new
@@ -358,6 +2235,93 @@ const Lists = () => {
                 accumulating a single result.
               </li>
             </ul>
+            <strong>Flattening an Array of Arrays</strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+              const nestedArray = [[1, 2], [3, 4], [5, 6]];
+              const flatArray = nestedArray.reduce((accumulator, currentValue) => {
+                return accumulator.concat(currentValue);
+              }, []);
+
+              console.log(flatArray); // Output: [1, 2, 3, 4, 5, 6]
+            `}
+            />
+            <strong>Counting Occurrences of Items in an Array</strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const fruits = ['apple', 'banana', 'orange', 'apple', 'orange', 'banana', 'banana'];
+
+                const fruitCount = fruits.reduce((accumulator, currentValue) => {
+                  if (accumulator[currentValue]) {
+                    accumulator[currentValue]++;
+                  } else {
+                    accumulator[currentValue] = 1;
+                  }
+                  return accumulator;
+                }, {});
+
+                console.log(fruitCount); // Output: { apple: 2, banana: 3, orange: 2 }
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id=""
+        >
+          <Typography>Flat map</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            flatMap is a method in JavaScript that combines the operations of
+            map and flat. It first maps each element of an array to a new value,
+            and then flattens the result by one level. This method is
+            particularly useful when you need to perform a transformation on
+            each element of an array that results in arrays, and you want a
+            single, flat array as the result.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const numbers = [1, 2, 3];
+                const evens = numbers.map((x) =>  [x, x * 2])
+                let flat = numbers.flatMap(x => [x, x * 2])
+                console.log(evens);  //[ [ 1, 2 ], [ 2, 4 ], [ 3, 6 ] ]
+                console.log(flat); //[ 1, 2, 2, 4, 3, 6 ]
+              `}
+            />
+            <strong>Removing Empty Elements</strong>
+            <br />
+            Another common use case is filtering out unwanted elements (e.g.,
+            empty arrays) and flattening the result:
+            <CodeSnippet
+              language="javascript"
+              code={`
+              const arr = ["apple", "", "banana", "orange"];
+
+              const result = arr.flatMap(str => str ? [str] : []);
+
+              console.log(result); // Output: ["apple", "banana", "orange"]
+              `}
+            />
+            <strong>Splitting and Flattening</strong>
+            <br />
+            You can use flatMap to split strings and flatten the result:
+            <CodeSnippet
+              language="javascript"
+              code={`
+              const sentences = ["Hello world", "FlatMap is useful", "JavaScript"];
+
+              const words = sentences.flatMap(sentence => sentence.split(" "));
+
+              console.log(words); // Output: ["Hello", "world", "FlatMap", "is", "useful", "JavaScript"]
+
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -374,10 +2338,13 @@ const Lists = () => {
             Adds one or more elements to the end of an array and returns the new
             length of the array.
             <br />
-            {`let arr = [1, 2, 3];`}
-            <br />
-            {`arr.push(4); // arr is now [1, 2, 3, 4]`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let arr = [1, 2, 3];
+                arr.push(4); // arr is now [1, 2, 3, 4]
+                `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -393,10 +2360,14 @@ const Lists = () => {
           <Typography>
             Removes the last element from an array and returns that element.
             <br />
-            {`let arr = [1, 2, 3];`}
-            <br />
-            {`arr.pop(); // arr is now [1, 2], returns 3`}
-            <br />
+            It does not take any arguments.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let arr = [1, 2, 3];
+                arr.pop(); // arr is now [1, 2], returns 3
+                `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -410,12 +2381,16 @@ const Lists = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Removes the first element from an array and returns that element.
+            Removes the first element from an array and returns that element.{" "}
             <br />
-            {`let arr = [1, 2, 3];`}
-            <br />
-            {`arr.shift(); // arr is now [2, 3], returns 1`}
-            <br />
+            This method does not take any arguments.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let arr = [1, 2, 3];
+                arr.shift(); // arr is now [2, 3], returns 1
+                `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -431,11 +2406,16 @@ const Lists = () => {
           <Typography>
             Adds one or more elements to the beginning of an array and returns
             the new length of the array.
-            <br />
-            {`let arr = [1, 2, 3];`}
-            <br />
-            {`arr.unshift(0); // arr is now [0, 1, 2, 3]`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let arr = [1, 2, 3];
+                arr.unshift(0); // arr is now [0, 1, 2, 3]
+                arr.unshift(11, 22); //Output: [11, 22, 0, 1, 2, 3]
+
+                console.log(arr) //[ 11, 22, 0, 1, 2, 3 ]
+                `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -451,13 +2431,206 @@ const Lists = () => {
           <Typography>
             Adds, removes, or replaces elements in an array at a specified
             index.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                //array.splice(start, deleteCount, item1, item2, ..., itemN);
+
+                const numbers = [1, 2, 3, 14, 5];
+                const sliced = numbers.splice(1);
+                console.log(sliced); // Output: [ 2, 3, 14, 5 ]
+
+                const numbers = [1, 2, 3, 14, 5];
+                const sliced = numbers.splice(3);
+                console.log(sliced); // Output: [ 14, 5 ]
+
+                let arr = [1, 2, 3, 4];
+                arr.splice(1, 2, 'a', 'b'); // arr is now [1, 'a', 'b', 4]
+                // Removes 2 elements starting at index 1, and adds 'a' and 'b'
+
+                const fruits = ['apple', 'banana', 'grape'];
+                fruits.splice(2, 0, 'orange', 'kiwi');
+                console.log(fruits); // Output: ['apple', 'banana', 'orange', 'kiwi', 'grape']
+
+                Removing Elements:
+                let arr = [1, 2, 3, 4, 5];
+                let removed = arr.splice(2, 2);
+                console.log(arr); // Output: [1, 2, 5]
+                console.log(removed); // Output: [3, 4]
+
+                Adding Elements:
+                let arr = [1, 2, 3, 4, 5];
+                arr.splice(2, 0, 'a', 'b');
+                console.log(arr); // Output: [1, 2, 'a', 'b', 3, 4, 5]
+
+                Replacing Elements:
+                let arr = [1, 2, 3, 4, 5];
+                arr.splice(2, 2, 'a', 'b');
+                console.log(arr); // Output: [1, 2, 'a', 'b', 5]
+              `}
+            />
+            <strong>.toSpliced()</strong>
             <br />
-            {`let arr = [1, 2, 3, 4];`}
+            To create a new array with the specified changes (adding, removing,
+            or replacing elements) without modifying the original array. This is
+            useful for immutable operations.
+            <CodeSnippet
+              language="javascript"
+              code={`
+              //array.toSpliced(start, deleteCount, item1, item2, ..., itemN);
+
+              let fruits = ['apple', 'banana', 'orange'];
+              let newFruits = fruits.toSpliced(1, 1);
+              console.log(fruits); // Output: ['apple', 'banana', 'orange']
+              console.log(newFruits); // Output: ['apple', 'orange']
+
+              let fruits = ['apple', 'orange'];
+              let newFruits = fruits.toSpliced(1, 0, 'banana');
+              console.log(fruits); // Output: ['apple', 'orange']
+              console.log(newFruits); // Output: ['apple', 'banana', 'orange']
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id=""
+        >
+          <Typography>Split()</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            The split() method of String values takes a pattern and divides this
+            string into an ordered list of substrings by searching for the
+            pattern, puts these substrings into an array, and returns the array.{" "}
             <br />
-            {`arr.splice(1, 2, 'a', 'b'); // arr is now [1, 'a', 'b', 4]`}
+            To split a string into an array of substrings based on a specified
+            separator.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                //string.split(separator, limit);
+
+                const text = 'apple,banana,orange';
+                const result = text.split(',');
+                console.log(result); // Output: ['apple', 'banana', 'orange']
+
+                const text = 'apple banana orange';
+                const result = text.split(' ', 2); // Limits to 2 substrings
+                console.log(result); // Output: ['apple', 'banana']
+
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id=""
+        >
+          <Typography>Slice()</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            To create a shallow copy of a portion of an array or string into a
+            new array or string.
             <br />
-            {`// Removes 2 elements starting at index 1, and adds 'a' and 'b'`}
+            <strong>Array Slicing:</strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                //array.slice(begin, end);
+
+
+                const numbers = [1, 2, 3, 4, 5];
+                const sliced = numbers.slice(1, 4); // Slices from index 1 to 3
+                console.log(sliced); // Output: [2, 3, 4]
+              `}
+            />
+            <strong>String Slicing:</strong> <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                //array.slice(begin, end);
+
+
+                const text = 'hello world';
+                const sliced = text.slice(0, 5); // Slices from index 0 to 4
+                console.log(sliced); // Output: 'hello'
+
+                const months = ['March', 'Jan', 'Feb', 'Dec'];
+                months.sort();
+                console.log(months);
+                // Expected output: Array ["Dec", "Feb", "Jan", "March"]
+
+                const array1 = [1, 30, 4, 21, 100000];
+                array1.sort();
+                console.log(array1);
+                // Expected output: Array [1, 100000, 21, 30, 4]
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id=""
+        >
+          <Typography>splice() vs slice()</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <ul>
+              <li>
+                Use splice() when you need to modify the original array by
+                adding, removing, or replacing elements.
+              </li>
+              <li>
+                Use slice() when you need to create a new array that is a
+                portion or copy of the original array without modifying it.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const fruits = ['Apple', 'Banana', 'Mango', 'Orange'];
+                let test = fruits.splice(2, 4);
+                console.log(test) //[ 'Mango', 'Orange' ]
+                console.log(fruits); //[ 'Apple', 'Banana' ]
+
+                let fruits2 = ['Apple', 'Banana', 'Mango', 'Orange'];
+                let citrus = fruits2.slice(2, 4);
+                console.log(citrus); // Output: ['Mango', 'Orange']
+                console.log(fruits2); // Output: ['Apple', 'Banana', 'Mango', 'Orange']
+              `}
+            />
+            <strong>Comparison Summary</strong>
             <br />
+            <strong> Modification:</strong>
+            <br />
+            splice(): Modifies the original array.
+            <br />
+            slice(): Does not modify the original array; returns a new array.
+            <br />
+            <strong>Return Value:</strong>
+            <br />
+            splice(): Returns an array of removed elements.
+            <br />
+            slice(): Returns a new array containing the extracted elements.
+            <br />
+            <strong> Use Cases:</strong>
+            <br />
+            splice(): Used for adding, removing, or replacing elements in an
+            array.
+            <br />
+            slice(): Used for copying or extracting a portion of an array.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -473,11 +2646,13 @@ const Lists = () => {
           <Typography>
             Sorts the elements of an array in place and returns the sorted
             array.
-            <br />
-            {`let arr = [3, 1, 4, 2];`}
-            <br />
-            {`arr.sort(); // arr is now [1, 2, 3, 4]`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let arr = [3, 1, 4, 2];
+                arr.sort(); // arr is now [1, 2, 3, 4]
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -492,11 +2667,13 @@ const Lists = () => {
         <AccordionDetails>
           <Typography>
             Reverses the order of the elements in an array.
-            <br />
-            {`let arr = [1, 2, 3];`}
-            <br />
-            {`arr.reverse(); // arr is now [3, 2, 1]`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let arr = [1, 2, 3];
+                arr.reverse(); // arr is now [3, 2, 1]
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -512,11 +2689,22 @@ const Lists = () => {
           <Typography>
             Fills all the elements of an array from a start index to an end
             index with a static value.
-            <br />
-            {`let arr = [1, 2, 3];`}
-            <br />
-            {`arr.fill(0); // arr is now [0, 0, 0]`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                //array.fill(value, start, end);
+
+                let arr = [1, 2, 3];
+                arr.fill(0); // arr is now [0, 0, 0]
+
+                let numbers = [1, 2, 3, 4, 5];
+                numbers.fill(0, 1, 4);
+                console.log(numbers); // Output: [1, 0, 0, 0, 5]
+
+                let emptyArray = new Array(5).fill(1);
+                console.log(emptyArray); // Output: [1, 1, 1, 1, 1]
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -532,13 +2720,17 @@ const Lists = () => {
           <Typography>
             Shallow copies part of an array to another location in the same
             array and returns it, without modifying its length.
-            <br />
-            {`let arr = [1, 2, 3, 4, 5];`}
-            <br />
-            {`arr.copyWithin(0, 3); // arr is now [4, 5, 3, 4, 5]`}
-            <br />
-            {`// Copies elements from index 3 to the start`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let arr = [1, 2, 3, 4, 5];
+                arr.copyWithin(0, 3); // arr is now [4, 5, 3, 4, 5]
+                // Copies elements from index 3 to the start
+
+                let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+                arr.copyWithin(0, 3); //[ 4, 5, 6, 7,8, 6, 7, 8 ]
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -554,27 +2746,30 @@ const Lists = () => {
           <Typography>
             Unique to JavaScript, except 6 all are truthy value Some values when
             you evaluate them as Booleans it will be falsey
-            <br />
-            {`const t1 = undefined`}
-            <br />
-            {`const t2 = null`}
-            <br />
-            {`const t3 = NaN`}
-            <br />
-            {`const t4 = ''`}
-            <br />
-            {`const t5 = 0`}
-            <br />
-            {`const t6 = false`}
-            <br />
-            <br />
-            {`console.log("t1",Boolean(t1)); //false`}
-            <br />
-            {`console.log("t2",!!(t2));//false`} <br />
-            {`console.log("t3",!!(t3));//false`} <br />
-            {`console.log("t4",Boolean(t4));//false`} <br />
-            {`console.log("t5",Boolean(t5));//false`} <br />
-            {`console.log("t6",Boolean(t6));//false`} <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+              const t1 = undefined
+              const t2 = null
+              const t3 = NaN
+              const t4 = ''
+              const t5 = 0
+              const t6 = false
+              console.log("t1",Boolean(t1)); //false
+              console.log("t2",!!(t2));//false
+              console.log("t3",!!(t3));//false
+              console.log("t4",Boolean(t4));//false
+              console.log("t5",Boolean(t5));//false
+              console.log("t6",Boolean(t6));//false
+              console.log("t7",Boolean(-0));//false
+
+              let username = "";
+              let displayName = username || "Guest";
+              console.log(displayName); // Output: "Guest"
+              `}
+            />
+            In this example, because username is an empty string (falsy),
+            displayName is assigned the value "Guest".
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -607,11 +2802,13 @@ const Lists = () => {
         <AccordionDetails>
           <Typography>
             The this keyword refers to the context within which a function is
-            executed. Global Context:When this is used in the global scope
-            (outside of any function), it refers to the global object. In a
-            browser environment, the global object is window. Ex:
-            console.log(this === window) //true
+            executed.
             <br />
+            <strong>Global Context:</strong>
+            <br />
+            When this is used in the global scope (outside of any function), it
+            refers to the global object. In a browser environment, the global
+            object is window. Ex: console.log(this === window) //true
             <br />
             <strong>Function Context:</strong>
             <br /> When this is used inside a function, its value depends on how
@@ -622,50 +2819,125 @@ const Lists = () => {
             to the global object (window in a browser) in non-strict mode, and
             undefined in strict mode.
             <br />
-            {`function foo() {`}
-            <br />
-            {`console.log(this === window);`}
-            <br />
-            {`}`}
-            <br />
-            {`foo(); // Output: true`}
-            <br />
-            {`function foo() {`}
-            <br />
-            {`"use strict";`}
-            <br />
-            {`console.log(this == undefined);`}
-            <br />
-            {`}`}
-            <br />
-            {`foo(); // Output: true`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+              function foo() {
+                console.log(this === window);
+              }
+
+              foo(); // Output: true
+
+              function foo() {
+                "use strict";
+                console.log(this == undefined);
+              }
+              foo(); // Output: true
+              `}
+            />
             <strong>Method Invocation:</strong>
             <br />
             If a function is called as a method of an object, this refers to the
             object that owns the method.
+            <CodeSnippet
+              language="javascript"
+              code={`
+              const obj = {
+                name: 'John',
+                greet: function() {
+                  console.log('Hello, ' + this.name);
+                }
+              };
+              obj.greet(); // Output: Hello, John
+              `}
+            />
+            <strong>Constructor Context</strong>
             <br />
-            {`const obj = {`}
+            When a function is used as a constructor (with the new keyword),
+            this refers to the new object being created.
+            <CodeSnippet
+              language="javascript"
+              code={`
+              function Person(name) {
+                this.name = name;
+              }
+
+              const person = new Person('Bob');
+              console.log(person.name); // Logs "Bob"
+              `}
+            />
+            <strong>call, apply, and bind Methods</strong>
             <br />
-            {`name: 'John',`}
-            <br />
-            {`greet: function() {`}
-            <br />
-            {` console.log('Hello, ' + this.name);`}
-            <br />
-            {`}`}
-            <br />
-            {`};`}
-            <br />
-            {`obj.greet(); // Output: Hello, John`}
-            <br />
-            <br />
+            <ul>
+              <li>
+                <strong>call</strong> <br />
+                call: Invokes the function with a given this value and
+                arguments.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                  function showName() {
+                    console.log(this.name);
+                  }
+
+                  const person = { name: 'Charlie' };
+                  showName.call(person); // Logs "Charlie"
+              `}
+                />
+              </li>
+              <li>
+                <strong>apply</strong> <br />
+                apply: Similar to call, but arguments are provided as an array.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                  function showName(greeting) {
+                    console.log(greeting + ' ' + this.name);
+                  }
+
+                  const person = { name: 'David' };
+                  showName.apply(person, ['Hello']); // Logs "Hello David"
+              `}
+                />
+              </li>
+              <li>
+                <strong>bind</strong> <br />
+                bind: Returns a new function with a bound this value.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                  function showName() {
+                    console.log(this.name);
+                  }
+
+                  const person = { name: 'Eve' };
+                  const boundShowName = showName.bind(person);
+                  boundShowName(); // Logs "Eve"
+                  `}
+                />
+              </li>
+            </ul>
             <strong>Arrow Functions:</strong>
             <br />
             In arrow functions, this retains the value of the enclosing lexical
             context (the value of this from the surrounding code). Arrow
             functions do not have their own this binding.
+            <CodeSnippet
+              language="javascript"
+              code={`
+              const person = {
+                name: 'Frank',
+                greet: function() {
+                  const innerFunction = () => {
+                    console.log(this.name);
+                  };
+                  innerFunction();
+                }
+              };
+
+              person.greet(); // Logs "Frank"
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -690,8 +2962,12 @@ const Lists = () => {
                 comparisons or arithmetic operations.
               </li>
             </ul>
-            {`Console.log(“5”+ 5) //55`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                Console.log(“5”+ 5) //55
+                `}
+            />
             <br />
             <strong>Explicit Coercion:</strong>
             <ul>
@@ -701,22 +2977,19 @@ const Lists = () => {
                 operators specifically designed for type conversion.
               </li>
             </ul>
-            {`// Converting string to number`}
-            <br />
-            {`let str = "10";`}
-            <br />
-            {`let num = parseInt(str);`}
-            <br />
-            {`console.log(num); // Output: 10`}
-            <br />
-            {`// Converting number to string`}
-            <br />
-            {`let value = 10;`}
-            <br />
-            {`let stringValue = String(value);`}
-            <br />
-            {`console.log(stringValue); // Output: "10"`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+              // Converting string to number
+              let str = "10";
+              let num = parseInt(str);
+              console.log(num); // Output: 10
+              // Converting number to string
+              let value = 10;
+              let stringValue = String(value);
+              console.log(stringValue); // Output: "10"
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -733,28 +3006,29 @@ const Lists = () => {
             The typeof operator is used to determine the data type of a value.
             It returns a string indicating the type of the operand.
             <br />
-            {`typeof 42; // "number"`}
-            <br />
-            {`typeof "hello"; // "string"`}
-            <br />
-            {`typeof true; // "boolean"`}
-            <br />
-            {`typeof undefined; // "undefined"`}
-            <br />
-            {`typeof null; // "object"`}
-            <br />
-            {`typeof { key: "value" }; // "object"`}
-            <br />
-            {`typeof [1, 2, 3]; // "object"`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+              typeof 42; // "number"
+              typeof "hello"; // "string"
+              typeof true; // "boolean"
+              typeof undefined; // "undefined"
+              typeof null; // "object"
+              typeof { key: "value" }; // "object"
+              typeof [1, 2, 3]; // "object"
+              `}
+            />
             <br />
             In JavaScript, arrays are a type of object. Therefore, when you use
             typeof with an array, it returns 'object'.
             <br />
-            {`typeof function() {}; // "function"`}
-            <br />
-            {`typeof Symbol("foo"); // "symbol"`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                typeof function() {}; // "function"
+                typeof Symbol("foo"); // "symbol"
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -770,33 +3044,24 @@ const Lists = () => {
           <Typography>
             The delete operator is used to remove a property from an object. It
             can also be used to delete an element from an array.
-            <br />
-            {`const person = {`}
-            <br />
-            {`name: 'John',`}
-            <br />
-            {`age: 30,`}
-            <br />
-            {`city: 'New York'`}
-            <br />
-            {`};`}
-            <br />
-            <br />
-            delete person.age;
-            <br />
-            {`console.log(person); // Output: { name: 'John', city: 'New York' }`}
-            <br />
-            {`======`}
-            <br />
-            {`const numbers = [1, 2, 3, 4, 5];`}
-            <br />
-            <br />
-            {`delete numbers[2];`}
-            <br />
-            {`console.log(numbers); // Output: [1, 2, <1 empty item>, 4, 5]`}
-            <br />
-            {`Or //		[1, 2, undefined, 4, 5]`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+              const person = {
+              name: 'John',
+              age: 30,
+              city: 'New York'
+              };
+
+              delete person.age;
+              console.log(person); // Output: { name: 'John', city: 'New York' }
+              ======
+              const numbers = [1, 2, 3, 4, 5];
+              delete numbers[2];
+              console.log(numbers); // Output: [1, 2, <1 empty item>, 4, 5]
+              Or //		[1, 2, undefined, 4, 5]
+                `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -813,16 +3078,21 @@ const Lists = () => {
             These notations provide different ways to define and initialize
             objects Dot notation and bracket notation ( don t use this often)
             <br />
-            {`const user = {`} <br />
-            {`fn: "test",`} <br />
-            {`ln: "rt",`} <br />
-            {`age: 56`} <br />
-            {`}`} <br /> <br />
-            {`console.log(user.fn);//"test"`} <br />
-            {`console.log(user['ln']);//"rt"`} <br />
-            {`for( let property in user){`} <br />
-            {`console.log(user[property]);//"test" "rt" 56`} <br />
-            {`}`} <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const user = {
+                fn: "test",
+                ln: "rt",
+                age: 56
+                }
+                console.log(user.fn);//"test"
+                console.log(user['ln']);//"rt"
+                for( let property in user){
+                  console.log(user[property]);//"test" "rt" 56
+                }
+                `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -842,11 +3112,15 @@ const Lists = () => {
             mistakes and "unsafe" actions in JavaScript and throws more
             exceptions. It also disables some features that are confusing or
             poorly thought out in JavaScript.
-            <br />
-            {`function myFunction() {`}
-            {`"use strict";`}
-            {`// Strict mode enabled for this function`}
-            {`}`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function myFunction() {
+                  "use strict";
+                  // Strict mode enabled for this function
+                }
+                `}
+            />
             <ul>
               <li>It disallows the implicit creation of global variables.</li>
               <li>
@@ -881,38 +3155,31 @@ const Lists = () => {
             In JavaScript, an anonymous function is a function that is defined
             without a name. Instead of being assigned to a variable or a
             property of an object, it's defined directly where it's needed.
-            <br />
-            <br />
-            {`// Anonymous function expression`}
-            <br />
-            {`const add = function(a, b) {`}
-            <br />
-            {`return a + b;`}
-            <br />
-            {`};`}
-            <br />
-            <br />
-            {`// Using the anonymous function`}
-            <br />
-            {`console.log(add(2, 3)); // Output: 5`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                // Anonymous function expression
+                const add = function(a, b) {
+                return a + b;
+                };
+                // Using the anonymous function
+                console.log(add(2, 3)); // Output: 5
+                `}
+            />
             Anonymous functions are commonly used as arguments to other
             functions, such as in event handlers or array methods like map,
             filter, and reduce.
-            <br />
-            {`const numbers = [1, 2, 3, 4, 5];`}
-            <br />
-            <br />
-            {`// Using an anonymous function with map`}
-            <br />
-            {`const doubled = numbers.map(function(num) {`}
-            <br />
-            {`return num * 2;`}
-            <br />
-            {`});`}
-            <br />
-            {`console.log(doubled); // Output: [2, 4, 6, 8, 10]`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+              const numbers = [1, 2, 3, 4, 5];
+              // Using an anonymous function with map
+              const doubled = numbers.map(function(num) {
+              return num * 2;
+              });
+              console.log(doubled); // Output: [2, 4, 6, 8, 10]
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -932,43 +3199,34 @@ const Lists = () => {
             programming, event handling, and functional programming patterns.
             <br />
             <br />
-            {`const firstFun= (num, callback) => {`}
-            <br />
-            {`console.log("item", num);`}
-            <br />
-            {`callback();`}
-            <br />
-            {`};`}
-            <br />
-            <br />
-            {`const bye = () => {`}
-            <br />
-            {`console.log("bye")`}
-            <br />
-            {`};`}
-            <br />
-            <br />
-            {`firstFun(5, bye); // “item”, 5             “bye”`}
-            <br />
-            <br />
-            {`Mostly we use in map filter etc..`}
-            <br />
-            {`const num = [1, 2, 3, 5];`}
-            <br />
-            {`const num2 = num.map((item) => item + 1);  => this callback function`}
-            <br />
-            {`console.log(num2) //[2, 3, 4, 6]`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+              const firstFun= (num, callback) => {
+                console.log("item", num);
+                callback();
+              };
+              const bye = () => {
+                console.log("bye")
+              };
+              firstFun(5, bye); // “item”, 5             “bye”
+
+              //Mostly we use in map filter etc..
+                const num = [1, 2, 3, 5];
+                const num2 = num.map((item) => item + 1);  => this callback function
+                console.log(num2) //[2, 3, 4, 6]
+              `}
+            />
             <strong>Other way</strong>
-            <br />
-            {`const call = (item) => {`}
-            <br />
-            {`return item + 1;`}
-            <br />
-            {`}`}
-            <br />
-            {`const num2 = num.map(call);`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+              const call = (item) => {
+                return item + 1;
+              }
+              const num2 = num.map(call);
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -987,26 +3245,20 @@ const Lists = () => {
             environment). In other words, a closure gives you access to an outer
             function's scope from an inner function closures are created every
             time a function is created, at function creation time.
-            <br />
-            <br />
-            {`function init() {`}
-            <br />
-            {`var name = "Mozilla"; // name is a local variable created by init`}
-            <br />
-            {`function displayName() {`}
-            <br />
-            {`// displayName() is the inner function, that forms the closure`}
-            <br />
-            {`console.log(name); // use variable declared in the parent function`}
-            <br />
-            {`}`}
-            <br />
-            {`displayName();`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`init(); //"Mozilla"`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function init() {
+                  var name = "Mozilla"; // name is a local variable created by init
+                  function displayName() {
+                    // displayName() is the inner function, that forms the closure
+                    console.log(name); // use variable declared in the parent function
+                  }
+                  displayName();
+                }
+                init(); //"Mozilla"
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1067,23 +3319,20 @@ const Lists = () => {
             For...of when you need to iterate over values of an iterable like
             arrays, strings, or other ordered collections, and use for...in when
             you need to iterate over the properties of an object.
-            <br />
-            {`const array = [1, 2, 3, 4, 5];`}
-            <br />
-            {`for (const value of array) {`}
-            <br />
-            {`console.log(value);`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`const obj = { a: 1, b: 2, c: 3 };`}
-            <br />
-            {`for (const key in obj) {`}
-            <br />
-            {`console.log(key, obj[key]);`}
-            <br />
-            {`}`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+            const array = [1, 2, 3, 4, 5];
+            for (const value of array) {
+              console.log(value);
+            }
+
+            const obj = { a: 1, b: 2, c: 3 };
+            for (const key in obj) {
+              console.log(key, obj[key]);
+            }
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1098,40 +3347,35 @@ const Lists = () => {
         <AccordionDetails>
           <Typography>
             <strong>Object.keys() & forEach:</strong>
-            {`let obj = {a: 1, b:2, c: 3}`} <br /> <br />
-            {`Object.keys(obj).forEach(key => {`}
-            <br />
-            {`console.log( key, obj[key]);`}
-            <br />
-            {`})       // a 1        b 2         c 3`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let obj = {a: 1, b:2, c: 3}
+                Object.keys(obj).forEach(key => {
+                  console.log( key, obj[key]);
+                })       // a 1        b 2         c 3
+              `}
+            />
             <strong>Object.values() & forEach:</strong>
-            <br />
-            <br />
-            {`let obj = {a: 1, b:2, c: 3}`}
-            <br />
-            <br />
-            {`Object.values(obj).forEach(value => {`}
-            <br />
-            {`console.log( value);`}
-            <br />
-            {`}) //1    2      3`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let obj = {a: 1, b:2, c: 3}
+                Object.values(obj).forEach(value => {
+                  console.log( value);
+                }) //1    2      3
+              `}
+            />
             <strong>Object.entires() & forEach:</strong>
-            <br />
-            <br />
-            {`let obj = {a: 1, b:2, c: 3}`}
-            <br />
-            <br />
-            {`Object.entries(obj).forEach(([key, value]) => {`}
-            <br />
-            {`console.log( key, value);`}
-            <br />
-            {`}) // a 1        b 2         c 3`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let obj = {a: 1, b:2, c: 3}
+                Object.entries(obj).forEach(([key, value]) => {
+                  console.log( key, value);
+                }) // a 1        b 2         c 3
+             `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1149,30 +3393,23 @@ const Lists = () => {
           <Typography>
             You can use the for...of loop in combination with Object.keys(),
             Object.values(), or Object.entries() to iterate over properties.
-            <br />
-            <br />
-            {`const obj = { foo: "bar", baz: 42 };`}
-            <br />
-            <br />
-            {`for( let key of Object.keys(obj)){`}
-            <br />
-            {`console.log(key, obj[key]) //foo bar   baz 42`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`for(let value of Object.values(obj)){`}
-            <br />
-            {`console.log(value) //bar 42`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`for(let [key, value] of Object.entries(obj)){`}
-            <br />
-            {`console.log(key, value) //foo bar   baz 42`}
-            <br />
-            {`}`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const obj = { foo: "bar", baz: 42 };
+                for( let key of Object.keys(obj)){
+                  console.log(key, obj[key]) //foo bar   baz 42
+                }
+
+                for(let value of Object.values(obj)){
+                  console.log(value) //bar 42
+                }
+
+                for(let [key, value] of Object.entries(obj)){
+                  console.log(key, value) //foo bar   baz 42
+                }
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1189,52 +3426,53 @@ const Lists = () => {
             This method returns an array of all properties (including
             non-enumerable properties except for those which use Symbol) found
             directly upon a given object.
-            <br />
-            <br />
-            {`const obj = { a: 1, b: 2, c: 3 };`}
-            <br />
-            {`console.log(Object.getOwnPropertyNames(obj));    //[ 'a', 'b', 'c' ]`}
-            <br />
-            <br />
-            {`Object.getOwnPropertyNames(obj).forEach(key => {`}
-            <br />
-            {`console.log(key, obj[key]);`}
-            <br />
-            {`}); //a 1     b 2      c 3`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+            const obj = { a: 1, b: 2, c: 3 };
+            console.log(Object.getOwnPropertyNames(obj));    //[ 'a', 'b', 'c' ]
+            Object.getOwnPropertyNames(obj).forEach(key => {
+              console.log(key, obj[key]);
+            }); //a 1     b 2      c 3
+            `}
+            />
             <strong>New EXAMPLE with all</strong>
-            <br />
-            {`const obj = {`}
-            <br />
-            {`a: 1,`}
-            <br />
-            {`b: 2,`}
-            <br />
-            {`};`}
-            <br />
-            <br />
-            {`Object.defineProperty(obj, 'c', {`}
-            <br />
-            {`value: 3,`}
-            <br />
-            {`enumerable: false`}
-            <br />
-            {`});`}
-            <br />
-            <br />
-            {`const symbolKey = Symbol('key');`}
-            <br />
-            {`obj[symbolKey] = 'value';`}
-            <br />
-            {`console.log(Object.keys(obj)) //[ 'a', 'b' ]`}
-            <br />
-            {`console.log(Object.getOwnPropertyNames(obj)); //[ 'a', 'b', 'c' ]`}
-            <br />
-            {`console.log(Object.getOwnPropertySymbols(obj));  //[ Symbol(key) ]`}
-            <br />
-            {`console.log(Reflect.ownKeys(obj)); //[ 'a', 'b', 'c', Symbol(key) ]`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const obj = {
+                  a: 1,
+                  b: 2,
+                };
+
+                Object.defineProperty(obj, 'c', {
+                  value: 3,
+                  enumerable: false
+                });
+
+                const symbolKey = Symbol('key');
+                obj[symbolKey] = 'value';
+                console.log(Object.keys(obj)) //[ 'a', 'b' ]
+                console.log(Object.getOwnPropertyNames(obj)); //[ 'a', 'b', 'c' ]
+                console.log(Object.getOwnPropertySymbols(obj));  //[ Symbol(key) ]
+                console.log(Reflect.ownKeys(obj)); //[ 'a', 'b', 'c', Symbol(key) ]
+
+                //eg:
+                const person = {};
+                Object.defineProperty(person, 'name', {
+                  value: 'Alice',
+                  enumerable: false
+                });
+                Object.defineProperty(person, 'age', {
+                  value: 30,
+                  enumerable: true
+                });
+
+                console.log(Object.keys(person)) //[ 'age' ]
+                const propertyNames = Object.getOwnPropertyNames(person);
+                console.log(propertyNames); // Output: ["name", "age"]
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1248,47 +3486,33 @@ const Lists = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {`let arr1 = [1, 2, 3, 4, 5]`}
-            <br />
-            {`let arr2 = [1, 2, 3, 4, 5]`}
-            <br />
-            {`let arr3 = [1, 2, 3, 4, 5]`}
-            <br />
-            {`let arr4 = [1, 2, 3, 4, 5]`}
-            <br />
-            {`let arr5 = [1, 2, 3, 4, 5]`}
-            <br />
-            {`arr1 = [];`}
-            <br />
-            {`arr2.splice(0);`}
-            <br />
-            {`arr3.length = 0;`}
-            <br />
-            <br />
-            {`while (arr4.length > 0) {`}
-            <br />
-            {`arr4.pop();`}
-            <br />
-            {`}`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+            let arr1 = [1, 2, 3, 4, 5]
+            let arr2 = [1, 2, 3, 4, 5]
+            let arr3 = [1, 2, 3, 4, 5]
+            let arr4 = [1, 2, 3, 4, 5]
+            let arr5 = [1, 2, 3, 4, 5]
+            arr1 = [];
+            arr2.splice(0);
+            arr3.length = 0;
 
-            {`while (arr5.length > 0) {`}
-            <br />
-            {`arr5.shift();`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`console.log(arr1); //[]`}
-            <br />
-            {`console.log(arr2); //[]`}
-            <br />
-            {`console.log(arr3); //[]`}
-            <br />
-            {`console.log(arr4); //[]`}
-            <br />
-            {`console.log(arr5); //[]`}
+            while (arr4.length > 0) {
+              arr4.pop();
+            }
+
+            while (arr5.length > 0) {
+              arr5.shift();
+            }
+
+            console.log(arr1); //[]
+            console.log(arr2); //[]
+            console.log(arr3); //[]
+            console.log(arr4); //[]
+            console.log(arr5); //[]
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1305,48 +3529,34 @@ const Lists = () => {
             To create a mul function in JavaScript to multiply numbers, you can
             simply define a function that takes multiple arguments and
             multiplies them together
-            <br />
-            <br />
-            {`const test = (a) => {`}
-            <br />
-            {`  return (b) => {`}
-            <br />
-            {`    return (c) => {`}
-            <br />
-            {`      return a * b * c`}
-            <br />
-            {`    }`}
-            <br />
-            {`  }`}
-            <br />
-            {`};`}
-            <br />
-            <br />
-            {`console.log(test(1)(2)(3)) //6`}
-            <br />
-            <br />
-            {`const mul = (...args) => {`}
-            <br />
-            {`if(args.length === 0){`}
-            <br />
-            {`console.log(1)`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`let test = args.reduce((prd, currt) => {`}
-            <br />
-            {`console.log('prd', prd, currt) //1 1  1 2   2 3   6 4`}
-            <br />
-            {`return prd * currt`}
-            <br />
-            {`}, 1)`}
-            <br />
-            {`console.log(test) //24`}
-            <br />
-            {`}`}
-            <br />
-            {`mul(1, 2, 3, 4);`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const test = (a) => {
+                  return (b) => {
+                    return (c) => {
+                      return a * b * c
+                    }
+                  }
+                }
+                console.log(test(1)(2)(3)) //6
+
+                //Using Rest Parameters
+                const mul = (...args) => {
+                  if(args.length === 0){
+                    console.log(1)
+                  }
+
+                  let test = args.reduce((prd, currt) => {
+                    console.log('prd', prd, currt) //1 1  1 2   2 3   6 4
+                    return prd * currt
+                  }, 1)
+                  console.log(test) //24
+                }
+                mul(1, 2, 3, 4);
+                console.log(mul([3, 4, 2])); //24
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1362,32 +3572,38 @@ const Lists = () => {
           <Typography>
             You can define an array using square brackets [] and populate it
             with values separated by commas
-            <br />
-            <br />
-            {`const arr = [1,3,5];`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const arr = [1,3,5];
+              `}
+            />
             <strong>Creating an Array with the Array Constructor:</strong>
-            <br />
-            {`Const badArr = new Array() =>. Don’t do this this is because Inconsistent Behavior:`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                Const badArr = new Array() =>. Don’t do this this is because Inconsistent Behavior:
+              `}
+            />
             <strong>Creating an Array with the Array.of() Method (ES6):</strong>
-            <br />
-            {`const arrayWithValues = Array.of(1, 2, 3, 4, 5);`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const arrayWithValues = Array.of(1, 2, 3, 4, 5);
+              `}
+            />
             <strong>
               Creating an Array with the Array.from() Method (ES6):
             </strong>
-            <br />
-            {`const arrayFromIterable = Array.from('hello');`}
-            <br />
-            {`// Creates an array from an iterable (e.g., string)`}
-            <br />
-            {`const arrayFromFunction = Array.from({ length: 5 }, (v, i) => i * 2);`}
-            <br />
-            {`// [0, 1, 2, 3, 4]`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const arrayFromIterable = Array.from('hello');
+                // Creates an array from an iterable (e.g., string)
+                const arrayFromFunction = Array.from({ length: 5 }, (v, i) => i * 2); // v or _
+                // [0, 1, 2, 3, 4]
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1401,26 +3617,56 @@ const Lists = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {`const range = (start, stop, step) =>`}
-            <br />
-            {`Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);`}
-            <br />
-            <br />
+            <strong>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#sequence_generator_range"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Ref
+              </a>
+            </strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const range = (start, stop, step) =>
+                Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);
+              `}
+            />
             <strong>Example</strong>
-            <br />
-            {`// Generate numbers range 0..4`}
-            <br />
-            {`range(0, 4, 1);`}
-            <br />
-            {`// [0, 1, 2, 3, 4]`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                // Generate numbers range 0..4
+                range(0, 4, 1);
+                // [0, 1, 2, 3, 4]
 
-            {`// Generate numbers range 1..10 with step of 2`}
-            <br />
-            {`range(1, 10, 2);`}
-            <br />
-            {`// [1, 3, 5, 7, 9]`}
+                // Generate numbers range 1..10 with step of 2
+                range(1, 10, 2);
+                // [1, 3, 5, 7, 9]
+
+                //Basic Range Function
+                function range(start, end, step = 1) {
+                  const result = [];
+                  for (let i = start; i < end; i += step) {
+                    result.push(i);
+                  }
+                  return result;
+                }
+                // Example usage:
+                console.log(range(1, 5));    // Output: [1, 2, 3, 4]
+                console.log(range(2, 10, 2)); // Output: [2, 4, 6, 8]
+
+
+                //Range Function with Array.from()
+                function range(start, end, step = 1) {
+                  return Array.from({ length: Math.ceil((end - start) / step) }, (_, i) => start + i * step);
+                }
+                // Example usage:
+                console.log(range(1, 5));    // Output: [1, 2, 3, 4]
+                console.log(range(2, 10, 2)); // Output: [2, 4, 6, 8]
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1451,18 +3697,21 @@ const Lists = () => {
                   It's also the default value of uninitialized properties in
                   objects.
                 </li>
-                let variable; // variable is declared but not assigned, so its
-                value is undefined console.log(variable); // Output: undefined
               </li>
-            </ul>{" "}
-            <br />
-            {`function doSomething() {`} <br />
-            {`// This function does not return anything, so it implicitly returns undefined`}{" "}
-            <br />
-            {`}`} <br /> <br />
-            {`const obj = {};`} <br />
-            {`console.log(obj.property); // Output: undefined (property is not initialized)`}{" "}
-            <br /> <br />
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let variable; // variable is declared but not assigned, so its value is undefined
+                console.log(variable); // Output: undefined
+
+                function doSomething() {
+                  // This function does not return anything, so it implicitly returns undefined
+                }
+                const obj = {};
+                console.log(obj.property); // Output: undefined (property is not initialized)
+              `}
+            />
             <strong>Null</strong> <br />
             <ul>
               <li>
@@ -1477,11 +3726,14 @@ const Lists = () => {
                 It's distinct from undefined, which is the default value for
                 uninitialized variables.
               </li>
-            </ul>{" "}
-            <br />
-            {`let variable = null; // variable is intentionally set to null`}{" "}
-            <br />
-            {`console.log(variable); // Output: null`}
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            let variable = null; // variable is intentionally set to null
+            console.log(variable); // Output: null
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1497,26 +3749,28 @@ const Lists = () => {
           <Typography>
             working with numbers can sometimes lead to unexpected behavior due
             to the way numbers are represented and handled internally
-            <br /> <br />
-            {`console.log(0.1 + 0.2 === 0.3); // Output: false`} <br />
-            {`console.log(0.2+0.4) //0.6000000000000001`} <br />
-            {`console.log((0.2+0.4).toFixed(1)) //"0.6"`} <br />
-            {`console.log(isNaN("wewt")) //true`} <br /> <br />
-            {`Number.isFinite(123);          // true (123 is a finite number)`}{" "}
-            <br />
-            {`Number.isFinite(Infinity);     // false (Infinity is not a finite number)`}{" "}
-            <br />
-            {`Number.isFinite(-Infinity);    // false (-Infinity is not a finite number)`}{" "}
-            <br />
-            {`Number.isFinite(NaN);          // false (NaN is not a finite number)`}{" "}
-            <br />
-            {`Number.isFinite('123');        // false ('123' is a string, not a number)`}{" "}
-            <br />
-            {`Number.isFinite(true);         // false (true is converted to 1, which is a finite number)`}{" "}
-            <br />
-            {`Number.isFinite(null);         // false (null is converted to 0, which is a finite number)`}{" "}
-            <br />
-            {`Number.isFinite(undefined);    // false (undefined is not a number)`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+              console.log(0.1 + 0.2 === 0.3); // Output: false
+              console.log(0.2+0.4) //0.6000000000000001
+              console.log((0.2+0.4).toFixed(1)) //"0.6"
+
+              console.log((0.1 + 0.2).toFixed(1) === 0.3); // Output: false
+              //beacuse console.log((0.1 + 0.2).toFixed(1)); // Output: "0.3" -> string not a number
+              console.log(parseFloat((0.1 + 0.2).toFixed(1)) === 0.3); //true
+              console.log(isNaN("wewt")) //true
+
+              Number.isFinite(123);          // true (123 is a finite number)
+              Number.isFinite(Infinity);     // false (Infinity is not a finite number)
+              Number.isFinite(-Infinity);    // false (-Infinity is not a finite number)
+              Number.isFinite(NaN);          // false (NaN is not a finite number)
+              Number.isFinite('123');        // false ('123' is a string, not a number)
+              Number.isFinite(true);         // false (true is converted to 1, which is a finite number)
+              Number.isFinite(null);         // false (null is converted to 0, which is a finite number)
+              Number.isFinite(undefined);    // false (undefined is not a number)
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1540,26 +3794,25 @@ const Lists = () => {
             <br />
             <strong>object:</strong> The object to be tested. constructor: The
             constructor function or class to test against.
-            <br />
-            <br />
-            {`class Animal {}`}
-            <br />
-            <br />
-            {`class Dog extends Animal {}`}
-            <br />
-            <br />
-            {`const animal = new Animal();`}
-            <br />
-            {`const dog = new Dog();`}
-            <br />
-            <br />
-            {`console.log(dog instanceof Dog);     // true`}
-            <br />
-            {`console.log(dog instanceof Animal);  // true (Dog is a subclass of Animal)`}
-            <br />
-            {`console.log(animal instanceof Animal); // true`}
-            <br />
-            {`console.log(animal instanceof Dog); // false (Animal is not a subclass of Dog)`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+              class Animal {}
+
+              class Dog extends Animal {}
+
+              const animal = new Animal();
+              const dog = new Dog();
+              console.log(dog instanceof Dog);     // true
+              console.log(dog instanceof Animal);  // true (Dog is a subclass of Animal)
+              console.log(animal instanceof Animal); // true
+              console.log(animal instanceof Dog); // false (Animal is not a subclass of Dog)
+
+              console.log('hello' instanceof String); // Output: false
+              `}
+            />
+            Primitive Values: instanceof does not work with primitive values
+            like strings, numbers, or booleans:
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1577,66 +3830,162 @@ const Lists = () => {
             executed immediately after it is defined. It's often used to create
             a new scope for variables and avoid polluting the global scope, as
             well as to encapsulate code and create modules.
-            <br />
-            <br />
-            {`( function () {`}
-            <br />
-            {`//code here excuse immediately`}
-            <br />
-            {`})()`}
-            <br />
-            <br />
-            {`( function () {`}
-            <br />
-            {`  console.log("test");`}
-            <br />
-            {`})();`}
-            <br />
-            {`//test`}
-            <br />
-            <br />
-            {`const test = (function() {`}
-            <br />
-            {`const init = {`}
-            <br />
-            {`id: 90,`}
-            <br />
-            {` methods: {`}
-            <br />
-            {`call() {`}
-            <br />
-            {`console.log('Call method executed');`}
-            <br />
-            {` }`}
-            <br />
-            {` }`}
-            <br />
-            {`};`}
-            <br />
-            {` return init;`}
-            <br />
-            {`})();`}
-            <br />
-            <br />
-            {`console.log(test);`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+            ( function () {
+              //code here excuse immediately
+            })()
+
+            (() => {
+              // Code here runs immediately
+            })();
+
+            ( function () {
+              console.log("test");
+            })(); //test
+
+            (function() {
+              console.log("test");
+            }); //no output
+
+            const test = (function() {
+              const init = {
+                id: 90,
+                methods: {
+                  call() {
+                    console.log('Call method executed');
+                  }
+                }
+              };
+             return init;
+             })();
+
+            console.log(test);
+            `}
+            />
             <strong>Output</strong>
-            <br />
-            {`{`}
-            <br />
-            {`  id: 90,`}
-            <br />
-            {`  methods: {`}
-            <br />
-            {`    call: call() {`}
-            <br />
-            {`      console.log('Call method executed');`}
-            <br />
-            {`    }`}
-            <br />
-            {`  }`}
-            <br />
-            {`}`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                {
+                  id: 90,
+                  methods: {
+                    call: call() {
+                      console.log('Call method executed');
+                    }
+                  }
+                }
+              `}
+            />
+            <strong>Benefits of Using IIFEs</strong>
+            <ul>
+              <li>
+                Local Scope: Encapsulates variables and functions to avoid
+                conflicts with other code in the global scope.
+              </li>
+              <li>
+                Avoid Global Pollution: Helps in reducing the risk of variable
+                name collisions and pollution of the global namespace.
+              </li>
+              <li>
+                Data Privacy: Enables private data and functions that are not
+                accessible from outside the function.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const module = (function() {
+                  let privateVar = 'I am private';
+
+                  function privateFunction() {
+                    return 'This is a private function';
+                  }
+
+                  return {
+                    publicVar: 'I am public',
+                    publicFunction: function() {
+                      return 'This is a public function';
+                    }
+                  };
+                })();
+
+                console.log(module.publicVar);         // Output: 'I am public'
+                console.log(module.publicFunction());  // Output: 'This is a public function'
+                console.log(module.privateVar);        // Output: undefined (not accessible)
+                console.log(module.privateFunction);   // Output: undefined (not accessible)
+
+                //Basic Function with Private Variables
+                const result = (function() {
+                  let privateVar = 'I am private';
+
+                  function privateFunction() {
+                    return 'This is a private function';
+                  }
+
+                  return {
+                    publicVar: 'I am public',
+                    publicFunction: function() {
+                      return privateFunction();
+                    }
+                  };
+                })();
+
+                console.log(result.publicVar);         // Output: 'I am public'
+                console.log(result.publicFunction());  // Output: 'This is a private function'
+                console.log(result.publicFunction);  //[Function: publicFunction]
+                console.log(result.privateVar);        // Output: undefined (not accessible)
+                console.log(result.privateFunction);   // Output: undefined (not accessible)
+
+
+                // Accessing Private Variables Directly in Closure
+                onst counter = (function() {
+                  let count = 0;  // Private variable
+
+                  function increment() {
+                    count++;
+                    return count;
+                  }
+
+                  function getCount() {
+                    return count;
+                  }
+
+                  return function(action) {
+                    if (action === 'increment') {
+                      return increment();
+                    } else if (action === 'getCount') {
+                      return getCount();
+                    }
+                  };
+                })();
+
+                console.log(counter('increment')); // Output: 1
+                console.log(counter('increment')); // Output: 2
+                console.log(counter('getCount'));  // Output: 2
+
+                //Private Variables with Parameters
+                const person = (function(name, age) {
+                  // Private variables
+                  let _name = name;
+                  let _age = age;
+
+                  return {
+                    getName: function() {
+                      return _name;
+                    },
+                    getAge: function() {
+                      return _age;
+                    }
+                  };
+                })('Jane Doe', 25);
+
+                console.log(person.getName()); // Output: 'Jane Doe'
+                console.log(person.getAge());  // Output: 25
+
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1667,15 +4016,14 @@ const Lists = () => {
                 recursively converted into JSON strings.
               </li>
             </ul>
-            <br />
-            <br />
-            {`const obj = { name: 'John', age: 30 };`}
-            <br />
-            {`const jsonString = JSON.stringify(obj);`}
-            <br />
-            {`console.log(jsonString); // Output: {"name":"John","age":30}`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+            const obj = { name: 'John', age: 30 };
+            const jsonString = JSON.stringify(obj);
+            console.log(jsonString); // Output: {"name":"John","age":30}
+                `}
+            />
             <strong>JSON.parse():</strong>
             <ul>
               <li>
@@ -1687,13 +4035,14 @@ const Lists = () => {
                 corresponding JavaScript object.{" "}
               </li>
             </ul>
-            <br />
-            <br />
-            {`const jsonString = '{"name":"John","age":30}';`}
-            <br />
-            {`const obj = JSON.parse(jsonString);`}
-            <br />
-            {`console.log(obj); // Output: { name: 'John', age: 30 }`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+            const jsonString = '{"name":"John","age":30}';
+            const obj = JSON.parse(jsonString);
+            console.log(obj); // Output: { name: 'John', age: 30 }
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1711,37 +4060,173 @@ const Lists = () => {
             State refers to the current condition or data of your application at
             any given moment. In JavaScript, you typically maintain state by
             storing data in variables, objects, or data structures. <br />{" "}
-            <br />
-            {`let count = 0;`} <br />
-            {`let user = {`} <br />
-            {`name: 'John Doe',`} <br />
-            {`age: 30,`} <br />
-            {`email: 'john@example.com'`} <br />
-            {`};`} <br /> <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let count = 0;
+                let user = {
+                  name: 'John Doe',
+                  age: 30,
+                  email: 'john@example.com'
+                };
+              `}
+            />
             <strong> Local Storage:</strong> <br />
             Local storage is a feature of web browsers that allows you to store
             data persistently across browser sessions. You can use the
             localStorage object in JavaScript to interact with local storage.{" "}
-            <br /> <br />
-            {`localStorage.setItem('username', 'john');`} <br />
-            {`let username = localStorage.getItem('username');`} <br />
-            {`localStorage.removeItem('username');`} <br />
-            {`localStorage.clear();`} <br /> <br />
-            {`const user = JSON.stringify({`} <br />
-            {`  firsName: "sum",`} <br />
-            {`  lastname: 'test'`} <br />
-            {`})`} <br /> <br />
-            {`localStorage.setItem("user", user);`} <br />
-            {`const firstName = JSON.parse(localStorage.getItem('user'));`}{" "}
-            <br /> <br />
-            {`console.log(firstName)`} <br />
-            {`/*{firsName: "sum",`} <br />
-            {`   lastname: "test"`} <br />
-            {`} */`} <br /> <br />
-            <strong> Limitations:</strong> Local storage has a size limit
-            (usually around 5-10MB) and stores data as strings, so you may need
-            to serialize and deserialize complex data structures when storing
-            and retrieving them.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                localStorage.setItem('username', 'john');
+                let username = localStorage.getItem('username');
+                localStorage.removeItem('username');
+                localStorage.clear();
+
+                const user = JSON.stringify({
+                  firsName: "sum",
+                  lastname: 'test'
+                })
+
+                localStorage.setItem("user", user);
+                const firstName = JSON.parse(localStorage.getItem('user'));
+
+                console.log(firstName)
+                /*{firsName: "sum",
+                  lastname: "test"
+                } */
+              `}
+            />
+            <strong> Limitations:</strong>
+            <br />
+            Local storage has a size limit (usually around 5-10MB) and stores
+            data as strings, so you may need to serialize and deserialize
+            complex data structures when storing and retrieving them.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id=""
+        >
+          <Typography> Local Storage vs Session Storage vs Cookies </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <strong> Local Storage</strong>
+            <ul>
+              <li>
+                Purpose: Stores data with no expiration time, meaning the data
+                persists even when the browser is closed and reopened.
+              </li>
+              <li>
+                Storage Capacity: Typically around 5-10 MB per origin (depending
+                on the browser).
+              </li>
+              <li>
+                Scope: Data is accessible only to the origin (protocol, domain,
+                and port) that stored it. It is not sent to the server with
+                every request.
+              </li>
+              <li>
+                Data Access: Data is available for the entire lifespan of the
+                origin's data.
+              </li>
+              <li>API: Accessed via the localStorage object in JavaScript.</li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                // Set an item
+                localStorage.setItem('key', 'value');
+
+                // Get an item
+                const value = localStorage.getItem('key');
+
+                // Remove an item
+                localStorage.removeItem('key');
+
+                // Clear all items
+                localStorage.clear();
+              `}
+            />
+            <strong>Session Storage</strong>
+            <ul>
+              <li>
+                Purpose: Stores data for the duration of the page session. Data
+                is only available while the page is open and is cleared when the
+                page session ends (e.g., when the tab or browser is closed).{" "}
+              </li>
+              <li>
+                Storage Capacity: Typically around 5-10 MB per origin (similar
+                to Local Storage).{" "}
+              </li>
+              <li>
+                Scope: Data is accessible only within the same tab or window.
+                Data is not shared across tabs or windows.{" "}
+              </li>
+              <li>
+                Data Access: Data persists only for the duration of the page
+                session.{" "}
+              </li>
+              <li>
+                API: Accessed via the sessionStorage object in JavaScript.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                // Set an item
+                sessionStorage.setItem('key', 'value');
+
+                // Get an item
+                const value = sessionStorage.getItem('key');
+
+                // Remove an item
+                sessionStorage.removeItem('key');
+
+                // Clear all items
+                sessionStorage.clear();
+              `}
+            />
+            <strong>Cookies</strong>
+            <ul>
+              <li>
+                Purpose: Store small amounts of data that are sent to the server
+                with every HTTP request. Useful for server-side session
+                management and for tracking user preferences.
+              </li>
+              <li>Storage Capacity: Limited to around 4 KB per cookie.</li>
+              <li>
+                Scope: Data is sent to the server with every request to the
+                domain that set the cookie. Data is shared across all tabs and
+                windows for the same domain.
+              </li>
+              <li>
+                Data Access: Cookies can have an expiration time and are deleted
+                when they expire or are manually cleared.
+              </li>
+              <li>
+                API: Accessed via the document.cookie property in JavaScript.
+                Management of cookies is typically done through server-side or
+                client-side headers.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                // Set a cookie
+                document.cookie = "key=value; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+
+                // Get cookies
+                const cookies = document.cookie;
+
+                // Remove a cookie (by setting its expiration date to the past)
+                document.cookie = "key=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1755,23 +4240,19 @@ const Lists = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {`if(navigator.geolocation) {`}
-            <br />
-            {`  navigator.geolocation.getCurrentPosition((pos) => {`}
-            <br />
-            {`    console.log("location", pos)`}
-            <br />
-            {`  }, () => {`}
-            <br />
-            {`  console.log("nope");`}
-            <br />
-            {`});`}
-            <br />
-            {`  console.log("location ====");`}
-            <br />
-            {`}`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                if(navigator.geolocation) {
+                  navigator.geolocation.getCurrentPosition((pos) => {
+                    console.log("location", pos)
+                    }, () => {
+                    console.log("nope");
+                  });
+                  console.log("location ====");
+                }
+            `}
+            />
             <strong>Canvas API:</strong> Allows for dynamic rendering of
             graphics, charts, and animations directly in the browser using
             JavaScript.
@@ -1848,69 +4329,52 @@ const Lists = () => {
             Destructuring in JavaScript allows you to extract data from arrays
             and objects into distinct variables, making it easier to work with
             complex data structures.
-            <br />
-            <br />
-            {`const arr = [10, 20, 2024]`}
-            <br />
-            {`console.log(arr); //[10, 20, 2024]`}
-            <br />
-            <br />
-            {`const [month, day, year] = [10, 20, 2024];`}
-            <br />
-            {`console.log(month/day/year); //“10/20/2024"`}
-            <br />
-            <br />
-            {`Using alias`}
-            <br />
-            {`const { firstName : name } = person;`}
-            <br />
-            {`console.log(name); //"test"`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const arr = [10, 20, 2024]
+                console.log(arr); //[10, 20, 2024]
+
+                const [month, day, year] = [10, 20, 2024];
+                console.log($ {month}/$ {day}/$ {year}); //“10/20/2024"
+
+                Using alias
+                let person ={
+                  firstName: "test"
+                }
+                const { firstName : name } = person;
+                console.log(name); //"test"
+              `}
+            />
             <strong>EXAMPLE</strong>
-            <br />
-            {`function displayUser({ name, age, address: { city, country } }) {`}
-            <br />
-            console.log(`Name: {`${`}name{`}`}`);
-            <br />
-            console.log(`Age: {`${`}age}{`}`});
-            <br />
-            console.log(`City: {`${`}city{`}`}`);
-            <br />
-            console.log(`Country: {`${`}country{`}`}`);
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`const user = {`}
-            <br />
-            {`name: 'Jane Smith',`}
-            <br />
-            {`age: 28,`}
-            <br />
-            {`address: {`}
-            <br />
-            {`city: 'Los Angeles',`}
-            <br />
-            {`country: 'USA'`}
-            <br />
-            {` }`}
-            <br />
-            {`};`}
-            <br />
-            <br />
-            {`displayUser(user);`}
-            <br />
-            <br />
-            <strong>Output:</strong>
-            <br />
-            {`Name: Jane Smith`}
-            <br />
-            {`Age: 28`}
-            <br />
-            {`City: Los Angeles`}
-            <br />
-            {`Country: USA`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function displayUser({ name, age, address: { city, country } }) {
+                  console.log(Name: {name});
+                  console.log(Age: {age});
+                  console.log(City: {city});
+                  console.log(Country: {country});
+                }
+
+                const user = {
+                  name: 'Jane Smith',
+                  age: 28,
+                  address: {
+                    city: 'Los Angeles',
+                    country: 'USA'
+                  }
+                };
+
+                displayUser(user);
+
+                //Output:
+                Name: Jane Smith
+                Age: 28
+                City: Los Angeles
+                Country: USA
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1928,31 +4392,24 @@ const Lists = () => {
             <br />
             The rest operator (...) allows you to represent an indefinite number
             of arguments as an array.
-            <br />
-            <br />
-            {`const display = (num) => {`}
-            <br />
-            {`console.log("num", num);`}
-            <br />
-            {`}`}
-            <br />
-            {`display(5) //5`}
-            <br />
-            <br />
-            {`If we pass more then one argument also we get display(5, 6, 7, 8)`}
-            <br />
-            {`//5 But if you do this`}
-            <br />
-            {`const display = (...num) => {`}
-            <br />
-            {`console.log("num", num);`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            display(5, 6, 7, 8) //"num", [5, 6, 7, 8]
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const display = (num) => {
+                  console.log("num", num);
+                }
+                display(5) // "num", 5
+
+                If we pass more then one argument also we get
+                display(5, 6, 7, 8); //"num", 5 But if you do this
+
+                const display = (...num) => {
+                  console.log("num", num);
+                }
+
+                display(5, 6, 7, 8); //"num", [5, 6, 7, 8]
+            `}
+            />
             <strong>Spread Operator (...):</strong>
             <br />
             The spread operator (...) allows you to expand an array or object
@@ -1960,29 +4417,26 @@ const Lists = () => {
             <br />
             Convenient for merging arrays, copying arrays and objects, and
             passing multiple arguments to functions.
-            <br />
-            <br />
-            {`const numbers = [1, 2, 3];`}
-            <br />
-            {`console.log(Math.max(...numbers)); // Output: 3 (equivalent to Math.max(1, 2, 3))`}
-            <br />
-            <br />
-            {`const arr1 = [1, 2, 3];`}
-            <br />
-            {`const arr2 = [4, 5, 6];`}
-            <br />
-            {`const mergedArray = [...arr1, ...arr2];`}
-            <br />
-            {`console.log(mergedArray); // Output: [1, 2, 3, 4, 5, 6]`}
-            <br />
-            <br />
-            {`const obj1 = { x: 1, y: 2 };`}
-            <br />
-            {`const obj2 = { ...obj1, z: 3 };`}
-            <br />
-            {`console.log(obj2); // Output: { x: 1, y: 2, z: 3 }`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let num = [2, 3, 5,6]
+                console.log(...num) // 2 3 5 6
+
+                const numbers = [1, 2, 3];
+                console.log(Math.max(...numbers)); // Output: 3 (equivalent to Math.max(1, 2, 3))
+
+                const arr1 = [1, 2, 3];
+                const arr2 = [4, 5, 6];
+                console.log(...arr1, ...arr2); //1 2 3 4 5 6
+                const mergedArray = [...arr1, ...arr2];
+                console.log(mergedArray); // Output: [1, 2, 3, 4, 5, 6]
+
+                const obj1 = { x: 1, y: 2 };
+                const obj2 = { ...obj1, z: 3 };
+                console.log(obj2); // Output: { x: 1, y: 2, z: 3 }
+              `}
+            />
             <strong>
               spread syntax is the opposite of rest syntax. Spread syntax
               "expands" an array into its elements, while rest syntax collects
@@ -2003,42 +4457,33 @@ const Lists = () => {
           <Typography>
             They provide a more compact syntax compared to traditional function
             expressions and offer some additional features
-            <br />
-            <br />
-            {`function display(num) {`}
-            <br />
-            {`return num + 1;`}
-            <br />
-            {`}`}
-            <br />
-            {`console.log(display(2)) //3`}
-            <br />
-            {`const display2 = num => num + 1`}
-            <br />
-            {`console.log(display2(4)) //5`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function display(num)     }
+                  return num + 1;
+                }
+                console.log(display(2)) //3
+                const display2 = num => num + 1
+                console.log(display2(4)) //5
+              `}
+            />
             Arrow functions do not have their own this context; instead, they
             inherit the this value from the surrounding code.
-            <br />
-            {`function Person() {`}
-            <br />
-            {` this.age = 0;`}
-            <br />
-            <br />
-            {`setInterval(() => {`}
-            <br />
-            {` // this refers to the Person object`}
-            <br />
-            {`this.age++;`}
-            <br />
-            {`console.log(this.age);`}
-            <br />
-            {`}, 1000);`}
-            <br />
-            {`}`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function Person() {
+                 this.age = 0;
+
+                  setInterval(() => {
+                    // this refers to the Person object
+                    this.age++;
+                    console.log(this.age);
+                  }, 1000);
+                }
+              `}
+            />
             const person = new Person();
           </Typography>
         </AccordionDetails>
@@ -2056,29 +4501,32 @@ const Lists = () => {
             NaN stands for "Not-a-Number" in JavaScript. It is a special value
             of the Number type that represents the result of an operation that
             cannot produce a meaningful numerical result.
-            <br />
-            <br />
-            {`const result = 'hello' / 5;`}
-            <br />
-            {`console.log(result); // Output: NaN`}
-            <br />
-            {`const result = parseInt('hello');`}
-            <br />
-            {`console.log(result); // Output: NaN`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const result = 'hello' / 5;
+                console.log(result); // Output: NaN
+                const result = parseInt('hello');
+                console.log(result); // Output: NaN
+              `}
+            />
             It's important to note that NaN is considered a numeric value but is
             not equal to any other value, including itself:
-            <br />
-            {`console.log(NaN === NaN); // Output: false`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                console.log(NaN === NaN); // Output: false
+              `}
+            />
             you should use the isNaN() function or the Number.isNaN() method
             introduced in ES6:
-            <br />
-            {`console.log(isNaN(NaN));        // Output: true`}
-            <br />
-            {`console.log(Number.isNaN(NaN)); // Output: true`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                console.log(isNaN(NaN));        // Output: true
+                console.log(Number.isNaN(NaN)); // Output: true
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -2096,20 +4544,25 @@ const Lists = () => {
             <br />
             An undeclared variable is a variable that has been referenced in
             code without being declared
-            <br />
-            {`console.log(foo); // ReferenceError: foo is not defined`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                console.log(foo); // ReferenceError: foo is not defined
+              `}
+            />
             <strong>Undefined</strong>
             <br />
             Undefined is a special value in JavaScript that indicates the
             absence of a value. It is also the default value of uninitialized
             variables and the value returned by functions that do not explicitly
             return a value
-            <br />
-            {`let bar;`}
-            <br />
-            {`console.log(bar); // Output: undefined`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let bar;
+                console.log(bar); // Output: undefined
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -2126,21 +4579,27 @@ const Lists = () => {
             DOM (Document Object Model) selectors are used to interact with HTML
             elements in a web page. They allow you to retrieve and manipulate
             elements dynamically.
-            <br />
-            <br />
-            {`const element = document.getElementById('myElement');`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const element = document.getElementById('myElement');
+
+                getElementById() Shortcut -> const element = document.myElement;
+              `}
+            />
             getElementsByClassName, getElementsByTagName
-            <br />
-            {`const element = document.querySelector('.myClass'); //Selects the first element that matches a specified CSS selector.`}
-            <br />
-            {`const elements = document.querySelectorAll('div.myClass');`}
-            <br />
-            {`getElementById() Shortcut -> const element = document.myElement;`}
-            <br />
-            {`matches() method: checks if an element matches a specified CSS selector. Returns a boolean`}
-            <br />
-            {`const matches = element.matches('.myClass');`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                //Selects the first element that matches a specified CSS selector.
+                const element = document.querySelector('.myClass');
+
+                const elements = document.querySelectorAll('div.myClass');
+
+                //matches() method: checks if an element matches a specified CSS selector. Returns a boolean
+                const matches = element.matches('.myClass')
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -2159,50 +4618,56 @@ const Lists = () => {
             The Object.assign() method is used to copy the values of all
             enumerable own properties from one or more source objects to a
             target object. It returns the target object.
-            <br />
-            <br />
-            {`const obj1 = { a: 1, b: 2 };`}
-            <br />
-            {`const obj2 = Object.assign({}, obj1);`}
-            <br />
-            {`console.log(obj2); //{ a: 1, b: 2 }`}
-            <br />
-            <br />
-            {`const obj2 = Object.assign(obj1)`}
-            <br />
-            {`console.log(obj2); //{ a: 1, b: 2 }`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const obj1 = { a: 1, b: 2 };
+                const obj2 = Object.assign({}, obj1);
+                console.log(obj2); //{ a: 1, b: 2 }
+
+                const obj2 = Object.assign(obj1)
+                console.log(obj2); //{ a: 1, b: 2 }
+
+                const obj1 = { a: 1, b: 2 };
+                const obj3 = {c:3, d: 4}
+                const obj2 = Object.assign({},obj1, obj3);
+                console.log(obj2); //{ a: 1, b: 2, c: 3, d: 4 }
+              `}
+            />
             <strong>2. Spread Operator (...):</strong>
             <br />
             The spread operator (...) can also be used to create a shallow copy
             of an object. It spreads the properties of the source object into a
             new object.
-            <br />
-            {`const obj1 = { a: 1, b: 2 };`}
-            <br />
-            {`const obj2 = { ...obj1 }; //{ a: 1, b: 2 }`}
-            <br />
-            <br />
-            {`const obj1 ={a: 1, b: 2, c: {d:4, e:{f:5, g:{h:6, i:7}}}}`}
-            <br />
-            <br />
-            {`const obj2 = {...obj1}`}
-            <br />
-            {`console.log(obj2); //{ a: 1, b: 2, c: { d: 4, e: { f: 5, g: [Object] } } }`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const obj1 = { a: 1, b: 2 };
+                const obj2 = { ...obj1 }; //{ a: 1, b: 2 }
+
+                const obj1 ={a: 1, b: 2, c: {d:4, e:{f:5, g:{h:6, i:7}}}}
+
+                const obj2 = {...obj1}
+                console.log(obj2); //{ a: 1, b: 2, c: { d: 4, e: { f: 5, g: [Object] } } }
+
+                const obj1 = { a: 1, b: 2 };
+                const obj3 = {c:3, d: 4}
+                const obj2 = {obj1, obj3};
+                console.log(obj2); //{ obj1: { a: 1, b: 2 }, obj3: { c: 3, d: 4 } }
+              `}
+            />
             <strong>3.JSON.parse() and JSON.stringify():</strong>
             <br />
             You can convert the object to a JSON string using JSON.stringify(),
             and then parse the JSON string back into an object using
             JSON.parse(). This creates a deep copy of the object.
-            <br />
-            {`const obj1 = { a: 1, b: 2 };`}
-            <br />
-            {`const obj2 = JSON.parse(JSON.stringify(obj1));`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const obj1 = { a: 1, b: 2 };
+                const obj2 = JSON.parse(JSON.stringify(obj1));
+              `}
+            />
             <strong>Shallow vs Deep Copy:</strong>
             <br />
             Object.assign() and the spread operator create shallow copies,
@@ -2435,7 +4900,7 @@ const Lists = () => {
             by three factors:
             <ul>
               <li>Enumerable or non-enumerable</li>
-              <li>String or symbol</li>
+              <li>String or symbol</li>
               <li>
                 Own property or inherited property from the prototype chain
               </li>
@@ -2458,61 +4923,47 @@ const Lists = () => {
             An enumerable property is one that will be iterated over by methods
             such as for...in loops and Object.keys(). By default, properties
             defined directly on an object are enumerable.
-            <br />
-            {`const obj = { a: 1, b: 2 };`}
-            <br />
-            {`for (const key in obj) {`}
-            <br />
-            {`console.log(key); // Output: 'a', 'b'`}
-            <br />
-            {`}}`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const obj = { a: 1, b: 2 };
+                for (const key in obj) {
+                  console.log(key); // Output: 'a', 'b'
+                }
+              `}
+            />
             <strong>Non-enumerable Properties</strong>
             <br />
             A non-enumerable property is one that will not be iterated over by
             for...in loops and will not appear in the result of Object.keys().
             Non-enumerable properties are typically created using
             Object.defineProperty() with the enumerable attribute set to false.
-            <br />
-            {`const obj = {};`}
-            <br />
-            {`// Define properties with different enumerability`}
-            <br />
-            {`Object.defineProperty(obj, 'a', { value: 1, enumerable: true });`}
-            <br />
-            {`Object.defineProperty(obj, 'b', { value: 2, enumerable: false });`}
-            <br />
-            {`Object.defineProperty(obj, 'c', { value: 3, enumerable: true });`}
-            <br />
-            <br />
-            {`// Iterate over the properties using for...in loop`}
-            <br />
-            {`console.log('Enumerating properties using for...in loop:');`}
-            <br />
-            {`for (const key in obj) {`}
-            <br />
-            {`console.log(key); // Output: 'a', 'c' (b is non-enumerable and not iterated over)`}
-            <br />
-            {`}`}
-            <br />
-            <br />
-            {`// Retrieve keys using Object.keys()`}
-            <br />
-            {`console.log('\nRetrieving keys using Object.keys():');`}
-            <br />
-            {`console.log(Object.keys(obj)); // Output: ['a', 'c'] (b is non-enumerable and not included)`}
-            <br />
-            <br />
-            {`// Check if a property is enumerable`}
-            <br />
-            {`console.log('\nCheck if properties are enumerable:');`}
-            <br />
-            {`console.log(Object.getOwnPropertyDescriptor(obj, 'a').enumerable); // Output: true`}
-            <br />
-            {`console.log(Object.getOwnPropertyDescriptor(obj, 'b').enumerable); // Output: false`}
-            <br />
-            {`console.log(Object.getOwnPropertyDescriptor(obj, 'c').enumerable); // Output: true`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const obj = {};
+                // Define properties with different enumerability
+                Object.defineProperty(obj, 'a', { value: 1, enumerable: true });
+                Object.defineProperty(obj, 'b', { value: 2, enumerable: false });
+                Object.defineProperty(obj, 'c', { value: 3, enumerable: true });
+
+                // Iterate over the properties using for...in loop
+                console.log('Enumerating properties using for...in loop:');
+                for (const key in obj) {
+                  console.log(key); // Output: 'a', 'c' (b is non-enumerable and not iterated over)
+                }
+
+                // Retrieve keys using Object.keys()
+                console.log('Retrieving keys using Object.keys():');
+                console.log(Object.keys(obj)); // Output: ['a', 'c'] (b is non-enumerable and not included)
+
+                // Check if a property is enumerable
+                console.log('Check if properties are enumerable:');
+                console.log(Object.getOwnPropertyDescriptor(obj, 'a').enumerable); // Output: true
+                console.log(Object.getOwnPropertyDescriptor(obj, 'b').enumerable); // Output: false
+                console.log(Object.getOwnPropertyDescriptor(obj, 'c').enumerable); // Output: true
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -2529,47 +4980,34 @@ const Lists = () => {
             {`=== will be false because object uses reference.   => Shallow Equality Check:`}
             <br />
             {`We can do JSON.stringfy       => Deep Equality Check (Using JSON.stringify()):`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`Example:
+                const user1 = {
+                  fn: "t1",
+                  lan: "t2"
+                };
 
-            {`Example:`}
-            <br />
-            {`const user1 = {`}
-            <br />
-            {`fn: "t1",`}
-            <br />
-            {`lan: "t2"`}
-            <br />
-            {`};`}
-            <br />
-            <br />
+                const user2 = {
+                  fn: "t1",
+                  lan: "t2"
+                };
 
-            {`const user2 = {`}
-            <br />
-            {`fn: "t1",`}
-            <br />
-            {`lan: "t2"`}
-            <br />
-            {`};`}
-            <br />
-            <br />
-
-            {`console.log(user1 === user2) //false`}
-            <br />
-            {`console.log(JSON.stringify(user1) === JSON.stringify(user2))`}
-            <br />
-            {`//true if you change user2{ lan:”t2, fn:”t1”} this will be false`}
-            <br />
-            <br />
+                console.log(user1 === user2) //false
+                console.log(JSON.stringify(user1) === JSON.stringify(user2))
+                //true if you change user2{ lan:”t2, fn:”t1”} this will be false
+              `}
+            />
             <strong>Deep Equality Check using ladash:</strong>
-            <br />
-            {`const _ = require('lodash');`}
-            <br />
-            {`const obj1 = { a: 1, b: { c: 2 } };`}
-            <br />
-            {`const obj2 = { a: 1, b: { c: 3 } };`}
-            <br />
-            {`console.log(_.isEqual(obj1) === _.isEqual(obj2));`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const _ = require('lodash');
+                const obj1 = { a: 1, b: { c: 2 } };
+                const obj2 = { a: 1, b: { c: 3 } };
+                console.log(_.isEqual(obj1) === _.isEqual(obj2));
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -2610,33 +5048,25 @@ const Lists = () => {
         <AccordionDetails>
           <Typography>
             We can do it different methods like set, filter, reduce and includes
-            <br />
-            <br />
-            {`const arr = [1, 1,2, 3, 3, 3];`}
-            <br />
-            {`const newSet = [... new Set(arr)];`}
-            <br />
-            {`console.log('arr', newSet); //arr [ 1, 2, 3 ]`}
-            <br />
-            <br />
-            {`const newset1 = arr.filter((value, index, array) => array.indexOf(value)=== index)`}
-            <br />
-            {`console.log('arr', newset1); // arr [ 1, 2, 3 ]`}
-            <br />
-            <br />
-            {`Eg: const newSet = [];`}
-            <br />
-            {`arr.forEach((item) => {`}
-            <br />
-            {`if(!newSet.includes(item)){`}
-            <br />
-            {`newSet.push(item);`}
-            <br />
-            {`}`}
-            <br />
-            {`})`}
-            <br />
-            {`console.log("newSet", newSet) //newSet [ 1, 2, 3 ]`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const arr = [1, 1,2, 3, 3, 3];
+                const newSet = [... new Set(arr)];
+                console.log('arr', newSet); //arr [ 1, 2, 3 ]
+
+                const newset1 = arr.filter((value, index, array) => array.indexOf(value)=== index)
+                console.log('arr', newset1); // arr [ 1, 2, 3 ]
+
+                Eg: const newSet = [];
+                arr.forEach((item) => {
+                  if(!newSet.includes(item)){
+                    newSet.push(item);
+                  }
+                })
+                console.log("newSet", newSet) //newSet [ 1, 2, 3 ]
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -2681,16 +5111,16 @@ const Lists = () => {
                 requests.
               </li>
             </ul>
-            {`Eg: OPTIONS /example HTTP/1.1`}
-            <br />
-            {`Host: example.com`}
-            <br />
-            <br />
-            {`HTTP/1.1 200 OK`}
-            <br />
-            {`Allow: GET, POST, OPTIONS`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                Eg: OPTIONS /example HTTP/1.1
+                Host: example.com
+
+                HTTP/1.1 200 OK
+                Allow: GET, POST, OPTIONS
+              `}
+            />
             <strong>HEAD:</strong>
             <br />
             <ul>
@@ -2932,9 +5362,14 @@ const Lists = () => {
                 operations, and more.
               </li>
             </ul>
-            {`Eg: console.log("Statement 1"); setTimeout(() =>`}
-            <br />
-            {`console.log("Statement 2"), 1000); console.log("Statement 3");`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                Eg: console.log("Statement 1");
+                setTimeout(() => console.log("Statement 2"), 1000);
+                console.log("Statement 3");
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -2963,8 +5398,12 @@ const Lists = () => {
                 (in milliseconds).
               </li>
             </ul>
-            {`setTimeout(() => console.log("Statement 2"), 1000);`}
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                setTimeout(() => console.log("Statement 2"), 1000);
+              `}
+            />
             <br />
             <strong>setInterval:</strong>
             <ul>
@@ -2975,24 +5414,20 @@ const Lists = () => {
                 snippet to execute and the interval (in milliseconds).
               </li>
             </ul>
-            {`const intervalId = setInterval(() => {`}
-            <br />
-            {`console.log('Repeated message');`}
-            <br />
-            {`}, 1000); // Execute every 1 second`}
-            <br />
-            <br />
-            {`// To stop the interval after some time`}
-            <br />
-            {`setTimeout(() => {`}
-            <br />
-            {`clearInterval(intervalId);`}
-            <br />
-            {`console.log('Interval stopped');`}
-            <br />
-            {`}, 5000);`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const intervalId = setInterval(() => {
+                  console.log('Repeated message');
+                }, 1000); // Execute every 1 second
+
+                // To stop the interval after some time
+                setTimeout(() => {
+                  clearInterval(intervalId);
+                  console.log('Interval stopped');
+                }, 5000);
+              `}
+            />
             <strong>clearTimeout/clearInterval:</strong>
             <ul>
               <li>
@@ -3035,29 +5470,22 @@ const Lists = () => {
                 successful, or reject(reason) if it fails.
               </li>
             </ul>
-            {`const myPromise = new Promise((resolve, reject) => {`}
-            <br />
-            {` // Perform an asynchronous operation`}
-            <br />
-            {`setTimeout(() => {`}
-            <br />
-            {`const result = Math.random();`}
-            <br />
-            {`if (result > 0.5) {`}
-            <br />
-            {`resolve(result); // Operation succeeded`}
-            <br />
-            {`} else {`}
-            <br />
-            {`reject(new Error('Operation failed')); // Operation failed`}
-            <br />
-            {`}`}
-            <br />
-            {`}, 1000);`}
-            <br />
-            {`});`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const myPromise = new Promise((resolve, reject) => {
+                  // Perform an asynchronous operation
+                  setTimeout(() => {
+                    const result = Math.random();
+                    if (result > 0.5) {
+                      resolve(result); // Operation succeeded
+                    } else {
+                      reject(new Error('Operation failed')); // Operation failed
+                    }
+                  }, 1000);
+                });
+              `}
+            />
             <strong>Consuming a Promise:</strong>
             <ul>
               <li>
@@ -3071,17 +5499,16 @@ const Lists = () => {
                 handle errors (i.e., when reject is called).
               </li>
             </ul>
-            {`myPromise.then((value) => {`}
-            <br />
-            {`console.log('Promise resolved with value:', value);`}
-            <br />
-            {`}).catch((error) => {`}
-            <br />
-            {`console.error('Promise rejected with error:', error);`}
-            <br />
-            {`});`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                myPromise.then((value) => {
+                  console.log('Promise resolved with value:', value);
+                }).catch((error) => {
+                  console.error('Promise rejected with error:', error);
+                });
+              `}
+            />
             <strong>Chaining Promises:</strong>
             <ul>
               <li>
@@ -3094,25 +5521,46 @@ const Lists = () => {
                 perform additional asynchronous operations.
               </li>
             </ul>
-            {`myPromise.then((value) => {`}
-            <br />
-            {`console.log('First promise resolved with value:', value);`}
-            <br />
-            {`return anotherAsyncOperation(); // Return a new promise`}
-            <br />
-            {`}).then((result) => {`}
-            <br />
-            {`console.log('Second promise resolved with result:', result);`}
-            <br />
-            {`}).catch((error) => {`}
-            <br />
-            {`console.error('Promise chain rejected with error:', error);`}
-            <br />
-            {`});`}
-            <br />
-            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                myPromise.then((value) => {
+                  console.log('First promise resolved with value:', value);
+                  return anotherAsyncOperation(); // Return a new promise
+                }).then((result) => {
+                  console.log('Second promise resolved with result:', result);
+                }).catch((error) => {
+                  console.error('Promise chain rejected with error:', error);
+                });
+
+                //EG:
+                const myPromise = new Promise((resolve, reject) => {
+                  const success = true; // Simulate a condition
+
+                  setTimeout(() => {
+                    if (success) {
+                      resolve("The operation was successful!");
+                    } else {
+                      reject("The operation failed!");
+                    }
+                  }, 2000); // 2 seconds delay
+                });
+
+                myPromise
+                  .then((message) => {
+                    console.log(message); // Output: "The operation was successful!" after 2 seconds
+                  })
+                  .catch((error) => {
+                    console.error(error);
+                  });
+              `}
+            />
             <strong>
-              <a href="https://en.wikipedia.org/wiki/Concurrent_computing">
+              <a
+                href="https://en.wikipedia.org/wiki/Concurrent_computing"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Promise concurrency:
               </a>
             </strong>
@@ -3121,7 +5569,11 @@ const Lists = () => {
             task concurrency
             <br />
             <strong>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Promise.all():
               </a>
             </strong>
@@ -3130,7 +5582,11 @@ const Lists = () => {
             promises rejects.
             <br />
             <strong>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled">
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Promise.allSettled():
               </a>
             </strong>
@@ -3138,7 +5594,11 @@ const Lists = () => {
             Fulfills when all promises settle.
             <br />
             <strong>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any">
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Promise.any():
               </a>
             </strong>
@@ -3147,7 +5607,11 @@ const Lists = () => {
             promises reject.
             <br />
             <strong>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race">
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Promise.race():
               </a>
             </strong>
@@ -3177,26 +5641,23 @@ const Lists = () => {
             It return Boolean value
             <br />
             <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
             Eg:
-            <br />
-            let arr1 =[3, 5, 6, 9];
-            <br />
-            {`console.log(arr1.every(ele => ele > 2)) //true`}
-            <br />
-            {`console.log(arr1.every(ele => ele > 10)) //false`}
-            <br />
-            <br />
+                let arr1 =[3, 5, 6, 9];
+                console.log(arr1.every(ele => ele > 2)) //true
+                console.log(arr1.every(ele => ele > 10)) //false
+
             Eg:
-            <br />
-            {`Str = ‘appa’`}
-            <br />
-            {`let test = str.split('').every((char, i) => {`}
-            <br />
-            {`return char === str[str.length -1 -i]`}
-            <br />
-            {`});`}
-            <br />
-            console.log('Test', test) //true
+                Str = ‘appa’
+                let test = str.split('').every((char, i) => {
+                  return char === str[str.length -1 -i]
+                });
+
+                console.log('Test', test) //true
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -3210,11 +5671,15 @@ const Lists = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            let arr = [2, 4, ,6 ,7];
-            <br />
-            {`let len = arr.reduce(acc => acc + 1, 0);`}
-            <br />
-            console.log(len) //4
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let arr = [2, 4, ,6 ,7];
+                let len = arr.reduce(acc => acc + 1, 0);
+
+                console.log(len) //4
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -3232,49 +5697,37 @@ const Lists = () => {
             it look more synchronous and easier to read.
             <br />
             <br />
-            {`// Longhand`}
-            <br />
-            {`function fetchData() {`}
-            <br />
-            &nbsp;{`return fetch('https://api.example.com/data')`}
-            <br />
-            &nbsp;&nbsp;{`.then((response) => response.json())`}
-            <br />
-            &nbsp;&nbsp;&nbsp;{`.then((data) => {`}
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;{`console.log(data);`}
-            <br />
-            &nbsp;&nbsp;&nbsp;{`})`}
-            <br />
-            &nbsp;&nbsp;{`.catch((error) => {`}
-            <br />
-            &nbsp;{` console.error(error);`}
-            <br />
-            &nbsp;{`});`}
-            <br />
-            &nbsp; {`}`}
-            <br />
-            <br />
-            {`// Shorthand`}
-            <br />
-            {`async function fetchData() {`}
-            <br />
-            &nbsp;{`try {`}
-            <br />
-            &nbsp;&nbsp;
-            {`const response = await fetch('https://api.example.com/data');`}
-            <br />
-            &nbsp;&nbsp;&nbsp;{`const data = await response.json();`}
-            <br />
-            &nbsp;&nbsp;&nbsp;{`console.log(data);`}
-            <br />
-            &nbsp;&nbsp;&nbsp;{`} catch (error) {`}
-            <br />
-            &nbsp;&nbsp;{`console.error(error);`}
-            <br />
-            &nbsp;{`}`}
-            <br />
-            {`}`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+              // Longhand
+                function fetchData() {
+                  return fetch('https://api.example.com/data')
+                  .then((response) => response.json())
+                  .then((data) => {
+                    console.log(data);
+                  })
+                  .catch((error) => {
+                    console.error(error);
+                  });
+                }
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+              // Shorthand
+                async function fetchData() {
+                  try {
+                    const response = await fetch('https://api.example.com/data');
+                    const data = await response.json();
+                    console.log(data);
+                  } catch (error) {
+                    console.error(error);
+                  }
+                }
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -3375,20 +5828,26 @@ const Lists = () => {
                   It represents a series of characters and is written with
                   quotes. A string can be represented using a single or a double
                   quote.
-                  <br />
-                  {`var str = "Vivek Singh Bisht"; //using double quotes`}
-                  <br />
-                  {`var str2 = 'John Doe'; //using single quotes`}
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      var str = "Vivek Singh Bisht"; //using double quotes
+                      var str2 = 'John Doe'; //using single quotes
+                    `}
+                  />
                 </li>
                 <li>
                   <strong>Number</strong>
                   <br />
                   It represents a number and can be written with or without
                   decimals.
-                  <br />
-                  {`var x = 3; //without decimal`}
-                  <br />
-                  {`var y = 3.6; //with decimal`}
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      var x = 3; //without decimal
+                      var y = 3.6; //with decimal
+                    `}
+                  />
                 </li>
                 <li>
                   <strong>BigInt</strong>
@@ -3397,8 +5856,12 @@ const Lists = () => {
                   limitation of the Number data type. It can store large
                   integers and is represented by adding “n” to an integer
                   literal.
-                  <br />
-                  {`var bigInteger =  234567890123456789012345678901234567890;`}
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      var bigInteger =  234567890123456789012345678901234567890;
+                    `}
+                  />
                 </li>
                 <li>
                   <strong>Boolean</strong>
@@ -3406,60 +5869,64 @@ const Lists = () => {
                   It represents a logical entity and can have only two values :
                   true or false. Booleans are generally used for conditional
                   testing.
-                  <br />
-                  {`var a = 2;`}
-                  <br />
-                  {`var b =  3;`}
-                  <br />
-                  {`var c =  2;`}
-                  <br />
-                  {`(a == b) // returns false`}
-                  <br />
-                  {`(a == c) //returns true`}
-                  <br />
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      var a = 2;
+                      var b =  3;
+                      var c =  2;
+                      (a == b) // returns false
+                      (a == c) //returns true
+                    `}
+                  />
                 </li>
                 <li>
                   <strong>Undefined</strong>
                   <br /> When a variable is declared but not assigned, it has
-                  the value of undefined and it’s type is also undefined.
-                  <br />
-                  {`var x; // value of x is undefined`}
-                  <br />
-                  {`var y = undefined; // we can also set the value of a variable as undefined`}
-                  <br />
+                  the value of undefined and it's type is also undefined.
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      var x; // value of x is undefined
+                      var y = undefined; // we can also set the value of a variable as undefined
+                    `}
+                  />
                 </li>
                 <li>
                   <strong>Null</strong>
                   <br /> It represents a non-existent or a invalid value.
-                  <br />
-                  {`var z = null;`}
-                  <br />
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      var z = null;
+                    `}
+                  />
                 </li>
                 <li>
                   <strong>Symbol</strong> <br />
                   It is a new data type introduced in the ES6 version of
                   javascript. It is used to store an anonymous and unique value.
-                  <br />
-                  {` var symbol1 = Symbol('symbol');`}
-                  <br />
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      var symbol1 = Symbol('symbol');
+                    `}
+                  />
                 </li>
                 <li>
                   <strong>typeof of primitive types :</strong>
-                  <br />
-                  {`typeof "John Doe" // Returns "string"`}
-                  <br />
-                  {`typeof 3.14 // Returns "number"`}
-                  <br />
-                  {`typeof true // Returns "boolean"`}
-                  <br />
-                  {`typeof 234567890123456789012345678901234567890n // Returns bigint`}
-                  <br />
-                  {`typeof undefined // Returns "undefined"`}
-                  <br />
-                  {`typeof null // Returns "object" (kind of a bug in JavaScript)`}
-                  <br />
-                  {`typeof Symbol('symbol') // Returns Symbol`}
-                  <br />
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      typeof "John Doe" // Returns "string"
+                      typeof 3.14 // Returns "number"
+                      typeof true // Returns "boolean"
+                      typeof 234567890123456789012345678901234567890n // Returns bigint
+                      typeof undefined // Returns "undefined"
+                      typeof null // Returns "object" (kind of a bug in JavaScript)
+                      typeof Symbol('symbol') // Returns Symbol
+                    `}
+                  />
                 </li>
               </ul>
               <li>Non-primitive types</li>
@@ -3470,15 +5937,20 @@ const Lists = () => {
                   used.
                 </li>
                 <li>Object - Used to store collection of data.</li>
-                {`var obj1 = {`}
-                {`x:  43,`}
-                {`y:  "Hello world!",`}
-                {`z: function(){`}
-                {`return this.x;`}
-                {`}`}
-                {`}`}
-                {`// Collection of data as an ordered list`}
-                {`var array1 = [5, "Hello", true, 4.1];`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                      var obj1 = {
+                        x:  43,
+                        y:  "Hello world!",
+                        z: function(){
+                          return this.x;
+                        }
+                      }
+                      // Collection of data as an ordered list
+                      var array1 = [5, "Hello", true, 4.1];
+                  `}
+                />
               </ul>
             </ol>
           </Typography>
@@ -3501,81 +5973,96 @@ const Lists = () => {
               <li>
                 <strong>Arrow Functions:</strong> Syntax for shorter function
                 definitions and lexical scoping for this.
-                <br /> eg: <br />
-                {`const add = (a, b) => a + b;`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    eg:
+                    const add = (a, b) => a + b;
+                  `}
+                />
               </li>
               <li>
                 <strong>Classes:</strong>A more concise and object-oriented way
-                to create classes and inheritance. <br />
-                Eg:
-                <br />
-                {`class Animal {`}
-                <br />
-                {`constructor(name) {`}
-                <br />
-                {`this.name = name;`}
-                <br />
-                {`}`}
-                <br />
-                {`speak() {`}
-                <br />
-                {` console.log($'{this.name} makes a sound.');`}
-                {` }`}
-                <br />
-                {`}`}
+                to create classes and inheritance.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                  Eg:
+                    class Animal {
+                      constructor(name) {
+                        this.name = name;
+                      }
+                      speak() {
+                        console.log($'{this.name} makes a sound.');
+                      }
+                    }
+                  `}
+                />
               </li>
               <li>
                 <strong>Modules:</strong>
                 <br />
                 Standardized the use of import/export for modular code.
-                <br />
-                {` // module.js`}
-                <br />
-                {`export const add = (a, b) => a + b;`}
-                <br />
-                <br />
-                {`// main.js`}
-                <br />
-                {`import { add } from './module';`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    // module.js
+                    export const add = (a, b) => a + b;
+
+                    // main.js
+                    import { add } from './module';
+                  `}
+                />
               </li>
               <li>
                 <strong>Template Literals:</strong>
                 <br />
                 Enhanced string literals that allow for embedded expressions.
-                <br />
-                {`const name = 'World';`}
-                <br />
-                {`console.log('Hello,$ {name}!');`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const name = 'World';
+                    console.log('Hello,$ {name}!');
+                  `}
+                />
               </li>
               <li>
                 <strong>Let and Const:</strong>
                 <br />
                 Block-scoped variable declarations, providing better scoping
                 rules than var.
-                <br />
-                {`let x = 10;`}
-                <br />
-                {`const y = 20;`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    let x = 10;
+                    const y = 20;
+                  `}
+                />
               </li>
               <li>
                 <strong>Destructuring Assignment:</strong>
                 <br />A syntax for unpacking values from arrays or properties
                 from objects.
-                <br />
-                {`const [a, b] = [1, 2];`}
-                <br />
-                {`const { name, age } = { name: 'Alice', age: 25 };`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const [a, b] = [1, 2];
+                    const {name, age} = {name: 'Alice', age: 25 };
+                `}
+                />
               </li>
               <li>
                 <strong>Default Parameters:</strong>
                 <br />
                 Allows function parameters to have default values.
-                <br />
-                {`function greet(name = 'Guest') {`}
-                <br />
-                {`console.log('Hello,$ {name}');`}
-                <br />
-                {`}`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    function greet(name = 'Guest') {
+                      console.log('Hello,$ {name}');
+                    }
+                  `}
+                />
               </li>
               <li>
                 <strong>Rest and Spread Operators:</strong>
@@ -3583,47 +6070,47 @@ const Lists = () => {
                 Spread (...) allows an iterable to expand in places where
                 multiple arguments or elements are expected. Rest (...) gathers
                 elements into an array.
-                <br />
-                {`const arr = [1, 2, 3];`}
-                <br />
-                {`const newArr = [...arr, 4, 5];`}
-                <br />
-                <br />
-                {`function sum(...args) {`}
-                <br />
-                {`return args.reduce((acc, val) => acc + val, 0);`}
-                <br />
-                {`}`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const arr = [1, 2, 3];
+                    const newArr = [...arr, 4, 5];
+
+                    function sum(...args) {
+                      return args.reduce((acc, val) => acc + val, 0);
+                    }
+                  `}
+                />
               </li>
               <li>
                 <strong>Promises:</strong>
                 <br />A native way to handle asynchronous operations.
-                <br />
-                {`const fetchData = () => {`}
-                <br />
-                {`return new Promise((resolve, reject) => {`}
-                <br />
-                {`setTimeout(() => resolve('Data loaded'), 1000);`}
-                <br />
-                {`});`}
-                <br />
-                {`};`}
-                <br />
-                <br />
-                {`fetchData().then(data => console.log(data));`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const fetchData = () => {
+                      return new Promise((resolve, reject) => {
+                        setTimeout(() => resolve('Data loaded'), 1000);
+                      });
+                    };
+
+                    fetchData().then(data => console.log(data));
+                  `}
+                />
               </li>
               <li>
                 <strong>Symbols:</strong>
                 <br />A new primitive type that is unique and immutable, often
                 used to create unique property keys.
-                <br />
-                {`const uniqueKey = Symbol('unique');`}
-                <br />
-                {`const obj = {`}
-                <br />
-                {`[uniqueKey]: 'value'`}
-                <br />
-                {`};`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const uniqueKey = Symbol('unique');
+                    const obj = {
+                      [uniqueKey]: 'value'
+                    };
+                  `}
+                />
               </li>
             </ul>
             <strong> Summary of Key Differences</strong>
@@ -3648,31 +6135,77 @@ const Lists = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      {/* <Accordion>
+      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
-          id="panel69-header"
+          id="panel70-header"
         >
-          <Typography>Different data types</Typography>
+          <Typography>ES6 vs ES7</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography></Typography>
+          <Typography>
+            <strong>ES7</strong>
+            ES7 was a much smaller update compared to ES6, introducing just a
+            couple of new features:
+            <ul>
+              <li>
+                <strong>Exponentiation Operator:</strong>
+                A new operator for exponentiation.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                  const square = 2 ** 2; // 4
+                  const cube = 2 ** 3; // 8
+                  `}
+                />
+              </li>
+              <li>
+                <strong>Array.prototype.includes:</strong>
+                A new method to check if an array includes a certain element.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                const array = [1, 2, 3];
+                const hasTwo = array.includes(2); // true
+                `}
+                />
+              </li>
+            </ul>
+            <strong>Summary</strong>
+            <ul>
+              <li>
+                <strong>ES6:</strong> A major update with many new features like
+                classes, arrow functions, modules, promises, template literals,
+                default parameters, and destructuring.
+              </li>
+              <li>
+                <strong>ES7:</strong> A minor update with only two new features:
+                the exponentiation operator (**) and the
+                Array.prototype.includes method.
+              </li>
+            </ul>
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
-          id="panel69-header"
+          id="panel71-header"
         >
-          <Typography>Different data types</Typography>
+          <Typography>debugger</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography></Typography>
+          <Typography>
+            The debugger for the browser must be activated in order to debug the
+            code. Built-in debuggers may be switched on and off, requiring the
+            user to report faults. The remaining section of the code should stop
+            execution before moving on to the next line while debugging.
+          </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      {/*<Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3782,8 +6315,22 @@ const Lists = () => {
           </Typography>
         </AccordionDetails>
       </Accordion> */}
+      {/* <Accordion expanded={expanded} onChange={handleExpansion}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+
+          </Typography>
+        </AccordionDetails>
+      </Accordion> */}
     </Container>
   );
 };
 
-export default Lists;
+export default Home;
