@@ -30,6 +30,11 @@ function Home() {
               ReactList
             </Link>
           </Typography>
+          <Typography variant="body1">
+            <Link component={RouterLink} to="/reduxList">
+            ReduxList
+            </Link>
+          </Typography>
         </Box>
       </Box>
     </Container>

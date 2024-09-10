@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import HtmlList from "./pages/HtmlList";
 import JavaScriptList from "./pages/JavaScriptList";
 import ReactList from "./pages/ReactList";
+import ReduxList from "./pages/ReduxList";
 
 function App() {
   console.log("Page app");
@@ -13,9 +14,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/one" element={<HtmlList />} />
-        <Route path="/two" element={<JavaScriptList />} />
-        <Route path="/three" element={<ReactList />} />
+        <Route path="/htmlList" element={<HtmlList />} />
+        <Route path="/javaScriptList" element={<JavaScriptList />} />
+        <Route path="/reactList" element={<ReactList />} />
+        <Route path="/reduxList" element={<ReduxList />} />
       </Routes>
       <Footer />
     </>
