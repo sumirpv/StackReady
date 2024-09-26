@@ -6,19 +6,22 @@ import HtmlList from "./pages/HtmlList";
 import JavaScriptList from "./pages/JavaScriptList";
 import ReactList from "./pages/ReactList";
 import ReduxList from "./pages/ReduxList";
+import { Box } from "@mui/material";
 
 function App() {
   console.log("Page app");
   return (
     <>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/htmlList" element={<HtmlList />} />
-        <Route path="/javaScriptList" element={<JavaScriptList />} />
-        <Route path="/reactList" element={<ReactList />} />
-        <Route path="/reduxList" element={<ReduxList />} />
-      </Routes>
+      <Box sx={{ minHeight: "calc(100vh - 60px)" }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/htmlList" element={<HtmlList />} />
+          <Route path="/javaScriptList" element={<JavaScriptList />} />
+          <Route path="/reactList" element={<ReactList />} />
+          <Route path="/reduxList" element={<ReduxList />} />
+        </Routes>
+      </Box>
       <Footer />
     </>
   );

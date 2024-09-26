@@ -1,10 +1,10 @@
-import React from 'react';
-import { AppBar, Toolbar, Typography, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { AppBar, Toolbar, Typography, Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ marginBottom: "20px" }}>
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           My App

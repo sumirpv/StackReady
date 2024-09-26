@@ -50,7 +50,7 @@ const TestInfo = () => {
       <CodeSnippet
         language="javascript"
         code={`
-                 `}
+         `}
       />
 
       <TableContainer component={Paper} variant="outlined">

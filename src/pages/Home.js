@@ -32,7 +32,7 @@ function Home() {
           </Typography>
           <Typography variant="body1">
             <Link component={RouterLink} to="/reduxList">
-            ReduxList
+              ReduxList
             </Link>
           </Typography>
         </Box>
