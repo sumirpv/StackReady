@@ -963,10 +963,43 @@ const HtmlList = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Tags from HTML4 to HTML5</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography></Typography>
+          <Typography>
+            <TableContainer component={Paper} variant="outlined">
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>HTML4</TableCell>
+                    <TableCell>HTML5</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>{`<div id="header">`}</TableCell>
+                    <TableCell>{`<header>`}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>{`<div id="menu">`}</TableCell>
+                    <TableCell>{`<nav>`}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>{`<div id="content">`}</TableCell>
+                    <TableCell>{`<section>`}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>{`<div id="post">`}</TableCell>
+                    <TableCell>{`<article>`}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>{`<div id="footer">`}</TableCell>
+                    <TableCell>{`<footer>`}</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
