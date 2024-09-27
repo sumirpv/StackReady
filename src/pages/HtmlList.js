@@ -1008,6 +1008,44 @@ const HtmlList = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
+          <Typography>{`<!DOCTYPE html>`}</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+          {`I do not put <!DOCTYPE html> the browser will not be able to identify that it is an HTML document and HTML 5 tags do not function properly.`}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Required attribute</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
