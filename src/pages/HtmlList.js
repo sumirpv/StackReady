@@ -1012,7 +1012,7 @@ const HtmlList = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          {`I do not put <!DOCTYPE html> the browser will not be able to identify that it is an HTML document and HTML 5 tags do not function properly.`}
+            {`I do not put <!DOCTYPE html> the browser will not be able to identify that it is an HTML document and HTML 5 tags do not function properly.`}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1025,7 +1025,23 @@ const HtmlList = () => {
           <Typography>Required attribute</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography></Typography>
+          <Typography>
+            {`The required attribute in HTML is a boolean attribute that can be applied to form elements (such as <input>, <select>, and <textarea>) to indicate that the user must fill out the field before submitting the form. If a required field is left empty when the form is submitted, the browser will prevent the form from being submitted and typically display an error message.`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                <form>
+                  <label for="name">Name:</label>
+                  <input type="text" id="name" name="name" required>
+
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" required>
+
+                  <button type="submit">Submit</button>
+                </form>
+              `}
+            />
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -1034,10 +1050,34 @@ const HtmlList = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Different formats in which colors</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography></Typography>
+          <Typography>
+            The color of an element can be defined in the following ways:
+            <ul>
+              <li>Built-In Color</li>
+              <li>RGB Format</li>
+              <li>RGBA Format</li>
+              <li>Hexadecimal Notation</li>
+              <li>HSL</li>
+              <li>HSLA</li>
+              <li>
+                Hue: Hue is the degree of the color wheel. Its value lies
+                between 0 to 360 where 0 represents red, 120 represents green
+                and 240 represents blue color.
+              </li>
+              <li>
+                Saturation: It takes a percentage value, where 100% represents
+                completely saturated, while 0% represents completely unsaturated
+                (gray).
+              </li>
+              <li>
+                Lightness: It takes a percentage value, where 100% represents
+                white, while 0% represents black.
+              </li>
+            </ul>
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -1046,10 +1086,36 @@ const HtmlList = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Block vs Inline elements</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography></Typography>
+          <Typography>
+            Every element in HTML has a default display value which depends upon
+            the element type. Block or inline is the default display value for
+            most of the elements.
+            <br />
+            <strong>Block-Level Elements:</strong>A block-level element always
+            starts on a new line and stretches out to the left and right as far
+            as it can.
+            <ul>
+              <li>
+                div element: The div element is used as a container for other
+                HTML elements. It has no required attributes. Style, class, and
+                id are the commonly used attributes.
+              </li>
+            </ul>
+            <strong>Inline Elements:</strong> An inline element does not start
+            on a new line and only takes up as much width as necessary.
+            <ul>
+              <li>
+                span element: The span element is used as a container for text.
+                It has no required attributes. Style, class, and id are the
+                commonly used attributes. It is typically used to apply styles
+                or scripts to a small portion of text within a larger block of
+                content.
+              </li>
+            </ul>
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -1058,10 +1124,105 @@ const HtmlList = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Insert a comment</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography></Typography>
+          <Typography>{`We can insert a comment in HTML by beginning with a lesser than sign and ending with a greater than sign. For example, “<!-“ and “->.”`}</Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Copyright symbol</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>{`To insert a copyright symbol in HTML, you can use the HTML entity &copy or the numeric code &#169;`}</Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>White space</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            An empty sequence of space characters is called white space in HTML.
+            It is considered a single-space character.
+            <br />
+            White space helps the browser merge multiple spaces into one space,
+            making indentation easier. It also helps better organize the content
+            and tags, making them readable and easily understood.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Add JavaScript to an HTML</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            JavaScript is used to make HTML web pages more interactive and
+            user-friendly. It is a scripting language that allows you to
+            interact with some aspects of the page based on user input. As with
+            CSS, there are three significant ways of including JavaScript:
+            <br />
+            <strong>Inline:</strong>
+            <br />
+            You can add JavaScript to your HTML elements directly whenever a
+            certain event occurs. We can add the JavaScript code using
+            attributes of the HTML tags that support it. Here is an example that
+            shows an alert with a message when the user clicks on it:
+            <CodeSnippet
+              language="javascript"
+              code={`
+                <button onclick="alert('Click the Button!');">
+                  Click!
+                </button>
+              `}
+            />
+            <strong>Script block:</strong>
+            <br />
+            You can define a script block anywhere on the HTML code, which will
+            get executed as soon as the browser reaches that part of the
+            document. This is why script blocks are usually added at the bottom
+            of HTML documents.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                <html>
+                  <script>
+                    var x = 1;
+                    var y = 2;
+                    var result = x + y;
+                    alert("X + Y is equal to " + result);
+                  </script>
+                </html>
+              `}
+            />
+            <strong>External JavaScript file:</strong>
+            <br />
+            You can also import the JavaScript code from a separate file and
+            keep your HTML code clutter-free. This is especially useful if a
+            large amount of scripting is added to an HTML webpage.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                <html>
+                  <script src="my-script.js"></script>
+                </html>
+                `}
+            />
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
