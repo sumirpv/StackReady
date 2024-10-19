@@ -4311,6 +4311,12 @@ const JavaScriptList = () => {
             code. Built-in debuggers may be switched on and off, requiring the
             user to report faults. The remaining section of the code should stop
             execution before moving on to the next line while debugging.
+            <br />
+            The debugger keyword in JavaScript is a tool used to stop the
+            execution of code and trigger a breakpoint in the browser's
+            debugging tool. When the code execution reaches the debugger
+            statement, it pauses, allowing developers to inspect variables, step
+            through code, and troubleshoot issues interactively.
           </Typography>
         </AccordionDetails>
       </Accordion>

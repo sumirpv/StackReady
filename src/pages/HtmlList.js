@@ -1231,6 +1231,160 @@ const HtmlList = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
+          <Typography>“display: none” vs “visibility: hidden” </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <strong>display: none</strong>
+            <ul>
+              <li>
+                Effect: The element is completely removed from the document
+                flow, as if it doesn’t exist. It doesn’t occupy any space on the
+                page.
+              </li>
+              <li>
+                Interactivity: The element is not interactive; users can’t
+                interact with it, and it won’t be accessible to screen readers.
+              </li>
+              <li>
+                Layout: Other elements will act as though the hidden element
+                isn’t there, meaning they will take up the space that would have
+                been occupied by the hidden element.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                .hidden {
+                  display: none;
+                }
+
+                //html
+                <p>This paragraph is visible.</p>
+                <p class="hidden">This paragraph will not be visible or occupy any space.</p>
+                <p>This paragraph will move up to take the hidden paragraph's place.</p>
+              `}
+            />
+            <strong>visibility: hidden</strong>
+            <ul>
+              <li>
+                Effect: The element is still present in the document and
+                occupies its space, but it’s not visible to the user.
+              </li>
+              <li>
+                Interactivity: The element is not interactive, but it still
+                occupies space in the layout. It’s still in the DOM, so screen
+                readers may still be able to access it.
+              </li>
+              <li>
+                Layout: The hidden element still takes up space on the page, but
+                it is invisible.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                //css
+                .invisible {
+                  visibility: hidden;
+                }
+
+
+                //html
+                <p>This paragraph is visible.</p>
+                <p class="invisible">This paragraph will not be visible but still occupies space.</p>
+                <p>This paragraph will not move up; it stays below the hidden one.</p>
+              `}
+            />
+            <strong>When to Use:</strong>
+            <ul>
+              <li>
+                Use display: none when you want to completely remove the element
+                from the layout and flow of the document.
+              </li>
+              <li>
+                Use visibility: hidden when you want to hide the element but
+                keep its space reserved in the layout.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>{`<link> vs  <a> tag`}</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <strong>{`<link> Tag`}</strong>
+            <ul>
+              <li>
+                {`Purpose: The <link> tag is used to define relationships between the current document and external resources, most commonly for linking to stylesheets or other external files.`}
+              </li>
+              <li>
+                Functionality: It doesn’t create clickable links for users.
+                Instead, it’s used for linking resources like CSS, icons, or
+                prefetching resources.
+              </li>
+              <li>{`Placement: It is usually placed within the <head> of the HTML document.`}</li>
+            </ul>
+            Common Use Case: Linking a stylesheet
+            <CodeSnippet
+              language="javascript"
+              code={`
+                  <head>
+                    <link rel="stylesheet" href="styles.css">
+                  </head>
+
+                  <link rel="icon" href="favicon.ico">
+                  <link rel="preload" href="image.jpg">
+                `}
+            />
+            <strong>{`<a> Tag (Anchor Tag)`}</strong>
+            <ul>
+              <li>
+                {`Purpose: The <a> tag (anchor tag) is used to create clickable hyperlinks that navigate users to another page, section of the same page, or resource. It's designed for user interaction.`}
+              </li>
+              <li>
+                Functionality: When clicked, it can direct users to another
+                webpage, file, or section within the same document (via anchor
+                links).
+              </li>
+              <li>
+                Placement: It is placed within the body of the HTML document.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                  <a href="https://www.example.com">Visit Example</a>
+                `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
