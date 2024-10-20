@@ -6,6 +6,7 @@ import HtmlList from "./pages/HtmlList";
 import JavaScriptList from "./pages/JavaScriptList";
 import ReactList from "./pages/ReactList";
 import ReduxList from "./pages/ReduxList";
+import PythonList from "./pages/Python";
 import { Box } from "@mui/material";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/javaScriptList" element={<JavaScriptList />} />
           <Route path="/reactList" element={<ReactList />} />
           <Route path="/reduxList" element={<ReduxList />} />
+          <Route path="/pythonList" element={<PythonList />} />
         </Routes>
       </Box>
       <Footer />

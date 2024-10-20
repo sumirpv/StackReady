@@ -35,6 +35,11 @@ function Home() {
               ReduxList
             </Link>
           </Typography>
+          <Typography variant="body1">
+            <Link component={RouterLink} to="/pythonList">
+              PythonList
+            </Link>
+          </Typography>
         </Box>
       </Box>
     </Container>
