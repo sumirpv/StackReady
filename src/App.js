@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+// import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -9,6 +9,7 @@ import ReactList from "./pages/ReactList";
 import ReduxList from "./pages/ReduxList";
 import PythonList from "./pages/Python";
 import { Box } from "@mui/material";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   console.log("Page app");
@@ -16,14 +17,16 @@ function App() {
     <>
       <Header />
       <Box sx={{ minHeight: "calc(100vh - 60px)" }}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/htmlList" element={<HtmlList />} />
-          <Route path="/javaScriptList" element={<JavaScriptList />} />
-          <Route path="/reactList" element={<ReactList />} />
-          <Route path="/reduxList" element={<ReduxList />} />
-          <Route path="/pythonList" element={<PythonList />} />
-        </Routes>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/htmlList" element={<HtmlList />} />
+            <Route path="/javaScriptList" element={<JavaScriptList />} />
+            <Route path="/reactList" element={<ReactList />} />
+            <Route path="/reduxList" element={<ReduxList />} />
+            <Route path="/pythonList" element={<PythonList />} />
+          </Routes>
+        </Router>
       </Box>
       <Footer />
     </>
