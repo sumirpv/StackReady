@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/sumirpv/interview-app/static/js/main.37fde9cc.js",
+    "static/js/453.38c54a32.chunk.js": "/sumirpv/interview-app/static/js/453.38c54a32.chunk.js",
+    "index.html": "/sumirpv/interview-app/index.html",
+    "main.37fde9cc.js.map": "/sumirpv/interview-app/static/js/main.37fde9cc.js.map",
+    "453.38c54a32.chunk.js.map": "/sumirpv/interview-app/static/js/453.38c54a32.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.37fde9cc.js"
+  ]
+}
