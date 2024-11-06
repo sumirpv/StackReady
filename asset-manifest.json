@@ -1,12 +1,15 @@
 {
   "files": {
-    "main.js": "/sumirpv/interview-app/static/js/main.37fde9cc.js",
-    "static/js/453.38c54a32.chunk.js": "/sumirpv/interview-app/static/js/453.38c54a32.chunk.js",
-    "index.html": "/sumirpv/interview-app/index.html",
-    "main.37fde9cc.js.map": "/sumirpv/interview-app/static/js/main.37fde9cc.js.map",
-    "453.38c54a32.chunk.js.map": "/sumirpv/interview-app/static/js/453.38c54a32.chunk.js.map"
-  },
-  "entrypoints": [
-    "static/js/main.37fde9cc.js"
-  ]
+    "main.js": "/interview-app/static/js/main.a36c118f.chunk.js",
+    "main.js.map": "/interview-app/static/js/main.a36c118f.chunk.js.map",
+    "runtime~main.js": "/interview-app/static/js/runtime~main.ed7abcde.js",
+    "runtime~main.js.map": "/interview-app/static/js/runtime~main.ed7abcde.js.map",
+    "static/js/2.f1156afc.chunk.js": "/interview-app/static/js/2.f1156afc.chunk.js",
+    "static/js/2.f1156afc.chunk.js.map": "/interview-app/static/js/2.f1156afc.chunk.js.map",
+    "static/js/3.bdbac99b.chunk.js": "/interview-app/static/js/3.bdbac99b.chunk.js",
+    "static/js/3.bdbac99b.chunk.js.map": "/interview-app/static/js/3.bdbac99b.chunk.js.map",
+    "index.html": "/interview-app/index.html",
+    "precache-manifest.80e8e60c8aaac2683194e40f7643665d.js": "/interview-app/precache-manifest.80e8e60c8aaac2683194e40f7643665d.js",
+    "service-worker.js": "/interview-app/service-worker.js"
+  }
 }
