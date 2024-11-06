@@ -25,17 +25,17 @@ const TestInfo = () => {
   //   setExpanded((prevExpanded) => !prevExpanded);
   // };
 
-  import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+//   import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <Router>
-      <Routes>
-        {/* Your routes here */}
-      </Routes>
-    </Router>
-  );
-}
+// function App() {
+//   return (
+//     <Router>
+//       <Routes>
+//         {/* Your routes here */}
+//       </Routes>
+//     </Router>
+//   );
+// }
   return (
     <div>
       <Accordion >
