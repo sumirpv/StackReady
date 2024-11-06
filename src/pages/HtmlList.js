@@ -1373,10 +1373,36 @@ const HtmlList = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>508 Compliance</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography></Typography>
+          <Typography>
+            508 compliance ensures that digital content, like websites and
+            documents, is accessible to people with disabilities. It includes:
+            <ul>
+              <li>
+                <strong>Text Alternatives:</strong>Use text for images so screen
+                readers can read them.
+              </li>
+              <li>
+                <strong>Keyboard Access:</strong>Make sure all features work
+                with a keyboard.
+              </li>
+              <li>
+                <strong>High Contrast:</strong>Use colors that are easy to read.
+              </li>
+              <li>
+                <strong>Screen Reader-Friendly:</strong>Organize content with
+                clear headings and labels.
+              </li>
+              <li>
+                <strong>Captions for Media:</strong>Add captions to videos and
+                audio.
+              </li>
+            </ul>
+            This makes digital content usable for everyone, improving
+            accessibility and overall user experience.
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
