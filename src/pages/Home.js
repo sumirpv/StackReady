@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Typography, Box, Link } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
-import HomeImage from "./assest/home-image.jpg";
 import DarthVader from "./assest/darth-vader.jpeg";
 
 function Home() {

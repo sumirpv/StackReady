@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <AppBar position="static" sx={{ marginBottom: "20px" }}>
+    <AppBar
+      position="static"
+      sx={{ marginBottom: "20px", backgroundColor: "#008080" }}
+    >
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           My App

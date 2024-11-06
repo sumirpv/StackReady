@@ -10,7 +10,7 @@ function Footer() {
         // left: 0,
         marginTop: "20px",
         width: "100%",
-        backgroundColor: "primary.main",
+        backgroundColor: "#008080",
         color: "white",
         textAlign: "center",
         padding: "10px 0",
