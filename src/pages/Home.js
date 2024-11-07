@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Typography, Box, Link } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import InterviewPrep from "./assest/interview-prep.jpg";

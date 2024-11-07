@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState, useEffect } from "react";
 import {
   Container,
   Accordion,
@@ -8,7 +8,7 @@ import {
   Divider,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import CodeSnippet from "../CodeSnippet";
+// import CodeSnippet from "../CodeSnippet";
 
 const HtmlList = () => {
   const [expanded, setExpanded] = useState(false);
@@ -16,6 +16,10 @@ const HtmlList = () => {
   const handleExpansion = () => {
     setExpanded((prevExpanded) => !prevExpanded);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Container maxWidth="lg" sx={{ paddingTop: 4 }}>

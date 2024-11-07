@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Container,
   Accordion,
@@ -22,6 +22,10 @@ const HtmlList = () => {
   const handleExpansion = () => {
     setExpanded((prevExpanded) => !prevExpanded);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Container maxWidth="lg" sx={{ paddingTop: 4 }}>
@@ -177,7 +181,7 @@ const HtmlList = () => {
             <ul>
               <li>
                 <strong>Definition:</strong> Middleware is a way to extend
-                Redux's capabilities, such as handling asynchronous actions.
+                Redux&apos;s capabilities, such as handling asynchronous actions.
                 Common middleware includes Redux Thunk and Redux Saga.
               </li>
               <li>
@@ -244,7 +248,7 @@ const HtmlList = () => {
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
             A store in Redux serves as the container for the entire state of a
-            web application. A store holds the application's state, and Redux
+            web application. A store holds the application&apos;s state, and Redux
             provides a consistent way to access and update this state.
           </Typography>
         </AccordionDetails>
@@ -351,12 +355,12 @@ const HtmlList = () => {
         }}
       >
         <AccordionSummary aria-controls="panel-content" id="panel-header">
-          <Typography>Redux vs React's local state.</Typography>
+          <Typography>Redux vs React&apos;s local state.</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
-            The difference between Redux and React's local state is that Redux
-            provides a global state for the entire application, whereas React's
+            The difference between Redux and React&apos;s local state is that Redux
+            provides a global state for the entire application, whereas React&apos;s
             local state is confined to individual components.
           </Typography>
         </AccordionDetails>
@@ -674,9 +678,9 @@ const HtmlList = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
-            An "action creator" in Redux is a function that creates and returns
+            {`An "action creator" in Redux is a function that creates and returns
             an action object. An "action creator" simplifies the process of
-            dispatching actions and ensures consistency in action structure.
+            dispatching actions and ensures consistency in action structure.`}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -801,10 +805,10 @@ const HtmlList = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
-            The concept of "single source of truth" in Redux refers to having
+            {`The concept of "single source of truth" in Redux refers to having
             the entire application state stored in one place. The concept of
             "single source of truth" ensures consistency and predictability of
-            the application's state.
+            the application's state.`}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1176,7 +1180,7 @@ const HtmlList = () => {
             <strong>1. Local State</strong>
             <b />
             Local state refers to the state that is managed within a specific
-            component of the application, typically using React's useState or
+            component of the application, typically using React`s useState or
             useReducer hooks. It is local to that component and is only
             accessible to it (and its children, if passed as props).
             <b />
@@ -1224,7 +1228,7 @@ const HtmlList = () => {
                 values, or animation state.
               </li>
               <li>
-                When you don't need the state to persist across the entire
+                When you don&apos;t need the state to persist across the entire
                 application or across different routes/views.
               </li>
             </ul>
@@ -1246,7 +1250,7 @@ const HtmlList = () => {
               </li>
               <li>
                 <strong>Long-lived:</strong> Typically used for global or
-                app-wide data that persists throughout the application's
+                app-wide data that persists throughout the application&apos;s
                 lifecycle.
               </li>
               <li>

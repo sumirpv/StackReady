@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { TextField, Button, Container, Typography, Box } from "@mui/material";
 
 function ContactForm() {
@@ -17,7 +17,6 @@ function ContactForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // TODO: Add email sending functionality here
-    console.log("Email data:", formData);
     alert("Your message has been sent!");
     setFormData({
       name: "",
@@ -44,8 +43,8 @@ function ContactForm() {
             Contact Us
           </Typography>
           <Typography variant="body1" color="textSecondary">
-            Have questions or feedback? Send us a message, and we'll get back to
-            you soon!
+            Have questions or feedback? Send us a message, and we&apos;ll get
+            back to you soon!
           </Typography>
         </Box>
         <form onSubmit={handleSubmit}>

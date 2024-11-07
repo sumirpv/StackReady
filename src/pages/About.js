@@ -1,14 +1,9 @@
-import React from "react";
 import {
   Container,
   Typography,
   Box,
-  Card,
-  CardContent,
-  Avatar,
-  Grid,
 } from "@mui/material";
-import PersonIcon from "@mui/icons-material/Person";
+// import PersonIcon from "@mui/icons-material/Person";
 
 function About() {
   return (

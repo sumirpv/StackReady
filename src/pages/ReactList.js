@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Container,
   Accordion,
@@ -22,6 +22,10 @@ const ReactList = () => {
   const handleExpansion = () => {
     setExpanded((prevExpanded) => !prevExpanded);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Container maxWidth="lg" sx={{ paddingTop: 4 }}>
@@ -1134,10 +1138,10 @@ const ReactList = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
-            In React, props (short for "properties") are used to pass data from
+            {`In React, props (short for "properties") are used to pass data from
             a parent component to a child component. They allow you to make
             components dynamic and reusable by letting you pass different data
-            to them.
+            to them.`}
             <ul>
               <li>
                 <strong>Read-Only:</strong> Props are immutable, meaning they

@@ -1,8 +1,6 @@
-import React from "react";
+import PropTypes from 'prop-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-// import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { prism as lightTheme } from 'react-syntax-highlighter/dist/esm/styles/prism';
-
 
 const CodeSnippet = ({ language, code }) => {
   return (
@@ -10,6 +8,12 @@ const CodeSnippet = ({ language, code }) => {
       {code}
     </SyntaxHighlighter>
   );
+};
+
+// Add PropTypes validation
+CodeSnippet.propTypes = {
+  language: PropTypes.string.isRequired, // Ensure language is a string and required
+  code: PropTypes.string.isRequired,     // Ensure code is a string and required
 };
 
 export default CodeSnippet;

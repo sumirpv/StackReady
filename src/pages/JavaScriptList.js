@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Container,
   Accordion,
@@ -7,7 +7,6 @@ import {
   Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-// import Fade from "@mui/material/Fade";
 import CodeSnippet from "../CodeSnippet";
 
 const JavaScriptList = () => {
@@ -16,6 +15,10 @@ const JavaScriptList = () => {
   const handleExpansion = () => {
     setExpanded((prevExpanded) => !prevExpanded);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Container maxWidth="lg" sx={{ paddingTop: 4 }}>
@@ -50,7 +53,7 @@ const JavaScriptList = () => {
           <Typography sx={{ fontWeight: 300 }}>
             Variables declared with const are block-scoped and cannot be
             reassigned once initialized. However, the value they hold can still
-            be mutable if it's an object or an array.
+            be mutable if it&apos;s an object or an array.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -163,7 +166,7 @@ const JavaScriptList = () => {
               <li>string</li>
               <li>undefined</li>
               <li>null </li>
-              <li>symbol Eg: const key = Symbol('unique');</li>
+              <li>{`symbol Eg: const key = Symbol('unique');`}</li>
             </ul>
           </Typography>
         </AccordionDetails>
@@ -276,8 +279,8 @@ const JavaScriptList = () => {
                 objects.`}
               </li>
               <li>
-                Adding test4.firstName = "sumi"; only modifies test4, leaving
-                test3 unchanged.
+                {`Adding test4.firstName = "sumi"; only modifies test4, leaving
+                test3 unchanged.`}
               </li>
               <li>
                 {`As a result, test3 remains { test: "ert" }, while test4 becomes { test: "ert", firstName: "sumi" }.`}
@@ -391,7 +394,7 @@ const JavaScriptList = () => {
               </li>
               <li>
                 The reducer function receives four arguments: the accumulator
-                (which accumulates the callback's return values), the current
+                (which accumulates the callback&apos;s return values), the current
                 element, the current index, and the array being traversed.
               </li>
             </ul>
@@ -1076,8 +1079,8 @@ const JavaScriptList = () => {
               console.log(displayName); // Output: "Guest"
               `}
             />
-            In this example, because username is an empty string (falsy),
-            displayName is assigned the value "Guest".
+            {`In this example, because username is an empty string (falsy),
+            displayName is assigned the value "Guest".`}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1363,8 +1366,8 @@ const JavaScriptList = () => {
               `}
             />
             <br />
-            In JavaScript, arrays are a type of object. Therefore, when you use
-            typeof with an array, it returns 'object'.
+            {`In JavaScript, arrays are a type of object. Therefore, when you use
+            typeof with an array, it returns 'object'.`}
             <br />
             <CodeSnippet
               language="javascript"
@@ -1477,12 +1480,12 @@ const JavaScriptList = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
-            Strict Mode is a feature introduced in ECMAScript 5 (ES5) that
+            {`Strict Mode is a feature introduced in ECMAScript 5 (ES5) that
             allows you to place a program, or a function, in a "strict"
             operating context. This strict context helps detect common coding
             mistakes and "unsafe" actions in JavaScript and throws more
             exceptions. It also disables some features that are confusing or
-            poorly thought out in JavaScript.
+            poorly thought out in JavaScript.`}
             <CodeSnippet
               language="javascript"
               code={`
@@ -1534,7 +1537,8 @@ const JavaScriptList = () => {
           <Typography sx={{ fontWeight: 300 }}>
             In JavaScript, an anonymous function is a function that is defined
             without a name. Instead of being assigned to a variable or a
-            property of an object, it's defined directly where it's needed.
+            property of an object, it&apos;s defined directly where it&apos;s
+            needed.
             <CodeSnippet
               language="javascript"
               code={`
@@ -1638,11 +1642,11 @@ const JavaScriptList = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
-            A closure is the combination of a function bundled together
+            A closure is the combination of a function bundled together
             (enclosed) with references to its surrounding state (the lexical
             environment). In other words, a closure gives you access to an outer
-            function's scope from an inner function closures are created every
-            time a function is created, at function creation time.
+            function&apos;s scope from an inner function closures are created
+            every time a function is created, at function creation time.
             <CodeSnippet
               language="javascript"
               code={`
@@ -2182,8 +2186,8 @@ const JavaScriptList = () => {
                   undefined.
                 </li>
                 <li>
-                  It's also the default value of uninitialized properties in
-                  objects.
+                  It&apos;s also the default value of uninitialized properties
+                  in objects.
                 </li>
               </li>
             </ul>
@@ -2204,15 +2208,15 @@ const JavaScriptList = () => {
             <ul>
               <li>
                 null represents the intentional absence of any object value or
-                the value of a variable explicitly set to "no value".
+                the value of a variable explicitly set to &quot;no value&quot;.
               </li>
               <li>
-                It's often used as a placeholder or to indicate that a variable
-                is intentionally empty or has no value.
+                It&apos;s often used as a placeholder or to indicate that a
+                variable is intentionally empty or has no value.
               </li>
               <li>
-                It's distinct from undefined, which is the default value for
-                uninitialized variables.
+                It&apos;s distinct from undefined, which is the default value
+                for uninitialized variables.
               </li>
             </ul>
             <CodeSnippet
@@ -2342,9 +2346,9 @@ const JavaScriptList = () => {
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
             Immediately Invoke Function Expression JavaScript function that is
-            executed immediately after it is defined. It's often used to create
-            a new scope for variables and avoid polluting the global scope, as
-            well as to encapsulate code and create modules.
+            executed immediately after it is defined. It&apos;s often used to
+            create a new scope for variables and avoid polluting the global
+            scope, as well as to encapsulate code and create modules.
             <CodeSnippet
               language="javascript"
               code={`
@@ -2674,7 +2678,7 @@ const JavaScriptList = () => {
               </li>
               <li>
                 Data Access: Data is available for the entire lifespan of the
-                origin's data.
+                origin&apos;s data.
               </li>
               <li>API: Accessed via the localStorage object in JavaScript.</li>
             </ul>
@@ -2808,8 +2812,8 @@ const JavaScriptList = () => {
             graphics, charts, and animations directly in the browser using
             JavaScript.
             <br />
-            <strong>Web Storage (localStorage and sessionStorage):</strong>{" "}
-            Provides a way to store data locally in the user's browser.
+            <strong>Web Storage (localStorage and sessionStorage):</strong>
+            Provides a way to store data locally in the user&apos;s browser.
             localStorage stores data persistently across sessions, while
             sessionStorage stores data for the duration of a session.
             <br />
@@ -2825,22 +2829,23 @@ const JavaScriptList = () => {
             channel over a single TCP connection, allowing for real-time
             bidirectional communication between the client and server.
             <br />
-            <strong>Geolocation API:</strong> Allows web applications to access
-            the user's geographical location information (with user consent),
+            <strong>Geolocation API:</strong>
+            Allows web applications to access
+            the user&apos;s geographical location information (with user consent),
             enabling location-based services and functionalities.
             <br />
             <strong>File API:</strong> Enables web applications to interact with
-            files on the user's local system, including reading, writing, and
-            manipulating files.
+            files on the user&apos;s local system, including reading, writing,
+            and manipulating files.
             <br />
             <strong>Drag and Drop API:</strong> Allows users to drag and drop
             elements on a web page, facilitating intuitive interaction with web
             content.
             <br />
-            <strong>History API:</strong> Enables manipulation of the browser's
-            session history, allowing for dynamic updates to the URL without
-            full page reloads and facilitating the implementation of single-page
-            applications (SPAs).
+            <strong>History API:</strong> Enables manipulation of the
+            browser&apos;s session history, allowing for dynamic updates to the
+            URL without full page reloads and facilitating the implementation of
+            single-page applications (SPAs).
             <br />
             <strong>WebRTC (Real-Time Communication):</strong> Provides APIs for
             real-time communication between web browsers, enabling peer-to-peer
@@ -2848,7 +2853,7 @@ const JavaScriptList = () => {
             third-party software.
             <br />
             <strong>Media Capture and Streams API:</strong> Allows web
-            applications to access audio and video streams from the user's
+            applications to access audio and video streams from the user&apos;s
             device, enabling functionalities such as webcam access and
             audio/video recording.
             <br />
@@ -3007,9 +3012,9 @@ const JavaScriptList = () => {
               `}
             />
             <strong>
-              spread syntax is the opposite of rest syntax. Spread syntax
+              {`spread syntax is the opposite of rest syntax. Spread syntax
               "expands" an array into its elements, while rest syntax collects
-              multiple elements and "condenses" them into a single element.
+              multiple elements and "condenses" them into a single element.`}
             </strong>
           </Typography>
         </AccordionDetails>
@@ -3085,9 +3090,9 @@ const JavaScriptList = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
-            NaN stands for "Not-a-Number" in JavaScript. It is a special value
+            {`NaN stands for "Not-a-Number" in JavaScript. It is a special value
             of the Number type that represents the result of an operation that
-            cannot produce a meaningful numerical result.
+            cannot produce a meaningful numerical result.`}
             <CodeSnippet
               language="javascript"
               code={`
@@ -3097,8 +3102,8 @@ const JavaScriptList = () => {
                 console.log(result); // Output: NaN
               `}
             />
-            It's important to note that NaN is considered a numeric value but is
-            not equal to any other value, including itself:
+            It&apos;s important to note that NaN is considered a numeric value
+            but is not equal to any other value, including itself:
             <CodeSnippet
               language="javascript"
               code={`
@@ -3331,10 +3336,11 @@ const JavaScriptList = () => {
                 variable lengths to represent characters efficiently.
               </li>
               <li>
-                Usage: It's essential for modern software that needs to support
-                multiple languages, emojis, and diverse symbols. It's used in
-                websites, apps, and systems where internationalization
-                (supporting different languages) is important.
+                Usage: It&apos;s essential for modern software that needs to
+                support multiple languages, emojis, and diverse symbols.
+                It&apos;s used in websites, apps, and systems where
+                internationalization (supporting different languages) is
+                important.
               </li>
             </ul>
             <br />
@@ -3348,17 +3354,17 @@ const JavaScriptList = () => {
               </li>
               <li>
                 How it works: Each character in ASCII is represented by a
-                number. For example, the letter 'A' is represented by the number
-                65.
+                number. For example, the letter &quot;A&quot; is represented by
+                the number 65.
               </li>
               <li>
                 Limitations: ASCII only covers English characters and some basic
-                symbols. It doesn't support other languages, accents, or special
-                characters.
+                symbols. It doesn&apos;t support other languages, accents, or
+                special characters.
               </li>
               <li>
-                Usage: It's used in older systems, simple programs, and where
-                only basic English characters are needed.
+                Usage: It&apos;s used in older systems, simple programs, and
+                where only basic English characters are needed.
               </li>
             </ul>
             <br />
@@ -3475,13 +3481,13 @@ const JavaScriptList = () => {
             </ul>
             <strong>Note</strong>
             <p>
-              If the input is "Hello World!" use the hashing algorithm SHA-256
+              {`If the input is "Hello World!" use the hashing algorithm SHA-256
               we allways get the fixed sixe result, it always produces a 256-bit
               (32-byte) hash value. standard cryptographic hashing algorithm
               like SHA-256, you will always get the same output (hash value) for
               the same input. When we use it to store the password we check the
               hash value to match the stored hash value instead of the real
-              password.
+              password.`}
             </p>
             <br />
             <strong>Key Differences</strong>
@@ -3927,7 +3933,7 @@ const JavaScriptList = () => {
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
             REST and GraphQL are both popular approaches for building APIs, but
-            they have different philosophies and characteristics. Here's a
+            they have different philosophies and characteristics. Here&apos;s a
             comparison between the two.
             <br />
             <br />
@@ -4200,9 +4206,9 @@ const JavaScriptList = () => {
             <strong>Creating a Promise: </strong>
             <ul>
               <li>
-                You create a new promise using the Promise constructor, which
+                {`You create a new promise using the Promise constructor, which
                 takes a function as an argument. This function, called the
-                "executor function," has two parameters: resolve and reject.
+                "executor function," has two parameters: resolve and reject.`}
               </li>
               <li>
                 Inside the executor function, you perform some asynchronous
@@ -4460,7 +4466,7 @@ const JavaScriptList = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
-            async/await is a modern approach to handle asynchronous code, making
+            async/await is a modern approach to handle asynchronous code, making
             it look more synchronous and easier to read.
             <br />
             <br />
@@ -4519,7 +4525,7 @@ const JavaScriptList = () => {
           <Typography sx={{ fontWeight: 300 }}>
             Higher-order functions (HOFs) are a powerful concept in JavaScript
             that allow you to work with functions in new and innovative ways.
-            Here's a breakdown of what they are and how they're used:
+            Here&apos;s a breakdown of what they are and how they&apos;re used:
             <br />
             <br />
             <strong>Concept:</strong>
@@ -4668,7 +4674,7 @@ const JavaScriptList = () => {
                 <li>
                   <strong>Undefined</strong>
                   <br /> When a variable is declared but not assigned, it has
-                  the value of undefined and it's type is also undefined.
+                  the value of undefined and it&apos;s type is also undefined.
                   <CodeSnippet
                     language="javascript"
                     code={`
@@ -5016,7 +5022,7 @@ const JavaScriptList = () => {
             execution before moving on to the next line while debugging.
             <br />
             The debugger keyword in JavaScript is a tool used to stop the
-            execution of code and trigger a breakpoint in the browser's
+            execution of code and trigger a breakpoint in the browser&apos;s
             debugging tool. When the code execution reaches the debugger
             statement, it pauses, allowing developers to inspect variables, step
             through code, and troubleshoot issues interactively.

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Container,
   Accordion,
@@ -22,6 +22,10 @@ const HtmlList = () => {
   const handleExpansion = () => {
     setExpanded((prevExpanded) => !prevExpanded);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Container maxWidth="lg" sx={{ paddingTop: 4 }}>
@@ -354,8 +358,8 @@ const HtmlList = () => {
             <br />
             <strong>Example</strong>
             <br />
-            When submitting a form that includes a file, you need to set the
-            enctype attribute of the form to "multipart/form-data".
+            {`When submitting a form that includes a file, you need to set the
+            enctype attribute of the form to "multipart/form-data"`}.
             <CodeSnippet
               language="javascript"
               code={`
@@ -370,7 +374,7 @@ const HtmlList = () => {
                 </form>
                  `}
             />
-            enctype="multipart/form-data": This tells the browser to encode the
+            enctype={`"multipart/form-data"`}: This tells the browser to encode the
             form data as multipart/form-data, which is required for file
             uploads. The form contains a text input (username) and a file input
             (file).
@@ -1159,25 +1163,25 @@ const HtmlList = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
-            It is used to create clickable buttons that can trigger actions when
+            {`It is used to create clickable buttons that can trigger actions when
             interacted with by the user. It's a versatile element commonly used
-            in forms, user interfaces, and applications.
+            in forms, user interfaces, and applications.`}
             <br />
             Types of button
             <ul>
               <li>
-                <strong>Submit Button:</strong> If the button is used in a form,
+                <strong>Submit Button:</strong> {`If the button is used in a form,
                 its default type is "submit", which submits the form data when
-                clicked.
+                clicked.`}
               </li>
               <li>
-                <strong>Reset Button:</strong> You can set the type to "reset"
-                to clear the form inputs.
+                <strong>Reset Button:</strong> {`You can set the type to "reset"
+                to clear the form inputs.`}
               </li>
               <li>
-                <strong>Button:</strong> The default type is "button", which
+                <strong>Button:</strong> {`The default type is "button", which
                 does not submit the form and is typically used for custom
-                JavaScript actions.
+                JavaScript actions.`}
               </li>
             </ul>
             <CodeSnippet
