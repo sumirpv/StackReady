@@ -1,10 +1,11 @@
-import React,  { useState } from "react";
+import React, { useState } from "react";
 import {
   Container,
   Accordion,
   AccordionSummary,
   AccordionDetails,
   Typography,
+  Divider,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CodeSnippet from "../CodeSnippet";
@@ -17,8 +18,27 @@ const HtmlList = () => {
   };
 
   return (
-    <Container>
-      <Accordion expanded={expanded} onChange={handleExpansion}>
+    <Container maxWidth="lg" sx={{ paddingTop: 4 }}>
+      <Typography
+        variant="h5"
+        align="center"
+        color="primary"
+        sx={{ marginBottom: 3 }}
+      >
+        Python Concepts Overview
+      </Typography>
+      <Accordion
+        expanded={expanded}
+        onChange={handleExpansion}
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -27,13 +47,13 @@ const HtmlList = () => {
           <Typography>Python</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Python is a widely-used general-purpose, high-level programming
             language. It was created by Guido van Rossum in 1991 and further
             developed by the Python Software Foundation. It was designed with an
             emphasis on code readability, and its syntax allows programmers to
             express their concepts in fewer lines of code.
-            <br />
+            <Divider sx={{ my: 2 }} />
             <strong>It is used for:</strong>
             <ul>
               <li>System Scripting</li>
@@ -45,7 +65,8 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+
+      {/* <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -128,7 +149,7 @@ const HtmlList = () => {
         <AccordionDetails>
           <Typography></Typography>
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
     </Container>
   );
 };

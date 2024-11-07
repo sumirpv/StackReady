@@ -22,11 +22,29 @@ const HtmlList = () => {
   const handleExpansion = () => {
     setExpanded((prevExpanded) => !prevExpanded);
   };
-  console.log("***************");
 
   return (
-    <Container>
-      <Accordion expanded={expanded} onChange={handleExpansion}>
+    <Container maxWidth="lg" sx={{ paddingTop: 4 }}>
+      <Typography
+        variant="h5"
+        align="center"
+        color="primary"
+        sx={{ marginBottom: 3 }}
+      >
+        HTML Concepts Overview
+      </Typography>
+      <Accordion
+        expanded={expanded}
+        onChange={handleExpansion}
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -35,7 +53,7 @@ const HtmlList = () => {
           <Typography>HTML</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             HTML stands for HyperText Markup Language. It is a standard text
             formatting language used for developing web pages released in 1993.
             HTML is a language that is interpreted by the browser and it tells
@@ -48,7 +66,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -57,13 +84,22 @@ const HtmlList = () => {
           <Typography>Tags and Attributes</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             {`Tags are the primary component of the HTML that defines how the content will be structured/ formatted, whereas Attributes are used along with the HTML tags to define the characteristics of the element. For example, <p align=” center”>Interview questions</p>, in this the ‘align’ is the attribute using which we will align the paragraph to show in the center of the view.
             `}
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -72,13 +108,22 @@ const HtmlList = () => {
           <Typography>Void elements</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             {`HTML elements which do not have closing tags or do not need to be
             closed are Void elements. For Example <br />, <img />, <hr />, etc.`}
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -87,7 +132,7 @@ const HtmlList = () => {
           <Typography>Nesting webpages</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             {`we can display a web page inside another HTML web page. HTML provides a tag <iframe> using which we can achieve this functionality.`}
             <CodeSnippet
               language="javascript"
@@ -98,7 +143,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -107,45 +161,55 @@ const HtmlList = () => {
           <Typography>HTML Entities</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            {`In HTML some characters are reserved like ‘<’, ‘>’, ‘/’, etc. To use these characters in our webpage we need to use the character entities called HTML Entities. Below are a few mapping between the reserved character and its respective entity character to be used.`}
+          <Typography sx={{ fontWeight: 300 }}>
+            {`In HTML some characters are reserved like <, >, /, etc. To use these characters in our webpage we need to use the character entities called HTML Entities. Below are a few mapping between the reserved character and its respective entity character to be used.`}
+
+            <TableContainer component={Paper} variant="outlined">
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Character</TableCell>
+                    <TableCell>Entity Name</TableCell>
+                    <TableCell>Entity Number</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>{`<`}</TableCell>
+                    <TableCell>{`&lt;`}</TableCell>
+                    <TableCell>{`&#60;`}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>{`>`}</TableCell>
+                    <TableCell>{`&gt;`}</TableCell>
+                    <TableCell>{`&#62;`}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>{`&`}</TableCell>
+                    <TableCell>{`&amp;`}</TableCell>
+                    <TableCell>{`&#38;`}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>{`(non-breaking space) Eg. 10  PM`}</TableCell>
+                    <TableCell>{`&nbsp; Eg. <p>10&nbsp&nbspPM</p>`}</TableCell>
+                    <TableCell>{`&#160;`}</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
           </Typography>
-          <TableContainer component={Paper} variant="outlined">
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Character</TableCell>
-                  <TableCell>Entity Name</TableCell>
-                  <TableCell>Entity Number</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                <TableRow>
-                  <TableCell>{`<`}</TableCell>
-                  <TableCell>{`&lt;`}</TableCell>
-                  <TableCell>{`&#60;`}</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>{`>`}</TableCell>
-                  <TableCell>{`&gt;`}</TableCell>
-                  <TableCell>{`&#62;`}</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>{`&`}</TableCell>
-                  <TableCell>{`&amp;`}</TableCell>
-                  <TableCell>{`&#38;`}</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>{`(non-breaking space) Eg. 10  PM`}</TableCell>
-                  <TableCell>{`&nbsp; Eg. <p>10&nbsp&nbspPM</p>`}</TableCell>
-                  <TableCell>{`&#160;`}</TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -154,7 +218,7 @@ const HtmlList = () => {
           <Typography>Lists in HTML</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             {`HTML provides several types of lists to organize content, primarily unordered lists (<ul>), ordered lists (<ol>), and definition lists (<dl>)`}
             <ul>
               <li>
@@ -209,7 +273,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -218,7 +291,7 @@ const HtmlList = () => {
           <Typography>‘class’ attribute</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             The class attribute is used to specify the class name for an HTML
             element. Multiple elements in HTML can have the same class value.
             Also, it is mainly used to associate the styles written in the
@@ -226,7 +299,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -235,14 +317,23 @@ const HtmlList = () => {
           <Typography>‘id’ attribute vs ‘class’ attribute</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Multiple elements in HTML can have the same class value, whereas a
             value of id attribute of one element cannot be associated with
             another HTML element.
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -251,7 +342,7 @@ const HtmlList = () => {
           <Typography>multipart/form-data</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             multipart/form-data is a type of encoding used when submitting forms
             that include files (or binary data) via HTTP. It allows for sending
             multiple pieces of data, like text inputs, files, or other binary
@@ -286,7 +377,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -295,7 +395,7 @@ const HtmlList = () => {
           <Typography>HTML layout structure</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <ul>
               <li>{`<!DOCTYPE html>: Declares the document type and version of HTML.`}</li>
               <li>{`<html>: Root element of the HTML document.`}</li>
@@ -323,7 +423,16 @@ const HtmlList = () => {
           />
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -332,7 +441,7 @@ const HtmlList = () => {
           <Typography>Optimize website assets loading</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Optimizing website assets loading is crucial for improving page
             performance, reducing load times, and enhancing the overall user
             experience. Here are some effective strategies for optimizing asset
@@ -415,7 +524,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -424,7 +542,7 @@ const HtmlList = () => {
           <Typography>Formatting tags</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <ul>
               <li>
                 <strong>{`<b>`}</strong> - makes text bold
@@ -466,7 +584,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -475,7 +602,7 @@ const HtmlList = () => {
           <Typography>Different kinds of Doctypes</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             The three kinds of Doctypes which are available:
             <ol>
               <li>Strict Doctype</li>
@@ -485,7 +612,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -494,14 +630,23 @@ const HtmlList = () => {
           <Typography>HTML tags and elements</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             No. HTML elements are defined by a starting tag, may contain some
             content and a closing tag.For example, <h1>Heading 1</h1> is a HTML
             element but just <h1> is a starting tag and </h1> is a closing tag.
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -510,7 +655,7 @@ const HtmlList = () => {
           <Typography>Style sheet</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             A style sheet is used to build a consistent, transportable, and
             well-designed style template. You can add these templates on several
             different web pages. It describes the look and formatting of a
@@ -518,7 +663,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -527,14 +681,23 @@ const HtmlList = () => {
           <Typography>Multi-colored text on a web page</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             {`To create a multicolor text on a web page you can use
             <font color="color"> </font> for the specific texts you want to
             color.`}
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -543,14 +706,23 @@ const HtmlList = () => {
           <Typography>Change the color of the bullet</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             The color of the bullet is always the color of the first text of the
             list. So, if you want to change the color of the bullet, you must
             change the color of the text.
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -559,7 +731,7 @@ const HtmlList = () => {
           <Typography>Separate a section of texts</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Three tags are used to separate the texts.
             <ul>
               <li>{`<br> tag - Usually <br> tag is used to separate the line of text. It breaks the current line and conveys the flow to the next line`}</li>
@@ -569,7 +741,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -578,10 +759,21 @@ const HtmlList = () => {
           <Typography>Empty elements</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>{`HTML elements with no content are called empty elements. For example: <br>, <hr> etc.`}</Typography>
+          <Typography
+            sx={{ fontWeight: 300 }}
+          >{`HTML elements with no content are called empty elements. For example: <br>, <hr> etc.`}</Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -590,7 +782,7 @@ const HtmlList = () => {
           <Typography>Span tag</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             The span tag is used for following things:
             <ul>
               <li>For adding color on text</li>
@@ -610,7 +802,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -619,30 +820,39 @@ const HtmlList = () => {
           <Typography>Iframe tag</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             An iframe is used to display a web page within a web page.
             <CodeSnippet
               language="javascript"
               code={`
-          <iframe src="URL"></iframe>
-         `}
+                <iframe src="URL"></iframe>
+              `}
             />
             <CodeSnippet
               language="javascript"
               code={`
-          <iframe src="demo_iframe.html" width="200px" height="200px"></iframe>
-         `}
+                <iframe src="demo_iframe.html" width="200px" height="200px"></iframe>
+              `}
             />
             <CodeSnippet
               language="javascript"
               code={`
-          <iframe src="http://www.javatpoint.com" name="iframe_a"></iframe>
-         `}
+                <iframe src="http://www.javatpoint.com" name="iframe_a"></iframe>
+              `}
             />
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -650,11 +860,20 @@ const HtmlList = () => {
         >
           <Typography>URL encoded in HTML</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails sx={{ fontWeight: 300 }}>
           <Typography>{`An URL is encoded to convert non-ASCII characters into a format that can be used over the Internet because a URL is sent over the Internet by using the ASCII character-set only. If a URL contains characters outside the ASCII set, the URL has to be converted. The non-ASCII characters are replaced with a "%" followed by hexadecimal digits.`}</Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -663,7 +882,7 @@ const HtmlList = () => {
           <Typography>Canvas element</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             {`The <canvas> element is a container that is used to draw graphics on the web page using scripting language like JavaScript. It allows for dynamic and scriptable rendering of 2D shapes and bitmap images. There are several methods in canvas to draw paths, boxes, circles, text and add images.`}
             <CodeSnippet
               language="javascript"
@@ -676,7 +895,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -685,7 +913,7 @@ const HtmlList = () => {
           <Typography>SVG</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             SVG stands for Scalable Vector Graphics, an XML-based format for
             creating two-dimensional vector images. SVGs are popular because
             they are resolution-independent, meaning they look sharp at any size
@@ -722,7 +950,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -731,7 +968,7 @@ const HtmlList = () => {
           <Typography>Form element</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             list of 10 frequently used new elements
             <ul>
               <li>Color</li>
@@ -748,7 +985,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -757,7 +1003,7 @@ const HtmlList = () => {
           <Typography>Type of video formats are supported by HTML5</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <ul>
               <li>mp4</li>
               <li>WebM</li>
@@ -766,7 +1012,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -775,7 +1030,7 @@ const HtmlList = () => {
           <Typography>Audio tag supported in HTML 5</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <ul>
               <li>mp3</li>
               <li>WAV</li>
@@ -793,7 +1048,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -802,7 +1066,7 @@ const HtmlList = () => {
           <Typography>Progress vs Meter tag</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>Progress Tag:</strong>
             <ul>
               <li>
@@ -838,7 +1102,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -847,7 +1120,7 @@ const HtmlList = () => {
           <Typography>Figure tag</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             {`The <figure> tag is used to group media content, like images, charts, or code snippets, with a caption or explanation. It's a semantic element that helps improve the structure of your webpage, making it clear that the content within the <figure> element is a single unit, often with a related <figcaption>`}
             <CodeSnippet
               language="javascript"
@@ -867,7 +1140,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -876,7 +1158,7 @@ const HtmlList = () => {
           <Typography>Button tag</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             It is used to create clickable buttons that can trigger actions when
             interacted with by the user. It's a versatile element commonly used
             in forms, user interfaces, and applications.
@@ -909,7 +1191,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -918,7 +1209,7 @@ const HtmlList = () => {
           <Typography>Details and Summary tag</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>Details</strong>
             <ul>
               <li>{`The <details> element creates a disclosure widget from which the user can obtain additional information or controls.`}</li>
@@ -957,7 +1248,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -966,7 +1266,7 @@ const HtmlList = () => {
           <Typography>Tags from HTML4 to HTML5</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <TableContainer component={Paper} variant="outlined">
               <Table>
                 <TableHead>
@@ -1002,7 +1302,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -1011,12 +1320,21 @@ const HtmlList = () => {
           <Typography>{`<!DOCTYPE html>`}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             {`I do not put <!DOCTYPE html> the browser will not be able to identify that it is an HTML document and HTML 5 tags do not function properly.`}
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -1025,7 +1343,7 @@ const HtmlList = () => {
           <Typography>Required attribute</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             {`The required attribute in HTML is a boolean attribute that can be applied to form elements (such as <input>, <select>, and <textarea>) to indicate that the user must fill out the field before submitting the form. If a required field is left empty when the form is submitted, the browser will prevent the form from being submitted and typically display an error message.`}
             <CodeSnippet
               language="javascript"
@@ -1044,7 +1362,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -1053,7 +1380,7 @@ const HtmlList = () => {
           <Typography>Different formats in which colors</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             The color of an element can be defined in the following ways:
             <ul>
               <li>Built-In Color</li>
@@ -1080,7 +1407,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -1089,7 +1425,7 @@ const HtmlList = () => {
           <Typography>Block vs Inline elements</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Every element in HTML has a default display value which depends upon
             the element type. Block or inline is the default display value for
             most of the elements.
@@ -1118,7 +1454,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -1127,10 +1472,21 @@ const HtmlList = () => {
           <Typography>Insert a comment</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>{`We can insert a comment in HTML by beginning with a lesser than sign and ending with a greater than sign. For example, “<!-“ and “->.”`}</Typography>
+          <Typography
+            sx={{ fontWeight: 300 }}
+          >{`We can insert a comment in HTML by beginning with a lesser than sign and ending with a greater than sign. For example, “<!-“ and “->.”`}</Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -1139,10 +1495,21 @@ const HtmlList = () => {
           <Typography>Copyright symbol</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>{`To insert a copyright symbol in HTML, you can use the HTML entity &copy or the numeric code &#169;`}</Typography>
+          <Typography
+            sx={{ fontWeight: 300 }}
+          >{`To insert a copyright symbol in HTML, you can use the HTML entity &copy or the numeric code &#169;`}</Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -1151,7 +1518,7 @@ const HtmlList = () => {
           <Typography>White space</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             An empty sequence of space characters is called white space in HTML.
             It is considered a single-space character.
             <br />
@@ -1161,7 +1528,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -1170,7 +1546,7 @@ const HtmlList = () => {
           <Typography>Add JavaScript to an HTML</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             JavaScript is used to make HTML web pages more interactive and
             user-friendly. It is a scripting language that allows you to
             interact with some aspects of the page based on user input. As with
@@ -1225,7 +1601,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -1234,7 +1619,7 @@ const HtmlList = () => {
           <Typography>“display: none” vs “visibility: hidden” </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>display: none</strong>
             <ul>
               <li>
@@ -1310,7 +1695,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -1319,7 +1713,7 @@ const HtmlList = () => {
           <Typography>{`<link> vs  <a> tag`}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>{`<link> Tag`}</strong>
             <ul>
               <li>
@@ -1367,7 +1761,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -1376,7 +1779,7 @@ const HtmlList = () => {
           <Typography>508 Compliance</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             508 compliance ensures that digital content, like websites and
             documents, is accessible to people with disabilities. It includes:
             <ul>
@@ -1405,7 +1808,14 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      {/* <Accordion sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -1414,9 +1824,9 @@ const HtmlList = () => {
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography></Typography>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
     </Container>
   );
 };

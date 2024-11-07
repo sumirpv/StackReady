@@ -30,9 +30,7 @@ function About() {
         variant="body1"
         sx={{ color: "text.secondary", marginBottom: 4 }}
       >
-        Welcome to our application! We are passionate about creating impactful
-        software that drives success and empowers users. Learn more about our
-        mission, values, and team below.
+        Welcome to our application! StackReady is your all-in-one platform for preparing for full-stack interviews with confidence. Covering a wide range of essential topics, StackReady provides a curated library of interview questions and solutions in HTML, CSS, JavaScript, Redux, React, Node.js, Python, and more. Designed for aspiring developers and experienced engineers alike, StackReady helps you master the fundamentals, tackle advanced concepts, and sharpen your problem-solving skills. With tailored categories, real-world coding challenges, and expert insights, StackReady makes interview prep efficient and effective—so you can approach every interview fully prepared to succeed.
       </Typography>
 
       <Box sx={{ marginBottom: 5 }}>

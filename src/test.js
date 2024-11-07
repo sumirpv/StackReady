@@ -25,20 +25,20 @@ const TestInfo = () => {
   //   setExpanded((prevExpanded) => !prevExpanded);
   // };
 
-//   import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+  //   import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
-// function App() {
-//   return (
-//     <Router>
-//       <Routes>
-//         {/* Your routes here */}
-//       </Routes>
-//     </Router>
-//   );
-// }
+  // function App() {
+  //   return (
+  //     <Router>
+  //       <Routes>
+  //         {/* Your routes here */}
+  //       </Routes>
+  //     </Router>
+  //   );
+  // }
   return (
     <div>
-      <Accordion >
+      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -50,12 +50,27 @@ const TestInfo = () => {
           <Typography></Typography>
         </AccordionDetails>
       </Accordion>
+      
+      <Accordion>
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
 
       <ul>
-            <li><strong></strong></li>
-            <li><strong></strong></li>
-            <li><strong></strong></li>
-          </ul>
+        <li>
+          <strong></strong>
+        </li>
+        <li>
+          <strong></strong>
+        </li>
+        <li>
+          <strong></strong>
+        </li>
+      </ul>
 
       <br />
 
@@ -99,18 +114,18 @@ const TestInfo = () => {
       </TableContainer>
 
       <CodeSnippet
-              language="javascript"
-              code={`
+        language="javascript"
+        code={`
                 /* styles.css */
                   .container {
                     padding: 20px;
                     background-color: lightblue;
                   }
               `}
-            />
-            <CodeSnippet
-              language="javascript"
-              code={`
+      />
+      <CodeSnippet
+        language="javascript"
+        code={`
                 // Component.js
                 import React from 'react';
                 import './styles.css';
@@ -121,12 +136,11 @@ const TestInfo = () => {
 
                 export default MyComponent;
               `}
-            />
+      />
 
-
-<CodeSnippet
-              language="javascript"
-              code={`
+      <CodeSnippet
+        language="javascript"
+        code={`
                 function MyComponent() {
                   const divStyle = {
                     padding: '20px',
@@ -138,21 +152,21 @@ const TestInfo = () => {
 
                 export default MyComponent;
               `}
-            />
+      />
 
-<CodeSnippet
-              language="javascript"
-              code={`
+      <CodeSnippet
+        language="javascript"
+        code={`
                 /* styles.module.css */
                 .container {
                   padding: 20px;
                   background-color: lightblue;
                 }
               `}
-            />
-            <CodeSnippet
-              language="javascript"
-              code={`
+      />
+      <CodeSnippet
+        language="javascript"
+        code={`
                 // Component.js
                 import React from 'react';
                 import styles from './styles.module.css';
@@ -163,16 +177,16 @@ const TestInfo = () => {
 
                 export default MyComponent;
               `}
-            />
-              <CodeSnippet
-              language="javascript"
-              code={`
+      />
+      <CodeSnippet
+        language="javascript"
+        code={`
                 // Component.js
                 import React from 'react';
                 import styled from 'styled-components';
 
                 const Container = styled.div` //background-color: lightblue; //padding: 20px;
-              `;
+        `;
 
                 function MyComponent() {
                   return <Container>Hello, World!</Container>;
@@ -180,21 +194,21 @@ const TestInfo = () => {
 
                 export default MyComponent;
               `}
-            />
+      />
 
-<CodeSnippet
-              language="javascript"
-              code={`
+      <CodeSnippet
+        language="javascript"
+        code={`
                 // Component.js
                 /** @jsxImportSource @emotion/react */
                 import { css } from '@emotion/react';
                 import styled from '@emotion/styled';
 
                 const containerStyle = css` //background-color: lightblue; //padding: 20px;
-              `;
+        `;
 
                 const Container = styled.div` //background-color: lightblue; //padding: 20px;
-              `;
+        `;
 
                 function MyComponent() {
                   return (
@@ -207,7 +221,7 @@ const TestInfo = () => {
 
                 export default MyComponent;
               `}
-            />
+      />
     </div>
   );
 };

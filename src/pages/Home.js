@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Typography, Box, Link } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
-import DarthVader from "./assest/darth-vader.jpeg";
+import InterviewPrep from "./assest/interview-prep.jpg";
 
 function Home() {
   return (
@@ -17,17 +17,27 @@ function Home() {
     >
       <Box
         component="img"
-        src={DarthVader}
+        src={InterviewPrep}
         alt="Welcome"
         sx={{ width: "50%", height: "auto", borderRadius: 2, mb: 3 }}
       />
       <Typography variant="h4" gutterBottom color="primary">
-        Welcome to the Home Page
+        Welcome to StackReady!
       </Typography>
-      <Typography variant="body1" sx={{ color: "text.secondary", mb: 3 }}>
-        Explore the different sections of our application below.
-      </Typography>
-
+      <Box
+        sx={{
+          maxWidth: "800px",
+          margin: "0 auto",
+          color: "text.secondary",
+          mb: 3,
+        }}
+      >
+        <Typography variant="body1" sx={{ color: "text.secondary", mb: 3 }}>
+          Discover all you need to excel in full-stack interviews. Dive into
+          each section below to explore targeted preparation resources and
+          elevate your skills across key topics.
+        </Typography>
+      </Box>
       <Box sx={{ backgroundColor: "#e3f2fd", padding: 3, borderRadius: 2 }}>
         <Typography variant="h6" gutterBottom color="text.primary">
           Navigate to:
@@ -43,7 +53,7 @@ function Home() {
               color="secondary"
               underline="hover"
             >
-              HTML List
+              HTML Fundamentals
             </Link>
           </Typography>
           <Typography variant="body1">
@@ -53,7 +63,7 @@ function Home() {
               color="secondary"
               underline="hover"
             >
-              JavaScript List
+              JavaScript Essentials
             </Link>
           </Typography>
           <Typography variant="body1">
@@ -63,7 +73,7 @@ function Home() {
               color="secondary"
               underline="hover"
             >
-              React List
+              React Mastery
             </Link>
           </Typography>
           <Typography variant="body1">
@@ -73,7 +83,7 @@ function Home() {
               color="secondary"
               underline="hover"
             >
-              Redux List
+              Redux in Action
             </Link>
           </Typography>
           <Typography variant="body1">
@@ -83,7 +93,7 @@ function Home() {
               color="secondary"
               underline="hover"
             >
-              Python List
+              Python for Developers
             </Link>
           </Typography>
         </Box>
@@ -93,54 +103,3 @@ function Home() {
 }
 
 export default Home;
-
-// import React from "react";
-// import { Container, Typography, Box, Link } from "@mui/material";
-// import { Link as RouterLink } from "react-router-dom";
-
-// function Home() {
-//   return (
-//     <Container>
-//       <Typography variant="h4" gutterBottom>
-//         Welcome to the Home Page
-//       </Typography>
-//       <Typography variant="body1">
-//         This is the home page of your app.
-//       </Typography>
-//       <Box sx={{ marginTop: 3 }}>
-//         <Typography variant="h6" gutterBottom>
-//           Navigate to:
-//         </Typography>
-//         <Box component="div">
-//           <Typography variant="body1">
-//             <Link component={RouterLink} to="/htmlList">
-//               HTMLList
-//             </Link>
-//           </Typography>
-//           <Typography variant="body1">
-//             <Link component={RouterLink} to="/javaScriptList">
-//               JavaScriptList
-//             </Link>
-//           </Typography>
-//           <Typography variant="body1">
-//             <Link component={RouterLink} to="/reactList">
-//               ReactList
-//             </Link>
-//           </Typography>
-//           <Typography variant="body1">
-//             <Link component={RouterLink} to="/reduxList">
-//               ReduxList
-//             </Link>
-//           </Typography>
-//           <Typography variant="body1">
-//             <Link component={RouterLink} to="/pythonList">
-//               PythonList
-//             </Link>
-//           </Typography>
-//         </Box>
-//       </Box>
-//     </Container>
-//   );
-// }
-
-// export default Home;

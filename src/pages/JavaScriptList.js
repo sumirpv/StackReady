@@ -18,24 +18,52 @@ const JavaScriptList = () => {
   };
 
   return (
-    <Container>
-      <Accordion expanded={expanded} onChange={handleExpansion}>
+    <Container maxWidth="lg" sx={{ paddingTop: 4 }}>
+      <Typography
+        variant="h5"
+        align="center"
+        color="primary"
+        sx={{ marginBottom: 3 }}
+      >
+        Javascript Concepts Overview
+      </Typography>
+      <Accordion
+        expanded={expanded}
+        onChange={handleExpansion}
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          <Typography>const</Typography>
+          <Typography>Const</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Variables declared with const are block-scoped and cannot be
             reassigned once initialized. However, the value they hold can still
             be mutable if it's an object or an array.
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -44,14 +72,23 @@ const JavaScriptList = () => {
           <Typography>Let</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Variables declared with let are also block-scoped, but they can be
             reassigned. They are usually preferred over var due to their block
             scope.
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -60,14 +97,23 @@ const JavaScriptList = () => {
           <Typography>Var</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Variables declared with var are function-scoped or globally scoped,
             but not block-scoped. They can be reassigned and hoisted (moved to
             the top of their function or global scope).
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -76,7 +122,7 @@ const JavaScriptList = () => {
           <Typography>== vs ===</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>==</strong> (Equality Operator):
             <br />
             <CodeSnippet
@@ -92,7 +138,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -101,7 +156,7 @@ const JavaScriptList = () => {
           <Typography>Primitive data type</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <ul>
               <li>Number</li>
               <li>boolean</li>
@@ -113,7 +168,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -122,7 +186,7 @@ const JavaScriptList = () => {
           <Typography>Pass By Value vs Pass By Reference</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>Pass by Value:</strong>
             <ul>
               <li>
@@ -235,18 +299,27 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
           id="panel7-header"
         >
           <Typography>
-            map() vs filter() vs reduce() and Flatting Array
+            Map() vs Filter() vs Reduce() and Flatting Array
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>Map()</strong>
             <br />
             <ul>
@@ -377,7 +450,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -386,7 +468,7 @@ const JavaScriptList = () => {
           <Typography>Flat map</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             flatMap is a method in JavaScript that combines the operations of
             map and flat. It first maps each element of an array to a new value,
             and then flattens the result by one level. This method is
@@ -434,7 +516,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -443,7 +534,7 @@ const JavaScriptList = () => {
           <Typography>Push() </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Adds one or more elements to the end of an array and returns the new
             length of the array.
             <br />
@@ -457,7 +548,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -466,7 +566,7 @@ const JavaScriptList = () => {
           <Typography>Pop()</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Removes the last element from an array and returns that element.
             <br />
             It does not take any arguments.
@@ -480,7 +580,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -489,7 +598,7 @@ const JavaScriptList = () => {
           <Typography>Shift()</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Removes the first element from an array and returns that element.{" "}
             <br />
             This method does not take any arguments.
@@ -503,7 +612,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -512,7 +630,7 @@ const JavaScriptList = () => {
           <Typography>Unshift()</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Adds one or more elements to the beginning of an array and returns
             the new length of the array.
             <CodeSnippet
@@ -528,7 +646,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -537,7 +664,7 @@ const JavaScriptList = () => {
           <Typography>Splice()</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Adds, removes, or replaces elements in an array at a specified
             index.
             <CodeSnippet
@@ -602,7 +729,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -611,7 +747,7 @@ const JavaScriptList = () => {
           <Typography>Split()</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             The split() method of String values takes a pattern and divides this
             string into an ordered list of substrings by searching for the
             pattern, puts these substrings into an array, and returns the array.{" "}
@@ -636,7 +772,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -645,7 +790,7 @@ const JavaScriptList = () => {
           <Typography>Slice()</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             To create a shallow copy of a portion of an array or string into a
             new array or string.
             <br />
@@ -686,16 +831,25 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
           id=""
         >
-          <Typography>splice() vs slice()</Typography>
+          <Typography>Splice() vs Slice()</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <ul>
               <li>
                 Use splice() when you need to modify the original array by
@@ -743,7 +897,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -752,7 +915,7 @@ const JavaScriptList = () => {
           <Typography>Sort()</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Sorts the elements of an array in place and returns the sorted
             array.
             <CodeSnippet
@@ -765,7 +928,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -774,7 +946,7 @@ const JavaScriptList = () => {
           <Typography>Reverse()</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Reverses the order of the elements in an array.
             <CodeSnippet
               language="javascript"
@@ -786,7 +958,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -795,7 +976,7 @@ const JavaScriptList = () => {
           <Typography>Fill()</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Fills all the elements of an array from a start index to an end
             index with a static value.
             <CodeSnippet
@@ -817,7 +998,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -826,7 +1016,7 @@ const JavaScriptList = () => {
           <Typography>CopyWithin()</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Shallow copies part of an array to another location in the same
             array and returns it, without modifying its length.
             <CodeSnippet
@@ -843,7 +1033,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -852,7 +1051,7 @@ const JavaScriptList = () => {
           <Typography>Falsey value</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Unique to JavaScript, except 6 all are truthy value Some values when
             you evaluate them as Booleans it will be falsey
             <CodeSnippet
@@ -882,7 +1081,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -891,7 +1099,7 @@ const JavaScriptList = () => {
           <Typography>Global Variables</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Global variables are variables declared outside of any function or
             block scope. These variables have global scope, meaning they are
             accessible from anywhere in your code, including inside functions
@@ -900,7 +1108,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -909,7 +1126,7 @@ const JavaScriptList = () => {
           <Typography>This</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             The this keyword refers to the context within which a function is
             executed.
             <br />
@@ -1050,7 +1267,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1059,7 +1285,7 @@ const JavaScriptList = () => {
           <Typography>Coercion</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             In JavaScript refers to the automatic conversion of values from one
             data type to another.
             <br />
@@ -1102,7 +1328,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1111,7 +1346,7 @@ const JavaScriptList = () => {
           <Typography>TypeOf</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             The typeof operator is used to determine the data type of a value.
             It returns a string indicating the type of the operand.
             <br />
@@ -1141,7 +1376,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1150,7 +1394,7 @@ const JavaScriptList = () => {
           <Typography>Delete</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             The delete operator is used to remove a property from an object. It
             can also be used to delete an element from an array.
             <CodeSnippet
@@ -1174,7 +1418,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1183,7 +1436,7 @@ const JavaScriptList = () => {
           <Typography>Object Notations</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             These notations provide different ways to define and initialize
             objects Dot notation and bracket notation ( don t use this often)
             <br />
@@ -1205,7 +1458,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1214,7 +1476,7 @@ const JavaScriptList = () => {
           <Typography>Strict Mode</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Strict Mode is a feature introduced in ECMAScript 5 (ES5) that
             allows you to place a program, or a function, in a "strict"
             operating context. This strict context helps detect common coding
@@ -1251,7 +1513,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1260,7 +1531,7 @@ const JavaScriptList = () => {
           <Typography>Anonymous Function </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             In JavaScript, an anonymous function is a function that is defined
             without a name. Instead of being assigned to a variable or a
             property of an object, it's defined directly where it's needed.
@@ -1292,7 +1563,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1301,7 +1581,7 @@ const JavaScriptList = () => {
           <Typography>Callbacks</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             A callback is a function that is passed as an argument to another
             function and is executed after some operation has been completed or
             at a specified time. Callbacks are commonly used in asynchronous
@@ -1339,7 +1619,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1348,7 +1637,7 @@ const JavaScriptList = () => {
           <Typography>Closure</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             A closure is the combination of a function bundled together
             (enclosed) with references to its surrounding state (the lexical
             environment). In other words, a closure gives you access to an outer
@@ -1371,7 +1660,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1380,7 +1678,7 @@ const JavaScriptList = () => {
           <Typography>Naming & Standards</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             {`Have few variable as possible`}
             <br />
             {`Don’t use num , str etc`}
@@ -1415,7 +1713,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1424,7 +1731,7 @@ const JavaScriptList = () => {
           <Typography>For...of vs For...in</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             For...of when you need to iterate over values of an iterable like
             arrays, strings, or other ordered collections, and use for...in when
             you need to iterate over the properties of an object.
@@ -1445,7 +1752,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1454,7 +1770,7 @@ const JavaScriptList = () => {
           <Typography>Other method to iterate the object:</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>Object.keys() & forEach:</strong>
             <CodeSnippet
               language="javascript"
@@ -1488,7 +1804,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1499,7 +1824,7 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             You can use the for...of loop in combination with Object.keys(),
             Object.values(), or Object.entries() to iterate over properties.
             <CodeSnippet
@@ -1522,7 +1847,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1531,7 +1865,7 @@ const JavaScriptList = () => {
           <Typography>Object.getOwnPropertyNames()</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             This method returns an array of all properties (including
             non-enumerable properties except for those which use Symbol) found
             directly upon a given object.
@@ -1585,7 +1919,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1594,7 +1937,7 @@ const JavaScriptList = () => {
           <Typography>Empty Arrays</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <CodeSnippet
               language="javascript"
               code={`
@@ -1625,7 +1968,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1634,7 +1986,7 @@ const JavaScriptList = () => {
           <Typography>MUL Function</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             To create a mul function in JavaScript to multiply numbers, you can
             simply define a function that takes multiple arguments and
             multiplies them together
@@ -1669,7 +2021,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1678,7 +2039,7 @@ const JavaScriptList = () => {
           <Typography>Create Array</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             You can define an array using square brackets [] and populate it
             with values separated by commas
             <CodeSnippet
@@ -1716,7 +2077,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1725,7 +2095,7 @@ const JavaScriptList = () => {
           <Typography>Sequence generator (range)</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>
               <a
                 href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#sequence_generator_range"
@@ -1779,7 +2149,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1788,7 +2167,7 @@ const JavaScriptList = () => {
           <Typography>Undefined vs Null</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>undefined:</strong> <br />
             <ul>
               <li>
@@ -1846,7 +2225,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1855,7 +2243,7 @@ const JavaScriptList = () => {
           <Typography>Number Issues</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             working with numbers can sometimes lead to unexpected behavior due
             to the way numbers are represented and handled internally
             <CodeSnippet
@@ -1883,7 +2271,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1892,7 +2289,7 @@ const JavaScriptList = () => {
           <Typography>Instanceof</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Instanceof operator is used to check whether an object belongs to a
             particular class or constructor function. It tests whether the
             prototype property of a constructor function appears anywhere in the
@@ -1925,7 +2322,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -1934,7 +2340,7 @@ const JavaScriptList = () => {
           <Typography>IIFE</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Immediately Invoke Function Expression JavaScript function that is
             executed immediately after it is defined. It's often used to create
             a new scope for variables and avoid polluting the global scope, as
@@ -2098,7 +2504,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -2107,7 +2522,7 @@ const JavaScriptList = () => {
           <Typography>JSON.stringify() vs JSON.parse()</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>JSON (JavaScript Object Notation).</strong>
             <br />
             <strong>JSON.stringify():</strong>
@@ -2155,7 +2570,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -2164,7 +2588,7 @@ const JavaScriptList = () => {
           <Typography>Maintaining State & Local Storage</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>Maintaining State:</strong> <br />
             State refers to the current condition or data of your application at
             any given moment. In JavaScript, you typically maintain state by
@@ -2214,7 +2638,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -2223,7 +2656,7 @@ const JavaScriptList = () => {
           <Typography> Local Storage vs Session Storage vs Cookies </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong> Local Storage</strong>
             <ul>
               <li>
@@ -2339,7 +2772,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -2348,7 +2790,7 @@ const JavaScriptList = () => {
           <Typography>HTML 5 APIs</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <CodeSnippet
               language="javascript"
               code={`
@@ -2425,7 +2867,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -2434,7 +2885,7 @@ const JavaScriptList = () => {
           <Typography>Destructuring Objects</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Destructuring in JavaScript allows you to extract data from arrays
             and objects into distinct variables, making it easier to work with
             complex data structures.
@@ -2487,7 +2938,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -2496,7 +2956,7 @@ const JavaScriptList = () => {
           <Typography>Rest & Spread Operator</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>Rest Operator (...):</strong>
             <br />
             The rest operator (...) allows you to represent an indefinite number
@@ -2554,7 +3014,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -2563,7 +3032,7 @@ const JavaScriptList = () => {
           <Typography>Arrow Function</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             They provide a more compact syntax compared to traditional function
             expressions and offer some additional features
             <CodeSnippet
@@ -2597,7 +3066,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -2606,7 +3084,7 @@ const JavaScriptList = () => {
           <Typography>NaN</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             NaN stands for "Not-a-Number" in JavaScript. It is a special value
             of the Number type that represents the result of an operation that
             cannot produce a meaningful numerical result.
@@ -2639,7 +3117,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -2648,7 +3135,7 @@ const JavaScriptList = () => {
           <Typography>Undeclared vs Undefined</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>Undeclared</strong>
             <br />
             An undeclared variable is a variable that has been referenced in
@@ -2675,7 +3162,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -2684,7 +3180,7 @@ const JavaScriptList = () => {
           <Typography>DOM Selectors</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             DOM (Document Object Model) selectors are used to interact with HTML
             elements in a web page. They allow you to retrieve and manipulate
             elements dynamically.
@@ -2712,7 +3208,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -2721,7 +3226,7 @@ const JavaScriptList = () => {
           <Typography>How to Copy an Object</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>1. Object.assign()</strong>
             <br />
             The Object.assign() method is used to copy the values of all
@@ -2785,7 +3290,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -2797,7 +3311,7 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>Unicode</strong>
             <ul>
               <li>
@@ -2868,7 +3382,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -2877,7 +3400,7 @@ const JavaScriptList = () => {
           <Typography>Encrypting Vs Hashing</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>Encrypting</strong>
             <ul>
               <li>
@@ -2994,7 +3517,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3003,7 +3535,7 @@ const JavaScriptList = () => {
           <Typography>Objects</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Objects are a fundamental and versatile data structure used to store
             collections of key-value pairs. JavaScript objects can be classified
             by three factors:
@@ -3017,7 +3549,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3026,7 +3567,7 @@ const JavaScriptList = () => {
           <Typography>Enumerable vs Non-enumerable</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>Enumerable</strong>
             <br />
             An enumerable property is one that will be iterated over by methods
@@ -3076,7 +3617,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3085,7 +3635,7 @@ const JavaScriptList = () => {
           <Typography>Compare 2 Objects</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             {`=== will be false because object uses reference.   => Shallow Equality Check:`}
             <br />
             {`We can do JSON.stringfy       => Deep Equality Check (Using JSON.stringify()):`}
@@ -3120,7 +3670,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3129,7 +3688,7 @@ const JavaScriptList = () => {
           <Typography>Services workers</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Service workers are scripts that your browser runs in the
             background, separate from a web page, and can intercept network
             requests, cache or retrieve resources, and provide offline
@@ -3146,7 +3705,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3155,7 +3723,7 @@ const JavaScriptList = () => {
           <Typography>Removing Duplicates</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             We can do it different methods like set, filter, reduce and includes
             <CodeSnippet
               language="javascript"
@@ -3179,7 +3747,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3188,7 +3765,7 @@ const JavaScriptList = () => {
           <Typography>HTTP Methods</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Its set of request methods :
             <ul>
               <li>
@@ -3246,7 +3823,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3255,7 +3841,7 @@ const JavaScriptList = () => {
           <Typography>HTTP Status Code</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>100</strong> {`-> information`}
             <br />
             <strong>200</strong> {`-> success`}
@@ -3271,7 +3857,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3280,7 +3875,7 @@ const JavaScriptList = () => {
           <Typography>REST</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             REST (Representational State Transfer) is an architectural style for
             designing networked applications. It defines a set of constraints
             and principles for building scalable, maintainable, and
@@ -3312,7 +3907,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3321,7 +3925,7 @@ const JavaScriptList = () => {
           <Typography>Rest vs GraphQL</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             REST and GraphQL are both popular approaches for building APIs, but
             they have different philosophies and characteristics. Here's a
             comparison between the two.
@@ -3431,7 +4035,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3440,7 +4053,7 @@ const JavaScriptList = () => {
           <Typography>Synchronous vs Asynchronous</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>Synchronous Execution:</strong>
             <ul>
               <li>
@@ -3482,7 +4095,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3491,7 +4113,7 @@ const JavaScriptList = () => {
           <Typography>Timers</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             In JavaScript, timers are used to schedule code execution at a
             specified time or after a certain delay. There are three main timer
             functions provided by the browser environment: setTimeout,
@@ -3548,7 +4170,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3557,7 +4188,7 @@ const JavaScriptList = () => {
           <Typography>Promises</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Promises in JavaScript are used for handling asynchronous
             operations. A promise represents a value (or the eventual completion
             or failure of an asynchronous operation) and allows you to attach
@@ -3732,7 +4363,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3741,7 +4381,7 @@ const JavaScriptList = () => {
           <Typography>Every</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             This is done in the array.
             <br />
             Take every element of the array and do the calculations like add,
@@ -3770,7 +4410,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3779,7 +4428,7 @@ const JavaScriptList = () => {
           <Typography>Finding array length with out length</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <CodeSnippet
               language="javascript"
               code={`
@@ -3792,7 +4441,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3801,7 +4459,7 @@ const JavaScriptList = () => {
           <Typography>Async/Await</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             async/await is a modern approach to handle asynchronous code, making
             it look more synchronous and easier to read.
             <br />
@@ -3840,7 +4498,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3849,7 +4516,7 @@ const JavaScriptList = () => {
           <Typography>HOF</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Higher-order functions (HOFs) are a powerful concept in JavaScript
             that allow you to work with functions in new and innovative ways.
             Here's a breakdown of what they are and how they're used:
@@ -3914,7 +4581,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -3923,7 +4599,7 @@ const JavaScriptList = () => {
           <Typography>Different data types</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             To know the type of a JavaScript variable, we can use the typeof
             operator.
             <br />
@@ -4065,7 +4741,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -4076,7 +4761,7 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>Key Features</strong>
             <ul>
               <li>
@@ -4244,7 +4929,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -4253,7 +4947,7 @@ const JavaScriptList = () => {
           <Typography>ES6 vs ES7</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <strong>ES7</strong>
             ES7 was a much smaller update compared to ES6, introducing just a
             couple of new features:
@@ -4297,7 +4991,16 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2-content"
@@ -4306,7 +5009,7 @@ const JavaScriptList = () => {
           <Typography>debugger</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             The debugger for the browser must be activated in order to debug the
             code. Built-in debuggers may be switched on and off, requiring the
             user to report faults. The remaining section of the code should stop

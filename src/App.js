@@ -13,7 +13,6 @@ import Contact from "./pages/Contact";
 import { Box } from "@mui/material";
 
 function App() {
-  console.log("Page app");
   return (
     <>
       <Header />

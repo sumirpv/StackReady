@@ -24,10 +24,26 @@ const ReactList = () => {
   };
 
   return (
-    <Container>
+    <Container maxWidth="lg" sx={{ paddingTop: 4 }}>
+      <Typography
+        variant="h5"
+        align="center"
+        color="primary"
+        sx={{ marginBottom: 3 }}
+      >
+        React Concepts Overview
+      </Typography>
       <Accordion
         expanded={expanded}
         onChange={handleExpansion}
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
         // slots={{ transition: Fade }}
         // slotProps={{ transition: { timeout: 400 } }}
       >
@@ -39,7 +55,7 @@ const ReactList = () => {
           <Typography>Features of React</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             ReactJS is a JavaScript library used to build reusable components
             for the view layer in MVC architecture. It is highly efficient and
             uses a virtual DOM to render components. It works on the client side
@@ -156,7 +172,16 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -165,7 +190,7 @@ const ReactList = () => {
           <Typography>MVC architecture</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             The Model-View-Controller (MVC) framework is an architectural/design
             pattern that separates an application into three main logical
             components Model, View, and Controller. Each architectural component
@@ -175,7 +200,16 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -184,7 +218,7 @@ const ReactList = () => {
           <Typography>Class Component</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             {`A class component must include the extends React.Component statement. This statement creates an inheritance to React.Component, and gives your component access to React.Component's functions.`}
             <br />
             {`The component also requires a render() method, this method returns HTML.`}
@@ -201,7 +235,16 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -210,7 +253,7 @@ const ReactList = () => {
           <Typography>Function Component</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             {`Here is the same example as above, but created using a Function component instead.`}
             <br />
             {`A Function component also returns HTML, and behaves much the same way as a Class component, but Function components can be written using much less code, are easier to understand.`}
@@ -225,7 +268,16 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -234,7 +286,7 @@ const ReactList = () => {
           <Typography>Event React</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             An event is an action that a user or system may trigger, such as
             pressing a key, a mouse click, etc.
           </Typography>
@@ -256,7 +308,16 @@ const ReactList = () => {
           />
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -265,7 +326,7 @@ const ReactList = () => {
           <Typography>React.js vs Angular.js</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <TableContainer component={Paper} variant="outlined">
               <Table>
                 <TableHead>
@@ -327,7 +388,16 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -336,7 +406,7 @@ const ReactList = () => {
           <Typography>SyntheticEvent</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             SyntheticEvent is a cross-browser wrapper around the native browser
             event. React uses it to handle events in a consistent way across
             different browsers. Synthetic events are normalized, meaning they
@@ -349,7 +419,16 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
@@ -358,7 +437,7 @@ const ReactList = () => {
           <Typography>React vs React Native</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <TableContainer component={Paper} variant="outlined">
               <Table>
                 <TableHead>
@@ -462,16 +541,25 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography>render()</Typography>
+          <Typography>Render()</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             In React, the render() method is used in class components to define
             what the UI should look like. It returns the HTML-like structure
             (written in JSX) that React will display on the screen.
@@ -507,7 +595,16 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -516,7 +613,7 @@ const ReactList = () => {
           <Typography>State in React</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             In React, state is an object that stores dynamic data and determines
             how a component behaves and what it displays. Unlike props, which
             are passed to a component from its parent, state is managed within
@@ -602,16 +699,25 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography>setState</Typography>
+          <Typography>SetState</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             setState is an asynchronous call means if a synchronous call gets
             called it may not get updated at the right time like to know the
             current value of an object after an update using setState it may not
@@ -631,16 +737,25 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography>ref in React</Typography>
+          <Typography>Ref in React</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Refs are a function provided by React to access the DOM element and
             the React element that you might have created on your own. They are
             used in cases where we want to change the value of a child
@@ -657,7 +772,16 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -666,7 +790,7 @@ const ReactList = () => {
           <Typography>Hooks</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Hooks are a new addition in React 16.8. They let developers use
             state and other React features without writing a class. Hooks
             doesn’t violate any existing React concepts. Instead, Hooks provide
@@ -681,16 +805,25 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography>useState</Typography>
+          <Typography>UseState</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             The most used hook in React is the useState() hook. It allows
             functional components to manipulate DOM elements before each render.
             Using this hook we can declare a state variable inside a function
@@ -709,16 +842,25 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography>useEffect</Typography>
+          <Typography>UseEffect</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             The useEffect hook in React eliminates the side effect of using
             class based components. It is used as an alternative to
             componentDidUpdate() method. The useEffect hook accepts two
@@ -734,7 +876,16 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -743,7 +894,7 @@ const ReactList = () => {
           <Typography>React Fragments</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             when we are trying to render more than one root element we have to
             put the entire content inside the ‘div’ tag which is not loved by
             many developers. So since React 16.2 version, Fragments were
@@ -761,7 +912,16 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -770,7 +930,7 @@ const ReactList = () => {
           <Typography>Custom hooks</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             We know that hooks like useState, and useEffect are reusable
             components. Sometimes we make components that we have to reuse again
             and again in the application. In this case, we can convert the
@@ -913,7 +1073,16 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -922,7 +1091,7 @@ const ReactList = () => {
           <Typography>Optimize the performance of React app</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <a
               href="https://www.geeksforgeeks.org/how-to-optimize-the-performance-of-react-app/"
               target="_blank"
@@ -946,7 +1115,16 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -955,7 +1133,7 @@ const ReactList = () => {
           <Typography>Props</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             In React, props (short for "properties") are used to pass data from
             a parent component to a child component. They allow you to make
             components dynamic and reusable by letting you pass different data
@@ -1029,16 +1207,25 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography> state vs props</Typography>
+          <Typography> State vs Props</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <TableContainer component={Paper} variant="outlined">
               <Table>
                 <TableHead>
@@ -1085,16 +1272,25 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography>higher-order component</Typography>
+          <Typography>Higher-order Component</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             A Higher-Order Component is a function that takes a component and
             returns a new component. Essentially, it’s a function that enhances
             a component by adding additional functionality or props.
@@ -1173,7 +1369,16 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -1182,7 +1387,7 @@ const ReactList = () => {
           <Typography>React Router</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             React Router is a popular library for handling routing in React
             applications. It allows you to build single-page applications (SPAs)
             with navigation and URL management.
@@ -1399,7 +1604,16 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -1408,7 +1622,7 @@ const ReactList = () => {
           <Typography>Styling in ReactJS</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Styling in ReactJS can be done using various methods, each offering
             different levels of control and flexibility.
             <br />
@@ -1601,7 +1815,16 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -1610,7 +1833,7 @@ const ReactList = () => {
           <Typography>Conditional rendering in React</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Conditional rendering in React involves selectively rendering
             components based on specified conditions. By evaluating these
             conditions, developers can control which components are displayed,
@@ -1629,7 +1852,16 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -1638,7 +1870,7 @@ const ReactList = () => {
           <Typography>Lifecycle methods of components</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             A React Component can go through four stages of its life as follows.
             <ul>
               <li>
@@ -1663,16 +1895,25 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography>useref vs createRef</Typography>
+          <Typography>Useref vs CreateRef</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <TableContainer component={Paper} variant="outlined">
               <Table>
                 <TableHead>
