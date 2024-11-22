@@ -394,8 +394,9 @@ const JavaScriptList = () => {
               </li>
               <li>
                 The reducer function receives four arguments: the accumulator
-                (which accumulates the callback&apos;s return values), the current
-                element, the current index, and the array being traversed.
+                (which accumulates the callback&apos;s return values), the
+                current element, the current index, and the array being
+                traversed.
               </li>
             </ul>
             <CodeSnippet
@@ -2830,9 +2831,9 @@ const JavaScriptList = () => {
             bidirectional communication between the client and server.
             <br />
             <strong>Geolocation API:</strong>
-            Allows web applications to access
-            the user&apos;s geographical location information (with user consent),
-            enabling location-based services and functionalities.
+            Allows web applications to access the user&apos;s geographical
+            location information (with user consent), enabling location-based
+            services and functionalities.
             <br />
             <strong>File API:</strong> Enables web applications to interact with
             files on the user&apos;s local system, including reading, writing,
@@ -5012,7 +5013,7 @@ const JavaScriptList = () => {
           aria-controls="panel2-content"
           id="panel71-header"
         >
-          <Typography>debugger</Typography>
+          <Typography>Debugger</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
