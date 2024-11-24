@@ -5,6 +5,13 @@ import {
   AccordionSummary,
   AccordionDetails,
   Typography,
+  Table,
+  TableHead,
+  Paper,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableRow,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CodeSnippet from "../CodeSnippet";
@@ -160,6 +167,11 @@ const JavaScriptList = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+            primitive data types are the most basic types of data. They
+            represent single values and are immutable, meaning their values
+            cannot be changed after they are created (though variables holding
+            them can be reassigned). Primitive types are directly stored in
+            memory and compared by value.
             <ul>
               <li>Number</li>
               <li>boolean</li>
@@ -167,6 +179,394 @@ const JavaScriptList = () => {
               <li>undefined</li>
               <li>null </li>
               <li>{`symbol Eg: const key = Symbol('unique');`}</li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography>Non-primitive data types</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            In JavaScript, non-primitive data types (also called reference
+            types) are objects and functions. Unlike primitive data types, which
+            are immutable and directly stored in memory, non-primitive types are
+            stored as references pointing to the actual data in memory.
+            <ul>
+              <li>
+                <strong>Object:</strong>
+                {` Collections of key-value pairs where keys are strings (or symbols) and values can be any type (including other objects or functions).
+              Created using {}, Object.create(), or constructors like new Object().`}
+              </li>
+              <li>
+                <strong>Arrays</strong> Special objects designed to store
+                ordered collections of items. Can hold any type of data and have
+                methods for iteration, transformation, and manipulation.
+              </li>
+              <li>
+                <strong>Functions</strong> First-class objects in JavaScript,
+                meaning they can be assigned to variables, passed as arguments,
+                and returned from other functions.
+              </li>
+              <li>
+                <strong>Date</strong> Represents dates and times. Created using
+                the Date constructor. {`Eg: const today = new Date();`}
+              </li>
+              <li>
+                <strong>Regular Expressions (RegExp)</strong> Patterns used to
+                match character combinations in strings.
+                {` Eg: const regex = /hello/i;`}
+              </li>
+              <li>
+                <strong>Set and Map</strong>
+                <ul>
+                  <li>
+                    <strong>Set:</strong> Collection of unique values
+                    <CodeSnippet
+                      language="javascript"
+                      code={`
+                    const uniqueNumbers = new Set([1, 2, 2, 3]);
+                  `}
+                    />
+                  </li>
+                  <li>
+                    <strong>Map: </strong>
+                    Collection of key-value pairs where keys can be of any type.
+                    <CodeSnippet
+                      language="javascript"
+                      code={`
+                        const userRoles = new Map();
+                        userRoles.set("admin", "Alice");
+                  `}
+                    />
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>WeakSet and WeakMap</strong> Similar to Set and Map, but
+                keys in WeakMap and values in WeakSet must be objects. They also
+                allow garbage collection of keys when no references remain.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const weakMap = new WeakMap();
+                    const obj = {};
+                    weakMap.set(obj, "value");
+                  `}
+                />
+              </li>
+            </ul>
+            <br />
+            <strong>Characteristics of Non-Primitive Data Types:</strong> <br />
+            <ul>
+              <li>
+                <strong>Mutability: </strong>They can be changed after creation.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const obj = { name: "Alice" };
+                    obj.name = "Bob"; // Allowed
+                  `}
+                />
+              </li>
+              <li>
+                <strong>Comparison: </strong>Non-primitives are compared by
+                reference, not by value.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const a = { value: 10 };
+                    const b = { value: 10 };
+                    console.log(a === b); // false
+                  `}
+                />
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography>Regular Expressions (RegEx)</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            Are patterns used to match, search, or manipulate strings. They are
+            powerful tools for validating data, extracting information, and
+            performing complex string transformations in JavaScript and other
+            programming languages.
+            <br />
+            <strong>Syntax of a Regular Expression</strong>
+            {`Regular expressions in JavaScript are enclosed in slashes (/) or
+            created using the RegExp constructor.`}
+            <br />
+            <ul>
+              <li>
+                <strong>Literal Syntax:</strong>
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const regex = /pattern/flags;
+                 `}
+                />
+              </li>
+              <li>
+                <strong>Constructor Syntax:</strong>
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const regex = new RegExp("pattern", "flags");
+                  `}
+                />
+              </li>
+            </ul>
+            <strong>Common Flags</strong>
+            <br />
+            Flags modify the behavior of a regular expression:
+            <TableContainer component={Paper} variant="outlined">
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Flag</TableCell>
+                    <TableCell>Description</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>g</TableCell>
+                    <TableCell>{`Global search (find all matches, not just the first).`}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>i</TableCell>
+                    <TableCell>Case-insensitive search.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>m</TableCell>
+                    <TableCell>Multi-line search.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>s</TableCell>
+                    <TableCell>{`Allows the dot (.) to match newline characters.`}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>u</TableCell>
+                    <TableCell>
+                      Treats the pattern as a Unicode pattern.
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>y</TableCell>
+                    <TableCell>{`Sticky search (match from the current position only).`}</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+            <strong>Special Characters</strong>
+            <TableContainer component={Paper} variant="outlined">
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Character</TableCell>
+                    <TableCell>Description</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>.</TableCell>
+                    <TableCell>
+                      Matches any single character except newline.
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>\d </TableCell>
+                    <TableCell>{`Matches any digit (0-9).`}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>\D</TableCell>
+                    <TableCell> Matches any non-digit.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>\w</TableCell>
+                    <TableCell>{`Matches any word character (alphanumeric + _).`}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>\W</TableCell>
+                    <TableCell>Matches any non-word character.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>\s</TableCell>
+                    <TableCell>{`Matches any whitespace (space, tab, newline).`}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>\S</TableCell>
+                    <TableCell>Matches any non-whitespace.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>^</TableCell>
+                    <TableCell>Matches the beginning of a string.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>$</TableCell>
+                    <TableCell>Matches the end of a string.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>\b</TableCell>
+                    <TableCell>Matches a word boundary.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>\B</TableCell>
+                    <TableCell>Matches a non-word boundary.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>[...]</TableCell>
+                    <TableCell>{`Matches any character in the brackets (e.g., [a-z]).`}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>[^...]</TableCell>
+                    <TableCell>
+                      Matches any character not in the brackets.
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+            <strong>Quantifiers</strong>
+            <TableContainer component={Paper} variant="outlined">
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Quantifier</TableCell>
+                    <TableCell>Description</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>*</TableCell>
+                    <TableCell>Matches 0 or more occurrences.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>+</TableCell>
+                    <TableCell>Matches 1 or more occurrences.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>?</TableCell>
+                    <TableCell>{`Matches 0 or 1 occurrence (optional).`}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>{`{n}`}</TableCell>
+                    <TableCell>Matches exactly n occurrences.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>{`{n,}`}</TableCell>
+                    <TableCell>Matches n or more occurrences.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>{`{n,m}`}</TableCell>
+                    <TableCell>Matches between n and m occurrences.</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+            <strong>Example:</strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                //Matching Digits:
+                const regex = /\d+/g;
+                const str = "The price is 123 dollars.";
+                console.log(str.match(regex)); // ["123"]
+
+                //Case insentive search
+                const regex = /hello/i;
+                console.log(regex.test("Hello")); // true
+
+                //Replacing Text
+                const str = "apples and oranges";
+                console.log(str.replace(/apples/, "bananas")); // "bananas and oranges"
+
+                //Validating email
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                console.log(emailRegex.test("example@email.com")); // true
+             `}
+            />
+            <strong>Useful Methods with Regular Expressions</strong>
+            <ul>
+              <li>
+                <strong>test():</strong> Tests if the pattern exists in the
+                string.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const regex = /cat/;
+                    console.log(regex.test("concatenate")); // true
+                  `}
+                />
+              </li>
+              <li>
+                <strong>match():</strong> Returns an array of matches or null if
+                no match is found.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const str = "hello world";
+                    const regex = /o/g;
+                    console.log(str.match(regex)); // ["o", "o"]
+                  `}
+                />
+              </li>
+              <li>
+                <strong>replace():</strong> Replaces matched substrings.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const str = "hello world";
+                    const regex = /world/;
+                    console.log(str.replace(regex, "there")); // "hello there"
+                  `}
+                />
+              </li>
+              <li>
+                <strong>search():</strong> Returns the index of the first match
+                or -1 if not found.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const str = "hello world";
+                    const regex = /world/;
+                    console.log(str.search(regex)); // 6
+                  `}
+                />
+              </li>
+              <li>
+                <strong>split():</strong>Splits a string based on the pattern.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const str = "one, two, three";
+                    console.log(str.split(/, /)); // ["one", "two", "three"]
+                 `}
+                />
+              </li>
             </ul>
           </Typography>
         </AccordionDetails>

@@ -69,8 +69,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -79,7 +87,7 @@ const HtmlList = () => {
           <Typography>Benefits of using Python</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <ul>
               <li>Object-Oriented Language</li>
               <li>High-Level Language</li>
@@ -93,7 +101,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -102,7 +119,7 @@ const HtmlList = () => {
           <Typography>Compiled language or an Interpreted language</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Python is a partially compiled language and partially interpreted
             language. The compilation part is done first when we execute our
             code and this will generate byte code internally this byte code gets
@@ -111,7 +128,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -120,10 +146,21 @@ const HtmlList = () => {
           <Typography>{`‘#’ symbol`}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>{`‘#’ is used to comment on everything that comes after on the line.`}</Typography>
+          <Typography
+            sx={{ fontWeight: 300 }}
+          >{`‘#’ is used to comment on everything that comes after on the line.`}</Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -132,14 +169,23 @@ const HtmlList = () => {
           <Typography>Mutable datatype vs Immutable datatype</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Mutable data types can be edited i.e., they can change at runtime.
             Eg – List, Dictionary, etc. Immutable data types can not be edited
             i.e., they can not change at runtime. Eg – String, Tuple, etc.
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -148,7 +194,7 @@ const HtmlList = () => {
           <Typography>Global and Local scope</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <ul>
               <li>
                 A variable created inside a function belongs to the local scope
@@ -163,7 +209,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -172,7 +227,7 @@ const HtmlList = () => {
           <Typography>Arguments passed by value or by reference </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             In Python, arguments are passed by object reference (also called
             “pass by assignment”). This means that functions receive references
             to the same objects:
@@ -186,7 +241,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -195,7 +259,7 @@ const HtmlList = () => {
           <Typography>Set vs Dictionary</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             The set is an unordered collection of data types that is iterable,
             mutable and has no duplicate elements.
             <br />A dictionary in Python is an ordered collection of data
@@ -203,7 +267,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -212,7 +285,7 @@ const HtmlList = () => {
           <Typography>Iterator</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <ul>
               <li>
                 An iterator is an object that contains a countable number of
@@ -231,7 +304,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -240,7 +322,7 @@ const HtmlList = () => {
           <Typography> __init__() function</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <ul>
               <li>
                 All classes in Python have a function called __init__(), which
@@ -255,7 +337,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -264,7 +355,7 @@ const HtmlList = () => {
           <Typography>Lambda functions </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Use lambda functions when an anonymous function is required for a
             short period of time. A lambda function is an anonymous function.
             This function can have any number of parameters but, can have just
@@ -279,7 +370,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -288,7 +388,7 @@ const HtmlList = () => {
           <Typography>List Comprehension</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             List comprehension is a syntax construction to ease the creation of
             a list based on existing iterable.
             <CodeSnippet
@@ -300,7 +400,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -309,7 +418,7 @@ const HtmlList = () => {
           <Typography>Lists, Tuples vs Sets</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <ul>
               <li>
                 Lists, tuples and sets are all used to store multiple items in a
@@ -331,7 +440,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -340,14 +458,23 @@ const HtmlList = () => {
           <Typography>pass</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             Pass means performing no operation or in other words, it is a
             placeholder in the compound statement, where there should be a blank
             left and nothing has to be written there.
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -356,7 +483,7 @@ const HtmlList = () => {
           <Typography>Difference between / and // </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             {`/ represents precise division (result is a floating point number) whereas // represents floor division (result is an integer).`}
             <CodeSnippet
               language="javascript"
@@ -368,7 +495,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -377,7 +513,7 @@ const HtmlList = () => {
           <Typography>Exceptional handling</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             There are 3 main keywords i.e. try, except, and finally which are
             used to catch exceptions and handle the recovering mechanism
             accordingly. Try is the block of a code that is monitored for
@@ -390,7 +526,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -401,10 +546,21 @@ const HtmlList = () => {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>{`You can use the isalnum() method, which returns True if all the characters are alphanumeric, meaning alphabet letter (a-z) and numbers (0-9).`}</Typography>
+          <Typography
+            sx={{ fontWeight: 300 }}
+          >{`You can use the isalnum() method, which returns True if all the characters are alphanumeric, meaning alphabet letter (a-z) and numbers (0-9).`}</Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -413,7 +569,7 @@ const HtmlList = () => {
           <Typography>Convert a string to an integer</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             You can use the int() function, like this:
             <CodeSnippet
               language="javascript"
@@ -425,7 +581,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -434,7 +599,7 @@ const HtmlList = () => {
           <Typography>Indentation in Python, Why important</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography sx={{ fontWeight: 300 }}>
             <ul>
               <li>
                 Indentation refers to the spaces at the beginning of a code
@@ -450,7 +615,16 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel-content"
@@ -461,15 +635,320 @@ const HtmlList = () => {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            <CodeSnippet
-              language="javascript"
-              code={`print(type(x))`}
-            />
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet language="javascript" code={`print(type(x))`} />
           </Typography>
         </AccordionDetails>
       </Accordion>
       Which collection does not allow duplicate members
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>
+            Which collection does not allow duplicate members
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>SET</Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography>Inheritance</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <ul>
+              <li>
+                Inheritance allows us to define a class that inherits all the
+                methods and properties from another class.
+              </li>
+              <li>
+                Parent class is the class being inherited from, also called base
+                class.
+              </li>
+              <li>
+                Child class is the class that inherits from another class, also
+                called derived class.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography>Output of the following code</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+          <CodeSnippet
+            language="javascript"
+            code={`
+              x = 41
+
+              if x > 10:
+                print("Above ten,")
+                if x > 20:
+                  print("and also above 20!")
+                else:
+                  print("but not above 20.")
+            `}
+          />
+          Above ten,and also above 20!
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
     </Container>
   );
 };

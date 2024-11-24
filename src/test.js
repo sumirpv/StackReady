@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Accordion,
   // AccordionActions,
@@ -50,8 +49,17 @@ const TestInfo = () => {
           <Typography></Typography>
         </AccordionDetails>
       </Accordion>
-      
-      <Accordion>
+
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
         <AccordionSummary aria-controls="panel-content" id="panel-header">
           <Typography></Typography>
         </AccordionSummary>
@@ -178,50 +186,8 @@ const TestInfo = () => {
                 export default MyComponent;
               `}
       />
-      <CodeSnippet
-        language="javascript"
-        code={`
-                // Component.js
-                import React from 'react';
-                import styled from 'styled-components';
+     
 
-                const Container = styled.div` //background-color: lightblue; //padding: 20px;
-        `;
-
-                function MyComponent() {
-                  return <Container>Hello, World!</Container>;
-                }
-
-                export default MyComponent;
-              `}
-      />
-
-      <CodeSnippet
-        language="javascript"
-        code={`
-                // Component.js
-                /** @jsxImportSource @emotion/react */
-                import { css } from '@emotion/react';
-                import styled from '@emotion/styled';
-
-                const containerStyle = css` //background-color: lightblue; //padding: 20px;
-        `;
-
-                const Container = styled.div` //background-color: lightblue; //padding: 20px;
-        `;
-
-                function MyComponent() {
-                  return (
-                    <div css={containerStyle}>
-                      Hello, World!
-                    </div>
-                    // or use <Container>Hello, World!</Container>
-                  );
-                }
-
-                export default MyComponent;
-              `}
-      />
     </div>
   );
 };
