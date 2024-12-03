@@ -1968,6 +1968,96 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography>Lifting State Up</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            State lifting in React refers to moving state from a child component
+            to a common parent component to share it among multiple child
+            components. This allows better coordination and data flow between
+            sibling components.
+            <strong>Why Lift State Up?</strong>
+            <ul>
+              <li>
+                To avoid redundant or duplicate state in child components.
+              </li>
+              <li>
+                To enable sibling components to share and react to the same data
+                changes.
+              </li>
+            </ul>
+            <strong>How It Works</strong>
+            <ul>
+              <li>
+                <strong>Identify Shared State:</strong> Find the state needed by
+                multiple child components.
+              </li>
+              <li>
+                <strong>Move State Up:</strong> Transfer the state and its
+                handler functions to the nearest common parent.
+              </li>
+              <li>
+                <strong>Pass Props Down:</strong> Provide the state and update
+                functions to child components as props.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function Parent() {
+                  const [count, setCount] = React.useState(0);
+
+                  return (
+                    <div>
+                      <Child1 count={count} />
+                      <Child2 increment={() => setCount(count + 1)} />
+                    </div>
+                  );
+                }
+
+                function Child1({ count }) {
+                  return <div>Count: {count}</div>;
+                }
+
+                function Child2({ increment }) {
+                  return <button onClick={increment}>Increment</button>;
+                }
+              `}
+            />
+            <strong>Recap</strong>
+            <ul>
+              <li>
+                When you want to coordinate two components, move their state to
+                their common parent.
+              </li>
+              <li>
+                Then pass the information down through props from their common
+                parent.
+              </li>
+              <li>
+                Finally, pass the event handlers down so that the children can
+                change the parent&apos;s state.
+              </li>
+              <li>
+                It&apos;s useful to consider components as “controlled” (driven
+                by props) or “uncontrolled” (driven by state).
+              </li>
+            </ul>
+            <strong>Benefits: </strong>Simplifies debugging and maintenance.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
     </Container>
   );
 };
