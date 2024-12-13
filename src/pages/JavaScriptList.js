@@ -799,6 +799,35 @@ const JavaScriptList = () => {
                 traversed.
               </li>
             </ul>
+            <ul>
+              <li>
+                <strong>callback:</strong>
+                <ul>
+                  <li>
+                    <strong>accumulator:</strong>The accumulated result from the
+                    previous callback execution.
+                  </li>
+                  <li>
+                    <strong>currentValue:</strong>The current element being
+                    processed in the array.
+                  </li>
+                  <li>
+                    <strong>currentIndex(optional):</strong>The array reduce is
+                    called on.
+                  </li>
+                  <li>
+                    <strong>array(optional):</strong>The array reduce is called
+                    on.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>initialValue (optional): </strong>A value to initialize
+                the accumulator. If not provided, the first element of the array
+                is used as the initial value, and iteration starts from the
+                second element.
+              </li>
+            </ul>
             <CodeSnippet
               language="javascript"
               code={`
@@ -826,9 +855,7 @@ const JavaScriptList = () => {
               language="javascript"
               code={`
               const nestedArray = [[1, 2], [3, 4], [5, 6]];
-              const flatArray = nestedArray.reduce((accumulator, currentValue) => {
-                return accumulator.concat(currentValue);
-              }, []);
+              const flatArray = nestedArray.reduce((acc, curr) =>  return acc.concat(curr), []);
 
               console.log(flatArray); // Output: [1, 2, 3, 4, 5, 6]
             `}
