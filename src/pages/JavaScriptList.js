@@ -1104,12 +1104,12 @@ const JavaScriptList = () => {
                 //array.splice(start, deleteCount, item1, item2, ..., itemN);
 
                 const numbers = [1, 2, 3, 14, 5];
-                const sliced = numbers.splice(1);
-                console.log(sliced); // Output: [ 2, 3, 14, 5 ]
+                const splicedNum = numbers.splice(1);
+                console.log(splicedNum); // Output: [ 2, 3, 14, 5 ]
 
                 const numbers = [1, 2, 3, 14, 5];
-                const sliced = numbers.splice(3);
-                console.log(sliced); // Output: [ 14, 5 ]
+                const splicedNum = numbers.splice(3);
+                console.log(splicedNum); // Output: [ 14, 5 ]
 
                 let arr = [1, 2, 3, 4];
                 arr.splice(1, 2, 'a', 'b'); // arr is now [1, 'a', 'b', 4]
