@@ -95,6 +95,16 @@ function Home() {
               Python for Developers
             </Link>
           </Typography>
+          <Typography variant="body1">
+            <Link
+              component={RouterLink}
+              to="/interviewQuestions"
+              color="secondary"
+              underline="hover"
+            >
+              Full Stack Developer interview questions
+            </Link>
+          </Typography>
         </Box>
       </Box>
     </Container>

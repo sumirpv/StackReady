@@ -7,6 +7,7 @@ import JavaScriptList from "./pages/JavaScriptList";
 import ReactList from "./pages/ReactList";
 import ReduxList from "./pages/ReduxList";
 import PythonList from "./pages/Python";
+import InterviewQuestions from "./pages/InterviewQuestions";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import { Box } from "@mui/material";
@@ -23,6 +24,7 @@ function App() {
           <Route path="/reactList" element={<ReactList />} />
           <Route path="/reduxList" element={<ReduxList />} />
           <Route path="/pythonList" element={<PythonList />} />
+          <Route path="/interviewQuestions" element={<InterviewQuestions />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

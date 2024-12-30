@@ -88,6 +88,8 @@ const TestInfo = () => {
          `}
       />
 
+      
+
       <TableContainer component={Paper} variant="outlined">
         <Table>
           <TableHead>
@@ -186,7 +188,7 @@ const TestInfo = () => {
                 export default MyComponent;
               `}
       />
-     
+
 
     </div>
   );
