@@ -5457,6 +5457,39 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary aria-controls="panel-content" id="panel-header">
+          <Typography>Template literals</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            Template literals are strings delimited by backticks (``) that allow
+            you to embed expressions and create multi-line strings. Here&apos;s
+            how they work:
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const myFun = (test)  => {
+                  return console.log("test = ", test)
+                }
+
+                myFun("Hello");
+                myFun  'Hello' // instead you can use template literals it can take it as argument
+                //"test = ", ["Hello"]
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
     </Container>
   );
 };
