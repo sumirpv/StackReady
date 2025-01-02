@@ -191,15 +191,30 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Constructor property manipulation or dynamic constructor access</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
             <CodeSnippet
               language="javascript"
               code={`
-         `}
+                const x = 'constructor';
+                console.log(x[x](01)) //"1"
+              `}
             />
+            <ul>
+              <li>
+                {` x[x] means "constructor" property of the string x. All strings
+                have a constructor property that refers to the String
+                constructor.`}
+              </li>
+
+              <li>{`So, x[x] is the same as String.`}</li>
+
+              <li>{`String(01) converts the number 01 into the string "1".`}</li>
+
+              <li>{`The output is "1".`}</li>
+            </ul>
           </Typography>
         </AccordionDetails>
       </Accordion>
