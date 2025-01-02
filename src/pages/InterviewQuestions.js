@@ -29,7 +29,7 @@ const InterviewQuestions = () => {
         color="primary"
         sx={{ marginBottom: 3 }}
       >
-        Python Concepts Overview
+        Interview Questions Overview
       </Typography>
       <Typography sx={{ fontWeight: 500, margin: "0 auto 20px", width: "80%" }}>
         Full Stack Developer interview questions assess a candidate&apos;s
@@ -154,7 +154,11 @@ const InterviewQuestions = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Type coercion</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -182,7 +186,11 @@ const InterviewQuestions = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -205,7 +213,11 @@ const InterviewQuestions = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -228,7 +240,11 @@ const InterviewQuestions = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -251,7 +267,11 @@ const InterviewQuestions = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -274,7 +294,11 @@ const InterviewQuestions = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -297,7 +321,11 @@ const InterviewQuestions = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -320,7 +348,11 @@ const InterviewQuestions = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -343,7 +375,11 @@ const InterviewQuestions = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -366,7 +402,11 @@ const InterviewQuestions = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -389,7 +429,11 @@ const InterviewQuestions = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -402,26 +446,98 @@ const InterviewQuestions = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+         `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>
+            This keyword and how it interacts with the arguments object
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function y() {
+                  console.log("====",this.length);
+                  }
 
-      <Accordion
-        sx={{
-          marginBottom: 2,
-          borderRadius: 2,
-          boxShadow: 3,
-          "&:hover": {
-            boxShadow: 6,
-          },
-        }}
-      >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
-          <Typography></Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography sx={{ fontWeight: 300 }}>
+                  var x = {
+                    length: 5,
+                    method: function y() {
+                      arguments[0]()
+                    },
+                  };
+
+                  x.method(y, 1)
+                  //"====", 2
+              `}
+            />
+            <ul>
+              <li>
+                The method function in x is called with two arguments: y (the
+                function) and 1.
+              </li>
+              <li>
+                Inside method, arguments[0]() is executed, which means the y
+                function is called.
+              </li>
+              <li>
+                When y is called, its this is set to the arguments object of
+                method. The arguments object has a length property that counts
+                how many arguments were passed to method.
+              </li>
+              <li>
+                Since method was called with two arguments (y and 1),
+                arguments.length is 2.
+              </li>
+              <li>So, y logs:</li>
+            </ul>
+
             <CodeSnippet
               language="javascript"
               code={`
-         `}
+                "====", 2
+              `}
             />
           </Typography>
         </AccordionDetails>
@@ -436,35 +552,17 @@ const InterviewQuestions = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
-          <Typography></Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography sx={{ fontWeight: 300 }}>
-            <CodeSnippet
-              language="javascript"
-              code={`
-         `}
-            />
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        sx={{
-          marginBottom: 2,
-          borderRadius: 2,
-          boxShadow: 3,
-          "&:hover": {
-            boxShadow: 6,
-          },
-        }}
-      >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Webpage content edit</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
-            Open the dev tools and go tot hte tab console and type  document.body.contentEditable = true  "
+            Open the dev tools and go to the tab console and type -
+            document.body.contentEditable = true
           </Typography>
         </AccordionDetails>
       </Accordion>

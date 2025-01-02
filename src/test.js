@@ -60,7 +60,11 @@ const TestInfo = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -87,8 +91,6 @@ const TestInfo = () => {
         code={`
          `}
       />
-
-      
 
       <TableContainer component={Paper} variant="outlined">
         <Table>
@@ -188,8 +190,6 @@ const TestInfo = () => {
                 export default MyComponent;
               `}
       />
-
-
     </div>
   );
 };

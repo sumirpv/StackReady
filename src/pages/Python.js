@@ -674,7 +674,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Inheritance</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -706,14 +710,18 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Output of the following code</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
-          <CodeSnippet
-            language="javascript"
-            code={`
+            <CodeSnippet
+              language="javascript"
+              code={`
               x = 41
 
               if x > 10:
@@ -723,8 +731,8 @@ const HtmlList = () => {
                 else:
                   print("but not above 20.")
             `}
-          />
-          Above ten,and also above 20!
+            />
+            Above ten,and also above 20!
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -738,7 +746,74 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -772,7 +847,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -789,7 +868,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -806,7 +889,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -823,7 +910,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -840,7 +931,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -857,7 +952,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -874,7 +973,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -891,58 +994,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
-          <Typography></Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography sx={{ fontWeight: 300 }}></Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        sx={{
-          marginBottom: 2,
-          borderRadius: 2,
-          boxShadow: 3,
-          "&:hover": {
-            boxShadow: 6,
-          },
-        }}
-      >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
-          <Typography></Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography sx={{ fontWeight: 300 }}></Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        sx={{
-          marginBottom: 2,
-          borderRadius: 2,
-          boxShadow: 3,
-          "&:hover": {
-            boxShadow: 6,
-          },
-        }}
-      >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
-          <Typography></Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography sx={{ fontWeight: 300 }}></Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        sx={{
-          marginBottom: 2,
-          borderRadius: 2,
-          boxShadow: 3,
-          "&:hover": {
-            boxShadow: 6,
-          },
-        }}
-      >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>

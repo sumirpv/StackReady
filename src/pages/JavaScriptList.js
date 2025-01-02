@@ -194,7 +194,11 @@ const JavaScriptList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Non-primitive data types</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -306,7 +310,11 @@ const JavaScriptList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Regular Expressions (RegEx)</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -5467,7 +5475,11 @@ const JavaScriptList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Template literals</Typography>
         </AccordionSummary>
         <AccordionDetails>

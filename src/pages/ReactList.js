@@ -1978,7 +1978,11 @@ const ReactList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Lifting State Up</Typography>
         </AccordionSummary>
         <AccordionDetails>

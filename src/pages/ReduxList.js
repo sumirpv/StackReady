@@ -181,8 +181,8 @@ const HtmlList = () => {
             <ul>
               <li>
                 <strong>Definition:</strong> Middleware is a way to extend
-                Redux&apos;s capabilities, such as handling asynchronous actions.
-                Common middleware includes Redux Thunk and Redux Saga.
+                Redux&apos;s capabilities, such as handling asynchronous
+                actions. Common middleware includes Redux Thunk and Redux Saga.
               </li>
               <li>
                 <strong>Usage:</strong> Middleware can be applied when creating
@@ -242,14 +242,18 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Store</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
             A store in Redux serves as the container for the entire state of a
-            web application. A store holds the application&apos;s state, and Redux
-            provides a consistent way to access and update this state.
+            web application. A store holds the application&apos;s state, and
+            Redux provides a consistent way to access and update this state.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -263,7 +267,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Action</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -285,7 +293,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Reducer</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -306,7 +318,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Connect a React component to a Redux store</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -328,7 +344,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Immutability</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -354,14 +374,18 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Redux vs React&apos;s local state.</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
-            The difference between Redux and React&apos;s local state is that Redux
-            provides a global state for the entire application, whereas React&apos;s
-            local state is confined to individual components.
+            The difference between Redux and React&apos;s local state is that
+            Redux provides a global state for the entire application, whereas
+            React&apos;s local state is confined to individual components.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -375,7 +399,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Middleware</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -396,7 +424,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Managing the state of an application</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -417,7 +449,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Pure functions</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -439,7 +475,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>MapStateToProps vs MapDispatchToProps</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -532,7 +572,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>CombineReducers function</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -651,7 +695,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Asynchronous Actions</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -673,7 +721,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Action creator</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -694,7 +746,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Principles</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -715,7 +771,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Debug a Redux application</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -736,7 +796,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Redux Thunk</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -757,7 +821,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Beneficial</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -779,7 +847,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Role of the dispatch function</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -800,7 +872,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Single source of truth</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -822,7 +898,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Advantages</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -843,7 +923,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Traditional Flux</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -864,7 +948,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Predictable state containers</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -885,7 +973,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Selectors</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -906,7 +998,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Time-travel debugging</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -928,7 +1024,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Code splitting </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -949,7 +1049,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Structuring large Redux stores</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -970,7 +1074,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Middleware</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -992,7 +1100,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Server-side rendering </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -1014,7 +1126,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Side-effects </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -1036,7 +1152,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Higher-order reducers</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -1058,7 +1178,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Optimize the performance of mapStateToProps</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -1080,7 +1204,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Normalized state shape</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -1102,7 +1230,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Implications of using multiple stores</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -1124,7 +1256,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Reselect enhance</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -1146,7 +1282,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Pros and Cons of using Immutable.js </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -1168,7 +1308,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Local state vs Global state</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -1355,7 +1499,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Testing Redux applications</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -1376,7 +1524,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Handle form state management</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -1398,7 +1550,11 @@ const HtmlList = () => {
           },
         }}
       >
-        <AccordionSummary aria-controls="panel-content" id="panel-header">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>
             Differences and similarities between Redux Thunk and Redux Saga
           </Typography>
