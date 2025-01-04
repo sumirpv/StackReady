@@ -38,6 +38,119 @@ const JavaScriptList = () => {
         Javascript Concepts Overview
       </Typography>
       <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Scope</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            Scope determines the accessibility (visibility) of variables. <br />
+            JavaScript variables have 3 types of scope:
+            <ul>
+              <li>
+                <strong>Block scope: </strong>
+                Before ES6 (2015), JavaScript variables had only Global Scope
+                and Function Scope.
+                <br />
+                ES6 introduced two important new JavaScript keywords: let and
+                const.
+                <br />
+                These two keywords provide Block Scope in JavaScript.
+                <br />
+                Variables declared inside a {} block cannot be accessed from
+                outside the block
+                <br />
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    {
+                      let x = 2;
+                    }
+                    // x can NOT be used here
+                    {
+                      var x = 2;
+                    }
+                    // x CAN be used here
+                  `}
+                />
+              </li>
+              <li>
+                <strong>Local Scope</strong>
+                Variables declared within a JavaScript function, are LOCAL to
+                the function:
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    // code here can NOT use carName
+
+                    function myFunction() {
+                      let carName = "Volvo";
+                      // code here CAN use carName
+                    }
+
+                    // code here can NOT use carName
+                  `}
+                />
+                Local variables have Function Scope: They can only be accessed
+                from within the function. Since local variables are only
+                recognized inside their functions, variables with the same name
+                can be used in different functions. Local variables are created
+                when a function starts, and deleted when the function is
+                completed.
+              </li>
+              <li>
+                <strong>Function scope: </strong>
+                JavaScript has function scope: Each function creates a new
+                scope.
+                <br />
+                Variables defined inside a function are not accessible (visible)
+                from outside the function.
+                <br />
+                Variables declared with var, let and const are quite similar
+                when declared inside a function.
+                <br />
+                They all have Function Scope:
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    function myFunction() {
+                      var carName = "Volvo";   // Function Scope , can be let and const too
+                    }
+                 `}
+                />
+              </li>
+              <li>
+                <strong>Global scope: </strong>
+                A variable declared outside a function, becomes GLOBAL.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    let carName = "Volvo";
+                    // code here can use carName
+
+                    function myFunction() {
+                    // code here can also use carName
+                    }
+                 `}
+                />
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
         expanded={expanded}
         onChange={handleExpansion}
         sx={{

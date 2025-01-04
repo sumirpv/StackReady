@@ -38,6 +38,79 @@ const InterviewQuestions = () => {
         architecture. These questions are designed to evaluate:
       </Typography>
       <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>client-side vs server-side</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <ul>
+              <li>
+                <strong>Client-side:</strong>
+                {`Client-side refers to processes that are carried out on the user's device, typically in the user's web browser. These processes are executed after the website or web application has been delivered to the user's device, and they can include tasks such as rendering and displaying a web page, handling user interactions, or running JavaScript code.`}
+                <ul>
+                  <li>
+                    When you type text into a form on a website, the input is
+                    processed and displayed on the screen using client-side
+                    JavaScript code running in your browser.
+                  </li>
+                  <li>
+                    Data access:client-side usually only receives processed data
+                    from the server.
+                  </li>
+                  <li>
+                    Faster interaction as it avoids round trips to the server
+                    for certain tasks.
+                  </li>
+                  <li>
+                    Eg: Single-page applications (SPAs) that load content
+                    dynamically.
+                  </li>
+                  <li>
+                    User interaction: Client-side handles the visual elements
+                    and user interactions that are directly visible on the
+                    webpage, like form submissions, button clicks, and page
+                    animations.
+                  </li>
+                  <li>{`Where code executes:
+                  Client-side code runs on the user's computer`}</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Server-side:</strong>
+                {`Server-side refers to processes that are carried out on the web server, where the website or web application is hosted. These processes are typically executed by the server before the website or web application is delivered to the user's device, and they can include tasks such as retrieving data from a database, rendering a web page, or handling user input.`}
+                <ul>
+                  <li>
+                    When you submit the form, the data is sent to the server
+                    where it is validated and stored in a database using
+                    server-side code (like PHP or Python).
+                  </li>
+                  <li>
+                    Data access: Server-side has access to databases and
+                    sensitive information
+                  </li>
+                  <li>
+                    Where code executes:server-side code runs on the web serve
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
         expanded={expanded}
         onChange={handleExpansion}
         sx={{
@@ -191,7 +264,9 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography>Constructor property manipulation or dynamic constructor access</Typography>
+          <Typography>
+            Constructor property manipulation or dynamic constructor access
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
