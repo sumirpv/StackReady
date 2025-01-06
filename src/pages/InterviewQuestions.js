@@ -308,15 +308,28 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Java vs JavaScript</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
-            <CodeSnippet
-              language="javascript"
-              code={`
-         `}
-            />
+            Java is an object Oriented Programming language while JavaScript is
+            a client-side scripting language. Both of them are totally different
+            from each other.
+            <ul>
+              <li>
+                <strong>Java:</strong> It is one of the most popular programming
+                languages. It is an object-oriented programming language and has
+                a virtual machine platform that allows you to create compiled
+                programs that run on nearly every platform. Java promised,
+                “Write Once, Run Anywhere”.
+              </li>
+              <li>
+                <strong>JavaScript:</strong> It is a light-weighted programming
+                language (“scripting language”) for developing interactive web
+                pages. It can insert dynamic text into the HTML elements.
+                JavaScript is also known as the browser’s language.
+              </li>
+            </ul>
           </Typography>
         </AccordionDetails>
       </Accordion>
