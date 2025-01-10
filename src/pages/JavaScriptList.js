@@ -5615,6 +5615,129 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Pure Function</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            A pure function is a function that has the following
+            characteristics:
+            <ul>
+              <li>
+                Deterministic: Given the same inputs, it always produces the
+                same output.
+              </li>
+              <li>
+                No Side Effects: It does not modify any external state or rely
+                on external state changes. It doesn’t alter variables, files,
+                databases, or other objects outside its scope.
+              </li>
+              <li>
+                Referential Transparency: It can be replaced by its result
+                without changing the behavior of the program.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function add(a, b) {
+                    return a + b; // Always returns the same result for the same inputs
+                }
+            `}
+            />
+            Impure Funtion <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                let counter = 0;
+                  function increment() {
+                      counter++; // Modifies external state (side effect)
+                      return counter;
+                  }
+              `}
+            />
+            Pure functions are central to functional programming because they
+            are predictable, testable, and easier to debug.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
     </Container>
   );
 };
