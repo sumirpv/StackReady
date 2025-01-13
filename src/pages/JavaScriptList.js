@@ -5671,7 +5671,8 @@ const JavaScriptList = () => {
               `}
             />
             Pure functions are central to functional programming because they
-            are predictable, testable, and easier to debug.
+            are predictable, testable, and easier to debug. Redux redcer
+            functions are pure function.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -5690,10 +5691,44 @@ const JavaScriptList = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Function Composition</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography sx={{ fontWeight: 300 }}></Typography>
+          <Typography sx={{ fontWeight: 300 }}>
+            Function composition is a powerful technique that allows developers
+            to combine multiple functions into a single function. This
+            compositional approach promotes code reuse, modularity, and
+            readability. In JavaScript, the compose function plays a central
+            role in enabling function composition.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const add5 = (x) => x + 5;
+                const multiplyBy3 = (x) => x * 3;
+                const subtract10 = (x) => x - 10;
+
+                const composedFunction = compose(subtract10, multiplyBy3, add5);
+                const result = composedFunction(7);
+
+                console.log(result); // Output: 36
+              `}
+            />
+            <strong>Benefits of Function Composition:</strong>
+            <ul>
+              <li>
+                <strong>Reusability:</strong> Small, reusable functions can be
+                combined in different ways.
+              </li>
+              <li>
+                <strong>Modularity:</strong> Code becomes easier to maintain and
+                debug.
+              </li>
+              <li>
+                <strong>Readability:</strong> Complex operations are broken into
+                simpler, understandable steps.
+              </li>
+            </ul>
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion
@@ -5711,10 +5746,118 @@ const JavaScriptList = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Functional Programming</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography sx={{ fontWeight: 300 }}></Typography>
+          <Typography sx={{ fontWeight: 300 }}>
+            (FP) is a programming paradigm focused on writing code by composing
+            pure functions, avoiding shared state, and emphasizing immutability.
+            It treats computation as the evaluation of mathematical functions
+            and avoids changing state or mutable data.
+            <strong>Key Principles of Functional Programming:</strong>
+            <ul>
+              <li>
+                Pure Functions:
+                <ul>
+                  <li>
+                    A function is pure if its output depends only on its input
+                    and it has no side effects.
+                  </li>
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      const add = (a, b) => a + b; // Pure function
+                    `}
+                  />
+                </ul>
+              </li>
+              <li>
+                Immutability:
+                <ul>
+                  <li>
+                    Data cannot be changed after it is created; instead, new
+                    data structures are created.
+                  </li>
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      const arr = [1, 2, 3];
+                      const newArr = [...arr, 4]; // Original array remains unchanged
+                    `}
+                  />
+                </ul>
+              </li>
+              <li>
+                First-Class Functions:
+                <ul>
+                  <li>
+                    Functions are treated as first-class citizens, meaning they
+                    can be assigned to variables, passed as arguments, or
+                    returned from other functions.
+                  </li>
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      const greet = () => "Hello!";
+                      const callGreet = (fn) => fn();
+                      console.log(callGreet(greet)); // Output: Hello!
+                    `}
+                  />
+                </ul>
+              </li>
+              <li>
+                Higher-Order Functions:
+                <ul>
+                  <li>
+                    Functions that take other functions as arguments or return
+                    them as results.
+                  </li>
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      const double = (n) => n * 2;
+                      const mapArray = (arr, fn) => arr.map(fn);
+                      console.log(mapArray([1, 2, 3], double)); // Output: [2, 4, 6]
+                    `}
+                  />
+                </ul>
+              </li>
+              <li>
+                Declarative Code:
+                <ul>
+                  <li>
+                    Focuses on what to do rather than how to do it, making code
+                    more readable.
+                  </li>
+                  <CodeSnippet
+                    language="javascript"
+                    code={`
+                      // Imperative
+                      let sum = 0;
+                      const nums = [1, 2, 3];
+                      for (let i = 0; i < nums.length; i++) {
+                        sum += nums[i];
+                      }
+                      console.log(sum); // 6
+
+                      // Declarative
+                      const sumNums = nums.reduce((acc, val) => acc + val, 0);
+                      console.log(sumNums); // 6
+                    `}
+                  />
+                </ul>
+              </li>
+            </ul>
+            <strong>Advantages of Functional Programming:</strong>
+            <ul>
+              <li>Easier debugging and testing due to pure functions.</li>
+              <li>Enhanced code readability and maintainability.</li>
+              <li>
+                Better scalability for parallel and concurrent processing.
+              </li>
+              <li>Avoids side effects, reducing bugs.</li>
+            </ul>
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion
