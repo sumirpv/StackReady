@@ -5875,6 +5875,346 @@ const JavaScriptList = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
+          <Typography>Mutable vs Immutable objects</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <strong>Mutable Objects</strong>
+            Mutable objects can have their content or state changed after they
+            are created.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                //Objects:
+                const person = { name: "Alice" };
+                person.name = "Bob"; // The 'person' object is mutated.
+                console.log(person); // { name: "Bob" }
+
+                //Arrays:
+                const numbers = [1, 2, 3];
+                numbers.push(4); // The 'numbers' array is mutated.
+                console.log(numbers); // [1, 2, 3, 4]
+              `}
+            />
+            <strong>Characteristics:</strong>
+            <ul>
+              <li>Changes affect the original reference. </li>
+              <li>Can lead to side effects, making debugging more complex. </li>
+              <li>
+                Useful in certain scenarios where performance is critical.
+              </li>
+            </ul>
+            <strong>Immutable Objects</strong>
+            Immutable objects cannot be modified after creation. Any
+            modification creates a new object or value.
+            <ul>
+              <li>
+                Primitive Data Types (Immutable by Default): Strings, Numbers,
+                Booleans, null, undefined, Symbols.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const name = "Alice";
+                    const newName = name.replace("A", "E");
+                    console.log(name); // "Alice" (original remains unchanged)
+                    console.log(newName); // "Elice"
+                  `}
+                />
+              </li>
+              <li>
+                Using Libraries for Immutable Data Structures: Libraries like
+                Immutable.js and Immer provide immutable data structures.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const { produce } = require("immer");
+
+                    const person = { name: "Alice" };
+                    const updatedPerson = produce(person, (draft) => {
+                      draft.name = "Bob";
+                    });
+
+                    console.log(person); // { name: "Alice" }
+                    console.log(updatedPerson); // { name: "Bob" }
+                  `}
+                />
+              </li>
+              <li>
+                Arrays (Using Non-Mutating Methods):
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                    const numbers = [1, 2, 3];
+                    const newNumbers = [...numbers, 4]; // Spread operator creates a new array.
+                    console.log(numbers); // [1, 2, 3] (original unchanged)
+                    console.log(newNumbers); // [1, 2, 3, 4]
+                  `}
+                />
+              </li>
+            </ul>
+            <strong>Characteristics:</strong>
+            <ul>
+              <li>Promotes predictability and avoids side effects.</li>
+              <li>Easier to debug and test.</li>
+              <li>
+                Slightly more memory-intensive due to the creation of new
+                objects.
+              </li>
+            </ul>
+            <strong> Mutating Methods:</strong>
+            <ul>
+              <li>Arrays: push(), pop(), splice(), sort(), reverse()</li>
+              <li>
+                Objects: Direct property assignment or Object.assign() (without
+                cloning)
+              </li>
+            </ul>
+            <strong>Non-Mutating Methods:</strong>
+            <ul>
+              <li>Arrays: concat(), slice(), map(), filter()</li>
+              <li>
+                Objects: Spread operator (...), Object.assign() (with cloning)
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Currying function</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            Currying is a functional programming technique where a function is
+            transformed into a series of functions, each taking a single
+            argument. Instead of taking all arguments at once, the function
+            takes them one by one and returns a new function until all arguments
+            are provided.
+            <br />
+            A curried function breaks down a function that takes multiple
+            arguments into a series of nested functions. Each function takes one
+            argument and returns another function until all arguments are
+            supplied. Once all arguments are provided, the final result is
+            computed.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                // Non-curried function:
+                function add(a, b) {
+                  return a + b;
+                }
+                console.log(add(2, 3)); // 5
+
+                //Curried version:
+                function add(a) {
+                  return function (b) {
+                    return a + b;
+                  };
+                }
+
+                // Usage
+                const addTwo = add(2); // Returns a new function
+                console.log(addTwo(3)); // 5
+                console.log(add(2)(3)); // 5 (direct invocation)
+              `}
+            />
+            <strong>Benefits of Currying</strong>
+            <ul>
+              <li>
+                <strong>Reusability: </strong>
+                You can create specialized versions of a function by partially
+                applying arguments.
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                        const multiply = (a) => (b) => a * b;
+
+                        const double = multiply(2); // Partially applied function
+                        console.log(double(5)); // 10
+                      `}
+                />
+              </li>
+              <li>
+                <strong>Functional Composition: </strong>
+                Currying simplifies combining functions to create more complex
+                ones.
+              </li>
+              <li>
+                <strong>Avoiding Repetition: </strong>Useful when dealing with
+                repetitive tasks that share some arguments.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Temporal Dead Zone</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            The Temporal Dead Zone(TDZ) is a specific period or area of a block
+            where a variable is inaccessible until it has been initialized with
+            a value. This behavior in JavaScript that occurs when declaring a
+            variable with the let and const keywords, but not with var. In
+            ECMAScript 6, accessing a let or const variable before its
+            declaration (within its scope) causes a ReferenceError.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function somemethod() {
+                  console.log(counter1); // undefined
+                  console.log(counter2); // ReferenceError
+                  var counter1 = 1;
+                  let counter2 = 2;
+                }
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Hoisting</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            Hoisting is a JavaScript mechanism where variable, function, and
+            class declarations are moved to the top of their scope during the
+            compilation phase, before the code execution begins. This means you
+            can use these declarations in your code before they appear in the
+            source.
+            <br />
+            Variables with var
+            <CodeSnippet
+              language="javascript"
+              code={`
+                console.log(a); // undefined (hoisted declaration)
+                var a = 10;
+                console.log(a); // 10
+              `}
+            />
+            Variables with let and const
+            <CodeSnippet
+              language="javascript"
+              code={`
+                console.log(b); // ReferenceError: Cannot access 'b' before initialization
+                let b = 20;
+
+                console.log(c); // ReferenceError: Cannot access 'c' before initialization
+                const c = 30;
+              `}
+            />
+            Function Declarations
+            <CodeSnippet
+              language="javascript"
+              code={`
+                sayHello(); // "Hello, world!"
+                function sayHello() {
+                  console.log("Hello, world!");
+                }
+              `}
+            />
+            Function Expressions
+            <CodeSnippet
+              language="javascript"
+              code={`
+                sayHi(); // TypeError: sayHi is not a function
+                var sayHi = function () {
+                  console.log("Hi!");
+                };
+              `}
+            />
+            Class Declarations
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const obj = new MyClass(); // ReferenceError: Cannot access 'MyClass' before initialization
+                class MyClass {
+                  constructor() {
+                    this.name = "Class Example";
+                  }
+                }
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
