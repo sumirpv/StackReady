@@ -52,6 +52,48 @@ const JavaScriptList = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
+          <Typography>Features of Javascript</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            JavaScript is a versatile and widely used programming language with
+            various features that make it a cornerstone of modern web
+            development. Here are some of its key features:
+            <ul>
+              <li>
+                Lightweight and Interpreted:{" "}
+                {`JavaScript is lightweight and doesn't require a compilation step. It is interpreted by browsers at runtime, which makes it fast and easy to work with.`}
+              </li>
+              <li>Dynamic Typing</li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Scope</Typography>
         </AccordionSummary>
         <AccordionDetails>
