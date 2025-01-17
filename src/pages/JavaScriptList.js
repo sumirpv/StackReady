@@ -65,15 +65,15 @@ const JavaScriptList = () => {
                 {`JavaScript is lightweight and doesn't require a compilation step. It is interpreted by browsers at runtime, which makes it fast and easy to work with.`}
               </li>
               <li>Dynamic Typing</li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
+              <li>Object-Oriented Programming (OOP)</li>
+              <li>First-Class Functions</li>
+              <li>Event-Driven Programming</li>
+              <li>Asynchronous and Non-Blocking</li>
+              <li>Platform Independence</li>
+              <li>Browser Compatibility</li>
+              <li>Built-In Libraries and APIs</li>
+              <li>Prototypal Inheritance</li>
+              <li>ES6 and Modern Features</li>
             </ul>
           </Typography>
         </AccordionDetails>
@@ -6236,10 +6236,39 @@ const JavaScriptList = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Typed Language</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography sx={{ fontWeight: 300 }}></Typography>
+          <Typography sx={{ fontWeight: 300 }}>
+            A typed language is a programming language in which data types are
+            explicitly defined or inferred. This means that variables,
+            functions, and expressions have specific types, which dictate the
+            kind of data they can handle and how operations are performed.
+            <ul>
+              <li>
+                <strong>Statically Typed:</strong>
+                {`Types are checked at compile-time (e.g., TypeScript, Java, C++). Errors related to types are caught before running the program.`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                        //typescript
+                        let age: number = 30; // Type is explicitly defined
+                       `}
+                />
+              </li>
+              <li>
+                <strong>Dynamically Typed:</strong>
+                {`Types are checked at runtime (e.g., JavaScript, Python, Ruby). This provides flexibility but may lead to runtime errors.`}
+                <CodeSnippet
+                  language="javascript"
+                  code={`
+                        //javascript
+                        let age = 30; // Type is inferred and flexible
+                       `}
+                />
+              </li>
+            </ul>
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion
