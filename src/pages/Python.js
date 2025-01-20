@@ -640,7 +640,6 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      Which collection does not allow duplicate members
       <Accordion
         sx={{
           marginBottom: 2,
@@ -736,7 +735,7 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion
+      {/* <Accordion
         sx={{
           marginBottom: 2,
           borderRadius: 2,
@@ -1004,7 +1003,7 @@ const HtmlList = () => {
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}></Typography>
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
     </Container>
   );
 };

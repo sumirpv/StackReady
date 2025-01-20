@@ -333,7 +333,7 @@ const InterviewQuestions = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion
+      {/* <Accordion
         sx={{
           marginBottom: 2,
           borderRadius: 2,
@@ -575,7 +575,7 @@ const InterviewQuestions = () => {
             />
           </Typography>
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
       <Accordion
         sx={{
           marginBottom: 2,

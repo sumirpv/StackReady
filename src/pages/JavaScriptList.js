@@ -6271,7 +6271,7 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion
+      {/* <Accordion
         sx={{
           marginBottom: 2,
           borderRadius: 2,
@@ -6291,7 +6291,7 @@ const JavaScriptList = () => {
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}></Typography>
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
     </Container>
   );
 };
