@@ -359,7 +359,8 @@ const HtmlList = () => {
             <strong>Example</strong>
             <br />
             {`When submitting a form that includes a file, you need to set the
-            enctype attribute of the form to "multipart/form-data"`}.
+            enctype attribute of the form to "multipart/form-data"`}
+            .
             <CodeSnippet
               language="javascript"
               code={`
@@ -374,8 +375,8 @@ const HtmlList = () => {
                 </form>
                  `}
             />
-            enctype={`"multipart/form-data"`}: This tells the browser to encode the
-            form data as multipart/form-data, which is required for file
+            enctype={`"multipart/form-data"`}: This tells the browser to encode
+            the form data as multipart/form-data, which is required for file
             uploads. The form contains a text input (username) and a file input
             (file).
           </Typography>
@@ -1170,16 +1171,19 @@ const HtmlList = () => {
             Types of button
             <ul>
               <li>
-                <strong>Submit Button:</strong> {`If the button is used in a form,
+                <strong>Submit Button:</strong>{" "}
+                {`If the button is used in a form,
                 its default type is "submit", which submits the form data when
                 clicked.`}
               </li>
               <li>
-                <strong>Reset Button:</strong> {`You can set the type to "reset"
+                <strong>Reset Button:</strong>{" "}
+                {`You can set the type to "reset"
                 to clear the form inputs.`}
               </li>
               <li>
-                <strong>Button:</strong> {`The default type is "button", which
+                <strong>Button:</strong>{" "}
+                {`The default type is "button", which
                 does not submit the form and is typically used for custom
                 JavaScript actions.`}
               </li>

@@ -1320,6 +1320,23 @@ const JavaScriptList = () => {
               console.log(newFruits); // Output: ['apple', 'banana', 'orange']
               `}
             />
+            <strong>splice vs toSpliced()</strong>
+            <CodeSnippet
+              language="javascript"
+              code={`
+              //splice vs toSpliced()
+              let orgArr = [1, 2, 3, 4, 5]
+              let newArr = orgArr.splice(2, 2, "a", "b")
+              console.log("orgArr= ", orgArr) // "orgArr= ", [1, 2, "a", "b", 5]   orgArr changed
+              console.log("newArr = ", newArr) //"newArr = ", [3, 4]
+
+              let orgArr1 = [1, 2, 3, 4, 5]
+              let newArr1 = orgArr1.toSpliced(2, 2, "a", "b")
+              console.log("orgArr1 = ", orgArr1) //"orgArr1 = ", [1, 2, 3, 4, 5] orgArr1 not changed
+              console.log("newArr1 = ", newArr1) //"newArr1 = ", [1, 2, "a", "b", 5]
+
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1672,6 +1689,32 @@ const JavaScriptList = () => {
             />
             {`In this example, because username is an empty string (falsy),
             displayName is assigned the value "Guest".`}
+            <strong>Example: Truthy vs Falsy</strong>
+            <br />
+            <CodeSnippet
+              language="javascript"
+              code={`
+
+              const values = [false, 0, "", null, undefined, NaN, 42, "hello", [], {}];
+                values.forEach(value => {
+                  console.log({value}: {Boolean(value)}); //add ticks and $ sign in front of the value and add : in front of the Boolean(value) and backticks at the end
+                  });
+
+
+                //output
+                false: false
+                0: false
+                : false
+                null: false
+                undefined: false
+                NaN: false
+                42: true
+                hello: true
+                : true
+                [object Object]: true
+
+                     `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1845,19 +1888,23 @@ const JavaScriptList = () => {
             <CodeSnippet
               language="javascript"
               code={`
-              const person = {
-                name: 'Frank',
-                greet: function() {
-                  const innerFunction = () => {
-                    console.log(this.name);
-                  };
-                  innerFunction();
-                }
-              };
+               const obj = {
+                  name: "John",
+                  regularFunc: function () {
+                    console.log("Regular Function:", this.name);
+                  },
+                  arrowFunc: () => {
+                    console.log("Arrow Function:", this.name);
+                  },
+                };
 
-              person.greet(); // Logs "Frank"
-            `}
+                obj.regularFunc(); // Output: "Regular Function: John"
+                obj.arrowFunc();   // Output: "Arrow Function: undefined"
+              `}
             />
+            Regular function: this refers to obj. Arrow function: this is
+            inherited from the surrounding scope, which in this case is the
+            global scope (window in browsers, undefined in strict mode).
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -2483,10 +2530,12 @@ const JavaScriptList = () => {
                   b: 2,
                 };
 
-                Object.defineProperty(obj, 'c', {
-                  value: 3,
-                  enumerable: false
-                });
+                Object.defineProperties(obj, {
+                  c: {
+                    value: 3,
+                    enumerable: false,
+                  },
+                })
 
                 const symbolKey = Symbol('key');
                 obj[symbolKey] = 'value';
@@ -2666,7 +2715,9 @@ const JavaScriptList = () => {
                 const arrayFromIterable = Array.from('hello');
                 // Creates an array from an iterable (e.g., string)
                 const arrayFromFunction = Array.from({ length: 5 }, (v, i) => i * 2); // v or _
-                // [0, 1, 2, 3, 4]
+                // [0, 2, 4, 6, 8]
+
+                const arrayFromFunction = Array.from({ length: 5 }, (v, i) => i); //[0, 1, 2, 3, 4]
             `}
             />
           </Typography>
@@ -6296,4 +6347,5 @@ const JavaScriptList = () => {
   );
 };
 
+//parseInt() vs toString()
 export default JavaScriptList;

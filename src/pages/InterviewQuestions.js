@@ -333,7 +333,7 @@ const InterviewQuestions = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      {/* <Accordion
+      <Accordion
         sx={{
           marginBottom: 2,
           borderRadius: 2,
@@ -348,15 +348,543 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Reverse String</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
             <CodeSnippet
               language="javascript"
               code={`
+                const reverseStr = (str) => {
+                  let reverse = ""
+                    for( let i =str.length - 1; i >= 0 ; i--){
+                      reverse += str[i]
+                    }
+                  return reverse
+                }
+
+                console.log(reverseStr("Apple")) //"elppA"
+             `}
+            />
+
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const reverseStr = (str) => {
+                  return str.split("").reverse().join("");
+                }
+
+                console.log(reverseStr("apple")); // "elppa"
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Palindrome</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const palindrome = (str) => {
+                  return str.split("").every((char, i) => {
+                      return char === str[str.length - i - 1]
+                    })
+                  }
+
+                  console.log(palindrome("mom")) //"mom"
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const palindrome = (str) => {
+                  return str.split("").reverse().join("") === str
+                }
+
+                console.log(palindrome("mom")) //"mom"
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Find long word from sentence</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const findLongWord = (str) => {
+                  let word = ""
+                  for (let newStr of str.split(" ")) {
+                    console.log("new", word, newStr)
+                    if (newStr.length > word.length) {
+                      console.log("here")
+                      word = newStr
+                      }
+                    }
+                    return word
+                  }
+
+                  console.log(findLongWord("I love you too more and more every day!")) //"every"
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Remove Duplicates from Array</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const removeDuplicates = (arr) => {
+                  let noDuplicateArr = [];
+                  for( let i =0; i < arr.length ; i++){
+                    if(noDuplicateArr.indexOf(arr[i]) === -1){
+                      noDuplicateArr.push(arr[i]);
+                    }
+                  }
+                  return noDuplicateArr;
+                }
+
+                console.log(removeDuplicates([2, 6, 1, 6, 3, 1, 4])) //[2, 6, 1, 3, 4]
+             `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const removeDuplicates = (arr) => {
+                  return [... new Set(arr)];
+                }
+
+                console.log(removeDuplicates([2, 6, 1, 6, 3, 1, 4])) //[2, 6, 1, 3, 4]
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Vowel Count</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const vowelCount = (str) => {
+                let vowels = ["a", "e", "i", "o", "u"]
+                let count = 0
+
+                for (let char of str.toLowerCase()) {
+                  if (vowels.includes(char)) {
+                    count++
+                  }
+                }
+                return count
+              }
+
+              console.log(vowelCount("hello world")) //3
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Anagrams</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const anagrams = (str1, str2) => {
+                  let first = str1.split("").sort().join("")
+                  let second = str2.split("").sort().join("")
+                  return first === second
+                }
+
+                console.log(anagrams("listen", "silent"));//true
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Find largest number in array</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const findLargestNum = (arr) => {
+                  let largeNum = 0
+                  for (let num of arr) {
+                    if (largeNum < num) {
+                      largeNum = num
+                    }
+                  }
+                  return largeNum
+                }
+
+                console.log(findLargestNum([2, 8, 1, 7, 4, 9, 10, 23]))  //23
          `}
             />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Find Prime number and list all prime numbers</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                  const isPrime = (n) => {
+                    if (n < 2) return false
+
+                    for (let i = 2; i * i <= n ; i++) {
+                      if (n % i === 0) {
+                        return false
+                      }
+                    }
+                    return true
+                  }
+
+                  console.log(isPrime(6)) //false
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+
+                const isPrime = (n) => {
+                  if (n < 2) return false
+
+                  for (let i = 2; i * i  <= n ; i++) {
+                    if (n % i === 0) return false
+                  }
+                  return true
+                }
+
+                const listPrime = (num) => {
+                let list = [];
+
+                  for (let i = 2; i < num; i++) {
+                    if (isPrime(i)) {
+                      list.push(i)
+                    }
+                  }
+                      return list
+                }
+
+
+                console.log(listPrime(10)) //[2, 3, 5, 7]
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Factorial number</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            {` The product of all positive integers less than or equal to a given positive integer and denoted by that integer and an exclamation point. Thus, factorial seven is written 7!, meaning 1 × 2 × 3 × 4 × 5 × 6 × 7.`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const factorialNum = (n) => {
+
+                if( n === 0 || n === 1) return 1;
+                return n * factorialNum(n - 1);
+
+                }
+
+                console.log(factorialNum(5)) //120
+             `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Is even number and list even number</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const isEvenNum = (n) => {
+
+                  if( n % 2 === 0 ) return true;
+                  return false;
+
+                  }
+
+                  console.log(isEvenNum(4)) //true
+            `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const listEvn = (n) => {
+                  let nums = []
+
+                  for (let i = 2; i <= n; i++) {         //for (let i = 2; i <= n; i += 2) {
+                    if (i % 2 === 0) {
+                      nums.push(i)
+                    }
+                  }
+                  return nums
+                }
+
+                console.log(listEvn(9)) //[2, 4, 6, 8]
+             `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography> Find large number in nested array</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const largestEle = (nestedArr) => {
+                  let arr = nestedArr.flat(2)
+
+                    return  Math.max(...arr)
+                  }
+
+                  const nestedArray = [1, [3, 5, [7, 9]], 2, [6, 8]];
+
+                  console.log(largestEle(nestedArray)) //[2, 3, 5, 7]
+                `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Optimize frontend performance</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <ul>
+              <li>
+                <strong>Code Splitting & Lazy Loading:</strong> By splitting the
+                code into smaller modules and initially loading only the
+                required components, developers can prioritize essential
+                functionality and improve perceived performance. Bundling
+                multiple files into one file also minimizes the required HTTP
+                requests, leading to faster load times. Code-Splitting is a
+                feature supported by bundlers like Webpack.
+              </li>
+              <li>
+                <strong>Minify & Compress Assets:</strong>Minification involves
+                removing unnecessary characters such as white spaces, comments,
+                and line breaks from the code, reducing its size. Conversely,
+                compression involves compressing the code files using algorithms
+                like Gzip, reducing the overall file size and enhancing download
+                speed.
+                <ul>
+                  <li>Use Webpack/Terser to minify JS & CSS.</li>
+                  <li>
+                    Gzip/Brotli compression (server-side) reduces bundle sizes.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Caching:</strong>Caching involves storing frequently
+                accessed data, such as images, scripts, and stylesheets, in the
+                user’s browser or a content delivery network (CDN). Utilizing
+                browser caching headers, setting appropriate expiration times,
+                and employing techniques like CDN caching can greatly enhance
+                front-end performance.
+              </li>
+              <li>
+                <strong>Optimize Rendering Performance:</strong>Avoid
+                Unnecessary Re-renders by using React.memo to prevent re-renders
+                when props don’t change. Use useMemo when an expensive function
+                re-runs unnecessarily. Use useCallback to prevent function
+                re-creation. Use React.lazy and Suspense for code splitting and
+                lazy loading.
+              </li>
+              <li>
+                <strong> Optimize Network Requests: </strong>Reduce API Calls &
+                Use Caching by Debounce/throttle API calls to avoid excessive
+                requests. Use HTTP/2 or GraphQL for Efficient Data Fetching
+              </li>
+              <li>
+                <strong>Optimize Runtime Performance: </strong> Use GPU
+                acceleration and Web Workers for expensive computations.
+              </li>
+              <li>Optimize images, fonts, and enable compression</li>
+            </ul>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -495,87 +1023,6 @@ const InterviewQuestions = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion
-        sx={{
-          marginBottom: 2,
-          borderRadius: 2,
-          boxShadow: 3,
-          "&:hover": {
-            boxShadow: 6,
-          },
-        }}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel-content"
-          id="panel-header"
-        >
-          <Typography></Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography sx={{ fontWeight: 300 }}>
-            <CodeSnippet
-              language="javascript"
-              code={`
-         `}
-            />
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        sx={{
-          marginBottom: 2,
-          borderRadius: 2,
-          boxShadow: 3,
-          "&:hover": {
-            boxShadow: 6,
-          },
-        }}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel-content"
-          id="panel-header"
-        >
-          <Typography></Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography sx={{ fontWeight: 300 }}>
-            <CodeSnippet
-              language="javascript"
-              code={`
-         `}
-            />
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        sx={{
-          marginBottom: 2,
-          borderRadius: 2,
-          boxShadow: 3,
-          "&:hover": {
-            boxShadow: 6,
-          },
-        }}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel-content"
-          id="panel-header"
-        >
-          <Typography></Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography sx={{ fontWeight: 300 }}>
-            <CodeSnippet
-              language="javascript"
-              code={`
-         `}
-            />
-          </Typography>
-        </AccordionDetails>
-      </Accordion> */}
       <Accordion
         sx={{
           marginBottom: 2,
