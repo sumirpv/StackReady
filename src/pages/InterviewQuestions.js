@@ -762,6 +762,7 @@ const InterviewQuestions = () => {
             <CodeSnippet
               language="javascript"
               code={`
+                //Print all even numbers from 0 – n
                 const listEvn = (n) => {
                   let nums = []
 
@@ -903,14 +904,36 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Fibonacci sequence</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
             <CodeSnippet
               language="javascript"
               code={`
-         `}
+                const fibonacci = (num) => {
+                    if (num <= 0) {
+                      return []
+                    }
+                    if (num === 1) {
+                      return [0]
+                    }
+                    if (num === 2) {
+                      return [0, 1]
+                    }
+
+                    let fib = [0, 1]
+
+                    for (let i = 2; i < num; i++) {
+                      fib.push(fib[i - 1] + fib[i - 2])
+                    }
+
+                    return fib
+                  }
+
+                  console.log(fibonacci(8)) //[0, 1, 1, 2, 3, 5, 8, 13]
+
+              `}
             />
           </Typography>
         </AccordionDetails>
@@ -930,14 +953,33 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Capitalize the first letter of each word</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
             <CodeSnippet
               language="javascript"
               code={`
-         `}
+                const titleCase = (str) => {
+                  let sent = []
+                  for (let word of str.split(" ")) {
+                    sent.push(word.charAt(0).toUpperCase() + word.slice(1))
+                  }
+                  return sent.join(" ")
+                }
+
+                console.log(titleCase("this is the first test")) //"This Is The First Test"
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const titleCase = (str) => {
+                  return str.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)). join(" ");
+                }
+
+                console.log(titleCase("this is the second test")) //"This Is The Second Test"
+              `}
             />
           </Typography>
         </AccordionDetails>
@@ -957,10 +999,11 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Debounce</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+          Debouncing is a technique used to delay the execution of a function until after a certain period of inactivity. It is commonly used in scenarios like search inputs, resize events, and button clicks to optimize performance and prevent unnecessary function calls.
             <CodeSnippet
               language="javascript"
               code={`
