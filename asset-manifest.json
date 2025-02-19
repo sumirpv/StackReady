@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/StackReady/static/js/main.de667ed2.js",
+    "main.js": "/StackReady/static/js/main.600d6a61.js",
     "static/media/interview-prep.jpg": "/StackReady/static/media/interview-prep.f8cbd8c89acb69a90d19.jpg",
     "index.html": "/StackReady/index.html",
-    "main.de667ed2.js.map": "/StackReady/static/js/main.de667ed2.js.map"
+    "main.600d6a61.js.map": "/StackReady/static/js/main.600d6a61.js.map"
   },
   "entrypoints": [
-    "static/js/main.de667ed2.js"
+    "static/js/main.600d6a61.js"
   ]
 }
