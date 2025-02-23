@@ -68,7 +68,13 @@ const TestInfo = () => {
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography sx={{ fontWeight: 300 }}></Typography>
+          <Typography sx={{ fontWeight: 300 }}>
+          <CodeSnippet
+            language="javascript"
+            code={`
+            `}
+          />
+          </Typography>
         </AccordionDetails>
       </Accordion>
 

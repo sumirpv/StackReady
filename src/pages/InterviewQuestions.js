@@ -399,6 +399,16 @@ const InterviewQuestions = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+            <strong>Directions:</strong> <br />
+            Given a string, return true if the string is a palindrome or false
+            if it is not. Palindromes are strings that form the same word if it
+            is reversed. *Do* include spaces and punctuation in determining if
+            the string is a palindrome.
+            <br />
+            <strong>Examples:</strong> <br />
+            {`palindrome("abba") === true`}
+            <br />
+            {`palindrome("abcdefg") === false`}
             <CodeSnippet
               language="javascript"
               code={`
@@ -420,6 +430,23 @@ const InterviewQuestions = () => {
 
                 console.log(palindrome("mom")) //"mom"
             `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function palindrome(str) {
+                  let start = 0;
+                  let end = str.length -1;
+                  while(start < end){
+                    if(str[start] !== str[end]){
+                      return false;
+                    };
+                    start++;
+                    end--;
+                  }
+                  return true;
+                }
+              `}
             />
           </Typography>
         </AccordionDetails>
@@ -571,6 +598,18 @@ const InterviewQuestions = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+            <strong>Directions:</strong> <br />
+            Check to see if two provided strings are anagrams of eachother. One
+            string is an anagram of another if it uses the same characters in
+            the same quantity. Only consider characters, not spaces or
+            punctuation. Consider capital letters to be the same as lower case.
+            <br />
+            <strong>Examples</strong> <br />
+            {`anagrams('rail safety', 'fairy tales') --> True`}
+            <br />
+            {`anagrams('RAIL! SAFETY!', 'fairy tales') --> True`}
+            <br />
+            {`anagrams('Hi there', 'Bye there') --> False`}
             <CodeSnippet
               language="javascript"
               code={`
@@ -582,6 +621,55 @@ const InterviewQuestions = () => {
 
                 console.log(anagrams("listen", "silent"));//true
               `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                  function anagrams(stringA, stringB) {
+                    return cleanStr(stringA) === cleanStr(stringB)
+                  }
+
+                  const cleanStr = (str) => {
+                    return str.replace(/[^\w]/g,'').toLowerCase().split('').sort().join('');
+                  }
+
+                  console.log("anagrams", anagrams('rail safety', 'fairy tales'))  //"anagrams", true
+                `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                  function anagrams(stringA, stringB) {
+                    const charmap = (str) => {
+                      const char = {}
+                      for (let val of str.replace(/[^\w]/g, "").toLowerCase()) {
+                        if (char[val]) {
+                          char[val]++
+                        } else {
+                          char[val] = 1
+                        }
+                      }
+                      return char
+                    }
+
+                    const obj1 = charmap(stringA)
+                    const obj2 = charmap(stringB)
+
+                    if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+                      return false
+                    }
+
+                    for (let ch in obj1) {
+                      if (obj1[ch] !== obj2[ch]) {
+                        return false
+                      }
+                    }
+                    return true
+                  }
+
+                  console.log("anagrams", anagrams("rail safety", "fairy tales")) //"anagrams", true
+
+                `}
             />
           </Typography>
         </AccordionDetails>
@@ -935,6 +1023,37 @@ const InterviewQuestions = () => {
 
               `}
             />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function fib(n) {
+                  const result = [0, 1];
+                  for (let i = 2; i <= n; i++) {
+                    const a = result[i - 1];
+                    const b = result[i - 2];
+                    result.push(a + b);
+                  }
+                  return result[result.length - 1];
+                }
+
+
+                console.log("fib", fib(10)) //"fib", 55
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function fib(n) {
+                  if (n < 2) {
+                    return n;
+                  }
+
+                  return fib(n - 1) + fib(n - 2);
+                }
+
+                console.log("fib", fib(10)) //"fib", 55
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -957,6 +1076,19 @@ const InterviewQuestions = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+            <strong>Directions:</strong>
+            <br />
+            Write a function that accepts a string. The function should
+            capitalize the first letter of each word in the string then return
+            the capitalized string.
+            <br />
+            <strong>Examples</strong>
+            <br />
+            {`capitalize('a short sentence') --> 'A Short Sentence'`}
+            <br />
+            {`capitalize('a lazy fox') --> 'A Lazy Fox'`}
+            <br />
+            {`capitalize('look, it is working!') --> 'Look, It Is Working!'`}
             <CodeSnippet
               language="javascript"
               code={`
@@ -981,6 +1113,36 @@ const InterviewQuestions = () => {
                 console.log(titleCase("this is the second test")) //"This Is The Second Test"
               `}
             />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function capitalize(str) {
+                    const words = [];
+                    for (let element of str.split(" ")) {
+                      words.push(element[0].toUpperCase() + element.slice(1));
+                    }
+                    return words.join(" ");
+                  }
+                  console.log(capitalize("this is the third test")) //"This Is The Third Test"
+                `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function capitalize(str) {
+                  let words = str[0].toUpperCase();
+                  for (let i = 1; i < str.length; i++) {
+                    if (str[i - 1] === " ") {
+                      words += str[i].toUpperCase();
+                    } else {
+                      words += str[i];
+                    }
+                  }
+                  return words;
+                }
+                console.log(capitalize("this is the fourth test")) //"This Is The Fourth Test"
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1003,7 +1165,10 @@ const InterviewQuestions = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
-          Debouncing is a technique used to delay the execution of a function until after a certain period of inactivity. It is commonly used in scenarios like search inputs, resize events, and button clicks to optimize performance and prevent unnecessary function calls.
+            Debouncing is a technique used to delay the execution of a function
+            until after a certain period of inactivity. It is commonly used in
+            scenarios like search inputs, resize events, and button clicks to
+            optimize performance and prevent unnecessary function calls.
             <CodeSnippet
               language="javascript"
               code={`
@@ -1027,14 +1192,60 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Chunk</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+            <strong>Directions:</strong> <br />
+            Given an array and chunk size, divide the array into many subarrays
+            where each subarray is of length size
+            <br />
+            <strong>Examples:</strong> <br />
+            {`chunk([1, 2, 3, 4], 2) --> [[ 1, 2], [3, 4]]`}
+            <br />
+            {`chunk([1, 2, 3, 4, 5], 2) --> [[ 1, 2], [3, 4], [5]]`}
+            <br />
+            {`chunk([1, 2, 3, 4, 5, 6, 7, 8], 3) --> [[ 1, 2, 3], [4, 5, 6], [7, 8]]`}
+            <br />
+            {`chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]`}
+            <br />
+            {`chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]`}
             <CodeSnippet
               language="javascript"
               code={`
-         `}
+                function chunk(array, size) {
+                  const chuncked = [];
+                  let index = 0;
+                  while (index < array.length) {
+                    chuncked.push(array.slice(index, index + size));
+                    index += size;
+                  }
+                  return chuncked;
+                }
+
+                console.log("chunk", chunk([1, 2, 3, 4], 2)) //"chunk", [[1, 2], [3, 4]]
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function chunk(array, size) {
+                  const chuncked = [];
+
+                  for (let elm of array) {
+                    const last = chuncked[chuncked.length - 1];
+
+                    if (!last || last.length === size) {
+                      chuncked.push([elm]);
+                    } else {
+                      last.push(elm);
+                    }
+                  }
+                  return chuncked;
+                }
+
+                console.log("chunk", chunk([1, 2, 3, 4], 2)) //"chunk", [[1, 2], [3, 4]]
+              `}
             />
           </Typography>
         </AccordionDetails>
@@ -1054,14 +1265,53 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>FizzBuzz</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+            <strong>Directions</strong>
+            <br />
+            Write a program that console logs the numbers from 1 to n. But for
+            multiples of three print “fizz” instead of the number and for the
+            multiples of five print “buzz”. For numbers which are multiples of
+            both three and five print “fizzbuzz”.
+            <br />
+            <strong>Example</strong>
+            <br />
+            {`fizzBuzz(5);`}
+            <br />
+            {`1`}
+            <br />
+            {`2`}
+            <br />
+            {`fizz`}
+            <br />
+            {`4`}
+            <br />
+            {`buzz`}
             <CodeSnippet
               language="javascript"
               code={`
-         `}
+                function fizzBuzz(n) {
+                  for (let i = 1; i <= n; i++) {
+                    if (i % 3 === 0 && i % 5 === 0) {
+                      console.log('fizzbuzz');
+                    } else if (i % 3 === 0) {
+                      console.log("fizz");
+                    } else if (i % 5 === 0) {
+                      console.log("buzz");
+                    } else {
+                      console.log("number",i);
+                    }
+                  }
+                }
+                fizzBuzz(5);
+                //"number", 1
+                //"number", 2
+                //"fizz"
+                //"number", 4
+                //"buzz"
+            `}
             />
           </Typography>
         </AccordionDetails>
@@ -1156,6 +1406,538 @@ const InterviewQuestions = () => {
           <Typography sx={{ fontWeight: 300 }}>
             Open the dev tools and go to the tab console and type -
             document.body.contentEditable = true
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Matrix</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <strong>Directions:</strong> <br />
+            Write a function that accepts an integer N and returns a NxN spiral
+            matrix.
+            <br />
+            <strong>Examples</strong> <br />
+            {`matrix(2)`}
+            <br />
+            {`[[1, 2],`}
+            <br />
+            {`[4, 3]]`}
+            <br />
+            {`matrix(3)`}
+            <br />
+            {`[[1, 2, 3],`}
+            <br />
+            {`[8, 9, 4],`}
+            <br />
+            {`[7, 6, 5]]`}
+            <br />
+            {`matrix(4)`}
+            <br />
+            {`[[1,   2,  3, 4],`}
+            <br />
+            {`[12, 13, 14, 5],`}
+            <br />
+            {`[11, 16, 15, 6],`}
+            <br />
+            {`[10,  9,  8, 7]]`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel52-header"
+        >
+          <Typography>Encrypting Vs Hashing</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <strong>Encrypting</strong>
+            <ul>
+              <li>
+                Purpose: Encryption is used to protect sensitive data by
+                converting it into an unreadable format (cipher text) that can
+                only be decoded (decrypted) back into its original form (plain
+                text) with a specific key or password.
+              </li>
+              <li>
+                Process: Encryption algorithms (such as AES, DES, RSA) use
+                mathematical transformations to scramble data according to a
+                secret key. The encrypted data can only be decrypted by someone
+                who has the correct key.
+              </li>
+              <li>
+                Characteristics:
+                <ul>
+                  <li>
+                    Reversibility: Encryption is reversible, meaning you can
+                    decrypt the encrypted data back to its original form if you
+                    have the decryption key.
+                  </li>
+                  <li>
+                    Security: The security of encryption depends on the strength
+                    of the encryption algorithm and the secrecy of the
+                    encryption key.
+                  </li>
+                  <li>
+                    Usage: Commonly used to protect sensitive information in
+                    transit (e.g., during communication over the internet) and
+                    at rest (e.g., stored data on disk).
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <br />
+            <strong>Hashing</strong>
+            <ul>
+              <li>
+                Purpose: Hashing is used to verify data integrity and to
+                generate fixed-size, unique representations (hash values) of
+                data, typically for storing passwords securely or validating
+                data.
+              </li>
+              <li>
+                Process: Hash functions (such as SHA-256, MD5, bcrypt) take an
+                input (message) and produce a fixed-size hash value. This value
+                is deterministic (same input produces the same hash), but it is
+                not reversible back to the original data.
+              </li>{" "}
+              <li>
+                Characteristics:
+                <ul>
+                  <li>
+                    Irreversibility: Hashing is a one-way process; you cannot
+                    reverse the hash value back to the original data.
+                    Deterministic: The same input always produces the same hash
+                    value.
+                  </li>
+                  <li>
+                    Security: A secure hash function makes it computationally
+                    impractical to reverse-engineer the original data from the
+                    hash value.
+                  </li>
+                  <li>
+                    Usage: Commonly used for password storage (storing hashed
+                    passwords instead of plain text), data integrity
+                    verification, and digital signatures.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <strong>Note</strong>
+            <p>
+              {`If the input is "Hello World!" use the hashing algorithm SHA-256
+              we allways get the fixed sixe result, it always produces a 256-bit
+              (32-byte) hash value. standard cryptographic hashing algorithm
+              like SHA-256, you will always get the same output (hash value) for
+              the same input. When we use it to store the password we check the
+              hash value to match the stored hash value instead of the real
+              password.`}
+            </p>
+            <br />
+            <strong>Key Differences</strong>
+            <ul>
+              <li>
+                Reversibility: Encryption is reversible (plaintext ↔ ciphertext
+                with key), while hashing is irreversible (plaintext → hash).
+              </li>
+              <li>
+                Security Focus: Encryption focuses on confidentiality
+                (protecting data from unauthorized access), while hashing
+                focuses on data integrity (ensuring data has not been altered).
+              </li>
+              <li>
+                Output Size: Encryption output (ciphertext) size depends on
+                input size and algorithm, while hashing produces fixed-size
+                outputs regardless of input size.
+              </li>
+              <li>
+                Use Cases: Encryption is used for securing data in transit and
+                at rest, while hashing is used for storing passwords securely
+                and verifying data integrity.{" "}
+              </li>
+            </ul>
+            <strong>Conclusion</strong> <br />
+            In summary, encryption and hashing are both essential techniques in
+            data security, each serving distinct purposes. Encryption protects
+            data confidentiality by reversible transformation, while hashing
+            ensures data integrity through irreversible, fixed-size
+            representations. Understanding when and how to use each technique is
+            crucial for implementing effective data protection strategies in
+            software and systems.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>HTTP Caching</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            It is a mechanism that helps improve performance and reduce latency
+            by storing copies of responses for reuse. It minimizes unnecessary
+            requests to the server, saving bandwidth and improving load times.
+            <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Redis</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            Redis is primarily used for caching, session management, rate
+            limiting, and real-time analytics. It is used to store data that
+            needs to be accessed frequently and fast. It is not used for storing
+            large amounts of data. If you want to store and retrieve large
+            amounts of data you need to use a traditional database such as
+            MongoDB or MYSQL. Redis provides a variety of data structures such
+            as sets, strings, hashes, and lists.
+            <ul>
+              <li>
+                The Redis server is a program that runs and stores data in
+                memory.
+              </li>
+              <li>
+                You can just connect to that server and can use it to store and
+                retrieve data faster.
+              </li>
+              <li>
+                For that reason, Redis is not used for persistent storing of
+                data as complete data will be lost if the system crashes.
+              </li>
+              <li>
+                Redis is scalable as you can run multiple instances of the
+                server.
+              </li>
+              <li>
+                It is often used as a cache that stores data temporarily and
+                provides faster access to frequently used data.
+              </li>
+            </ul>
+            <strong>Advantages of Redis:</strong>
+            <ul>
+              <li>High Performance</li>
+              <li>Simple and esasy to use API</li>
+              <li>
+                Supports varity of data structures inlcuding strings, lists,
+                sets, hashes and more
+              </li>
+              <li>
+                Supports atomic operations, ensuring consistency and reliability
+                when performing multiple steps on data structures.
+              </li>
+              <li>
+                It provides persistence options such as snapshots and
+                append-only files.
+              </li>
+              <li>
+                Redis supports master-slave replication, enabling the creation
+                of replicas of the master server. This provides high
+                availability and fault tolerance in case the master node fails.
+              </li>
+            </ul>
+            <strong>Disadvantages:</strong>
+            <ul>
+              <li>Persistence Mechanism Complexity</li>
+              <li>Limited Query Capability</li>
+              <li>Memory Usage</li>
+              <li>Single-Threaded Nature</li>
+              <li>No Built-in Security Features</li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Content Delivery Network(CDN)</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            It is a distributed network of servers that work together to deliver
+            content (like images, videos, and static files) to users faster and
+            more efficiently.
+            <ul>
+              <li>
+                These servers, called edge servers, which are strategically
+                positioned across various geographical locations.
+              </li>
+              <li>
+                CDNs help improve the performance, reliability, and scalability
+                of websites and web applications by caching content closer to
+                users, reducing latency, and offloading traffic from origin
+                servers.
+              </li>
+            </ul>
+            <strong>Importance:</strong>
+            <ul>
+              <li>Faster Content Delivery</li>
+              <li>Improved Website Performance</li>
+              <li>Scalability</li>
+              <li>
+                Redundancy and Reliability: CDNs offer redundancy by storing
+                copies of content across multiple servers. If one server fails,
+                another server can seamlessly take over, ensuring continuous
+                availability of the content.
+              </li>
+              <li>Cost Savings</li>
+              <li>
+                Security: It provide additional security features, such as DDoS
+                protection, SSL/TLS encryption, and web application firewalls,
+                helping to protect websites from various online threats.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Base64 images</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            Base64 is a widely used method for encoding binary data, such as
+            images, into ASCII text. This enables embedding binary data, such as
+            images, directly into HTML without needing separate image files. In
+            the context of web development, Base64 encoding is often used to
+            improve page performance, security, and compatibility by reducing
+            the number of external HTTP requests
+            <strong>Advantages:</strong>
+            <ul>
+              <li>Faster Page Loading</li>
+              <li>Enhanced Security</li>
+              <li>Improved Compatibility</li>
+              <li>Improved Compatibility</li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA..."/>
+              `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
