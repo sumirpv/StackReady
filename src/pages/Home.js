@@ -105,6 +105,16 @@ function Home() {
               Full Stack Developer interview questions
             </Link>
           </Typography>
+          <Typography variant="body1">
+            <Link
+              component={RouterLink}
+              to="/systemDesign"
+              color="secondary"
+              underline="hover"
+            >
+              System Design Cheat Sheet
+            </Link>
+          </Typography>
         </Box>
       </Box>
     </Container>
