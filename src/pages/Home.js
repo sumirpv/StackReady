@@ -115,6 +115,16 @@ function Home() {
               System Design Cheat Sheet
             </Link>
           </Typography>
+          <Typography>
+          <Link
+              component={RouterLink}
+              to="/typeScript"
+              color="secondary"
+              underline="hover"
+            >
+              Supercharged version of JavaScript(TypeScript)
+            </Link>
+          </Typography>
         </Box>
       </Box>
     </Container>
