@@ -1941,6 +1941,152 @@ const InterviewQuestions = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Add space between the came casing string</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+              let test = "camelCasingTest";
+              console.log(test.replace(/([a-z])([A-Z])/g, '$1 $2')); //"camel Casing Test"
+              console.log(test.replace(/([A-Z])/g, ' $&')); //"camel Casing Test"
+              //Another way
+              let test = "camelCasingTest"
+
+              let test1 = test.split("").map((ch) => {
+                if( ch === ch.toUpperCase()){
+                  ch = " "+ ch;
+                }
+                return ch;
+              }).join("");
+
+              console.log(test1); //"camel Casing Test"
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Superhero find</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function areYouSuperHero(name) {
+                  let chr = ["h", "H"]
+                  if( chr.includes(name[0])){
+                    return name + " is a super hero."
+                  }
+                  return name + " is not a super hero.";
+                }
+
+                areYouSuperHero("hulk")// hulk is a super hero.
+
+                //Another way
+                function areYouSuperHero(name) {
+                  let chr = ["r", "R"]
+                  if( chr.includes(name[0])){
+                    return name + " plays banjo"
+                  }
+                  return name + " does not play banjo";
+                }
+                  areYouSuperHero("hulk")// hulk is not a super hero.
+
+                  //Another way
+                  function areYouSuperHero(name) {
+                    return name + (name[0].toLowerCase() == 'r' ? ' is ' : ' not') + " a super hero";
+                  }
+              `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
     </Container>
   );
 };
