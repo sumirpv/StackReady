@@ -2048,6 +2048,257 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
+          <Typography>Gift Distribution</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            The goal of the function is to find a subset of wishes that adds up
+            to n. <br />
+            n = 20;
+            <br />
+            wishes = [2, 4, 3, 5, 6, 10, 12, 100, 20];
+            <br />
+            {`Output has to be:   [2,3,5,10] or [4,6,10] or [2,6,12] or...    or "Mission failed!"`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function distributeGifts(n,wishes){
+                  let result =[];
+                    const backtrack = (index, current, sum) => {
+                      if(sum === n) {
+                        result = [...current];
+                        return true;
+                      }
+                      if(sum > n || index >=wishes.length) {
+                        return false;
+                      }
+
+                      if( backtrack(index + 1, [...current, wishes[index]], sum + wishes[index])) {
+                        return true;
+                      }
+
+                      return backtrack(index + 1, current, sum);
+                    };
+                    if(backtrack(0, [], 0)) {
+                      return result;
+                    } else {
+                      return "Mission Failed!";
+                    }
+
+                  }
+            `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function distributeGifts(n,wishes){
+                  let posible = wishes.filter(a => n >= a);
+                  for(let a of posible){
+                    if(a == n){
+                      return [a];
+                    } else {
+                      const next = distributeGifts(n - a, wishes.filter((_, i) => i != wishes.indexOf(a)));
+                      if(Array.isArray(next) && next.reduce((t, c)=> t + c, a) == n)
+                        return [a, ...next];
+                    }
+                  }
+                  return 'Mission Failed!';
+                }
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function distributeGifts(n,wishes){
+                  let end = []
+                  for (let i = 0; i < wishes.length; i++ ){
+                    if (wishes[i]== n){
+                      end.push(wishes[i])
+                    }
+                    for (let k = 0; k < wishes.length; k++){
+                      if (wishes[k]+wishes[i]== n && k !== i){
+                        end.push(wishes[i])
+                      }
+                    }
+                  }
+                  if (end.length === 0){
+                    return "Mission Failed!"
+                  } else {
+                  return end
+                  }
+                }
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Find high and low numbers</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            {`Need to find the highest and lowest numbers from "4 5 29 54 4 0 -214 542 -64 1 -3 6 -6". Outputs should be "542 -214"`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function highAndLow(numbers) {
+                  let result = []
+                  let num = numbers.split(" ").map(Number)
+                  let largeNum = num[0];
+                  let smallNum = num[0];
+
+                console.log(numbers, num)
+                  for (let n in num) {
+                    if (largeNum < num[n]) {
+                      largeNum = num[n]
+                    }
+                    if (smallNum > num[n]) {
+                      smallNum = num[n]
+                    }
+                  }
+                  result.push(largeNum, smallNum);
+                  return result.join(" ");
+                }
+
+                console.log(highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6")) "542 -214"
+            `}
+            />
+
+            {/* return `${Math.max(...numbers)} ${Math.min(...numbers)}`; */}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function highAndLow(numbers) {
+                numbers = numbers.split(' ');
+                  Please see the top of the snippet for this return
+                }
+              }
+              console.log(highAndLow("1 2 -3 4 5")) // "5 -3"
+
+              function highAndLow(numbers){
+                let arr = numbers.split(' ').map(Number);
+                return Math.max(...arr) + ' ' + Math.min(...arr);
+              }
+
+              function highAndLow(numbers){
+                var arr = numbers.split(' ').sort(function(a, b) { return a - b });
+                return arr[arr.length -1] + ' ' + arr[0];
+              }
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography></Typography>
         </AccordionSummary>
         <AccordionDetails>

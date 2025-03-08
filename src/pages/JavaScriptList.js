@@ -6187,7 +6187,7 @@ const JavaScriptList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      {/* <Accordion
+       <Accordion
         sx={{
           marginBottom: 2,
           borderRadius: 2,
@@ -6202,12 +6202,35 @@ const JavaScriptList = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography> {`Left shift (<<)`}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography sx={{ fontWeight: 300 }}></Typography>
+          <Typography sx={{ fontWeight: 300 }}>
+            {`The left shift (<<) operator moves the bits of a number to the left by a specified number of positions, filling the empty spaces with zeros (0).`}
+
+      <CodeSnippet
+        language="javascript"
+        code={`
+         `}
+      />
+      <CodeSnippet
+        language="javascript"
+        code={`
+          console.log(1 << 1);  // 2
+          console.log(1 << 2);  // 4
+          console.log(1 << 3);  // 8
+          console.log(1 << 4);  // 16
+         `}
+      />
+      <CodeSnippet
+        language="javascript"
+        code={`
+
+         `}
+      />
+          </Typography>
         </AccordionDetails>
-      </Accordion> */}
+      </Accordion>
     </Container>
   );
 };
