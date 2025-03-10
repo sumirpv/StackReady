@@ -2218,13 +2218,20 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Double</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+            Given an array of integers, return a new array with each value
+            doubled.
             <CodeSnippet
               language="javascript"
               code={`
+                function maps(x){
+                  return x.map(n => n*n)
+                }
+
+                console.log(maps([1, 2, 3])) //[1, 4, 9]
             `}
             />
           </Typography>
@@ -2245,13 +2252,36 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Multiples of 3 or 5</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+            Finish the solution so that it returns the sum of all the multiples
+            of 3 or 5 below the number passed in.
+            <br />
+            If we list all the natural numbers below 10 that are multiples of 3
+            or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
             <CodeSnippet
               language="javascript"
               code={`
+                function solution(number) {
+                  let sum = 0
+                  for (let i = 1; i < number; i++) {
+                    if (i % 3 === 0 || i % 5 === 0) {
+                      sum = sum + i
+                    }
+                  }
+                  return sum
+                }
+                console.log(solution(10)) //23
+
+                //Another method
+                const solution = n => {
+                  let s = 0;
+                  for (let i = 0; i < n; i++) s += i % 3 ? i % 5 ? 0 : i : i;
+                  return s;
+                }
+
             `}
             />
           </Typography>
@@ -2272,14 +2302,42 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>String jump</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+            {`Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.`}{" "}
+            <br />
+            <strong>Example:</strong> <br />
+            {`pigIt('Pig latin is cool'); // igPay atinlay siay oolcay`}
+            <br />
+            {`pigIt('Hello world !');     // elloHay orldway !`}
             <CodeSnippet
               language="javascript"
               code={`
+                function pigIt(str){
+                  return str.replace(/(\w)(\w*)(\s|$)/g, "\$2\$1ay\$3")
+                }
             `}
+            />
+            {/* OR return str.split(" ").map( (item) => `${item.substr(1)}${item[0]}ay` ).join(" ") */}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function pigIt(str) {
+                  let result = []
+                  let str1 = str.split(" ")
+                  for (let word in str1) {
+                    if (str1[word].match(/^[^a-zA-Z]+$/)){
+                      result.push(str1[word])
+                    } else {
+                      result.push(str1[word].slice(1) + str1[word][0] + "ay")
+                    }
+                  }
+                  return result.join(" ")
+                }
+                console.log(pigIt("Pig latin is cool"))//"igPay atinlay siay oolcay"
+                `}
             />
           </Typography>
         </AccordionDetails>
@@ -2299,14 +2357,37 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Average Test Score</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+            {`You receive an array with your peers' test scores. Now calculate the average and compare your score! Return true if you're better, else false!`}
             <CodeSnippet
               language="javascript"
               code={`
+                function betterThanAverage(classPoints, yourPoints) {
+                  let avg = classPoints.reduce((ac, cu) => ac + cu, 0) /classPoints.length
+                  return avg <= yourPoints
+                }
+                //console.log(betterThanAverage([100, 40, 34, 57, 29, 72, 57, 88], 85)) //true
             `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function betterThanAverage(classPoints, yourPoints) {
+                  var sum = 0;
+                  for (var i = 0; i < classPoints.length; i++){
+                    sum += classPoints[i];
+                  }
+                    sum = sum/classPoints.length
+                  if(sum > yourPoints) {
+                    return false
+                  } else {
+                    return true
+                  }
+                }
+              `}
             />
           </Typography>
         </AccordionDetails>
@@ -2326,14 +2407,27 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Positive Sum</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+            You get an array of numbers, return the sum of all of the positives
+            ones. <br />
+            <strong>Example: </strong>
+            {`[1, -4, 7, 12] => 1 + 7 + 12  = 20`}
             <CodeSnippet
               language="javascript"
               code={`
-            `}
+                function positiveSum(arr) {
+                  let result = arr.reduce((ac, cu) => {
+                  if (cu > 0) {
+                    ac = ac + cu;
+                  }
+                    return ac;
+                  }, 0)
+                  return result;
+                }
+            `} //13
             />
           </Typography>
         </AccordionDetails>
