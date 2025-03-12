@@ -2429,6 +2429,242 @@ const InterviewQuestions = () => {
                 }
             `} //13
             />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                  return arr.reduce((a,b)=> a + (b > 0 ? b : 0),0);
+                  return arr.filter(x => x>=0).reduce((a, c) => a + c, 0);
+                  return obj.map(el => el < 0 ? 0 : el).reduce((acc, i)=> acc + i, 0)
+                `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Square Sum</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            Complete the square sum function so that it squares each number
+            passed into it and then sums the results together. <br />
+            For example, for [1, 2, 2] it should return 9 because{" "}
+            {`1^2 +2^2+2^2=9`}
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function squareSum(numbers) {
+                  return numbers.reduce((ac, cu) => ac + cu ** 2, 0)
+                }
+
+                console.log(squareSum([0, 3, 4, 5])) //50
+                //Another Method
+
+                function squareSum(numbers){
+                  return numbers.reduce(function(sum, n){
+                  return (n*n) + sum;
+                }, 0)
+              }
+
+              console.log(squareSum([0, 3, 4, 5])) //50
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Extend the functionality of built-in classes</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            Extend the built-in Array class with the following methods:
+            square(), cube(), average(), sum(), even() and odd().
+            <CodeSnippet
+              language="javascript"
+              code={`
+                Array.prototype.square = function () {
+                  return this.map((nu) => nu ** 2)
+                }
+
+                Array.prototype.cube = function () {
+                  return this.map((nu) => nu ** 3)
+                }
+
+                Array.prototype.average = function () {
+                  let result =  this.reduce((ac, cu, i) => ac = ac + cu, 0);
+                  return result/this.length
+                }
+
+                Array.prototype.sum = function () {
+                  return this.reduce((ac, cu) => ac + cu, 0)
+                }
+
+                Array.prototype.even = function () {
+                  return this.filter(nu => (nu % 2) === 0)
+                }
+
+                Array.prototype.odd = function () {
+                  return this.filter(nu => (nu % 2) !== 0)
+                }
+
+                var numbers = [1, 2, 3, 4, 5]
+
+                console.log(numbers.square()) // [1, 4, 9, 16, 25]
+                console.log(numbers.cube()) // [1, 8, 27, 64, 125]
+                console.log(numbers.average()) // 3
+                console.log(numbers.sum());     // 15
+                console.log(numbers.even());    // [2, 4]
+                console.log(numbers.odd());     // [1, 3, 5]
+            `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                Object.assign(Array.prototype, {
+                  square() {return this.map(n => n * n);},
+                  cube() {return this.map(n => Math.pow(n, 3));},
+                  sum() {return this.reduce((p,n) => p + n, 0);},
+                  average() {return this.reduce((p,n) => p + n, 0) / this.length;},
+                  even() {return this.filter(n => !(n % 2));},
+                  odd() {return this.filter(n => n % 2);}
+              });
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>
