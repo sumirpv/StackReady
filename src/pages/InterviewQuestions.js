@@ -1479,14 +1479,75 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Check Phone Number</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+            Write a function that accepts an array of 10 integers (between 0 and
+            9), that returns a string of those numbers in the form of a phone
+            number.
+            <br />
+            <strong>Example: </strong> <br />
+            {`createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) // => returns "(123) 456-7890"`}
+            <br />
+            <br />
+            {"return `(${first}) ${second}-${third}`"}
             <CodeSnippet
               language="javascript"
               code={`
+                function createPhoneNumber(numbers) {
+                  if (numbers.length !== 10) {
+                    return "Not a phone number"
+                  }
+
+                  let first = numbers.slice(0, 3).join("")
+                  let second = numbers.slice(3, 6).join("")
+                  let third = numbers.slice(6, 10).join("")
+                  //For the return statement look above
+              }
+
+              console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])) // => returns "(123) 456-7890"
             `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function createPhoneNumber(numbers){
+                  var format = "(xxx) xxx-xxxx";
+
+                  for(var i = 0; i < numbers.length; i++)
+                  {
+                    format = format.replace('x', numbers[i]);
+                  }
+
+                  return format;
+                }
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function createPhoneNumber(numbers) {
+                    numbers = numbers.join("")
+                    return (
+                      "(" +
+                      numbers.substring(0, 3) +
+                      ") " +
+                      numbers.substring(3, 6) +
+                      "-" +
+                      numbers.substring(6)
+                    )
+                  }
+
+                  //Another Method
+                  function createPhoneNumber(numbers){
+                    return numbers.join('').replace(/(...)(...)(.*)/, '($1) $2-$3');
+                    // Or  return numbers.join('').replace(/(\d{3})(\d{3})(\d{4})/,'($1) $2-$3');
+                  }
+
+                  //Another Method
+                  createPhoneNumber=n=>'(###) ###-####'.replace(/#/g,()=>n.shift())
+              `}
             />
           </Typography>
         </AccordionDetails>
@@ -1506,14 +1567,56 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Abbreviate a Word Name</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+            Write a function to convert a name into initials. This kata strictly
+            takes two words with one space in between them.
+            <br />
+            The output should be two capital letters with a dot separating them.
+            <br />
+            It should look like this:
+            <br />
+            {`Sam Harris => S.H`}
+            <br />
+            {`patrick feeney => P.F`}
             <CodeSnippet
               language="javascript"
               code={`
+                function abbrevName(name) {
+                  let result = []
+                    for (let data of name.split(" ")) {
+                      result.push(data[0].toUpperCase())
+                    }
+                    return result.join(".")
+                }
+
+                console.log(abbrevName("Sam harris")) // "S.H"
             `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function abbrevName(name){
+                  var nameArray = name.split(" ");
+                  return (nameArray[0][0] + "." + nameArray[1][0]).toUpperCase();
+                }
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function abbrevName(name){
+                  return name.split(' ').map(i => i[0].toUpperCase()).join('.')
+                }
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const abbrevName = name => name.match(/\b\w/g).join('.').toUpperCase()
+              `}
             />
           </Typography>
         </AccordionDetails>
@@ -1533,14 +1636,55 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Sentence Smash</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+            Write a function that takes an array of words and smashes them
+            together into a sentence and returns the sentence. You can ignore
+            any need to sanitize words or add punctuation, but you should add
+            spaces between each word. Be careful, there shouldn&apos;t be a
+            space at the beginning or the end of the sentence!
+            <br />
+            <strong>Example:</strong>
+            <br />
+            {`['hello', 'world', 'this', 'is', 'great']  =>  'hello world this is great'`}
+            <br />
+            {`words = ['hello', 'world', 'this', 'is', 'great']`}
+            <br />
+            {`smash(words) # returns "hello world this is great"`}
             <CodeSnippet
               language="javascript"
               code={`
-            `}
+                function smash (words) {
+                  return words.join(" ").trim()
+                }
+                console.log(smash(["this", "is", "a", "really", "long", "sentence"])) // "this is a really long sentence"
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function smash(words){
+                  let result = '';
+                  for(let i = 0;i < words.length; i++){
+                    if(i == 0){//this is made so there is no space at start
+                      result = result + words[i]
+                    }else{
+                      result = result + ' ' + words[i]
+                    }
+                  }
+                  return result
+                };
+              `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function smash(words) {
+                  return words.length !== 0 ? words.reduce((res, v) => res + " " + v) : ""
+                }
+              `}
             />
           </Typography>
         </AccordionDetails>
