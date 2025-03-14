@@ -1704,14 +1704,55 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Perimeter of squares in a rectangle</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+            {`The drawing shows 6 squares the sides of which have a length of 1, 1, 2, 3, 5, 8.
+It's easy to see that the sum of the perimeters of these squares is : 4 * (1 + 1 + 2
++ 3 + 5 + 8) = 4 * 20 = 80`}{" "}
+            <br />
+            <strong>Example:</strong>
+            <br />
+            {`perimeter(5), 80 ->  1, 1, 2, 3, 5, 8`}
+            <br />
+            {`perimeter(7), 216) ->  1, 1, 2, 3, 5, 8, 13, 21`}
             <CodeSnippet
               language="javascript"
               code={`
+                const perimeter = (n) => {
+                  let fib = []
+                  if (n === 0) {
+                    fib.push(1)
+                  } else if (n === 1) {
+                    fib.push(1, 1)
+                  } else {
+                    fib = [1, 1]
+                    for (let i = 2; i <= n; i++) {
+                      fib.push(fib[i - 1] + fib[i - 2])
+                    }
+                  }
+
+                  return 4 * fib.reduce((ac, cu) => ac + cu, 0)
+                }
+
+                console.log("Fib===", perimeter(0)) // 4
+                console.log("Fib===", perimeter(1)) // 8
             `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const perimeter = (n) => {
+                  var fib = [0,1];
+                    for(var i = 0; i < n; i++){
+                      fib.push(fib[fib.length-1]+fib[fib.length-2]);
+                    }
+                    return fib.reduce((a,b)=>a+b)*4;
+                  }
+
+                  console.log("Fib===", perimeter(5)) // 80
+              `}
             />
           </Typography>
         </AccordionDetails>
@@ -1731,13 +1772,56 @@ const InterviewQuestions = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Calculate Game points</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
             <CodeSnippet
               language="javascript"
               code={`
+                function points(games) {
+                  let result = 0
+                    games.map((nu) => {
+                      let test = nu.split(":");
+                      if(test[0] > test[1]) {
+                      result = result + 3;
+                      } else if(test[0] === test[1]) {
+                      result = result + 1
+                      }
+                    })
+                    return result
+                  }
+
+                  console.log( points(["1:0","2:0","3:0","4:0","2:1","1:3","1:4","2:3","2:4","3:4"])) // 15
+            `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function points(games) {
+                  return games.reduce((current, element) => {
+                    let arraySplit = element.split(":")
+                    return arraySplit[0] > arraySplit[1]
+                      ? (current += 3)
+                      : arraySplit[0] < arraySplit[1]
+                        ? current
+                        : (current += 1)
+                  }, 0)
+                }
+            `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                const points = a => a.reduce((r, e) => {
+                  const x = e[0];
+                  const y = e[2];
+                  return r + (x > y ? 3 : x < y ? 0 : 1);
+                }, 0);
+
+                //Another Methos
+                const points = games => games.reduce((sum, [x, , y]) => sum + (x > y ? 3 : x == y), 0)
+
             `}
             />
           </Typography>
@@ -2704,7 +2788,7 @@ const InterviewQuestions = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion
+      {/* <Accordion
         sx={{
           marginBottom: 2,
           borderRadius: 2,
@@ -2730,8 +2814,8 @@ const InterviewQuestions = () => {
             />
           </Typography>
         </AccordionDetails>
-      </Accordion>
-      <Accordion
+      </Accordion> */}
+      {/* <Accordion
         sx={{
           marginBottom: 2,
           borderRadius: 2,
@@ -2757,8 +2841,8 @@ const InterviewQuestions = () => {
             />
           </Typography>
         </AccordionDetails>
-      </Accordion>
-      <Accordion
+      </Accordion> */}
+      {/* <Accordion
         sx={{
           marginBottom: 2,
           borderRadius: 2,
@@ -2784,8 +2868,8 @@ const InterviewQuestions = () => {
             />
           </Typography>
         </AccordionDetails>
-      </Accordion>
-      <Accordion
+      </Accordion> */}
+      {/* <Accordion
         sx={{
           marginBottom: 2,
           borderRadius: 2,
@@ -2811,7 +2895,7 @@ const InterviewQuestions = () => {
             />
           </Typography>
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
     </Container>
   );
 };

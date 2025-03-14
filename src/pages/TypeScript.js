@@ -418,7 +418,34 @@ const TypeScript = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion
+      {/* <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion> */}
+      {/* <Accordion
         sx={{
           marginBottom: 2,
           borderRadius: 2,
@@ -525,34 +552,7 @@ const TypeScript = () => {
             />
           </Typography>
         </AccordionDetails>
-      </Accordion>
-      <Accordion
-        sx={{
-          marginBottom: 2,
-          borderRadius: 2,
-          boxShadow: 3,
-          "&:hover": {
-            boxShadow: 6,
-          },
-        }}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel-content"
-          id="panel-header"
-        >
-          <Typography></Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography sx={{ fontWeight: 300 }}>
-            <CodeSnippet
-              language="javascript"
-              code={`
-            `}
-            />
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
     </Container>
   );
 };
