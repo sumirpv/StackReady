@@ -321,13 +321,14 @@ const InterviewQuestions = () => {
                 languages. It is an object-oriented programming language and has
                 a virtual machine platform that allows you to create compiled
                 programs that run on nearly every platform. Java promised,
-                “Write Once, Run Anywhere”.
+                {`"Write Once, Run Anywhere".`}
               </li>
               <li>
-                <strong>JavaScript:</strong> It is a light-weighted programming
+                <strong>JavaScript:</strong>{" "}
+                {`It is a light-weighted programming
                 language (“scripting language”) for developing interactive web
                 pages. It can insert dynamic text into the HTML elements.
-                JavaScript is also known as the browser’s language.
+                JavaScript is also known as the browser’s language.`}
               </li>
             </ul>
           </Typography>
@@ -950,18 +951,18 @@ const InterviewQuestions = () => {
               <li>
                 <strong>Caching:</strong>Caching involves storing frequently
                 accessed data, such as images, scripts, and stylesheets, in the
-                user’s browser or a content delivery network (CDN). Utilizing
-                browser caching headers, setting appropriate expiration times,
-                and employing techniques like CDN caching can greatly enhance
-                front-end performance.
+                user&apos;s browser or a content delivery network (CDN).
+                Utilizing browser caching headers, setting appropriate
+                expiration times, and employing techniques like CDN caching can
+                greatly enhance front-end performance.
               </li>
               <li>
                 <strong>Optimize Rendering Performance:</strong>Avoid
                 Unnecessary Re-renders by using React.memo to prevent re-renders
-                when props don’t change. Use useMemo when an expensive function
-                re-runs unnecessarily. Use useCallback to prevent function
-                re-creation. Use React.lazy and Suspense for code splitting and
-                lazy loading.
+                when props don&apos;t change. Use useMemo when an expensive
+                function re-runs unnecessarily. Use useCallback to prevent
+                function re-creation. Use React.lazy and Suspense for code
+                splitting and lazy loading.
               </li>
               <li>
                 <strong> Optimize Network Requests: </strong>Reduce API Calls &
@@ -1272,9 +1273,9 @@ const InterviewQuestions = () => {
             <strong>Directions</strong>
             <br />
             Write a program that console logs the numbers from 1 to n. But for
-            multiples of three print “fizz” instead of the number and for the
-            multiples of five print “buzz”. For numbers which are multiples of
-            both three and five print “fizzbuzz”.
+            {` multiples of three print "fizz" instead of the number and for the
+            multiples of five print "buzz". For numbers which are multiples of
+            both three and five print "fizzbuzz".`}
             <br />
             <strong>Example</strong>
             <br />
@@ -2788,7 +2789,7 @@ It's easy to see that the sum of the perimeters of these squares is : 4 * (1 + 1
           </Typography>
         </AccordionDetails>
       </Accordion>
-      {/* <Accordion
+      <Accordion
         sx={{
           marginBottom: 2,
           borderRadius: 2,
@@ -2803,18 +2804,57 @@ It's easy to see that the sum of the perimeters of these squares is : 4 * (1 + 1
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Detect Pangram</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+            {`A pangram is a sentence that contains every single letter of the alphabet at least once. For example, the sentence "The quick brown fox jumps over the lazy dog" is a pangram, because it uses the letters A-Z at least once (case is irrelevant).`}{" "}
+            <br />
+            <strong>example :</strong>
+            <br />
+            {`let str = 'The quick brown fox jumps over the lazy dog.' //true`}
+            <br />
+            {`let str1 = 'abcdefghijklmopqrstuvwxyz ' //false`}
+            <br />
+            {`let str2 = 'ABCD45EFGH,IJK,LMNOPQR56STUVW3XYZ' //true`}
+            <br />
             <CodeSnippet
               language="javascript"
               code={`
+                function isPangram(string) {
+                  let alpabet = ( "a", "b",  "c", "d", "e","f", "g",  "h", "i", "j","k", "l", "m","n", "o","p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
+                  return ( string.trim().includes(" ") || string.includes(",") )?
+                      string.toLowerCase().split("").includes(alpabet) :   false
+                }
+
+                let str = 'The quick brown fox jumps over the lazy dog.' //true
+                let str1 = 'abcdefghijklmopqrstuvwxyz ' //false
+                let str2 = 'ABCD45EFGH,IJK,LMNOPQR56STUVW3XYZ' //true
+                console.log("***", isPangram(str))
+            `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function isPangram(string){
+                  string = string.toLowerCase();
+                  return "abcdefghijklmnopqrstuvwxyz".split("").every(function(x){
+                    return string.indexOf(x) !== -1;
+                  });
+                }
+            `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function isPangram(string){
+                  return (string.match(/([a-z])(?!.*\\1)/ig) || []).length === 26;
+                }
             `}
             />
           </Typography>
         </AccordionDetails>
-      </Accordion> */}
+      </Accordion>
       {/* <Accordion
         sx={{
           marginBottom: 2,
