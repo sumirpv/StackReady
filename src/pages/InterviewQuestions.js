@@ -2855,7 +2855,7 @@ It's easy to see that the sum of the perimeters of these squares is : 4 * (1 + 1
           </Typography>
         </AccordionDetails>
       </Accordion>
-      {/* <Accordion
+       <Accordion
         sx={{
           marginBottom: 2,
           borderRadius: 2,
@@ -2870,19 +2870,42 @@ It's easy to see that the sum of the perimeters of these squares is : 4 * (1 + 1
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Convert a Boolean to a String</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
             <CodeSnippet
               language="javascript"
               code={`
+                function booleanToString(b){
+                  return b.toString(); // or return String(b); //or  return b+''; //or we can use template Literal
+                }
+                  console.log("***", booleanToString(true)) //"true"
+            `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function booleanToString(b){
+                  return b ? 'true' : 'false';
+                }
+
+            `}
+            />
+            <CodeSnippet
+              language="javascript"
+              code={`
+                function booleanToString(b){
+                  if (typeof b == 'boolean') {
+                    return String(b);
+                  }
+                }
             `}
             />
           </Typography>
         </AccordionDetails>
-      </Accordion> */}
-      {/* <Accordion
+      </Accordion>
+      <Accordion
         sx={{
           marginBottom: 2,
           borderRadius: 2,
@@ -2897,7 +2920,7 @@ It's easy to see that the sum of the perimeters of these squares is : 4 * (1 + 1
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Number Order</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
@@ -2906,9 +2929,20 @@ It's easy to see that the sum of the perimeters of these squares is : 4 * (1 + 1
               code={`
             `}
             />
+             <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+             <CodeSnippet
+              language="javascript"
+              code={`
+            `}
+            />
+
           </Typography>
         </AccordionDetails>
-      </Accordion> */}
+      </Accordion>
       {/* <Accordion
         sx={{
           marginBottom: 2,
