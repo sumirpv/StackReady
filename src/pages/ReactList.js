@@ -2062,6 +2062,72 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography> React 19</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            React 19 is more than just a version bump — it’s a serious
+            game-changer.
+            <ul>
+              <li>
+                <strong> React Server Components (RSC) — </strong>Split
+                components into client and server parts seamlessly.
+              </li>
+              <li>
+                <strong> Streaming SSR — </strong>Faster page loads with
+                incremental rendering.
+              </li>
+              <li>
+                <strong> Actions — </strong>Mutate data directly from components
+                without extra boilerplate.
+              </li>
+              <li>
+                <strong> Improved Suspense — </strong>Better data fetching and
+                lazy loading.
+              </li>
+              <li>
+                <strong> Hooks Improvements — </strong>Cleaner state management
+                with fewer re-renders.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                //Server Component (no Client-side JS here)
+                async function UserProfile({ userId }) {
+                  const user = await fetch('/api/user/$\\{userId}').then((res) => res.json());
+                  return (
+                    <div>
+                      <h1>{user.name}</h1>
+                      <p>{user.bio}</p>
+                    </div>
+                  )
+                }
+            `}
+            />
+            <ul>
+              <li>No loading states. </li>
+              <li>No useEffect() spaghetti. </li>
+              <li>Server does the heavy lifting.</li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
     </Container>
   );
 };
