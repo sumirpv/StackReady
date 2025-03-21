@@ -2128,6 +2128,265 @@ const ReactList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>The Magic of React.memo</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            React.memo is a higher-order component (HOC) that memoizes
+            functional components. It ensures a component only re-renders when
+            its props change, reducing unnecessary rendering.
+            <CodeSnippet
+              language="javascript"
+              code={`
+              import React from 'react';
+
+               const ExpensiveComponent = React.memo(({ data }) => {
+                console.log('Rendered!');
+                return <div>{data}</div>;
+              });
+
+              const App = () => {
+                const [count, setCount] = React.useState(0);
+
+                return (
+                  <div>
+                    <button onClick={() => setCount(count + 1)}>Increment</button>
+                    <ExpensiveComponent data="Hello, React.memo!" />
+                  </div>
+                );
+              };
+
+              export default App;
+            `}
+            />
+            <ul>
+              <li>
+                Without `React.memo`, `ExpensiveComponent` would re-render every
+                time the parent updates.
+              </li>
+              <li>
+                With `React.memo`, it skips re-rendering if the `data` prop
+                hasn’t changed.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Optimize Computations with useMemo</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            Sometimes, components need to perform expensive calculations.
+            `useMemo` caches the result of a computation, only recalculating
+            when dependencies change.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import React, { useMemo, useState } from 'react';
+
+                const ExpensiveCalculation = ({ number }) => {
+                  const result = useMemo(() => {
+                    console.log('Calculating...');
+                    return number ** 2; // Simulate an expensive calculation
+                  }, [number]);
+
+                  return <div>Result: {result}</div>;
+                };
+
+                const App = () => {
+                  const [count, setCount] = useState(0);
+                  const [number, setNumber] = useState(2);
+
+                  return (
+                    <div>
+                      <button onClick={() => setCount(count + 1)}>Increment Count</button>
+                      <button onClick={() => setNumber(number + 1)}>Change Number</button>
+                      <ExpensiveCalculation number={number} />
+                    </div>
+                  );
+                };
+
+                export default App;
+            `}
+            />
+            <ul>
+              <li>Prevents unnecessary recalculations.</li>
+              <li>Saves CPU cycles for complex operations.</li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Debouncing Events with useCallback</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            In React, inline event handlers can lead to new function instances
+            on every render. `useCallback` memoizes these functions, ensuring
+            the same instance is reused unless dependencies change.
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import React, { useCallback, useState } from 'react';
+
+                const Button = React.memo(({ onClick }) => {
+                  console.log('Button rendered!');
+                  return <button onClick={onClick}>Click Me</button>;
+                });
+
+                const App = () => {
+                  const [count, setCount] = useState(0);
+
+                  const handleClick = useCallback(() => {
+                    setCount((prevCount) => prevCount + 1);
+                  }, []);
+
+                  return (
+                    <div>
+                      <Button onClick={handleClick} />
+                      <p>Count: {count}</p>
+                    </div>
+                  );
+                };
+
+                export default App;
+            `}
+            />
+            <ul>
+              <li>
+                Inline handlers are recreated on every render, causing child
+                components to re-render.
+              </li>
+              <li>
+                `useCallback` solves this by keeping the same function instance
+                unless its dependencies change.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>300% Performance Boost</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            Get performance boost:
+            <ul>
+              <li>
+                1. Use `React.memo` to prevent unnecessary re-renders of
+                components.
+              </li>
+              <li>
+                2. Use `useMemo` to optimize expensive calculations in your
+                components.
+              </li>
+              <li>
+                3. Use `useCallback` to memoize event handlers and avoid child
+                component
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                import React, { useState, useMemo, useCallback } from 'react';
+
+                const ExpensiveList = React.memo(({ items }) => {
+                  console.log('Rendering List');
+                  return (
+                    <ul>
+                      {items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  );
+                });
+
+                const App = () => {
+                  const [count, setCount] = useState(0);
+                  const [numbers, setNumbers] = useState([1, 2, 3]);
+
+                  const squaredNumbers = useMemo(() => {
+                    console.log('Calculating squares');
+                    return numbers.map((num) => num ** 2);
+                  }, [numbers]);
+
+                  const addNumber = useCallback(() => {
+                    setNumbers((prev) => [...prev, prev.length + 1]);
+                  }, []);
+
+                  return (
+                    <div>
+                      <button onClick={() => setCount(count + 1)}>Increment Count</button>
+                      <button onClick={addNumber}>Add Number</button>
+                      <ExpensiveList items={squaredNumbers} />
+                    </div>
+                  );
+                };
+
+                export default App;
+            `}
+            />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
     </Container>
   );
 };
