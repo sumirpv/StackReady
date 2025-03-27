@@ -125,6 +125,16 @@ function Home() {
               Supercharged version of JavaScript(TypeScript)
             </Link>
           </Typography>
+          <Typography>
+          <Link
+              component={RouterLink}
+              to="/java"
+              color="secondary"
+              underline="hover"
+            >
+              Java the Master
+            </Link>
+          </Typography>
         </Box>
       </Box>
     </Container>

@@ -5,13 +5,13 @@ import {
   AccordionSummary,
   AccordionDetails,
   Typography,
-  TableContainer,
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-  Paper,
+  // TableContainer,
+  // Table,
+  // TableHead,
+  // TableRow,
+  // TableCell,
+  // TableBody,
+  // Paper,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CodeSnippet from "../CodeSnippet";
@@ -41,6 +41,8 @@ const TypeScript = () => {
       </Typography>
 
       <Accordion
+      expanded={expanded}
+      onChange={handleExpansion}
         sx={{
           marginBottom: 2,
           borderRadius: 2,
