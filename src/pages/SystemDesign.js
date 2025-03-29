@@ -5,9 +5,16 @@ import {
   AccordionSummary,
   AccordionDetails,
   Typography,
+  TableContainer,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  Paper,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-// import CodeSnippet from "../CodeSnippet";
+import CodeSnippet from "../CodeSnippet";
 
 const HtmlList = () => {
   const [expanded, setExpanded] = useState(false);
@@ -96,6 +103,67 @@ const HtmlList = () => {
                 container class.
               </li>
             </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>
+            Differences Between Aggregation and Composition
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            {/* <CodeSnippet
+            language="javascript"
+            code={`
+            `}
+          /> */}
+            <TableContainer component={Paper} variant="outlined">
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Feature</TableCell>
+                    <TableCell>Aggregation</TableCell>
+                    <TableCell>Composition</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>Relationship</TableCell>
+                    <TableCell>Type Has-A (Weak)</TableCell>
+                    <TableCell>Has-A (Strong)</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Object Dependency</TableCell>
+                    <TableCell>
+                      Contained object can exist independently
+                    </TableCell>
+                    <TableCell>
+                      Contained object cannot exist independently
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Example</TableCell>
+                    <TableCell>A Student has an Address</TableCell>
+                    <TableCell>A Car has an Engine</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -554,12 +622,18 @@ const HtmlList = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}>
+            An API Gateway is like a smart traffic controller that manages
+            requests between clients (users, apps) and backend services. It acts
+            as a single entry point for all API calls, handling security, load
+            balancing, and routing. <br />
             An API Gateway is “middleware” that makes available backend services
             to mobile, web and other external clients via a set of protocols and
             commonly through a set of RESTful application programming interfaces
             (APIs). An API Gateway makes it much simpler to develop, secure,
             manage, and scale endpoints by moving most of the required logic
             from the client, into the gateway.
+            <br />
+            {`API Gateways are -> Express Gateway, NGINX API Gateway, AWS API Gateway`}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -816,6 +890,172 @@ const HtmlList = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
+          <Typography>
+            Containerization & Orchestration: Docker & Kubernetes{" "}
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            Containerization is a way to package applications and their
+            dependencies into lightweight, portable containers that run
+            consistently across different environments.
+            <br />
+            <strong>Why</strong>
+            <ul>
+              <li>
+                Works Everywhere → Runs the same on any OS (Linux, Windows,
+                macOS).
+              </li>
+              <li>
+                Lightweight → Uses less memory than virtual machines (VMs).
+              </li>
+              <li>
+                Fast Deployment → No need to manually install dependencies.
+              </li>
+            </ul>
+            <strong>How works</strong>
+            <ul>
+              <li>Write a Dockerfile → Defines the app’s environment.</li>
+              <li>
+                Build an Image → A snapshot of your app with everything it
+                needs.
+              </li>
+              <li>
+                Run a Container → A lightweight, isolated environment that runs
+                your app.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+              # Use Node.js as the base image
+                FROM node:18-alpine
+
+                # Set the working directory
+                WORKDIR /app
+
+                # Copy package.json and install dependencies
+                COPY package.json .
+                RUN npm install
+
+                # Copy all files and start the app
+                COPY . .
+                CMD ["node", "index.js"]
+              //Command to build and run
+                docker build -t my-app .
+                docker run -p 3000:3000 my-app
+            `}
+            />
+            <strong>What is Orchestration? (Kubernetes)</strong>
+            <ul>
+              <li>
+                Scaling → Automatically increases/decreases the number of
+                containers.
+              </li>
+              <li>
+                Load Balancing → Distributes traffic to healthy containers.
+              </li>
+              <li>Self-Healing → Restarts failed containers automatically.</li>
+            </ul>
+            <strong>How Works</strong>
+            <ul>
+              <li>Pods → Smallest unit in K8s, runs one or more containers.</li>
+              <li>Deployments → Manages multiple pods & updates them.</li>
+              <li>
+                Services → Exposes pods to the internet or other services.
+              </li>
+            </ul>
+            <CodeSnippet
+              language="javascript"
+              code={`
+                  //For Node.js app
+                  apiVersion: apps/v1
+                    kind: Deployment
+                    metadata:
+                      name: my-app
+                    spec:
+                      replicas: 3  # Runs 3 copies of the app
+                      selector:
+                        matchLabels:
+                          app: my-app
+                      template:
+                        metadata:
+                          labels:
+                            app: my-app
+                        spec:
+                          containers:
+                          - name: my-app
+                            image: my-app:latest
+                            ports:
+                            - containerPort: 3000
+                //To deploy
+                kubectl apply -f deployment.yaml  # Deploys the app
+                kubectl get pods                 # Check running containers
+
+
+                `}
+            />
+            <strong>Docker vs. Kubernetes</strong>
+            <TableContainer component={Paper} variant="outlined">
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Feature</TableCell>
+                    <TableCell>Docker</TableCell>
+                    <TableCell>Kubernetes</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>Purpose</TableCell>
+                    <TableCell>Packages & runs apps in containers</TableCell>
+                    <TableCell>
+                      Manages multiple containers across servers
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Scaling</TableCell>
+                    <TableCell>Manual</TableCell>
+                    <TableCell>Automatic</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Load Balancing</TableCell>
+                    <TableCell>Requires additional setup</TableCell>
+                    <TableCell>Built-in</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Self-Healing</TableCell>
+                    <TableCell>No</TableCell>
+                    <TableCell>Yes</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+            <ul>
+              <li>Use Docker to package & run your app.</li>
+              <li>
+                Use Kubernetes when you need to scale & manage multiple
+                containers.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
           <Typography>Distributed System</Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -924,7 +1164,7 @@ const HtmlList = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      {/* <Accordion
+      <Accordion
         sx={{
           marginBottom: 2,
           borderRadius: 2,
@@ -939,7 +1179,47 @@ const HtmlList = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Decoupling</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            Decoupling means reducing dependencies between different parts of a
+            system so that they can work independently. This makes code more
+            maintainable, scalable, and flexible.
+            <br />
+            <strong>Why</strong>
+            <ul>
+              <li>
+                Easier Maintenance → Changing one part doesn’t break another.
+              </li>
+              <li>
+                Better Scalability → Components can be updated or scaled
+                separately.
+              </li>
+              <li>
+                More Flexibility → Allows swapping components without major
+                changes.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>BLOB</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}></Typography>
@@ -960,34 +1240,13 @@ const HtmlList = () => {
           aria-controls="panel-content"
           id="panel-header"
         >
-          <Typography></Typography>
+          <Typography>Redis</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}></Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion
-        sx={{
-          marginBottom: 2,
-          borderRadius: 2,
-          boxShadow: 3,
-          "&:hover": {
-            boxShadow: 6,
-          },
-        }}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel-content"
-          id="panel-header"
-        >
-          <Typography></Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography sx={{ fontWeight: 300 }}></Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
+      {/*  <Accordion
         sx={{
           marginBottom: 2,
           borderRadius: 2,
