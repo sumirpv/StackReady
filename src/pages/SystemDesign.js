@@ -626,6 +626,10 @@ const HtmlList = () => {
             requests between clients (users, apps) and backend services. It acts
             as a single entry point for all API calls, handling security, load
             balancing, and routing. <br />
+            The API Gateway acts as a single entry point. Instead of connecting
+            to multiple services, the client sends one request to the gateway,
+            and it routes the request to the right services.
+            <br />
             An API Gateway is “middleware” that makes available backend services
             to mobile, web and other external clients via a set of protocols and
             commonly through a set of RESTful application programming interfaces
@@ -634,6 +638,190 @@ const HtmlList = () => {
             from the client, into the gateway.
             <br />
             {`API Gateways are -> Express Gateway, NGINX API Gateway, AWS API Gateway`}
+            <strong>How It Works:</strong>
+            <ul>
+              <li>Client sends a request to the API Gateway. </li>
+              <li>
+                Gateway forwards the request to the appropriate service(s).
+              </li>
+              <li>
+                Gateway can combine responses if needed and send them back to
+                the client.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Saga Pattern in Microservices</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            In a distributed microservices architecture, ensuring data
+            consistency across multiple services is one of the biggest
+            challenges. The Saga Pattern is a design pattern used to manage
+            distributed transactions in microservices, ensuring eventual
+            consistency across different services.
+            <br />
+            When a business transaction spans multiple microservices, we need a
+            way to ensure that all steps either complete successfully or
+            rollback changes if something goes wrong. Instead of using
+            traditional database transactions (ACID properties), which are hard
+            to manage across services, we use the Saga Pattern, where each
+            service performs its part and notifies the next service.
+            <br />
+            <strong>Key Idea: </strong>
+            <ul>
+              <li>Break a transaction into small independent steps.</li>
+              <li>
+                If any step fails, execute compensating actions to undo the
+                previous steps.
+              </li>
+              <li>
+                Ensures eventual consistency instead of strong consistency.
+              </li>
+            </ul>
+            <strong>Types:</strong>
+            <ol>
+              <li>
+                <strong>
+                  {" "}
+                  Choreography-Based Saga (Event-Driven Approach):
+                </strong>
+                <ul>
+                  <li>
+                    {" "}
+                    Each service publishes an event after it completes its work.
+                  </li>
+                  <li>
+                    Other services listen for these events and trigger the next
+                    step.
+                  </li>
+                  <li>No centralized controller.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Orchestration-Based Saga(Centralized Control) :</strong>
+                <ul>
+                  <li>
+                    A Saga Orchestrator is responsible for managing all steps.
+                  </li>
+                  <li>
+                    It ensures that each step executes in sequence and handles
+                    rollbacks.
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Circuit Breaker Pattern: </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+            When a service fails or becomes slow, it can cause the entire system
+            to break down. For example, if a payment service is down, all orders
+            might fail. The Circuit Breaker Pattern helps by stopping calls to a
+            failing service until it recovers.
+            <br />
+            <strong>Solution:</strong>A circuit breaker acts like a switch:
+            <ul>
+              <li>
+                <strong>Closed State:</strong>Requests go through as usual.
+              </li>
+              <li>
+                <strong>Open State: </strong>Requests are blocked to protect the
+                system.
+              </li>
+              <li>
+                <strong>Half-Open State:</strong>Limited requests are sent to
+                check if the service is working again.
+              </li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography>Event Sourcing Pattern</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+          <CodeSnippet
+            language="javascript"
+            code={`
+            `}
+          />
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}>
+          <CodeSnippet
+            language="javascript"
+            code={`
+            `}
+          />
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -1246,27 +1434,6 @@ const HtmlList = () => {
           <Typography sx={{ fontWeight: 300 }}></Typography>
         </AccordionDetails>
       </Accordion>
-      {/*  <Accordion
-        sx={{
-          marginBottom: 2,
-          borderRadius: 2,
-          boxShadow: 3,
-          "&:hover": {
-            boxShadow: 6,
-          },
-        }}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel-content"
-          id="panel-header"
-        >
-          <Typography></Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography sx={{ fontWeight: 300 }}></Typography>
-        </AccordionDetails>
-      </Accordion>
       <Accordion
         sx={{
           marginBottom: 2,
@@ -1308,7 +1475,28 @@ const HtmlList = () => {
         <AccordionDetails>
           <Typography sx={{ fontWeight: 300 }}></Typography>
         </AccordionDetails>
-      </Accordion> */}
+      </Accordion>
+      <Accordion
+        sx={{
+          marginBottom: 2,
+          borderRadius: 2,
+          boxShadow: 3,
+          "&:hover": {
+            boxShadow: 6,
+          },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel-content"
+          id="panel-header"
+        >
+          <Typography></Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography sx={{ fontWeight: 300 }}></Typography>
+        </AccordionDetails>
+      </Accordion>
       <Accordion
         sx={{
           marginBottom: 2,
